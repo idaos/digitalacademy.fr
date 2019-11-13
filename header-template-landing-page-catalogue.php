@@ -34,6 +34,10 @@
         <link rel="icon" href="https://www.digitalacademy.fr/wp-content/uploads/2015/12/cropped-favicon3-32x32.png" sizes="32x32" />
         <link rel="icon" href="https://www.digitalacademy.fr/wp-content/uploads/2015/12/cropped-favicon3-192x192.png" sizes="192x192" />
         <link rel="apple-touch-icon-precomposed" href="https://www.digitalacademy.fr/wp-content/uploads/2015/12/cropped-favicon3-180x180.png" />
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/index-below-floating-line.css">
+        <!-- modal css-->
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/vendor/css3-modal/modal.css">
+
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

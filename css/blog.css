@@ -1,0 +1,132 @@
+.content-author{
+    display: inline-block;
+    border-top: solid 1px #e4e4e4;
+    padding-top: 1em;
+    margin-top: 1.2em;
+}
+.content-author img{
+    max-width: 68px;
+    margin-right: 8px;
+}
+.content-author p{
+    display: inline-block;
+    padding-top: 8px;
+    margin-left: 8px;
+}
+.content-main{
+    font-size: 110%;
+    line-height: 1.5em;
+}
+.content-main > img.wp-post-image{
+    width: 100%;
+}
+.container-slider{
+    height: 180px!important;
+}
+.content-share{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+.container-blog{
+    padding-left:3em;
+    padding-right:3em;
+}
+.chapo{
+    font-weight: 100;
+    font-size: 126%;
+    line-height: 1.5;
+    font-style: italic;
+    color: #000;
+    margin-bottom: 1.5em;
+}
+.title-slider{
+    background: none !important;
+}
+.sidebar .content-white p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+}                    
+.sidebar .thewrapper{
+    border: none;
+    padding-bottom: 0 !important;
+}
+.sidebar{
+    background: #f6f6f6;
+    padding-left:2em;
+}
+.sidebar:after{
+    background: #f6f6f6;
+    left:100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200%;
+}
+.last-article-title{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.last-article-title a{
+    margin-bottom:0;
+}
+.header-infos{
+    margin:0;
+}
+.offre-cta{
+    text-align: center;
+    padding: 2em;
+}
+.offre-cta > a{
+    color:#fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: solid 2px #fff;
+    padding: .5em 1em;
+    margin: auto;
+    display: inline-block;
+    text-decoration: none;
+    transition: all .2s;
+    cursor: pointer;
+}
+.offre-cta > a:hover{
+    color:#bf3b2b;
+    border: solid 2px #fff;
+    background: #fff;
+}
+.offre-cta > p {
+    color:#fff;
+    margin-bottom: 15px;
+}
+.offre-cta > p:first-child {
+    color:#fff;
+    font-size: 1.3em;
+    font-weight: bolder;
+}
+hr:before{background:none!important;}
+.stretch{
+    display: flex; 
+    align-items: stretch;
+}
+#social-share{
+    height: auto!important;
+}
+.article-categories{
+    margin-top: 2em;
+    border-top: solid 1px #e4e4e4;
+    padding-top: 1em;
+}
+.button-wrapper{
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
+}
+.button-wrapper a{
+    display: initial !important;
+}
+#matchheight-container, main {
+    background-color: #fff;
+}

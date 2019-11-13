@@ -10,6 +10,9 @@ html{
 body{
     margin: 0;
 }
+.container{
+    max-width: 1230px !important;
+}
 .alignRight {
     text-align: right;
 }
@@ -47,7 +50,7 @@ h2{
     letter-spacing: 1px;
     display: inline-block;
     width: auto;
-    border-bottom: solid 4px #e5e5e5;
+//    border-bottom: solid 4px #e5e5e5;
 }
 .button{
     transition: background .2s ease;
@@ -149,7 +152,8 @@ h2{
     top: 0;
 }
 .offre-wrapper img, #business img, heading2 img{
-    filter: saturate(0%);
+//    filter: saturate(0%);
+    width: 100%;
 }
 .disabled{
     display: initial!important;
@@ -259,43 +263,44 @@ form{
     }
 }
 
-#heading2{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    min-height:50vh;
-    background-size: cover;
-    text-align: center;
-    background-position: bottom;
-    background-blend-mode: soft-light;
-    position: relative;
-    overflow: hidden;
-    min-height: 23em;
-    h1,p,.button{color: #fff;}
-    h1{
-        letter-spacing: 0.5px;
-        font-size: 1.8em;
-    }
-    p{
-        font-size: 1.05em;
-        font-weight: 400;
-    }
-    .button{
-        margin-top: 1.5em;
-        background: none;
-        outline: solid 2px #fff;
-        &:hover{
-            background: #fff;
-        }
-    }
-    img{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 100%;
-    }
-}
+//#heading2{
+//    display: flex;
+//    width: 100%;
+//    align-items: center;
+//    min-height:50vh;
+//    background-size: cover;
+//    text-align: center;
+//    background-position: bottom;
+//    background-blend-mode: soft-light;
+//    position: relative;
+//    overflow: hidden;
+//    min-height: 23em;
+//    height: 23em;
+//    h1,p,.button{color: #fff;}
+//    h1{
+//        letter-spacing: 0.5px;
+//        font-size: 1.8em;
+//    }
+//    p{
+//        font-size: 1.05em;
+//        font-weight: 400;
+//    }
+//    .button{
+//        margin-top: 1.5em;
+//        background: none;
+//        outline: solid 2px #fff;
+//        &:hover{
+//            background: #fff;
+//        }
+//    }
+//    img{
+//        position: absolute;
+//        top: 50%;
+//        left: 50%;
+//        transform: translate(-50%,-50%);
+//        width: 100%;
+//    }
+//}
 #baseline{
     display: flex;
     align-items: center;
@@ -549,8 +554,13 @@ form{
 /////////////////////////////////////////////
 /////////////////////////////////////////////
 /////////////////////////////////////////////
-
-#contact{
+#form-bottom{ // form anchor
+    display: block;
+    position: relative;
+    top: -5em; // fixed header offset
+    visibility: hidden;
+}
+#contact{ 
     background-color: #fcfcfc;
     padding: 3em 0 3em 0;
     h2{
@@ -558,7 +568,7 @@ form{
         margin-bottom: 0;
     }
     #logo_dac{padding-top:4em;}
-    #form-bottom{
+    #the-form-bottom{
         padding-bottom: 1em;
         border: solid 1px #d8d8d8;
         input[type=text], select{
@@ -820,14 +830,17 @@ form{
 }
 
 /* GFORM CUSTOM */
-#form-bottom{
+#the-form-bottom{
     width:100%;
     max-width: 500px;
     margin: auto;
     padding-bottom: 1em;
     padding-top: 1.3em;
-    background: #fff;
+    background: #fff!important;
     border: solid 1px #c2c2c2;
+    .form-header {
+        display: inherit !important;
+    }
     .form-header{
         position: absolute;
         left: 0;

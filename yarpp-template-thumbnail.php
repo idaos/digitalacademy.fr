@@ -24,7 +24,7 @@ Author: Lucas Tesseron
         margin: 0 auto;
         margin-bottom: 4em;
         width: 50% !important;
-            max-width: 500px;
+        max-width: 500px;
     }
     .blog [class^='col-']{
         padding-bottom: 1.7em;
@@ -41,6 +41,11 @@ Author: Lucas Tesseron
         display: flex !important;
         flex-wrap: wrap !important;
     }
+    @media (max-width:1200px) and (min-width:692px) {
+        .yarpp-related [class^='col-']:last-child{
+            display: none;
+        }
+    }
 </style>
 
 
@@ -53,7 +58,7 @@ Author: Lucas Tesseron
         if ( have_posts() ) :
         while ( have_posts() ) : the_post();
         ?>
-        <div class="col-lg-4 ">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
             <div class="thewrapper container-border">
                 <a href="<?php the_permalink(); ?>" rel="nofollow">
                     <?php if ( has_post_thumbnail() ): ?>
@@ -73,8 +78,7 @@ Author: Lucas Tesseron
                         | L'équipe DigitalAcademy<!--&reg;--></p>
 
                     <p><?php the_excerpt(); ?></p>
-                    <a href="<?php the_permalink(); ?>" class="btn-orange" rel="nofollow">Lire
-                        la suite</a>
+                    <a href="<?php the_permalink(); ?>" class="btn-orange" rel="nofollow">Lire la suite</a>
                 </div>
             </div>
         </div>

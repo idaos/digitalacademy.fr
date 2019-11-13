@@ -8,6 +8,9 @@ html {
 body {
   margin: 0;
 }
+.container {
+  max-width: 1230px !important;
+}
 .alignRight {
   text-align: right;
 }
@@ -49,7 +52,6 @@ h2 {
   letter-spacing: 1px;
   display: inline-block;
   width: auto;
-  border-bottom: solid 4px #e5e5e5;
 }
 .button {
   transition: background .2s ease;
@@ -132,7 +134,7 @@ h2 {
 .offre-wrapper img,
 #business img,
 heading2 img {
-  filter: saturate(0%);
+  width: 100%;
 }
 .disabled {
   display: initial!important;
@@ -249,47 +251,6 @@ form .button {
 .cards [class*='col-'] .wrapper:hover {
   box-shadow: 0 5px 15px #d8d8d8;
   cursor: default;
-}
-#heading2 {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  min-height: 50vh;
-  background-size: cover;
-  text-align: center;
-  background-position: bottom;
-  background-blend-mode: soft-light;
-  position: relative;
-  overflow: hidden;
-  min-height: 23em;
-}
-#heading2 h1,
-#heading2 p,
-#heading2 .button {
-  color: #fff;
-}
-#heading2 h1 {
-  letter-spacing: 0.5px;
-  font-size: 1.8em;
-}
-#heading2 p {
-  font-size: 1.05em;
-  font-weight: 400;
-}
-#heading2 .button {
-  margin-top: 1.5em;
-  background: none;
-  outline: solid 2px #fff;
-}
-#heading2 .button:hover {
-  background: #fff;
-}
-#heading2 img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
 }
 #baseline {
   display: flex;
@@ -526,6 +487,12 @@ form .button {
 #ref .owl-carousel #arrow-next {
   right: 0;
 }
+#form-bottom {
+  display: block;
+  position: relative;
+  top: -5em;
+  visibility: hidden;
+}
 #contact {
   background-color: #fcfcfc;
   padding: 3em 0 3em 0;
@@ -537,28 +504,28 @@ form .button {
 #contact #logo_dac {
   padding-top: 4em;
 }
-#contact #form-bottom {
+#contact #the-form-bottom {
   padding-bottom: 1em;
   border: solid 1px #d8d8d8;
 }
-#contact #form-bottom input[type=text],
-#contact #form-bottom select {
+#contact #the-form-bottom input[type=text],
+#contact #the-form-bottom select {
   height: 2.5em;
   font-size: 1.02em;
   border-bottom: solid 2px #b4b3b3;
 }
-#contact #form-bottom .button {
+#contact #the-form-bottom .button {
   height: 2.5em;
   font-size: 1.05em;
   width: 100%;
   margin-top: 1em;
   background: #bf3b2b;
 }
-#contact #form-bottom .button:hover {
+#contact #the-form-bottom .button:hover {
   background: #fff;
   color: #bf3b2b;
 }
-#contact #form-bottom .form-header {
+#contact #the-form-bottom .form-header {
   position: absolute;
   left: 0;
   top: 0;
@@ -577,7 +544,7 @@ form .button {
   padding-left: 30px;
   line-height: 3.3em;
 }
-#contact #form-bottom h2 {
+#contact #the-form-bottom h2 {
   margin-top: 1em;
 }
 #contact #phone {
@@ -795,16 +762,19 @@ form .button {
   width: 33.33333333%;
 }
 /* GFORM CUSTOM */
-#form-bottom {
+#the-form-bottom {
   width: 100%;
   max-width: 500px;
   margin: auto;
   padding-bottom: 1em;
   padding-top: 1.3em;
-  background: #fff;
+  background: #fff!important;
   border: solid 1px #c2c2c2;
 }
-#form-bottom .form-header {
+#the-form-bottom .form-header {
+  display: inherit !important;
+}
+#the-form-bottom .form-header {
   position: absolute;
   left: 0;
   top: 0;
@@ -813,12 +783,12 @@ form .button {
   background-color: #bf3b2b;
   color: #fff;
 }
-#form-bottom h3 {
+#the-form-bottom h3 {
   line-height: .6em;
   padding-top: .3em;
   text-transform: uppercase;
 }
-#form-bottom .form-container {
+#the-form-bottom .form-container {
   margin-top: 2em;
 }
 .gform_fields {

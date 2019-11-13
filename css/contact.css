@@ -29,7 +29,7 @@ main {
 .vc_row-has-fill iframe {
   height: 100%!important;
 }
-.vc_row-has-fill section, .wpb_wrapper section {
+.vc_row-has-fill section {
   background: #fff;
   height: 100%!important;
   padding: 1em;
@@ -163,7 +163,7 @@ input[type="submit"]:hover {
   padding-right: .5em;
   padding-left: .5em;
 }
-textarea {
+#gform_1 textaera {
   max-height: 11em !important;
 }
 #gform_1 #field_1_10 {

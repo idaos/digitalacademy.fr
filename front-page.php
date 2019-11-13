@@ -1,101 +1,290 @@
-<?php get_header(); ?>
-
-<?php 
-    $name_slide = have_rows( 'slides', 'option' ) ? 'slides' : 'slider';
-?>
-
-<?php if ( have_rows( $name_slide, 'option' ) ): ?>
-	<div class="container-slider main-slider slide-home hidden-xs">
-		<?php $counter = 1;
-		while ( have_rows( $name_slide, 'option' ) ): the_row(); ?>
-			<div
-				<?php if (get_sub_field( 'image' )): ?>style="background: url('<?php the_sub_field( 'image' ); ?>') center center no-repeat;background-size: cover;"<?php endif; ?>>
-				
-				<?php $video = get_sub_field( 'video' ); ?>
-				
-				<div class="container-slider-home" <?php 
-				if ( ! empty( $video ) ) {
-					echo "style='display:none'";
-				};
-				?> >
-					<?php if ( get_sub_field( 'titre' ) ): ?>
-						<h2 class="title-slider"><?php the_sub_field( 'titre' ); ?></h2>
-					<?php endif; ?>
-
-					<?php if ( get_sub_field( 'sous_titre' ) ): ?>
-						<div class="clearfix"></div>
-						<p><?php the_sub_field( 'sous_titre' ); ?></p>
-					<?php endif; ?>
-
-					<?php if ( get_sub_field( 'lien' ) ): ?>
-						<div class="clearfix"></div>
-						<?php $btn_class = array();
-						$btn_class[] = 'btn-orange';
-						$btn_color = get_sub_field( 'more_color' );
-						if ( ! empty( $btn_color ) ) :
-							$class = 'btn-custom-'.$counter;
-							$btn_class[] = $class; ?>
-							<style>
-								.<?php echo $class; ?> {
-									border-color: <?php echo esc_html( $btn_color ); ?> ! important;
-									color: <?php echo esc_html( $btn_color ); ?> ! important;
-								}
-								.<?php echo $class; ?>:hover {
-									background: <?php echo esc_html( $btn_color ); ?> ! important;
-									color: #ffffff ! important;
-								}
-							</style>
-						<?php endif; ?>
-						<a href="<?php the_sub_field( 'lien' ); ?>" class="<?php echo implode( ' ', $btn_class ); ?>">En savoir plus</a>
-					<?php endif; ?>
-					<div class="clearfix"></div>
-				</div>
-				
-				<?php if ( ! empty( $video ) ) : ?>
-						<?php $siteurl = get_site_url(); ?>
-						<div class="container-slider-home-video clearfix">
-							<iframe id="youtube_player" width="762" height="290" src="<?php echo $video . '&enablejsapi=1&origin=' . $siteurl ;?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-						</div>
-				<?php endif; ?>
-				
-			</div>
-		<?php $counter += 1;
-		endwhile; ?>
-	</div>
-<?php endif; ?>
-
-	<main class="content">
-		<div class="container">
-			<?php
-			if ( have_posts() ) :
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
-					the_content();
-					?>
-
-				<?php
-				endwhile;
-			else :
-				// If no content, include the "No posts found" template.
-				get_template_part( 'content', 'none' );
-			endif;
-			?>
-		</div>
-		<div class="full-width bg-gray text-center">
-			<h3>Nos TOP formations digitales</h3>
-
-			<div class="p030">
-				<?php echo do_shortcode( '[formations_slider]' ); ?>
-			</div>
-			<p class="top-title mb50 mt10">Plus de 30 formations pour s’approprier la Communication Digitale de A à Z
-				!</p>
-			<a href="<?php echo get_field( 'page_nos_formations', 'option' ); ?>" class="btn-orange"
-			   style="position:static">Voir toutes nos formations</a>
-		</div>
-		<?php
-		$page_newsletter = get_field( 'page_newsletter', 'option' );
-		echo do_shortcode( '[cta texte="Restez informé sur nos formations digitales" url="' . $page_newsletter . '" texte_bouton="S’inscrire à la newsletter"]' );
-		?>
-	</main><!-- Main end -->
-
+<?php get_header(); ?>
+
+
+
+
+<div id="datadock_subheader">
+    <div class="container">
+        <span>Notre organisme de formation est référencé Datadock.</span>
+        <a href="https://www.digitalacademy.fr/digitalacademy-est-certifiee-datadock/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/info-icon.svg" width="18" alt="info"></a>
+    </div>
+</div>
+
+<div id="page">
+    <section id="heading">
+        <div class="bloc-1">
+            <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#000" points="50,0 100,0 100,100 40,100"/>
+            </svg>
+            <svg class="svg-1-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#000" points="0,0 100,0 100,100 0,100"/>
+            </svg>
+            <svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#fff" points="0,100 100,0 100,100"/>
+                <polygon fill="#bf3b2b" points="20,80 100,0 100,100"/>
+            </svg>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!--
+<a href="<?php //echo get_page_link(2649); ?>">
+<img id="reference-datadock" src="<?php //echo get_stylesheet_directory_uri(); ?>/images/reference-datadock.png" alt="">
+</a>
+-->
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>Faites vivre le digital dans votre entreprise</h3>
+                        <h2>Formation au digital</h2>
+                        <hr>
+                        <p>L’offre de la DigitalAcademy© met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
+                        <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red">Découvrir nos solutions</div></a>
+                        <a class="contact-btn" href="#contact" value="Autre"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="offre-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#fff" points="0,0 100,0 100,100"/>
+        </svg>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-push-6 col-md-6 col-lg-6">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/offre-digital-learning.jpg" alt="">
+                </div>
+                <div class="col-sm-6 col-sm-pull-6 col-md-6 col-lg-6">
+                    <h3>Numérisez vos formations dans nos studios</h3>
+                    <h2>Digital Learning</h2>
+                    <hr>
+                    <p>Le Digital Learning intègre des technologies digitales dans les solutions de formation au service de la performance. Pour favoriser une montée en compétences rapide et continue des apprenants et prolonger le processus d’apprentissage, ces solutions de formation multi-plateformes (desktop, smartphones, tablettes…) sont les parfaits compléments d’un programme présentiel. La DigitalAcademy s’est entourée de partenaires experts dans ces applicatifs spécialisés dans la  distribution en ligne des contenus de formation.</p>
+                    <a href="<?php echo get_page_link(623); ?>"><div class="btn btn-blue">Découvrir cette solution</div></a>
+                    <a class="contact-btn" href="#contact" value="Créer un programme en Digital Learning (Mooc, Spoc...)"><div class="btn btn-blue-alt">Demander une démo</div></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="offre-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#505a9b" points="0,0 100,20 0,100"/>
+        </svg>
+        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#f1f8ff" points="0,100 100,0 100,100"/>
+            <polygon fill="#bf3b2b" points="20,80 100,0 100,100"/>
+        </svg>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-6">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/catalogue-des-formations.jpg" alt="">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-6">
+                    <h3>Faites vivre le digital dans votre entreprise</h3>
+                    <h2>Catalogue des formations</h2>
+                    <hr>
+                    <p>Retrouvez en ligne notre catalogue de plus de 30 formations sur le digital, réparties dans les 6 thématiques suivantes : Réseaux Sociaux &amp; E-réputation, Stratégie de Marketing digital, Contenus Web, Webmarketing et E-publicité, Entreprise 2.0, Mobile &amp; E-commerce</p>
+                    <a href="<?php echo get_page_link(318); ?>"><div class="btn btn-red">Découvrir nos formations</div></a>
+                    <a href="<?php echo get_page_link(213); ?>"><div class="btn btn-red-alt">Télécharger le Catalogue</div></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="top-formations">
+        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#f1f8ff" points="0,0 100,0 100,100"/>
+        </svg>
+        <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#505a9b" points="0,0 100,20 0,100"/>
+        </svg>
+        <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#fff" points="0,0 100,0 100,100 0,100"/>
+        </svg>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <br><br><br>
+                    <h3>Un catalogue de plus de 30 formations digitales</h3>
+                    <h2>Nos formations digitales</h2>
+                    <hr>
+                    <form action="<?php echo get_page_link(318); ?>" method="get">
+                        <input id="searchBar" type="text" name="q" placeholder="Rechercher une formation...">
+                        <span id="searchIcon"><input class="btn btn-red" type="submit" value=""></span>
+                    </form>
+                    <?php echo do_shortcode( '[kz_courses_slider taxo="top"]' ); ?>
+                    <br><br><br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="references">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <br><br>
+                    <h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
+                    <h2>Nos références clients en formation</h2>
+                    <hr>
+                    <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
+                    <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
+                    <br><br><br><br><br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="datadock">
+        <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#236fa8" points="0,100 100,0 100,100"/>
+        </svg>
+        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#56aef2" points="0,0 0,100 100,0"/>
+        </svg>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>Organisme validé et référencé </h4>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/datadock-logo.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="video">
+        <div class="container">
+            <div class="row row-same-height">
+                <div class="col-md-6 col-md-push-6">
+                    <h3>Franck Perrier présente la Digital Academy</h3>
+                    <h2>la Digital Academy <span class="noWrap">en 30 secondes</span></h2>
+                    <hr>
+                    <blockquote>
+                        <p>Voir une équipe appliquer au quotidien dans son entreprise nos enseignements est la preuve de notre mission accomplie.</p>
+                        <footer><b>Franck Perrier</b><span>Président Fondateur DigitalAcademy</span></footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-6 col-md-pull-6" id="player-wrapper">
+                    <img onclick="playIframe()" id="youtube-cover" src="<?php echo get_stylesheet_directory_uri(); ?>/images/digitalacademy-en-30-secondes-youtube-cover.jpg" alt="">
+                    <img onclick="playIframe()" id="play-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/images/play-icon.svg" alt="">
+                    <div id="iframe-wrapper" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="satisfaction">
+        <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#2f905e" points="0,100 100,0 100,100"/>
+        </svg>
+        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#60dd9c" points="0,0 0,100 100,0"/>
+        </svg>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/like-icon.svg" alt="">
+                    <h4>98% de nos apprenants sont satisfaits</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Ce que disent nos apprenants de la DigitalAcademy</h3>
+                    <h2>témoignages</h2>
+                    <hr>
+                    <br><p>Retrouvez les points de vue des apprenants qui comentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
+                </div>
+            </div>
+            <div class="row row-same-height">
+                <div class="col-sm-6 col-md-4">
+                    <div class="wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <polygon fill="#fff" points="0,0 100,100 0,100"/>
+                        </svg>
+                        <div class="name">Thomas S.</div>
+                        <div class="company">Microsoft</div>
+                        <hr>
+                        <div class="testimonial">Excellente formation sur le marketing mobile, intervenant de qualité, bon mix entre présentation et exemples concrets.</div>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/microsoft-logo.jpg" alt="">
+                        <div class="course">Formation "Développer une stratégie marketing mobile"</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <polygon fill="#fff" points="0,0 100,100 0,100"/>
+                        </svg>
+                        <div class="name">Sonia S.</div>
+                        <div class="company">Barclays France</div>
+                        <hr>
+                        <div class="testimonial">Formation vivante et enrichissante, qui m’a permis d’apporter une vraie valeur ajoutée sur mon profil utilisateur sur les plateformes Linkedin, avec un rebond pour actionner la prospection.</div>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/barclays-logo.jpg" alt="">
+                        <div class="course">Formation "Booster sa prospection commerciale avec LinkedIn"</div>
+                    </div>
+                </div>
+                <div class="col-md-4 hidden-sm">
+                    <div class="wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <polygon fill="#fff" points="0,0 100,100 0,100"/>
+                        </svg>
+                        <div class="name">Frédéric B.</div>
+                        <div class="company">Sciences Po</div>
+                        <hr>
+                        <div class="testimonial">Clés et best practices pour poser les bases de sa stratégie digitale multicanale.</div>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-sciences-po.jpg" alt="">
+                        <div class="course">Formation "Construire la stratégie multi, cross et omni canal de son entreprise"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
+    </section>
+    <section id="contact" >
+        <div class="container">
+            <div class="row row-same-height">
+                <div class="col-md-5 col-lg-7 valign">
+                    <div class="container">
+                        <div class="row alignCenter">
+                            <span><img id="logo_dac" src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
+                            <b>Nos conseillers vous répondent au :</b>
+                            <span id="phone"><a href="tel:0977215321">09 77 21 53 21</a></span>
+                            <i>appel non surtaxé du lundi au vendredi de 9h30 à 19h</i>
+                            <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
+                            <i>ou par e-mail</i>
+                            <br><a id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
+                    <div class="col-12 form-header"><br><h3 class="col-12">Contactez-nous !</h3><br></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12"></div>
+                            <div class="container form-container">
+                                <div class="row">
+                                    <h3>Vous souhaitez en savoir plus sur nos offres de formation ?</h3>
+                                    <h2>Contactez-nous </h2>
+                                    <hr>
+                                    <?php echo do_shortcode('[gravityform id="5" title="false" description="false" ajax="true"]'); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+<?php
+$page_newsletter = get_field( 'page_newsletter', 'option' );
+echo do_shortcode( '[cta texte="Restez informé sur nos formations digitales" url="' . $page_newsletter . '" texte_bouton="S’inscrire à la newsletter"]' );
+?>
+
 <?php get_footer(); ?>
+
+
+
+
+
