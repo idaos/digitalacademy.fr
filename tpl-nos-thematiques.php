@@ -169,7 +169,7 @@ if ( $thematiques = get_terms( 'thematique' ) ) {
         <div class="row">
             <div class="col-xs-12">
                 <br><br><br>
-                <h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
+                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
                 <h2>Nos références clients en formation</h2>
                 <hr>
                 <?php echo do_shortcode( '[kz_ref_slider]' ); ?>

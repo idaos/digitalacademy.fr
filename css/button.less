@@ -1,43 +1,51 @@
 body{
-
-    .btn, .button, button, input[type="submit"]{
+    
+    .btn, 
+    .button, 
+    button:not([type='button']), 
+    input[type="submit"],
+    #calendar button,
+    .navigation li a,
+    .vc_btn3.vc_btn3-color-grey.vc_btn3-style-modern,
+    .container-menu-filtre ul li a{
+        
         .btn-md; // default size
+        background: #bf3b2b; font-size: 16px; color: #fff; // default style
         display:inline-block;
         position:relative;
         text-decoration:none;
         text-transform: uppercase;
         box-sizing: border-box;
         font-weight: bold;
-        background: none;
         border: none;
         transition-property: background, filter, -webkit-filter, -moz-filter, -ms-filter, -o-filter, color;
         transition-duration: .2s;
         border-radius: 4px;
         letter-spacing: 1px;
+        height: inherit;
+        white-space: normal;
+        line-height: normal;
         &:hover{
             cursor: pointer;
+            color: #fff; background: #bf3b2b; // default style
         }
-        margin-right: .9em;
-        margin-top: 1em;
-        margin-bottom: 1em;
+        padding: 1em;
+        margin: 1em 0; 
+        
+        @media (max-width: 768px) {
+            margin: .4em 0; 
+        }
     }
     .btn-xs{
+        padding: .7em;
         font-size: .8em;
-        height: 3em;
-        padding: .3em 1.2em;
-        line-height: 2.35em;
     }
-    .btn-sm{
+    .btn-sm,
+    form .gform_button{
         font-size: .85em;
-        height: 3.2em;
-        padding: 0 1.2em;
-        line-height: 3.3em;
     }
     .btn-md{
         font-size: .92em;
-        height: 3.2em;
-        padding: 0 1.2em;
-        line-height: 3.3em;
     }
 
     @set: {
@@ -79,6 +87,11 @@ body{
                 background: lighten(@value, 20%);
             }
             &:hover{
+                background: @value;
+                color: #fff;
+            }
+            a{
+                background: @value;
                 color: #fff;
             }
         }
@@ -92,20 +105,23 @@ body{
             }
             &:hover{
                 color: @value;
-                background: fade(@value, 5%);
+                background: fade(@value, 3%);
             }
         }
         .btn-@{key}-alt-neg{
-            color: saturate( tint(@value, 50%), 80% );
-//            background: fade(saturate( tint(@value, 50%), 80% ),15%);
+            color: #fff;
+            //color: saturate( tint(@value, 50%), 80% );
+            background: none;
             //box-shadow:inset 0 -0.6em 0 -0.35em fade(@value, 17%);;
-            border: solid 1px saturate( tint(@value, 50%), 80% );
+            //border: solid 1px saturate( tint(@value, 50%), 80% );
+            border: solid 1px #fff;
             &:after{
                 background: lighten(@value, 20%);
             }
             &:hover{
                 color: saturate( tint(@value, 50%), 80% );
                 background: fade(@value, 17%);
+                border: solid 1px saturate( tint(@value, 50%), 80% );
             }
         }
     });
@@ -115,7 +131,8 @@ body{
     //-----------------//
 
     @gray: #fcfcfc;
-    .btn-gray{
+    .btn-gray,
+    .container-menu-filtre ul li a.btn-gray {
         color: #6c6c6c;
         border: solid 1px #818181;
         background: @gray;
@@ -127,6 +144,9 @@ body{
         }
         &:after{
             background: darken(@gray, 39%);
+        }
+        a{
+            color: #6c6c6c;
         }
     }
     .btn-gray-alt{
@@ -142,8 +162,73 @@ body{
         }
     }
 
+    //-----------------//
 
-    button:hover, .button:hover, button:hover, input[type="submit"]:hover{
-        filter: brightness(115%);
+
+
+    //-----------------//
+    // Theme specific override
+    //-----------------//
+
+    button:hover, .button:hover, button:hover, input[type="submit"]:hover, .vc_btn3.vc_btn3-color-grey.vc_btn3-style-modern:hover{
+        &:not([type='button']){
+            filter: brightness(115%);
+        }
+    }
+    input[type="submit"]{
+        background: #bf3b2b;
+    }
+    .bg-orange .btn-white{
+        .btn;
+        border: solid 1px #fff;
+        margin-left: 1em;
+        &:hover{ background: rgba(256,256,256,.1); }
+    }
+
+    .marginR{
+        margin-right: .9em;
+    }
+    .absolute100{
+        margin: 1em;
+        position: absolute;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: ~"calc(100% - 2em)";
+    }
+}
+.page-id-776 form .button{
+//   line-height: 1.5em !important;
+}
+body .navigation li a{
+//    height: 2.2em;
+//    line-height: 1.3em;
+        &:hover{
+        filter: brightness(109%);
+    }
+}
+#kz_header{
+    .btn{
+        margin: .8em 0!important; 
+        padding: 1em;
+    }
+    #dl-catalogue-btn{
+        margin-right: .5em !important;
+    }
+}
+.page-template-tpl-nos-formateurs .thewrapper .btn{
+    position: absolute !important;
+    bottom: 0;
+    width: calc(100% - 2em);
+    margin: 1em !important;
+    height: 2.5em;
+}
+@media (max-width: 576px) {
+    .marginR{
+        margin-right: 0!important
+    }
+    #thematiques-input label {
+        width: 100%;
     }
 }

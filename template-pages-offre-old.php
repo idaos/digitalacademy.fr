@@ -41,8 +41,7 @@ if( has_post_thumbnail() ) {
             <div class="row">
                 <div class="col-xs-12">
                     <br><br><br>
-                    <h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
-                    <h2>Nos références clients en formation</h2>
+                    <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
                     <hr>
                     <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
                     <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
@@ -56,11 +55,13 @@ if( has_post_thumbnail() ) {
             <div class="row">
                 <div class="col-xs-12">
                     <br><br>
-                    <h3>Un catalogue de plus de 30 formations digitales</h3>
-                    <h2>Nos formations digitales</h2>
+                    <span class="reverse">
+                        <h2>Nos formations digitales</h2>
+                        <h3>Un catalogue de plus de 30 formations digitales</h3>
+                    </span>
                     <hr>
                     <?php echo do_shortcode( '[kz_courses_slider taxo="top"]' ); ?>
-                    <a href="<?php echo get_page_link(318); ?>"><div class="btn btn-red">Découvrir toutes nos formations</div></a>
+                    <a href="/formations/"><div class="btn btn-red">Découvrir toutes nos formations</div></a>
                     <br><br><br><br>
                 </div>
             </div>

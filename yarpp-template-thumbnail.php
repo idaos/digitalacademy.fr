@@ -78,7 +78,7 @@ Author: Lucas Tesseron
                         | L'équipe DigitalAcademy<!--&reg;--></p>
 
                     <p><?php the_excerpt(); ?></p>
-                    <a href="<?php the_permalink(); ?>" class="btn-orange" rel="nofollow">Lire la suite</a>
+                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red absolute100" rel="nofollow">Lire la suite</a>
                 </div>
             </div>
         </div>

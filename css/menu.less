@@ -174,9 +174,18 @@
 
 // colors
 #kz-menu-wrapper{
-    background: #fff;
+    background:#fff;
+    > .container:after{
+        background: #fff;
+        content: none;
+        height: 4.6em;
+        width: ~"calc(100% - 5em)";
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+    }
     z-index: 9999999999;
-    //    max-height: 10em;
     padding: 0;
     margin: 0;
     width:100%;
@@ -189,7 +198,7 @@
     }
     > ul > li > a > span.drop-icon{ display: none; }
     > img{ display: inline-block; }
-    > ul.main-menu{ display: inline-block; }
+    > ul.main-menu{ display: inline-block; z-index: 1; }
 
     .drop-icon{
         margin-left: 1em;
@@ -239,15 +248,18 @@
             }
         }
     }
-//    .btn-red:hover{
-//        filter: brightness(90%);
-//    }
+    //    .btn-red:hover{
+    //        filter: brightness(90%);
+    //    }
 }
 
 // responsive stuff
 @media only screen and (max-width: 1200px) {
     #kz-menu-wrapper{
-
+        background: rgba(256,256,256,.7);
+        > .container:after{
+            content: '';
+        }
         #social-icons{
             display: inherit;
         }
@@ -337,7 +349,7 @@
 }
 .burgerToCross rect.r1{
     transform: rotate(-45deg);
-    transform-origin: 87% 39%;
+    transform-origin: 87% 35%;
 }
 .burgerToCross rect.r2{
     transform: rotate(45deg);
@@ -352,30 +364,11 @@
 // pre header
 #kz_header{
     background: #eee;
-//    padding: 1em 0;
+    //    padding: 1em 0;
     text-transform: none;
     width: 100%;
-//    .btn{
-//        @btn-height:2em;
-//        line-height: 1em;
-//        font-weight: bolder;
-//        padding: .7em 1em;
-//        letter-spacing: .5px;
-//        text-transform: uppercase;
-//        border-radius: 0;
-//        display: inline-block;
-//    }
-//    .btn-gry{
-//        background: #fcfcfc;
-//        border: solid 1px #a5a5a5;
-//        color: #4e4e4e;
-//        &:hover{
-//            background: #d9d9d9;
-//            color: #2a2a2a;
-//        }
-//    }
     .btn-gray, i{
-        margin-right: 1em !important;
+        margin-left: .5em !important;
         white-space: nowrap;
         vertical-align: middle;
     }
@@ -383,7 +376,7 @@
         padding-left: 2.4em;
         &:before {
             margin-left: -1.45em;
-            margin-top: .7em;
+            margin-top: .2em;
             display: block;
             content: '';
             background-image: url('@{img-root}/phone-icon.svg');
@@ -399,6 +392,7 @@
         position: absolute;
         right: 0;
         top: 0;
+        padding-right: 15px;
     }
 }
 
@@ -407,8 +401,11 @@
         i{
             display: none;
         }
-        .btn{
+        #dl-catalogue-btn{
             display: none;
+        }
+        #btn-phone{
+            position: absolute;
         }
         .to-right{
             position: relative;
@@ -421,6 +418,9 @@
         }
         .btn-red{
             float: right;
+        }
+        .to-right{
+            padding-right: 0;
         }
     } 
     #logo{
@@ -477,14 +477,9 @@
     background: #1f7efb;
     height:3em;
     color:#fff;
-    line-height:3em;
+    line-height:2.7em;
     a>img{margin-left:.5em;margin-bottom: .25em;}
     div{position: relative;}
     div>div{width: 100%; text-align: right;}
     span{display: inline-block;margin-top: .15em;font-size: .9em;}
-    
-//    position: fixed;
-//    bottom: 0;
-//    width: 100%;
-//    z-index: 99999;
 }

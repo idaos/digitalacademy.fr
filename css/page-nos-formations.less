@@ -4,6 +4,17 @@
 .container{
     max-width: 1230px;
 }
+h1{
+    text-transform: uppercase;
+    font-weight: 100;
+    color: #4a4a4a !important;
+    font-size: 1.7em;
+    margin: 0 !important;
+}
+hr{
+    margin: 1em auto 0 auto;
+    padding: 0 auto;
+}
 @media (min-width: 1200px){   
     .container {
         max-width: 1230px;
@@ -15,6 +26,24 @@
 //------ Nos formations general -----
 //-----------------------------------
 //-----------------------------------
+.t1-c{
+    color: #e74c3c;
+}
+.t2-c{
+    color: #95a5a6;
+}
+.t3-c{
+    color: #3498db;
+}
+.t4-c{
+    color: #f59d00;
+}
+.t5-c{
+    color: #2ecc71;
+}
+.t6-c{
+    color: #34495e;
+}
 
 #nos-formations{
 
@@ -46,26 +75,27 @@
         background: @color-dac;
         color: #fff;
     }
-    button, .button{
-        cursor: pointer;
-        background: @color-dac;
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: 700;
-        padding: 0 1em;
-        border: none;
-        height: 3em;
-        line-height: 3em;
-        display: inline-block;
-        text-shadow: none;
+    #formations .btn{
+        width: 100%;
     }
-    .button-hover{
-        &:hover{
-            background: #fff;
-            color: @color-dac;
-            outline: solid 2px @color-dac; 
+    .search-btn{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: 3.7em;
+        margin-left: -.3em;
+        margin-top: .1em;
+        svg{
+            margin-top: 7px;
         }
     }
+    .search-txt{
+        border-radius: 4px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0; 
+    }
+
+
+
     h1,h2,h3,h4{margin: 0;}
     h1{
         color:@color-dac;
@@ -113,7 +143,7 @@
         label{
             text-transform: uppercase;
             font-weight: 900;
-            font-size: .7em;
+            //            font-size: .7em;
             i{
                 text-transform: lowercase;
                 font-size: .9em;
@@ -154,10 +184,10 @@
             margin-bottom: 1.9em;
             //        &:last-child{margin-bottom: .5em;}
         }
-        .button{
-            width: auto;
-            line-height: 1.5em;
-        }
+        //        .button{
+        //            width: auto;
+        //            line-height: 1.5em;
+        //        }
     }
     #heading{
         padding: 1.6em 0;
@@ -223,10 +253,10 @@
                         content: "Top formation !";
                     }
                 }
-                div{
+                > div{
                     position: relative;
                     padding: 0 .9em;
-                    padding-bottom: 1.8em;
+                    padding-bottom: 2.8em;
                     a>h4{color: #515151;&:hover{color:@color-dac;}}
                     h4{
                         margin-top: .6em;
@@ -264,30 +294,15 @@
                     left: 0;
                     margin-left: 15px;
                     margin-right: 15px;
-                    margin-bottom: 1em;
+                    margin-bottom: .1em;
                     width:calc(~"100% - 30px") !important;
                     display: block;
                     text-align: center;
                     text-align: center;
-                    .button{
-                        width: 100%;
-                        background: @color-dac;
-                        height:2em;
-                        line-height: 2em;
-                    }
                 }
                 &:hover{
                     box-shadow: 0 5px 15px #d8d8d8;
                     cursor: default;
-                    .button{
-                        background: @color-dac; 
-                        cursor: pointer;
-                        &:hover{
-                            background: #fff;
-                            color: @color-dac;
-                            outline: solid 2px @color-dac; 
-                        }
-                    }
                 }
             }
 
@@ -352,30 +367,8 @@
             }
             input{padding-left: .5em;}
         }
-        .en-savoir-plus{
-            .button{
-                height: 2.3em !important;
-                line-height: 2.3em !important;
-            }
-        }
     }
     @media (max-width: 576px) {
-
-        #search{
-            button,input{
-                width: 100%;
-                margin-bottom: 1em;
-            }
-        }
-        button, .button{
-            width:100%;
-            padding: 0 1em;
-        }
-        #declinaisons{
-            .button{
-                width: initial;
-            }
-        }
         nav{
             #phone-number{
                 a{
@@ -384,12 +377,6 @@
             }
             b{font-size: .8em;}
         }
-        #heading{
-            .button{
-                text-align: center;
-            }
-        }
-        #thematiques .d-flex > .row > [class*='col-'] button { width:90%; }
     }
 }
 
@@ -423,7 +410,10 @@ input[type='checkbox']{
     margin: 1em 0 0 0;
 }
 #search .container:first-child{
-    max-width: 600px;
+    max-width: 800px;
+}
+input::placeholder{
+    color:#cccccc;
 }
 #search input{
     border: solid 1px #eee;
@@ -431,12 +421,6 @@ input[type='checkbox']{
     padding-left: .8em;
     width: calc(100% - 20%);
     max-width: 100%;
-}
-#search .button{
-    height: 3em;
-    width:initial!important;
-    /*            margin-left: 5px;*/
-    margin-top: 1px;
 }
 #thematiques-input{
     padding: 1em;
@@ -452,14 +436,10 @@ input[type='checkbox']{
 }
 #thematiques-input label{
     margin: .5em !important;
-    height:2em !important;
-    line-height:2em !important;
-    padding:  0 .5em !important;
 }
 .no-result{
     background: #bb0303;
 }
-/*        .thema-t0{background:#b9b9b9;}*/
 #thematique-checkbox-1 + .button:hover, #thematique-checkbox-1:checked + .button{
     filter: brightness(120%);
 }
@@ -577,7 +557,6 @@ input[type='checkbox']{
 }
 #formations [class*='col-'] .wrapper div p {
     margin-bottom: 1.5em;
-    /*            padding-bottom: 8.9em !important;*/
 }
 [class*='arrow-']{
     font-family: monospace;
@@ -587,9 +566,6 @@ input[type='checkbox']{
 /* Calendar */
 main{
     padding-bottom: 4em;
-}
-main button{
-    height: auto!important;
 }
 h2{ 
     font-variant: initial!important;
@@ -624,7 +600,6 @@ h2{
     position: relative;
     display: block;
     min-height: 154px;
-    //    background: #cbcbcb;
     background: #fff;
 }
 .nouvelle_formation, .top_formation{
@@ -653,7 +628,6 @@ select{
 #formations [class*='col-'] .wrapper .alignCenter {
     bottom: 6em; 
     padding:0 1em 1.5em 5em; 
-    /*            padding-bottom: 6em !important;*/
 }
 .no-session{
     position: absolute;
@@ -671,7 +645,17 @@ select{
     min-height: 300px;
     //    background-image:url('http://localhost/local.digitalacademy.fr/wp-content/uploads/2018/12/dac-fr_visuel-catalogue.jpg');
     background-size: cover;
-    background-position:center
+    background-position:center;
+    background: #eee;
+    &:after{
+        content: '';
+        width: 100%;
+        position: absolute;
+        height: 8px;
+        border-bottom: solid 8px #e4e4e4;
+        left: 0;
+        bottom: 0;
+    }
 }
 .slick-slide{
     padding: 3em 0 0 1em !important;
@@ -777,28 +761,18 @@ select{
 //-----------------------------------
 @media(max-width:768px){
     #kz_heading, #kz_heading .slick-slide{
-        background: #dcdcdc;
         padding: 0 !important;
         h1, h2{
             color: #000;
             margin-top: 1em;
         }
     }
-    #nos-formations .button {
-        height: 3em!important;
-        line-height: 3em!important;
-        font-size: 1.2em;
-        white-space: nowrap;
-    }
     #nos-formations #search input {
-        width: ~'calc(100% - 3.8em)' !important;
+        width: ~'calc(100% - 2.7em)' !important;
         height: 3.7em!important;
     }
     #search{
         padding: 0 15px;
-    }
-    #search .button {
-        width: 3em!important;
     }
     #thematiques-input span{
         display: block;
@@ -831,4 +805,20 @@ select{
     #nos-formations, #references .wrapper {
         padding: 0!important;
     }
+}
+@media(min-width:768px){
+    #nos-formations .search-btn {
+        height: 3em;
+        margin-top: .75em;
+        svg{
+            margin: 0;
+        }
+    }
+}
+
+// hide app before js load 
+#nos-formations div > #search-helper,
+#nos-formations div > #formations,
+#nos-formations div > .container{
+	display:none;
 }

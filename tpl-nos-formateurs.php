@@ -13,13 +13,8 @@ if( has_post_thumbnail() ) {
 ?>
 
 <style>
-    button{
-        background: #be3929;
-    height: 3em;
-    text-transform: uppercase;
-    border: none;
-    }
     hr{margin:2em auto}
+    .content-white ul{padding-bottom: 3em;}
 </style>
 
 <div class="breadcrumb hidden-xs">
@@ -85,8 +80,8 @@ if( has_post_thumbnail() ) {
                                 <li><a class="lien-formation" href="<?php echo get_the_permalink( $formation->ID ); ?>"><?php echo $formation->post_title; ?></a></li>
                                 <?php } } ?>
                             </div>
+                            <a href="<?php echo get_term_link( $formateur, 'formateur' ); ?>" class="btn btn-xs btn-red">En savoir plus</a>
                         </div>
-                        <a href="<?php echo get_term_link( $formateur, 'formateur' ); ?>" class="btn btn-red btn-wrapper"><button>En savoir plus</button></a>
                     </div>
                     <?php }
                         echo '</ul>';
@@ -108,8 +103,7 @@ if( has_post_thumbnail() ) {
         <div class="row">
             <div class="col-xs-12">
                 <br><br><br>
-                <h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
-                <h2>Nos références clients en formation</h2>
+                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
                 <hr>
                 <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
                 <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>

@@ -34,11 +34,11 @@ $thematic_css = empty( $thematic_css ) ? '' : ' theme-'.$thematic_css; ?>
     <div class="container-menu-filtre hidden-xs">
         <div class="container">
             <ul>
-                <li><a href="#presentation">Présentation</a></li>
-                <li><a href="#programme">Programme</a></li>
-                <li><a href="#informations">Informations</a></li>
-                <li><a href="#Inscription">Dates, lieu &amp; inscription</a></li>
-                <li><a href="#objectifs">Objectifs &amp; Témoignages</a></li>
+                <li><a class="btn btn-xs btn-gray" href="#presentation">Présentation</a></li>
+                <li><a class="btn btn-xs btn-gray" href="#programme">Programme</a></li>
+                <li><a class="btn btn-xs btn-gray" href="#informations">Informations</a></li>
+                <li><a class="btn btn-xs btn-gray" href="#Inscription">Dates, lieu &amp; inscription</a></li>
+                <li><a class="btn btn-xs btn-gray" href="#objectifs">Objectifs &amp; Témoignages</a></li>
             </ul>
         </div>
     </div>
@@ -206,7 +206,7 @@ $thematic_css = empty( $thematic_css ) ? '' : ' theme-'.$thematic_css; ?>
                                     <p class="m250">
                                         <strong><?php echo get_field( 'telephone', 'option' ); ?></strong></p>
                                     <a href="<?php echo get_field( 'page_contact', 'option' ); ?>" onclick="return gtag_report_conversion();"
-                                       class="btn-orange">Nous contacter</a>
+                                       class="btn btn-red">Nous contacter</a>
                                 </div>
                             </div>
                             <div class="col-sm-1"></div>
@@ -237,10 +237,10 @@ $thematic_css = empty( $thematic_css ) ? '' : ' theme-'.$thematic_css; ?>
                                         ?>
                                         <td>
                                             <a href="<?php echo get_field( 'page_contact', 'option' ) . $url ; ?>" 
-                                               class="btn-orange">Pré-inscription</a></td>
+                                               class="btn btn-xs btn-red">Pré-inscription</a></td>
                                         <?php else: ?>
                                         <td class="indisponible">
-                                            <div class="btn-orange">Non disponible</div>
+                                            <div class="btn btn-xs btn-red">Non disponible</div>
                                         </td>
                                         <?php endif; ?>
                                     </tr>
@@ -369,12 +369,14 @@ $thematic_css = empty( $thematic_css ) ? '' : ' theme-'.$thematic_css; ?>
             <div class="row">
                 <div class="col-xs-12">
                     <br><br>
-                    <h3>Un catalogue de plus de 30 formations digitales</h3>
+                    <span class="reverse">
                     <h2>Nos formations digitales</h2>
+                    <h3>Un catalogue de plus de 30 formations digitales</h3>
+                    </span>
                     <p>Les participants à cette formation ont également consulté les formations suivantes :</p>
                     <hr>
                     <?php echo do_shortcode( '[kz_courses_slider nb=-1 taxo="thematique"]' ); ?>
-                    <a href="<?php echo get_page_link(318); ?>"><div class="btn btn-red">Découvrir toutes nos formations</div></a>
+                    <a href="/formations/"><div class="btn btn-red">Découvrir toutes nos formations</div></a>
                     <br><br><br><br>
                 </div>
             </div>
@@ -388,8 +390,7 @@ $thematic_css = empty( $thematic_css ) ? '' : ' theme-'.$thematic_css; ?>
         <div class="row">
             <div class="col-xs-12">
                 <br><br><br>
-                <h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
-                <h2>Nos références clients en formation</h2>
+                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
                 <hr>
                 <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
                 <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>

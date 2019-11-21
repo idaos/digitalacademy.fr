@@ -2,10 +2,39 @@
 .container {
   max-width: 1230px;
 }
+h1 {
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #4a4a4a !important;
+  font-size: 1.7em;
+  margin: 0 !important;
+}
+hr {
+  margin: 1em auto 0 auto;
+  padding: 0 auto;
+}
 @media (min-width: 1200px) {
   .container {
     max-width: 1230px;
   }
+}
+.t1-c {
+  color: #e74c3c;
+}
+.t2-c {
+  color: #95a5a6;
+}
+.t3-c {
+  color: #3498db;
+}
+.t4-c {
+  color: #f59d00;
+}
+.t5-c {
+  color: #2ecc71;
+}
+.t6-c {
+  color: #34495e;
 }
 #nos-formations * {
   font-family: 'Lato', sans-serif;
@@ -41,24 +70,23 @@
   background: #bf3b2b;
   color: #fff;
 }
-#nos-formations button,
-#nos-formations .button {
-  cursor: pointer;
-  background: #bf3b2b;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 0 1em;
-  border: none;
-  height: 3em;
-  line-height: 3em;
-  display: inline-block;
-  text-shadow: none;
+#nos-formations #formations .btn {
+  width: 100%;
 }
-#nos-formations .button-hover:hover {
-  background: #fff;
-  color: #bf3b2b;
-  outline: solid 2px #bf3b2b;
+#nos-formations .search-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 3.7em;
+  margin-left: -0.3em;
+  margin-top: .1em;
+}
+#nos-formations .search-btn svg {
+  margin-top: 7px;
+}
+#nos-formations .search-txt {
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 #nos-formations h1,
 #nos-formations h2,
@@ -119,7 +147,6 @@
 #nos-formations form label {
   text-transform: uppercase;
   font-weight: 900;
-  font-size: .7em;
 }
 #nos-formations form label i {
   text-transform: lowercase;
@@ -166,10 +193,6 @@
 }
 #nos-formations form [class*='col-'] {
   margin-bottom: 1.9em;
-}
-#nos-formations form .button {
-  width: auto;
-  line-height: 1.5em;
 }
 #nos-formations #heading {
   padding: 1.6em 0;
@@ -240,23 +263,23 @@
   background-color: #32a6ea;
   content: "Top formation !";
 }
-#nos-formations #formations [class*='col-'] .wrapper div {
+#nos-formations #formations [class*='col-'] .wrapper > div {
   position: relative;
   padding: 0 .9em;
-  padding-bottom: 1.8em;
+  padding-bottom: 2.8em;
 }
-#nos-formations #formations [class*='col-'] .wrapper div a > h4 {
+#nos-formations #formations [class*='col-'] .wrapper > div a > h4 {
   color: #515151;
 }
-#nos-formations #formations [class*='col-'] .wrapper div a > h4:hover {
+#nos-formations #formations [class*='col-'] .wrapper > div a > h4:hover {
   color: #bf3b2b;
 }
-#nos-formations #formations [class*='col-'] .wrapper div h4 {
+#nos-formations #formations [class*='col-'] .wrapper > div h4 {
   margin-top: .6em;
   font-size: 1.2em;
   text-transform: uppercase;
 }
-#nos-formations #formations [class*='col-'] .wrapper div p {
+#nos-formations #formations [class*='col-'] .wrapper > div p {
   padding-bottom: 4.9em;
   flex-grow: 1;
   flex-shrink: 1;
@@ -265,20 +288,20 @@
   text-overflow: ellipsis;
   margin-top: .5em;
 }
-#nos-formations #formations [class*='col-'] .wrapper div div {
+#nos-formations #formations [class*='col-'] .wrapper > div div {
   padding-bottom: 1.3em;
 }
-#nos-formations #formations [class*='col-'] .wrapper div span {
+#nos-formations #formations [class*='col-'] .wrapper > div span {
   padding: 1em 0;
   display: inline-block;
   vertical-align: middle;
   text-align: left;
 }
-#nos-formations #formations [class*='col-'] .wrapper div span i,
-#nos-formations #formations [class*='col-'] .wrapper div span b {
+#nos-formations #formations [class*='col-'] .wrapper > div span i,
+#nos-formations #formations [class*='col-'] .wrapper > div span b {
   padding-left: .7em;
 }
-#nos-formations #formations [class*='col-'] .wrapper div img {
+#nos-formations #formations [class*='col-'] .wrapper > div img {
   vertical-align: middle;
   max-height: 4em;
   width: auto;
@@ -290,29 +313,14 @@
   left: 0;
   margin-left: 15px;
   margin-right: 15px;
-  margin-bottom: 1em;
+  margin-bottom: .1em;
   width: calc(100% - 30px) !important;
   display: block;
   text-align: center;
 }
-#nos-formations #formations [class*='col-'] .wrapper .en-savoir-plus .button {
-  width: 100%;
-  background: #bf3b2b;
-  height: 2em;
-  line-height: 2em;
-}
 #nos-formations #formations [class*='col-'] .wrapper:hover {
   box-shadow: 0 5px 15px #d8d8d8;
   cursor: default;
-}
-#nos-formations #formations [class*='col-'] .wrapper:hover .button {
-  background: #bf3b2b;
-  cursor: pointer;
-}
-#nos-formations #formations [class*='col-'] .wrapper:hover .button:hover {
-  background: #fff;
-  color: #bf3b2b;
-  outline: solid 2px #bf3b2b;
 }
 #nos-formations #formations #plus-de-formation {
   margin: 2em 0;
@@ -377,36 +385,13 @@
   #nos-formations nav input {
     padding-left: .5em;
   }
-  #nos-formations .en-savoir-plus .button {
-    height: 2.3em !important;
-    line-height: 2.3em !important;
-  }
 }
 @media (max-width: 576px) {
-  #nos-formations #search button,
-  #nos-formations #search input {
-    width: 100%;
-    margin-bottom: 1em;
-  }
-  #nos-formations button,
-  #nos-formations .button {
-    width: 100%;
-    padding: 0 1em;
-  }
-  #nos-formations #declinaisons .button {
-    width: initial;
-  }
   #nos-formations nav #phone-number a {
     font-size: 1em;
   }
   #nos-formations nav b {
     font-size: .8em;
-  }
-  #nos-formations #heading .button {
-    text-align: center;
-  }
-  #nos-formations #thematiques .d-flex > .row > [class*='col-'] button {
-    width: 90%;
   }
 }
 input[type='checkbox'] {
@@ -433,7 +418,10 @@ input[type='checkbox'] {
   margin: 1em 0 0 0;
 }
 #search .container:first-child {
-  max-width: 600px;
+  max-width: 800px;
+}
+input::placeholder {
+  color: #cccccc;
 }
 #search input {
   border: solid 1px #eee;
@@ -441,12 +429,6 @@ input[type='checkbox'] {
   padding-left: .8em;
   width: calc(80%);
   max-width: 100%;
-}
-#search .button {
-  height: 3em;
-  width: initial!important;
-  /*            margin-left: 5px;*/
-  margin-top: 1px;
 }
 #thematiques-input {
   padding: 1em;
@@ -462,14 +444,10 @@ input[type='checkbox'] {
 }
 #thematiques-input label {
   margin: .5em !important;
-  height: 2em !important;
-  line-height: 2em !important;
-  padding: 0 .5em !important;
 }
 .no-result {
   background: #bb0303;
 }
-/*        .thema-t0{background:#b9b9b9;}*/
 #thematique-checkbox-1 + .button:hover,
 #thematique-checkbox-1:checked + .button {
   filter: brightness(120%);
@@ -579,7 +557,6 @@ input[type='checkbox'] {
 }
 #formations [class*='col-'] .wrapper div p {
   margin-bottom: 1.5em;
-  /*            padding-bottom: 8.9em !important;*/
 }
 [class*='arrow-'] {
   font-family: monospace;
@@ -589,9 +566,6 @@ input[type='checkbox'] {
 /* Calendar */
 main {
   padding-bottom: 4em;
-}
-main button {
-  height: auto!important;
 }
 h2 {
   font-variant: initial!important;
@@ -667,7 +641,6 @@ select {
 #formations [class*='col-'] .wrapper .alignCenter {
   bottom: 6em;
   padding: 0 1em 1.5em 5em;
-  /*            padding-bottom: 6em !important;*/
 }
 .no-session {
   position: absolute;
@@ -685,6 +658,16 @@ select {
   min-height: 300px;
   background-size: cover;
   background-position: center;
+  background: #eee;
+}
+#kz_heading:after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  height: 8px;
+  border-bottom: solid 8px #e4e4e4;
+  left: 0;
+  bottom: 0;
 }
 .slick-slide {
   padding: 3em 0 0 1em !important;
@@ -778,7 +761,6 @@ select {
 @media (max-width: 768px) {
   #kz_heading,
   #kz_heading .slick-slide {
-    background: #dcdcdc;
     padding: 0 !important;
   }
   #kz_heading h1,
@@ -788,21 +770,12 @@ select {
     color: #000;
     margin-top: 1em;
   }
-  #nos-formations .button {
-    height: 3em!important;
-    line-height: 3em!important;
-    font-size: 1.2em;
-    white-space: nowrap;
-  }
   #nos-formations #search input {
-    width: calc(100% - 3.8em) !important;
+    width: calc(100% - 2.7em) !important;
     height: 3.7em!important;
   }
   #search {
     padding: 0 15px;
-  }
-  #search .button {
-    width: 3em!important;
   }
   #thematiques-input span {
     display: block;
@@ -835,4 +808,18 @@ select {
   #references .wrapper {
     padding: 0!important;
   }
+}
+@media (min-width: 768px) {
+  #nos-formations .search-btn {
+    height: 3em;
+    margin-top: .75em;
+  }
+  #nos-formations .search-btn svg {
+    margin: 0;
+  }
+}
+#nos-formations div > #search-helper,
+#nos-formations div > #formations,
+#nos-formations div > .container {
+  display: none;
 }

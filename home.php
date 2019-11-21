@@ -48,7 +48,7 @@
                                         | <?php the_author(); ?></p>
 
                                     <p><?php the_excerpt(); ?></p>
-                                    <a href="<?php the_permalink(); ?>" class="btn-orange" rel="nofollow">Lire
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red absolute100" rel="nofollow">Lire
                                         la suite</a>
                                 </div>
                             </div>
@@ -74,8 +74,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <br><br><br>
-                <h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
-                <h2>Nos références clients en formation</h2>
+                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
                 <hr>
                 <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
                 <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>

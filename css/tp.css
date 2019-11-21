@@ -1,64 +1,63 @@
-.cta.bg-orange {
-    background-color: #BF3B2B;
-    text-align: center;
-}
-.cta.bg-orange p {
-    font-size: 1.625em;
-    margin: 0;
-    color: #FFF;
-    padding: 35px 0;
-}
-
-.vc_separator {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border: 0;
-    border-top: 1px solid #808080;
-    width: 40%;
-    position: relative;
-}
-.vc_separator:before {
-    content: "";
-    display: block;
-    background: url('../images/logo-digital-academy-hr.jpg') center center no-repeat;
-    height: 42px;
-    width: 54px;
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    margin-left: -37px;
-}
-
-/** Call to action **/
-.cta strong {
-    text-decoration: underline;
-}
-@media only screen and (max-width: 767px){
-    .cta strong {
-        display:block;
-        padding:10px 0;
-    }
-}
-.cta strong a{
-    color: #fff;
-}
-
-.single-formation .container-slider.main-slider {
-    /*background: url('../images/slider-formation.jpg') center center no-repeat;
-    background-size: cover;*/
-}
-@media only screen and (max-width: 767px){
-    .single-formation .container-slider.main-slider{
-        background:#808080!important;
-    }
-}
-
-body.category .container-slider.slider-header.slider-formateur,
-body.single-post .container-slider.slider-header.slider-formateur {
-    background: url('../images/slide-blog.jpg') center center no-repeat;
-    background-size: cover;
-}
-
-.page-template-tpl-nos-formations .bg-gray {
-    padding: 60px 0;
+/*
+.cta.bg-orange {
+    background-color: #BF3B2B;
+    text-align: center;
+}
+.cta.bg-orange p {
+    font-size: 1.625em;
+    margin: 0;
+    color: #FFF;
+    padding: 35px 0;
+}
+*/
+.vc_separator {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 0;
+    border-top: 1px solid #808080;
+    width: 40%;
+    position: relative;
+}
+.vc_separator:before {
+    content: "";
+    display: block;
+    background: url('../images/logo-digital-academy-hr.jpg') center center no-repeat;
+    height: 42px;
+    width: 54px;
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    margin-left: -37px;
+}
+/** Call to action **/
+/*
+.cta strong {
+    text-decoration: underline;
+}
+@media only screen and (max-width: 767px){
+    .cta strong {
+        display:block;
+        padding:10px 0;
+    }
+}
+.cta strong a{
+    color: #fff;
+}
+*/
+.single-formation .container-slider.main-slider {
+    /*background: url('../images/slider-formation.jpg') center center no-repeat;
+    background-size: cover;*/
+}
+@media only screen and (max-width: 767px){
+    .single-formation .container-slider.main-slider{
+        background:#808080!important;
+    }
+}
+body.category .container-slider.slider-header.slider-formateur,
+body.single-post .container-slider.slider-header.slider-formateur {
+    background: url('../images/slide-blog.jpg') center center no-repeat;
+    background-size: cover;
+}
+.page-template-tpl-nos-formations .bg-gray {
+    padding: 60px 0;
 }

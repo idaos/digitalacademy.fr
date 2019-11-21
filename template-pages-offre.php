@@ -9,11 +9,7 @@ $color2 = get_field( 'color2');
 <?php $heading_img = get_field('page-header-image'); ?>
 <style>
     h2 > span{color: rgb(<?php echo $color1; ?>);}
-    h1{color: #bec7ff;}
-    .button{background: rgb(<?php echo $color1; ?>); outline: solid 2px rgb(<?php echo $color1; ?>); }
-    .button:hover{color: rgb(<?php echo $color1; ?>);}
-    .button-invert{outline: solid 2px rgb(<?php echo $color1; ?>); color: rgb(<?php echo $color1; ?>);}
-    .button-invert:hover{background: rgb(<?php echo $color1; ?>);}
+    h1{color: #bec7ff !important;}
     .gray-bg{background-color: rgb(<?php echo $color2; ?>);}
     .elt > [class*='col-']:nth-child(2), .elt > [class*='col-']:nth-child(4), .elt > [class*='col-']:nth-child(5), .elt > [class*='col-']:nth-child(7){
         background: rgb(<?php echo $color2; ?>);
@@ -45,10 +41,6 @@ $color2 = get_field( 'color2');
 <?php $blocs_offre = get_field('blocs_offre');
 if($blocs_offre){ ?>
 
-
-
-
-
 <div id="page">
     <section id="heading">
         <div class="bloc-1">
@@ -66,50 +58,20 @@ if($blocs_offre){ ?>
                 <div class="row">
                     <div class="col-xl-6"></div>
                     <div class="col-xl-6">
-                        <h3><?php if ( get_field( 'page-header-sous-titre' ) ) {the_field( 'page-header-sous-titre' );}?></h3>
                         <h1><?php if ( get_field( 'page-header-h1' ) ) {the_field( 'page-header-h1' );}?></h1>
                         <hr>
-                        <p>L’offre de la DigitalAcademy© met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
-                        <a href="<?php if ( get_field( 'page-header-btn-link' ) ) {the_field( 'page-header-btn-link' );}?>">
-                            <div class="btn button">
-                                <?php if ( get_field( 'page-header-btn-name' ) ) {the_field( 'page-header-btn-name' );}?>
-                            </div>
+                        <p><?php if ( get_field( 'page-header-p' ) ) {the_field( 'page-header-p' );}?></p>
+                        <a href="<?php if ( get_field( 'page-header-btn-link' ) ) {the_field( 'page-header-btn-link' );}?>" class="btn btn-blue contact-btn marginR" value="<?php if ( get_field( 'page-header-btn-option' ) ) {the_field( 'page-header-btn-option' );}?>">
+                            <?php if ( get_field( 'page-header-btn-name' ) ) {the_field( 'page-header-btn-name' );}?>
+                        </a>
+                        <a href="<?php if ( get_field( 'page-header-btn2-link' ) ) {the_field( 'page-header-btn2-link' );}?>" class="btn btn-blue-alt-neg contact-btn" value="<?php if ( get_field( 'page-header-btn2-option' ) ) {the_field( 'page-header-btn2-option' );}?>">
+                            <?php if ( get_field( 'page-header-btn2-name' ) ) {the_field( 'page-header-btn2-name' );}?>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<!--
-    <section id="offre-2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon fill="#505a9b" points="0,0 100,20 0,100"/>
-        </svg>
-    </section>
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div class="gray-bg blanckspace"></div>
     <?php foreach($blocs_offre as $bloc_offre){
@@ -122,7 +84,7 @@ if($blocs_offre){ ?>
                     <!--<div class="blend"></div>-->
                 </div>
                 <div class="col-12 col-md-6 txt">
-                    <h2><?php echo $bloc_offre['h2-1']; ?><span class="noWrap"><?php echo $bloc_offre['h2-2']; ?></span><?php echo $bloc_offre['h2-3']; ?></h2>
+                    <h2><?php echo $bloc_offre['h2-1']; ?><span><?php echo $bloc_offre['h2-2']; ?></span><?php echo $bloc_offre['h2-3']; ?></h2>
                     <p><?php echo $bloc_offre['p']; ?></p>
                     <?php if($bulletpoints){
         echo '<ul>';
@@ -132,7 +94,7 @@ if($blocs_offre){ ?>
         echo '</ul>';
     } ?><br>
                     <a href="<?php echo $bloc_offre['bouton_lien']; ?>">
-                        <div class="button"><?php echo $bloc_offre['bouton_nom']; ?></div>
+                        <div class="btn btn-blue contact-btn"><?php echo $bloc_offre['bouton_nom']; ?></div>
                     </a>
                 </div>
             </div>
@@ -172,19 +134,17 @@ if($blocs_offre){ ?>
                     <div class="wrapper">
                         <div class="img-wrapper">
                             <img src="<?php echo $bloc_solution['image']['url']; ?>" alt="<?php echo $bloc_solution['image']['alt']; ?>">
-                            <div class="blend"></div>
+                            <!--                            <div class="blend"></div>-->
                         </div>
-                        <h2><?php echo $bloc_solution['h2-1']; ?><span class="noWrap"><?php echo $bloc_solution['h2-2']; ?></span><?php echo $bloc_solution['h2-3']; ?></h2>
+                        <h2><?php echo $bloc_solution['h2-1']; ?><span><?php echo $bloc_solution['h2-2']; ?></span><?php echo $bloc_solution['h2-3']; ?></h2>
                         <?php if($bulletpoints){
-                            echo '<ul>';
-                            foreach($bulletpoints as $bulletpoint){
-                                echo '<li>'. $bulletpoint['bulletpoint'] .'</li>';
-                            }
-                            echo '</ul>';
-                        } ?><br>
-                        <a href="#form-bottom">
-                            <div class="button">Contactez-nous</div>
-                        </a>
+            echo '<ul>';
+            foreach($bulletpoints as $bulletpoint){
+                echo '<li>'. $bulletpoint['bulletpoint'] .'</li>';
+            }
+            echo '</ul>';
+        } ?><br>
+                        <a href="#the-form-bottom" class="btn btn-blue contact-btn" style="max-height:3.2em">Contactez-nous</a>
                     </div>
                 </div>
                 <?php } ?>    
@@ -221,30 +181,41 @@ if($blocs_offre){ ?>
         </div>
     </div>
 
-    <div id="contact" >
+    <section id="contact"><span id="the-form-bottom"></span>
         <div class="container">
-            <div class="row">
-                <div class=" col-12 valign">
+            <div class="row row-same-height">
+                <div class="col-md-5 col-lg-7 valign">
                     <div class="container">
                         <div class="row alignCenter">
-                            <span><img id="logo_dac" src="https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/Digital-Academy-logo-vector-min.svg" width="150" alt="Logo Digital Academy"></span>
+                            <span><img id="logo_dac" src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
                             <b>Nos conseillers vous répondent au :</b>
-                            <span id="phone"><a href="tel:0977215321">09 77 21 53 21</a></span>
-                            <i>appel non surtaxé <br>du lundi au vendredi de 9h30 à 18h</i><br><br><br>&nbsp;
+                            <span id="phone"><a title="Bouton d'appel téléphonique" href="tel:0977215321">09 77 21 53 21</a></span>
+                            <i>appel non surtaxé du lundi au vendredi de 9h30 à 19h</i>
+                            <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
+                            <i style="margin-top: 2em;">ou par e-mail</i>
+                            <a title="Nous envoyer un email" id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a> 
                         </div>
                     </div>
-                </div>
-                <a id="form-bottom"></a>
-                <div class="col-12 valign" id="the-form-bottom" action="#">
-                    <div class="col-12 form-header">Contactez-nous !</div>
-                    <div class="form-container">
-                        <?php $formID = get_field('formulaire_id'); ?>
-                        <?php echo do_shortcode('[gravityform id="'.$formID.'" title="false" description="false" ajax="true"]'); ?>
+                </div> 
+                <div class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12"></div>
+                            <div class="container form-container">
+                                <div class="row">
+                                    <?php echo do_shortcode('[gravityform id="11" title="false" description="false" ajax="true"]'); ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+
+
+
 
 </div>
 <?php get_footer(); ?>        

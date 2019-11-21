@@ -36,11 +36,6 @@ body {
 video {
   max-width: 100%;
 }
-input,
-select,
-textarea {
-  width: 100%;
-}
 h1 > span {
   color: #000;
 }
@@ -52,29 +47,6 @@ h2 {
   letter-spacing: 1px;
   display: inline-block;
   width: auto;
-}
-.button {
-  transition: background .2s ease;
-  cursor: pointer;
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 700;
-  padding: 0 .9em;
-  border: none;
-  height: 2.3em;
-  width: auto;
-  display: inline-block;
-  line-height: 2.3em;
-}
-.button:hover {
-  background: #fff;
-}
-.button-invert {
-  background: #fff;
-}
-.button-invert:hover {
-  color: #fff;
 }
 .triangle-bg {
   background-color: #eaf8ff;
@@ -139,73 +111,6 @@ heading2 img {
 .disabled {
   display: initial!important;
 }
-form {
-  background: #fff;
-  max-width: 500px;
-}
-form label,
-form input,
-form select,
-form textarea {
-  width: 100%;
-}
-form label {
-  text-transform: uppercase;
-  font-weight: 900;
-  font-size: .8em;
-}
-form label i {
-  text-transform: lowercase;
-  font-size: .9em;
-  font-weight: 400;
-  color: #8b8b8b;
-  padding-left: .5em;
-}
-form input,
-form select,
-form textarea {
-  margin-top: .6em;
-  height: 2.5em;
-  line-height: 2.5em;
-  border: solid 1px #bcbcbc;
-  padding-left: .5em;
-}
-form input:focus,
-form select:focus,
-form textarea:focus {
-  outline: none;
-}
-form input:active,
-form select:active,
-form textarea:active {
-  outline: none;
-}
-form textarea {
-  min-height: 2.9em;
-  overflow-y: hidden;
-}
-form textarea::-webkit-scrollbar {
-  display: none;
-}
-form select:hover {
-  background: #f4f4f4;
-  cursor: pointer;
-}
-form option {
-  height: 1.5em;
-}
-form [class*='col-'] {
-  margin-bottom: 1em;
-}
-form [class*='col-']:last-child {
-  margin-bottom: .5em;
-}
-form [class*='col-']:nth-last-child(2) {
-  margin-bottom: .5em;
-}
-form .button {
-  width: auto;
-}
 .cards {
   padding: 2em 0;
 }
@@ -223,16 +128,16 @@ form .button {
   padding-bottom: 2em;
   height: 100%;
 }
-.cards [class*='col-'] .wrapper div {
+.cards [class*='col-'] .wrapper div:not(.btn) {
   position: relative;
   padding: 0 .9em;
   padding-bottom: 1.8em;
 }
-.cards [class*='col-'] .wrapper div h2 {
+.cards [class*='col-'] .wrapper div:not(.btn) h2 {
   margin: 1em 0 0 0;
   padding: 0;
 }
-.cards [class*='col-'] .wrapper div p {
+.cards [class*='col-'] .wrapper div:not(.btn) p {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -240,13 +145,14 @@ form .button {
   text-overflow: ellipsis;
   margin: .5em 0;
 }
-.cards [class*='col-'] .wrapper .button {
+.cards [class*='col-'] .wrapper .btn {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 30px);
-  margin-bottom: 15px;
+  margin-bottom: 2.5em;
+  width: auto;
 }
 .cards [class*='col-'] .wrapper:hover {
   box-shadow: 0 5px 15px #d8d8d8;
@@ -312,10 +218,6 @@ form .button {
   display: block;
   text-align: center;
 }
-.offre .button {
-  margin-top: .4em;
-  margin-bottom: 1em;
-}
 .offre [class*='col-'] img {
   max-width: 100%;
 }
@@ -352,7 +254,7 @@ form .button {
 #business [class*='col-'] .wrapper {
   box-shadow: none !important;
   border: none !important;
-  padding-bottom: 2em;
+  padding-bottom: 4em;
 }
 #business h2 {
   margin: 1em 1em 0 1em;
@@ -382,7 +284,7 @@ form .button {
   background-blend-mode: luminosity;
   border-radius: 10px;
 }
-#business div,
+#business div:not(.btn),
 #business .wrapper {
   padding-bottom: .7em;
 }
@@ -390,11 +292,6 @@ form .button {
 #business .row,
 #business [class*='col-'] {
   padding-bottom: 0;
-}
-#business .button {
-  width: auto;
-  display: inline-block;
-  position: relative;
 }
 #business .img-wrapper {
   padding: 0!important;
@@ -482,16 +379,33 @@ form .button {
   color: #898888;
 }
 #ref .owl-carousel #arrow-prev {
-  left: 0;
+  left: 20px;
 }
 #ref .owl-carousel #arrow-next {
   right: 0;
 }
-#form-bottom {
-  display: block;
-  position: relative;
-  top: -5em;
-  visibility: hidden;
+.content {
+  padding: 2em 0;
+  background: #f8f8f8;
+}
+#faq h2 {
+  width: 100%;
+  text-align: center;
+}
+#faq .question {
+  background: #fff;
+  margin-bottom: 1em;
+  padding: 2em;
+}
+#faq .question h3 {
+  color: #505a9b !important;
+  font-size: 1.4em !important;
+  margin: 0;
+  margin-bottom: 1em;
+  font-style: normal !important;
+}
+#faq .question li {
+  line-height: 1.5em;
 }
 #contact {
   background-color: #fcfcfc;
@@ -503,83 +417,6 @@ form .button {
 }
 #contact #logo_dac {
   padding-top: 4em;
-}
-#contact #the-form-bottom {
-  padding-bottom: 1em;
-  border: solid 1px #d8d8d8;
-}
-#contact #the-form-bottom input[type=text],
-#contact #the-form-bottom select {
-  height: 2.5em;
-  font-size: 1.02em;
-  border-bottom: solid 2px #b4b3b3;
-}
-#contact #the-form-bottom .button {
-  height: 2.5em;
-  font-size: 1.05em;
-  width: 100%;
-  margin-top: 1em;
-  background: #bf3b2b;
-}
-#contact #the-form-bottom .button:hover {
-  background: #fff;
-  color: #bf3b2b;
-}
-#contact #the-form-bottom .form-header {
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 0!important;
-  display: block;
-  width: 100%;
-  background-color: #bf3b2b;
-  padding-right: .3em;
-  margin: .8em;
-  height: 3em;
-  font-size: 1.1em;
-  letter-spacing: 1px;
-  color: #fff;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding-left: 30px;
-  line-height: 3.3em;
-}
-#contact #the-form-bottom h2 {
-  margin-top: 1em;
-}
-#contact #phone {
-  color: #bf3b2b;
-  font-weight: 900;
-  font-size: 1.3em;
-  line-height: 1.6em;
-}
-#contact i {
-  text-transform: lowercase;
-  font-size: .9em;
-  font-weight: 400;
-  color: #8b8b8b;
-  padding-left: .5em;
-}
-#contact #phone-form-2 {
-  background: none;
-  max-width: initial;
-}
-#contact #phone-form-2 input,
-#contact #phone-form-2 button {
-  margin: 2em 0;
-}
-#contact #phone-form-2 input {
-  width: initial;
-  padding-left: 2em;
-  z-index: 1;
-  position: relative;
-  height: 2.87em;
-}
-#contact #phone-form-2 img {
-  margin-right: -1.4em;
-  opacity: .5;
-  z-index: 2;
-  position: relative;
 }
 #contact a {
   display: block;
@@ -692,9 +529,6 @@ form .button {
   .popup-inner {
     width: 400px;
   }
-  form {
-    max-width: initial!important;
-  }
   #difference .elt [class*='col-']:nth-child(2):before,
   #difference .elt [class*='col-']:nth-child(3):before,
   #difference .elt [class*='col-']:nth-child(6):before,
@@ -726,13 +560,6 @@ form .button {
   h2 {
     border: none;
   }
-  button,
-  .button {
-    height: 3.3em;
-    line-height: 3.3em;
-    width: 100%;
-    padding: 0 1em;
-  }
   form .button {
     width: 100% !important;
   }
@@ -762,207 +589,4 @@ form .button {
   width: 33.33333333%;
 }
 /* GFORM CUSTOM */
-#the-form-bottom {
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-  padding-bottom: 1em;
-  padding-top: 1.3em;
-  background: #fff!important;
-  border: solid 1px #c2c2c2;
-}
-#the-form-bottom .form-header {
-  display: inherit !important;
-}
-#the-form-bottom .form-header {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  width: 100%;
-  background-color: #bf3b2b;
-  color: #fff;
-}
-#the-form-bottom h3 {
-  line-height: .6em;
-  padding-top: .3em;
-  text-transform: uppercase;
-}
-#the-form-bottom .form-container {
-  margin-top: 2em;
-}
-.gform_fields {
-  padding: 0;
-  list-style: none;
-  -webkit-margin-after: 0em;
-}
-.gform_fields [class*='col-'] {
-  display: inline-block;
-}
-.gform_footer {
-  text-align: center;
-}
-.validation_error {
-  padding: 0em 1em 0em 1em;
-  color: #00d0ff!important;
-}
-.validation_message {
-  color: red;
-  font-style: italic;
-  font-size: .9em;
-  padding-left: .4em;
-}
-.gform_footer input[type="submit"] {
-  min-width: 9em;
-}
-.gform_footer > .gform_ajax_spinner {
-  position: absolute;
-  margin-left: 1em;
-  margin-top: 1em;
-}
-#gform_confirmation_message_9 {
-  color: #31d912;
-  font-size: 1.2em;
-  text-align: center;
-  font-weight: bold;
-  padding: 0 3em;
-}
-#gform_confirmation_message_9:before {
-  content: "";
-  background-image: url(res/img/ok-icon-01.svg);
-  height: 40px;
-  width: 40px;
-  text-align: center;
-  margin-top: calc(-40.5em);
-  position: absolute;
-  left: calc(30%);
-}
-#gform_confirmation_message_9 {
-  padding-bottom: 1em;
-}
-.gform_fields {
-  padding: 0;
-  list-style: none;
-  -webkit-margin-after: 0em;
-}
-.gform_fields [class*='col-'] {
-  display: inline-block;
-}
-.gform_footer {
-  text-align: center;
-  padding-bottom: 1em;
-}
-.validation_error {
-  padding: 0em 1em 0em 1em;
-  color: #00d0ff!important;
-}
-.gform_footer input[type="submit"] {
-  min-width: 9em;
-}
-.gform_footer > .gform_ajax_spinner {
-  position: absolute;
-  margin-left: 1em;
-  margin-top: 1em;
-  display: none!important;
-}
-#gform_confirmation_message_9 {
-  color: #31d912;
-  font-size: 1.2em;
-  text-align: center;
-  font-weight: bold;
-  padding: 0 3em;
-  font-size: .9em;
-  padding: 3em 2em 1em 2em;
-  padding: 2em 2em 1em 2em;
-  margin: 2em;
-  margin-top: 3em;
-  padding-bottom: 1em;
-}
-#gform_confirmation_message_9:before {
-  content: "";
-  background-image: url(res/img/ok-icon-01.svg);
-  height: 40px;
-  width: 40px;
-  text-align: center;
-  margin-top: calc(-.5em - 40px);
-  position: absolute;
-  left: calc(50% - 20px);
-}
-#gform_confirmation_message_9:before {
-  display: none;
-}
-#gform_confirmation_message_9:before {
-  top: initial;
-}
-#gform_wrapper_9 {
-  padding: 0;
-}
-#gform_wrapper_9 .validation_error {
-  display: none;
-}
-#gform_wrapper_9 input[type=submit] {
-  transition: background .2s ease;
-  cursor: pointer;
-  background: #bf3b2b;
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 700;
-  padding: 0 .9em;
-  border: none;
-  height: 2.3em;
-  width: auto;
-  display: inline-block;
-  line-height: 2.3em;
-  outline: solid 2px #bf3b2b;
-}
-#gform_wrapper_9 input[type=submit]:hover {
-  background: #fff;
-}
-#gform_wrapper_9 input {
-  padding: 0px 10px;
-}
-#gform_wrapper_9 textarea {
-  width: 100% !important;
-  overflow: scroll;
-}
-.gform_wrapper ul li {
-  width: 100%!important;
-}
-.gform_wrapper ul li input,
-.gform_wrapper ul li select {
-  width: 100%!important;
-}
-#gform_confirmation_message_9 {
-  background: initial!important;
-  font-size: 1.2em!important;
-}
-.validation_message {
-  position: initial;
-  margin-bottom: 1em;
-}
-#gform_9 {
-  padding: 0 15px!important;
-}
-.gfield {
-  padding: 0!important;
-  margin-top: 11px!important;
-}
-.gfield_error {
-  background: none!important;
-}
-.gform_footer {
-  margin: 0!important;
-  padding: 0 4px!important;
-}
-#input_9_1,
-#input_9_4 {
-  width: 93%!important;
-}
-@media (max-width: 768px) {
-  #input_9_1,
-  #input_9_4 {
-    width: 100%!important;
-  }
-}
 /* GFORM CUSTOM END */

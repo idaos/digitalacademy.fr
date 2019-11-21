@@ -7,7 +7,6 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900&display=swap" rel="stylesheet">
         <title><?php wp_title('|', true, 'right'); ?></title>
         <?php wp_head(); ?>
         <!-- Google Tag Manager 
@@ -49,7 +48,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div id="kz-menu-wrapper" class="row col-xs-12">
                 <div id="kz_header">
                     <div class="container relative">
-                        <a href="/demande-de-catalogue/">
+                        <a href="/demande-de-catalogue/" id="dl-catalogue-btn">
                             <div class="btn btn-xs btn-gray">
                                 Télécharger le catalogue
                             </div>
@@ -76,11 +75,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <svg class="" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                  viewBox="0 0 18.8 15.9" style="enable-background:new 0 0 18.8 15.9;" xml:space="preserve">
                                 <style type="text/css">
-                                    .st0{fill:#6D6D6D;}
+                                    .st0{fill:#8e8e8e;}
                                 </style>
-                                <rect class="r1 st0" width="18.8" height="2.3"/>
-                                <rect y="13.6" class="r2 st0" width="18.8" height="2.3"/>
-                                <rect y="6.8" class="r3 st0" width="18.8" height="2.3"/>
+                                <rect class="r1 st0" width="18.8" height="1.5"/>
+                                <rect y="13.6" class="r2 st0" width="18.8" height="1.5"/>
+                                <rect y="6.8" class="r3 st0" width="18.8" height="1.5"/>
                             </svg>
                         </label>
                         <input type="checkbox" id="tm">
@@ -91,6 +90,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
         </header><!-- Header end -->
-
 
         <div class="site-container clearfix">  

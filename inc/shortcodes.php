@@ -41,7 +41,7 @@ function digitalacademy_shortcode_callToAction( $atts ) {
 		$class = 'hidden-xs';
 	}
 
-	$cta = '<div class="full-width full-width-contact bg-orange cta"><p class="clearfix"><span class="m-100 ' . $class . '">' . $a['texte'] . '</span> <a href="' . $a['url'] . '" class="btn-white">' . $a['texte_bouton'] . '</a></p></div>';
+	$cta = '<div class="full-width full-width-contact bg-orange cta"><p class="clearfix"><span class="m-100 ' . $class . '">' . $a['texte'] . '</span> <a href="' . $a['url'] . '" class="btn btn-white margin0">' . $a['texte_bouton'] . '</a></p></div>';
 
 	return $cta;
 }
@@ -280,7 +280,7 @@ function digitalacademy_shortcode_businessCase( $atts ) {
 			$out .= '<p>' . wp_trim_words( get_field( 'objectif' ), 10 ) . '</p>';
 			$out .= '</div>';
 			$out .= '<div class="text-center btn-wrapper_KHvejn">';
-			$out .= '<a href="' . get_post_type_archive_link( 'businesscase' ) . '#' . $post->post_name . '" class="btn-gray">En savoir plus</a>';
+			$out .= '<a href="' . get_post_type_archive_link( 'businesscase' ) . '#' . $post->post_name . '" class="btn btn-gray margin0">En savoir plus</a>';
 			$out .= '</div>';
 			$out .= '</div>';
 			$out .= '</div>';
@@ -289,7 +289,7 @@ function digitalacademy_shortcode_businessCase( $atts ) {
 		$out .= '</div>';
 		$out .= '</div>';
 
-		$out .= '<div class="text-center btn_JHVKVf"><a href="' . get_bloginfo( 'url' ) . '/etude-cas/" class="btn-gray m2020 mt0">Voir tous les business cases</a></div>';
+		$out .= '<div class="text-center btn_JHVKVf"><a href="' . get_bloginfo( 'url' ) . '/etude-cas/" class="btn btn-red margin0 m2020 mt0">Voir tous les business cases</a></div>';
 
 		return $out;
 	}
@@ -349,7 +349,7 @@ function digitalacademy_shortcode_temoignages( $atts ) {
 		$out .= '</div>';
 
 		if ( $a['lien'] ) {
-			$out .= '<div class="text-center"><a href="' . get_field( 'page_temoignages', 'option' ) . '" class="btn-gray">Voir tous les témoignages</a></div>';
+			$out .= '<div class="text-center"><a href="' . get_field( 'page_temoignages', 'option' ) . '" class="btn btn-red margin0">Voir tous les témoignages</a></div>';
 		}
 
 		$out .= '</div>';

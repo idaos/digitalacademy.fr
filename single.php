@@ -63,7 +63,7 @@
                             <div class="offre-cta" style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/Offre-de-formation-Digital-Academy.jpg')">
                                 <p>Découvrez notre offre de formation</p>
                                 <p>DigitalAcademy, l'institut de formation qui fait vivre le digital en entreprise</p>
-                                <a href="https://digitalacademy.fr/">Découvrir</a>
+                                <a class="btn btn-sm" style="line-height: 2.1em;" href="https://digitalacademy.fr/">Découvrir</a>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                                 <p class="header-infos"><?php echo get_the_date(); ?> | <?php the_author(); ?></p>
                                 <p class="p-cut-3"><?php the_excerpt(); ?></p>
                                 <div class="button-wrapper">
-                                    <a href="<?php the_permalink(); ?>" class="btn-orange" rel="nofollow">Lire la suite</a>
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red absolute100" rel="nofollow">Lire la suite</a>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
         <div class="offre-cta" style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/Offre-de-formation-Digital-Academy.jpg')">
             <p>Découvrez notre offre de formation</p>
             <p>DigitalAcademy, l'institut de formation qui fait vivre le digital en entreprise</p>
-            <a href="https://digitalacademy.fr/">Découvrir</a>
+            <a class="btn btn-sm" style="line-height: 2.1em;" href="https://digitalacademy.fr/">Découvrir</a>
         </div>
     </div>
     <?php related_posts(); ?>		
@@ -121,11 +121,10 @@
         <div class="row">
             <div class="col-xs-12">
                 <br><br><br>
-                <h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
-                <h2>Nos références clients en formation</h2>
+                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
                 <hr>
                 <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
-                <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
+                <a href="/type-reference/intra-entreprise/"><div class="btn btn-xs btn-red">Voir toutes nos références</div></a>
                 <br><br><br>
             </div>
         </div>

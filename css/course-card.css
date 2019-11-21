@@ -61,23 +61,23 @@
   background-color: #32a6ea;
   content: "Top formation !";
 }
-#formations [class*='col-'] .wrapper div {
+#formations [class*='col-'] .wrapper > div {
   position: relative;
   padding: 0 .9em;
   padding-bottom: 1.8em;
 }
-#formations [class*='col-'] .wrapper div a > h4 {
+#formations [class*='col-'] .wrapper > div a > h4 {
   color: #515151;
 }
-#formations [class*='col-'] .wrapper div a > h4:hover {
+#formations [class*='col-'] .wrapper > div a > h4:hover {
   color: #bf3b2b;
 }
-#formations [class*='col-'] .wrapper div h4 {
+#formations [class*='col-'] .wrapper > div h4 {
   margin-top: .6em;
   font-size: 1.2em;
   text-transform: uppercase;
 }
-#formations [class*='col-'] .wrapper div p {
+#formations [class*='col-'] .wrapper > div p {
   padding-bottom: 4.9em;
   flex-grow: 1;
   flex-shrink: 1;
@@ -86,21 +86,21 @@
   text-overflow: ellipsis;
   margin-top: .5em;
 }
-#formations [class*='col-'] .wrapper div div {
+#formations [class*='col-'] .wrapper > div div {
   padding-bottom: 1.3em;
 }
-#formations [class*='col-'] .wrapper div span {
+#formations [class*='col-'] .wrapper > div span {
   padding: 1em 0;
   display: inline-block;
   vertical-align: middle;
   text-align: left;
   line-height: 1.3em;
 }
-#formations [class*='col-'] .wrapper div span i,
-#formations [class*='col-'] .wrapper div span b {
+#formations [class*='col-'] .wrapper > div span i,
+#formations [class*='col-'] .wrapper > div span b {
   padding-left: .7em;
 }
-#formations [class*='col-'] .wrapper div img {
+#formations [class*='col-'] .wrapper > div img {
   vertical-align: middle;
   max-height: 4em;
   width: auto;
@@ -229,7 +229,7 @@
   font-weight: bold;
 }
 #formations {
-  padding: 2em 0;
+  padding: 1em 0 0 0;
 }
 #formations [class*='col-'] .wrapper div p {
   margin-bottom: 1.5em;
@@ -282,9 +282,6 @@
 }
 #nos-formations input[type='checkbox'] {
   display: none;
-}
-#formations .btn {
-  line-height: 3.2em;
 }
 /* Line Clamp */
 .line-clamp {

@@ -5,8 +5,8 @@
 
 <div id="datadock_subheader">
     <div class="container">
-        <span>Notre organisme de formation est référencé Datadock.</span>
-        <a href="https://www.digitalacademy.fr/digitalacademy-est-certifiee-datadock/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/info-icon.svg" width="18" alt="info"></a>
+        <span>Notre organisme <span class="hidden-xs">de formation&nbsp;</span>est référencé Datadock.</span>
+        <a title="Plus d'info sur Datadock" href="https://www.digitalacademy.fr/digitalacademy-est-certifiee-datadock/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/info-icon.svg" width="18" alt="info"></a>
     </div>
 </div>
 
@@ -26,19 +26,18 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <!--
-<a href="<?php //echo get_page_link(2649); ?>">
-<img id="reference-datadock" src="<?php //echo get_stylesheet_directory_uri(); ?>/images/reference-datadock.png" alt="">
-</a>
--->
                     </div>
                     <div class="col-lg-6">
-                        <h3>Faites vivre le digital dans votre entreprise</h3>
-                        <h2>Formation au digital</h2>
+                        <span class="reverse">   
+                            <a href="<?php echo get_page_link(270); ?>">
+                                <h1>Formation au digital</h1>
+                            </a>
+                            <h3>Faites vivre le digital dans votre entreprise</h3>
+                        </span>
                         <hr>
                         <p>L’offre de la DigitalAcademy© met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
-                        <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red">Découvrir nos solutions</div></a>
-                        <a class="contact-btn" href="#contact" value="Autre"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
+                        <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red marginR">Découvrir nos solutions</div></a>
+                        <a title="Bouton de contact" class="contact-btn" href="#contact" value="Autre"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
                     </div>
                 </div>
             </div>
@@ -55,12 +54,16 @@
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/offre-digital-learning.jpg" alt="">
                 </div>
                 <div class="col-sm-6 col-sm-pull-6 col-md-6 col-lg-6">
-                    <h3>Numérisez vos formations dans nos studios</h3>
-                    <h2>Digital Learning</h2>
+                    <span class="reverse">
+                        <a title="Solutions de formation" href="<?php echo get_page_link(623); ?>">
+                            <h2>Digital Learning</h2>
+                        </a>
+                        <h3>Numérisez vos formations dans nos studios</h3>
+                    </span>
                     <hr>
                     <p>Le Digital Learning intègre des technologies digitales dans les solutions de formation au service de la performance. Pour favoriser une montée en compétences rapide et continue des apprenants et prolonger le processus d’apprentissage, ces solutions de formation multi-plateformes (desktop, smartphones, tablettes…) sont les parfaits compléments d’un programme présentiel. La DigitalAcademy s’est entourée de partenaires experts dans ces applicatifs spécialisés dans la  distribution en ligne des contenus de formation.</p>
-                    <a href="<?php echo get_page_link(623); ?>"><div class="btn btn-blue">Découvrir cette solution</div></a>
-                    <a class="contact-btn" href="#contact" value="Créer un programme en Digital Learning (Mooc, Spoc...)"><div class="btn btn-blue-alt">Demander une démo</div></a>
+                    <a title="Solutions de formation" href="<?php echo get_page_link(623); ?>"><div class="btn btn-blue marginR">Découvrir cette solution</div></a>
+                    <a title="Bouton de contact" class="contact-btn" href="#contact" value="Créer un programme en Digital Learning (Mooc, Spoc...)"><div class="btn btn-blue-alt">Demander une démo</div></a>
                 </div>
             </div>
         </div>
@@ -75,16 +78,20 @@
         </svg>
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-6">
+                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/catalogue-des-formations.jpg" alt="">
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-6">
-                    <h3>Faites vivre le digital dans votre entreprise</h3>
-                    <h2>Catalogue des formations</h2>
+                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                    <span class="reverse">   
+                        <a title="Les formations DigitalAcademy" href="/formations/">
+                            <h2>Catalogue des formations</h2>
+                        </a>
+                        <h3>Faites vivre le digital dans votre entreprise</h3>
+                    </span>
                     <hr>
                     <p>Retrouvez en ligne notre catalogue de plus de 30 formations sur le digital, réparties dans les 6 thématiques suivantes : Réseaux Sociaux &amp; E-réputation, Stratégie de Marketing digital, Contenus Web, Webmarketing et E-publicité, Entreprise 2.0, Mobile &amp; E-commerce</p>
-                    <a href="<?php echo get_page_link(318); ?>"><div class="btn btn-red">Découvrir nos formations</div></a>
-                    <a href="<?php echo get_page_link(213); ?>"><div class="btn btn-red-alt">Télécharger le Catalogue</div></a>
+                    <a title="Les formations DigitalAcademy" href="/formations/"><div class="btn btn-red marginR">Découvrir nos formations</div></a>
+                    <a title="Télécharger le catalogue en pdf" href="<?php echo get_page_link(213); ?>"><div class="btn btn-red-alt">Télécharger le Catalogue</div></a>
                 </div>
             </div>
         </div>
@@ -103,10 +110,14 @@
             <div class="row">
                 <div class="col-xs-12">
                     <br><br><br>
-                    <h3>Un catalogue de plus de 30 formations digitales</h3>
-                    <h2>Nos formations digitales</h2>
+                    <span class="reverse">
+                        <a title="Les formations DigitalAcademy" href="/formations/">
+                            <h2>Nos formations digitales</h2>
+                        </a>
+                        <h3>Un catalogue de plus de 30 formations digitales</h3>
+                    </span>
                     <hr>
-                    <form action="<?php echo get_page_link(318); ?>" method="get">
+                    <form action="/formations/" method="get">
                         <input id="searchBar" type="text" name="q" placeholder="Rechercher une formation...">
                         <span id="searchIcon"><input class="btn btn-red" type="submit" value=""></span>
                     </form>
@@ -121,11 +132,15 @@
             <div class="row">
                 <div class="col-xs-12">
                     <br><br>
-                    <h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
-                    <h2>Nos références clients en formation</h2>
+                    <span class="reverse">
+                        <a title="Voir toutes nos références" href="/type-reference/intra-entreprise/">
+                            <h2>Nos références clients en formation</h2>
+                        </a>
+                        <h3 style="margin-top: 2em;">Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
+                    </span>
                     <hr>
                     <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
-                    <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
+                    <a title="Voir toutes nos références" href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
                     <br><br><br><br><br>
                 </div>
             </div>
@@ -151,8 +166,10 @@
         <div class="container">
             <div class="row row-same-height">
                 <div class="col-md-6 col-md-push-6">
-                    <h3>Franck Perrier présente la Digital Academy</h3>
-                    <h2>la Digital Academy <span class="noWrap">en 30 secondes</span></h2>
+                    <span class="reverse">
+                        <h2>la Digital Academy <span class="noWrap">en 30 secondes</span></h2>
+                        <h3>Franck Perrier présente la Digital Academy</h3>
+                    </span>
                     <hr>
                     <blockquote>
                         <p>Voir une équipe appliquer au quotidien dans son entreprise nos enseignements est la preuve de notre mission accomplie.</p>
@@ -187,8 +204,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h3>Ce que disent nos apprenants de la DigitalAcademy</h3>
-                    <h2>témoignages</h2>
+                    <span class="reverse">
+                        <h2>témoignages</h2>
+                        <h3>Ce que disent nos apprenants de la DigitalAcademy</h3>
+                    </span>
                     <hr>
                     <br><p>Retrouvez les points de vue des apprenants qui comentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
                 </div>
@@ -235,9 +254,9 @@
                 </div>
             </div>
         </div>
-        <a href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
+        <a title="Voiur tous nos temoignages" href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
     </section>
-    <section id="contact" >
+    <section id="contact"><span id="contact-anchor"></span>
         <div class="container">
             <div class="row row-same-height">
                 <div class="col-md-5 col-lg-7 valign">
@@ -245,25 +264,21 @@
                         <div class="row alignCenter">
                             <span><img id="logo_dac" src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
                             <b>Nos conseillers vous répondent au :</b>
-                            <span id="phone"><a href="tel:0977215321">09 77 21 53 21</a></span>
+                            <span id="phone"><a title="Bouton d'appel téléphonique" href="tel:0977215321">09 77 21 53 21</a></span>
                             <i>appel non surtaxé du lundi au vendredi de 9h30 à 19h</i>
                             <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
-                            <i>ou par e-mail</i>
-                            <br><a id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a> 
+                            <i style="margin-top: 2em;">ou par e-mail</i>
+                            <a title="Nous envoyer un email" id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a> 
                         </div>
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
-                    <div class="col-12 form-header"><br><h3 class="col-12">Contactez-nous !</h3><br></div>
                     <div class="container">
                         <div class="row">
                             <div class="col-12"></div>
                             <div class="container form-container">
                                 <div class="row">
-                                    <h3>Vous souhaitez en savoir plus sur nos offres de formation ?</h3>
-                                    <h2>Contactez-nous </h2>
-                                    <hr>
-                                    <?php echo do_shortcode('[gravityform id="5" title="false" description="false" ajax="true"]'); ?>
+                                    <?php echo do_shortcode('[gravityform id="11" title="false" description="false" ajax="true"]'); ?>
                                 </div>
                             </div>
                         </div>

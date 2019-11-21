@@ -152,6 +152,16 @@
   font-size: .9em;
   border-bottom: solid 1px #eee;
 }
+#kz-menu-wrapper > .container:after {
+  background: #fff;
+  content: none;
+  height: 4.6em;
+  width: calc(100% - 5em);
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
 #kz-menu-wrapper a {
   text-decoration: none;
 }
@@ -163,6 +173,7 @@
 }
 #kz-menu-wrapper > ul.main-menu {
   display: inline-block;
+  z-index: 1;
 }
 #kz-menu-wrapper .drop-icon {
   margin-left: 1em;
@@ -197,7 +208,11 @@
 }
 @media only screen and (max-width: 1200px) {
   #kz-menu-wrapper {
+    background: rgba(255, 255, 255, 0.7);
     /* Burger Menu */
+  }
+  #kz-menu-wrapper > .container:after {
+    content: '';
   }
   #kz-menu-wrapper #social-icons {
     display: inherit;
@@ -282,7 +297,7 @@
 }
 .burgerToCross rect.r1 {
   transform: rotate(-45deg);
-  transform-origin: 87% 39%;
+  transform-origin: 87% 35%;
 }
 .burgerToCross rect.r2 {
   transform: rotate(45deg);
@@ -299,7 +314,7 @@
 }
 #kz_header .btn-gray,
 #kz_header i {
-  margin-right: 1em !important;
+  margin-left: .5em !important;
   white-space: nowrap;
   vertical-align: middle;
 }
@@ -308,7 +323,7 @@
 }
 #kz_header #btn-phone:before {
   margin-left: -1.45em;
-  margin-top: .7em;
+  margin-top: .2em;
   display: block;
   content: '';
   background-image: url('../images/phone-icon.svg');
@@ -323,13 +338,17 @@
   position: absolute;
   right: 0;
   top: 0;
+  padding-right: 15px;
 }
 @media (max-width: 1200px) {
   #kz_header i {
     display: none;
   }
-  #kz_header .btn {
+  #kz_header #dl-catalogue-btn {
     display: none;
+  }
+  #kz_header #btn-phone {
+    position: absolute;
   }
   #kz_header .to-right {
     position: relative;
@@ -342,6 +361,9 @@
   }
   #kz_header .btn-red {
     float: right;
+  }
+  #kz_header .to-right {
+    padding-right: 0;
   }
   #logo {
     z-index: 10;
@@ -393,7 +415,7 @@
   background: #1f7efb;
   height: 3em;
   color: #fff;
-  line-height: 3em;
+  line-height: 2.7em;
 }
 #datadock_subheader a > img {
   margin-left: .5em;

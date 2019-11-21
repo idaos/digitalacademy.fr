@@ -20,7 +20,7 @@
   font-size: 1.1em!important;
 }
 #references .wrapper {
-  padding: 3em 0 !important;
+  padding: 1em 0 0 0 !important;
 }
 #references a {
   text-align: center;
@@ -49,7 +49,7 @@
   margin: 0 -32px;
 }
 .slick-arrow {
-  text-indent: -9999999px;
+  color: rgba(0, 0, 0, 0);
 }
 .slick-track {
   display: flex !important;
@@ -95,9 +95,6 @@
   }
   #references .slick-next {
     right: 0 !important;
-  }
-  #top-formations {
-    padding-bottom: 5em !important;
   }
   #nos-formations,
   #references .wrapper {

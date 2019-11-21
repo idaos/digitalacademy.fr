@@ -38,7 +38,7 @@
 								<?php // Start the Loop.
 								$i = 0;
 								while( have_posts() ) : the_post(); ?>
-								<div class="col-sm-3 bloc-formation">
+								<div class="col-sm-3 bloc-formation matchHeight-child">
 									<a href="<?php echo esc_url( get_field( 'url' ) ); ?>" target="_blank">
 										<div class="container-bg-white clearfix">
 											<?php the_post_thumbnail(); ?>

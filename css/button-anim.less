@@ -1,0 +1,40 @@
+
+.spinner{
+    fill:#fff;
+    height: 16px;
+    animation: rotating 2s linear infinite;
+    display: inline-block;
+}
+.form-valid, .form-error{
+    padding: 2em;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-valid{
+    background: #c2f4c3;
+}
+.form-error{
+    background: #f4c2c2;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+//-------------------------------------
+.btn{
+    text-align: center;
+}
+form{
+    transition: opacity .6s ease;
+    min-width: 5em;
+    background: #cacaca;
+}
