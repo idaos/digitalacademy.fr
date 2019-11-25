@@ -411,12 +411,22 @@ heading2 img {
   background-color: #fcfcfc;
   padding: 3em 0 3em 0;
 }
+@media only screen and (max-width: 991px) {
+  #contact {
+    padding: 0em;
+  }
+}
 #contact h2 {
   font-size: 140%;
   margin-bottom: 0;
 }
 #contact #logo_dac {
   padding-top: 4em;
+}
+@media only screen and (max-width: 991px) {
+  #contact #logo_dac {
+    padding-top: 0em;
+  }
 }
 #contact a {
   display: block;
@@ -588,5 +598,3 @@ heading2 img {
 .footer .col-sm-4 {
   width: 33.33333333%;
 }
-/* GFORM CUSTOM */
-/* GFORM CUSTOM END */

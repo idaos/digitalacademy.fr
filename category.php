@@ -29,7 +29,7 @@
                         while ( have_posts() ) : the_post();
                         ?>
                         <div class="col-sm-6 col-md-4" style="margin-bottom:2em;">
-                            <div class="thewrapper container-border">
+                            <div class="thewrapper container-border" style="max-height: 728px;">
                                 <a href="<?php the_permalink(); ?>" rel="nofollow">											
                                     <?php if ( has_post_thumbnail() ): ?>												
                                     <?php $post_thumbnail_id = get_post_thumbnail_id( $post ); ?>	
@@ -47,8 +47,7 @@
                                         | <?php the_author(); ?></p>
 
                                     <p><?php the_excerpt(); ?></p>
-                                    <a href="<?php the_permalink(); ?>" class="btn-orange" rel="nofollow">Lire
-                                        la suite</a>
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red" style="width:calc(100% - 3em);position: absolute;bottom: 0;" rel="nofollow">Lire la suite</a>
                                 </div>
                             </div>
                         </div>

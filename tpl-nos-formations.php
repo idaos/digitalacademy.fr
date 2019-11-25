@@ -77,7 +77,7 @@ get_header();
                             </div>
                             <div>
                                 <input type="checkbox" value="#2ecc71" ng-model="thema.t5" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-5" name="thematique-checkbox-5">
-                                <label for="thematique-checkbox-5" class="button btn btn-md">ENTREPRISE 2.0</label>
+                                <label for="thematique-checkbox-5" class="button btn btn-md">RESSOURCES HUMAINES 2.0</label>
                             </div>
                             <div>
                                 <input type="checkbox" value="#34495e" ng-model="thema.t6" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-6" name="thematique-checkbox-6">
@@ -126,7 +126,7 @@ name="thematique-checkbox-1"
                 <p ng-cloak animationend="scrolltoA" class="thema-t2" ng-show="thema.t2 == true">{{filtered.length}} résultats pour le filtre : <b>Stratégie de marketing digital</b></p>
                 <p ng-cloak animationend="scrolltoA" class="thema-t3" ng-show="thema.t3 == true">{{filtered.length}} résultats pour le filtre : <b>Site &amp; contenus web</b></p>
                 <p ng-cloak animationend="scrolltoA" class="thema-t4" ng-show="thema.t4 == true">{{filtered.length}} résultats pour le filtre : <b>Webmarketing &amp; e-publicité</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t5" ng-show="thema.t5 == true">{{filtered.length}} résultats pour le filtre : <b>Entreprise 2.0</b></p>
+                <p ng-cloak animationend="scrolltoA" class="thema-t5" ng-show="thema.t5 == true">{{filtered.length}} résultats pour le filtre : <b>Ressources humaines 2.0</b></p>
                 <p ng-cloak animationend="scrolltoA" class="thema-t6" ng-show="thema.t6 == true">{{filtered.length}} résultats pour le filtre : <b>Mobile &amp; e-commerce</b></p>
             </div>
             <div id="formations">
@@ -334,7 +334,7 @@ name="thematique-checkbox-1"
                                 return ['all', event.color].indexOf( jQuery('#thematique-checkbox-4').attr('value') ) >= 0
                             }
                             else if (jQuery('#thematique-checkbox-5').is(":checked")){
-                                jQuery('#selectedThema').html('ENTREPRISE 2.0');
+                                jQuery('#selectedThema').html('RESSOURCES HUMAINES 2.0');
                                 return ['all', event.color].indexOf( jQuery('#thematique-checkbox-5').attr('value') ) >= 0
                             }
                             else if (jQuery('#thematique-checkbox-6').is(":checked")){

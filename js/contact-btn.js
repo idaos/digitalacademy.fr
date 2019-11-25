@@ -24,7 +24,18 @@ jQuery( document ).ready(function() {
             if (href.startsWith("#") ){ // is an anchor (and not a link)
                 // anchor link
                 form_val = jQuery(this).attr('value');
-                jQuery('select option[value="'+ form_val +'"]').prop('selected', true); // select option in the contact form
+                jQuery('select option').each(function(index) {
+                    jQuery(this).removeAttr("selected");
+                });
+                jQuery('select option[value="'+ form_val +'"]').attr('selected','selected'); // select option in the contact form
+                
+                jQuery('.select-selected').html(form_val);
+                jQuery('.select-items .same-as-selected').removeClass('.same-as-selected');
+                jQuery('.select-items > div').each(function(index) {
+                    if ( jQuery(this).html() == form_val ){
+                        jQuery(this).addClass('.same-as-selected');
+                    }
+                });
             }
         });
     });

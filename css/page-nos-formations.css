@@ -9,6 +9,12 @@ h1 {
   font-size: 1.7em;
   margin: 0 !important;
 }
+@media only screen and (max-width: 767px) {
+  h1 {
+    margin: .5em 0 !important;
+    font-size: 1.3em!important;
+  }
+}
 hr {
   margin: 1em auto 0 auto;
   padding: 0 auto;
@@ -115,6 +121,7 @@ hr {
   text-align: center;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 #nos-formations .margin0 {
   margin: 0!important;
@@ -545,7 +552,7 @@ input::placeholder {
 #search-helper p {
   line-height: 3em;
   height: 3em;
-  margin: 0;
+  margin: 0 1em;
 }
 #search-helper p:first-child {
   background: #bb0303;

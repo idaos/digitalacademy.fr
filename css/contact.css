@@ -6,6 +6,15 @@
   max-width: 150px;
   margin-top: 10em;
 }
+@media only screen and (max-width: 767px) {
+  .dac-logo-svg img {
+    margin-top: 2em;
+    margin-left: 0!important;
+  }
+}
+.container-slider {
+  display: none !important;
+}
 #phone-number {
   font-size: 1.7em;
   font-weight: bold;
@@ -40,5 +49,3 @@ main {
 .vc_row-has-fill > div div {
   height: 100%!important;
 }
-/* GFORM CUSTOM */
-/* GFORM CUSTOM END */

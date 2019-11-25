@@ -135,56 +135,6 @@ h2{
 .disabled{
     display: initial!important;
 }
-//form{
-//    background: #fff;
-//    max-width: 500px;
-//
-//    label, input, select, textarea{
-//        width: 100%;
-//    }
-//    label{
-//        text-transform: uppercase;
-//        font-weight: 900;
-//        font-size: .8em;
-//        i{
-//            text-transform: lowercase;
-//            font-size: .9em;
-//            font-weight: 400;
-//            color: #8b8b8b;
-//            padding-left: .5em;
-//        }
-//    }
-//    input , select, textarea{
-//        margin-top: .6em;
-//        height: 2.5em;
-//        line-height: 2.5em;
-//        border: solid 1px #bcbcbc;
-//        padding-left: .5em;
-//        &:focus{outline: none;}
-//        &:active{outline: none;}
-//    }
-//    textarea{
-//        min-height: 2.9em;
-//        overflow-y: hidden;
-//        &::-webkit-scrollbar {
-//            display: none;
-//        }
-//    }
-//    select:hover{
-//        background: #f4f4f4;
-//        cursor: pointer;
-//    }
-//    option{
-//        height: 1.5em;
-//    }
-//    [class*='col-'] {
-//        margin-bottom: 1em;
-//        &:last-child{margin-bottom: .5em;}
-//        &:nth-last-child(2){margin-bottom: .5em;}
-//    }
-//}
-
-
 .cards{
     padding: 2em 0;
     h2{
@@ -505,73 +455,19 @@ h2{
 #contact{ 
     background-color: #fcfcfc;
     padding: 3em 0 3em 0;
+    @media only screen and (max-width: 991px){
+        padding:0em;
+    }
     h2{
         font-size: 140%;
         margin-bottom: 0;
     }
-    #logo_dac{padding-top:4em;}
-//    #the-form-bottom{
-//        padding-bottom: 1em;
-//        border: solid 1px #d8d8d8;
-//        input[type=text], select{
-//            height: 2.5em;
-//            font-size: 1.02em;
-//            border-bottom: solid 2px #b4b3b3;
-//        }
-//        .form-header{
-//            position: absolute;
-//            left: 0;
-//            top: 0;
-//            margin: 0!important;
-//            display: block;
-//            width: 100%;
-//            background-color: @color-dac;
-//            padding-right: .3em;
-//            margin: .8em;
-//            height: 3em;
-//            font-size: 1.1em;
-//            letter-spacing: 1px;
-//            color: #fff;
-//            font-weight: 700;
-//            text-transform: uppercase;
-//            padding-left:30px;
-//            line-height: 3.3em;
-//        }
-//        h2{margin-top: 1em;}
-//    }
-//    #phone{
-//        color: @color-dac;
-//        font-weight: 900;
-//        font-size: 1.3em;
-//        line-height: 1.6em;
-//    }
-//    i{
-//        text-transform: lowercase;
-//        font-size: .9em;
-//        font-weight: 400;
-//        color: #8b8b8b;
-//        padding-left: .5em;
-//    }
-//    #phone-form-2{
-//        background: none;
-//        max-width: initial;
-//        input, /*button*/{
-//            margin:2em 0;
-//        }
-//        input{
-//            width: initial;
-//            padding-left:2em;
-//            z-index: 1;
-//            position:relative;
-//            height: 2.87em;
-//        }
-//        img{
-//            margin-right: -1.4em;
-//            opacity: .5;
-//            z-index: 2;
-//            position:relative;
-//        }
-//    }
+    #logo_dac{
+        padding-top:4em;
+        @media only screen and (max-width: 991px){
+            padding-top:0em;
+        }
+    }
     a{
         display:block;
         color:@color-dac;
@@ -690,7 +586,7 @@ h2{
     .popup-inner {
         width:400px;
     }
-//    form{max-width:initial!important;}
+    //    form{max-width:initial!important;}
 
     #difference .elt{
         [class*='col-']:nth-child(2), 
@@ -743,9 +639,6 @@ h2{
     #triangle{display: none;}
 
 }
-
-
-
 /* WEBSITE DEPENDANT */
 
 .footer{
@@ -753,188 +646,3 @@ h2{
         width:33.33333333%;
     }
 }
-
-/* GFORM CUSTOM */
-//#the-form-bottom{
-//    width:100%;
-//    max-width: 500px;
-//    margin: auto;
-//    padding-bottom: 1em;
-//    padding-top: 1.3em;
-//    background: #fff!important;
-//    border: solid 1px #c2c2c2;
-//    .form-header {
-//        display: inherit !important;
-//    }
-//    .form-header{
-//        position: absolute;
-//        left: 0;
-//        top: 0;
-//        display: block;
-//        width: 100%;
-//        background-color: @color-dac;
-//        color:#fff;
-//    }
-//    h3{
-//        line-height: .6em;
-//        padding-top: .3em;
-//        text-transform: uppercase;
-//    }
-//    .form-container{
-//        margin-top: 2em;
-//    }
-//}
-//.gform_fields {
-//    padding: 0;
-//    list-style: none;
-//    -webkit-margin-after: 0em;
-//}
-//.gform_fields [class*='col-'] {
-//    display: inline-block;
-//}
-//.gform_footer {
-//    text-align: center;
-//}
-//.validation_error {
-//    padding: 0em 1em 0em 1em;
-//    color: #00d0ff!important;
-//}
-//.validation_message {
-//    color: red;
-//    font-style: italic;
-//    font-size: .9em;
-//    padding-left: .4em;
-//}
-//.gform_footer input[type="submit"] {
-//    min-width: 9em;
-//}
-//.gform_footer > .gform_ajax_spinner {
-//    position: absolute;
-//    margin-left: 1em;
-//    margin-top: 1em;
-//}
-//#gform_confirmation_message_9{
-//    color: #31d912;
-//    font-size: 1.2em;
-//    text-align: center;
-//    font-weight: bold;
-//    padding: 0 3em;
-//}
-//#gform_confirmation_message_9:before{
-//    content: "";
-//    background-image: url(res/img/ok-icon-01.svg);
-//    height: 40px;
-//    width: 40px;
-//    text-align: center;
-//    margin-top: calc(-.5em - 40px);
-//    position: absolute;
-//    left: calc(50% - 20px);
-//}
-//#gform_confirmation_message_9 {
-//    padding-bottom: 1em;
-//}
-//.gform_fields{
-//    padding: 0;
-//    list-style: none;
-//    -webkit-margin-after: 0em;
-//    [class*='col-'] {
-//        display: inline-block;
-//    }
-//}
-//.gform_footer{
-//    text-align: center;
-//    padding-bottom: 1em;
-//}
-//.validation_error{
-//    padding: 0em 1em 0em 1em;
-//    color: #00d0ff!important;
-//}
-//.gform_footer{
-//    input[type="submit"]{
-//        min-width: 9em;
-//    } 
-//}
-//.gform_footer > .gform_ajax_spinner{
-//    position: absolute;
-//    margin-left: 1em;
-//    margin-top: 1em;
-//    display: none!important;
-//}
-//#gform_confirmation_message_9{
-//    color: #31d912;
-//    font-size: 1.2em;
-//    text-align: center;
-//    font-weight: bold;
-//    padding: 0 3em;
-//    &:before{
-//        content: "";
-//        background-image: url(res/img/ok-icon-01.svg);
-//        height: 40px;
-//        width: 40px;
-//        text-align: center;
-//        margin-top: calc(~"-.5em - 40px");
-//        position: absolute;
-//        left: calc(~"50% - 20px");
-//    }
-//    font-size: .9em;
-//    &:before{
-//        display: none;
-//    }
-//    padding: 3em 2em 1em 2em;
-//    &:before{
-//        top: initial;
-//    }
-//    padding: 2em 2em 1em 2em;
-//    margin: 2em;
-//    margin-top: 3em;
-//    padding-bottom: 1em;
-//}
-//#gform_wrapper_9{
-//    .validation_error{display: none;}
-//    padding: 0;
-//    input[type=submit]{
-//        margin-right: 0;
-//    }
-//    input:not([type='submit']){
-//        padding: 0px 10px;
-//    }
-//    textarea{
-//        width: 100% !important;
-//        overflow: scroll;
-//    }
-//}
-//.gform_wrapper ul li {
-//    width: 100%!important;
-//    input,select{width:100%!important;}
-//}
-//#gform_confirmation_message_9{
-//    background: initial!important;
-//    font-size:1.2em!important;
-//}
-//.validation_message{
-//    position: initial;
-//    margin-bottom: 1em;
-//}
-//#gform_9{
-//    padding: 0 15px!important;
-//}
-//.gfield{
-//    padding: 0!important;
-//    margin-top: 11px!important;
-//}
-//.gfield_error{
-//    background: none!important;
-//}
-//.gform_footer{
-//    margin: 0!important;
-//    padding: 0 4px!important;
-//}
-//#input_9_1, #input_9_4{
-//    width: 93%!important;
-//}
-//@media (max-width: 768px) {
-//    #input_9_1, #input_9_4{
-//        width: 100%!important;
-//    }
-//}
-/* GFORM CUSTOM END */

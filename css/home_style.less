@@ -654,7 +654,7 @@ svg {
         padding-bottom: 5.2em !important;
     }
     #heading .bloc-1 [class^='col-']{
-        padding: 5em 1em 6em 1em !important;
+        padding: 2em 1em 4em 1em !important
     }
 }
 
@@ -711,6 +711,9 @@ svg {
 #contact{
     background-color: #fff;
     padding: 5em 0;
+    @media only screen and (max-width: 991px){
+        padding: 0;
+    }
     text-align: center;
     hr{
         width: 100%;
@@ -744,6 +747,9 @@ svg {
     }
     #adresse-email{
         margin-bottom: 3em;
+        @media only screen and (max-width: 991px){
+            margin-bottom: 0;
+        }
     }
     b{
         margin: .5em 0;

@@ -2,6 +2,7 @@
 html body #form-bottom form,
 html body #gform_wrapper_11 form,
 html body #gform_wrapper_9 form,
+html body #gform_wrapper_3 form,
 html body #gform_wrapper_2 form,
 html body #gform_wrapper_4 form,
 html body #gform_wrapper_1 form {
@@ -13,9 +14,21 @@ html body #gform_wrapper_1 form {
   margin: 2em 0;
   position: relative;
 }
+@media only screen and (max-width: 991px) {
+  html body #form-bottom form,
+  html body #gform_wrapper_11 form,
+  html body #gform_wrapper_9 form,
+  html body #gform_wrapper_3 form,
+  html body #gform_wrapper_2 form,
+  html body #gform_wrapper_4 form,
+  html body #gform_wrapper_1 form {
+    max-width: inherit;
+  }
+}
 html body #form-bottom form h3,
 html body #gform_wrapper_11 form h3,
 html body #gform_wrapper_9 form h3,
+html body #gform_wrapper_3 form h3,
 html body #gform_wrapper_2 form h3,
 html body #gform_wrapper_4 form h3,
 html body #gform_wrapper_1 form h3 {
@@ -24,12 +37,14 @@ html body #gform_wrapper_1 form h3 {
 html body #form-bottom form input::placeholder,
 html body #gform_wrapper_11 form input::placeholder,
 html body #gform_wrapper_9 form input::placeholder,
+html body #gform_wrapper_3 form input::placeholder,
 html body #gform_wrapper_2 form input::placeholder,
 html body #gform_wrapper_4 form input::placeholder,
 html body #gform_wrapper_1 form input::placeholder,
 html body #form-bottom form textarea::placeholer,
 html body #gform_wrapper_11 form textarea::placeholer,
 html body #gform_wrapper_9 form textarea::placeholer,
+html body #gform_wrapper_3 form textarea::placeholer,
 html body #gform_wrapper_2 form textarea::placeholer,
 html body #gform_wrapper_4 form textarea::placeholer,
 html body #gform_wrapper_1 form textarea::placeholer {
@@ -38,12 +53,14 @@ html body #gform_wrapper_1 form textarea::placeholer {
 html body #form-bottom form input:focus,
 html body #gform_wrapper_11 form input:focus,
 html body #gform_wrapper_9 form input:focus,
+html body #gform_wrapper_3 form input:focus,
 html body #gform_wrapper_2 form input:focus,
 html body #gform_wrapper_4 form input:focus,
 html body #gform_wrapper_1 form input:focus,
 html body #form-bottom form textarea:focus,
 html body #gform_wrapper_11 form textarea:focus,
 html body #gform_wrapper_9 form textarea:focus,
+html body #gform_wrapper_3 form textarea:focus,
 html body #gform_wrapper_2 form textarea:focus,
 html body #gform_wrapper_4 form textarea:focus,
 html body #gform_wrapper_1 form textarea:focus {
@@ -52,6 +69,7 @@ html body #gform_wrapper_1 form textarea:focus {
 html body #form-bottom form ul,
 html body #gform_wrapper_11 form ul,
 html body #gform_wrapper_9 form ul,
+html body #gform_wrapper_3 form ul,
 html body #gform_wrapper_2 form ul,
 html body #gform_wrapper_4 form ul,
 html body #gform_wrapper_1 form ul {
@@ -61,14 +79,16 @@ html body #gform_wrapper_1 form ul {
 html body #form-bottom form div,
 html body #gform_wrapper_11 form div,
 html body #gform_wrapper_9 form div,
+html body #gform_wrapper_3 form div,
 html body #gform_wrapper_2 form div,
 html body #gform_wrapper_4 form div,
 html body #gform_wrapper_1 form div {
-  font-family: 'Lato';
+  font-family: Lato, Arial, Helvetica, sans-serif;
 }
 html body #form-bottom form hr,
 html body #gform_wrapper_11 form hr,
 html body #gform_wrapper_9 form hr,
+html body #gform_wrapper_3 form hr,
 html body #gform_wrapper_2 form hr,
 html body #gform_wrapper_4 form hr,
 html body #gform_wrapper_1 form hr {
@@ -77,6 +97,7 @@ html body #gform_wrapper_1 form hr {
 html body #form-bottom form svg,
 html body #gform_wrapper_11 form svg,
 html body #gform_wrapper_9 form svg,
+html body #gform_wrapper_3 form svg,
 html body #gform_wrapper_2 form svg,
 html body #gform_wrapper_4 form svg,
 html body #gform_wrapper_1 form svg {
@@ -86,6 +107,7 @@ html body #gform_wrapper_1 form svg {
 html body #form-bottom form svg *,
 html body #gform_wrapper_11 form svg *,
 html body #gform_wrapper_9 form svg *,
+html body #gform_wrapper_3 form svg *,
 html body #gform_wrapper_2 form svg *,
 html body #gform_wrapper_4 form svg *,
 html body #gform_wrapper_1 form svg * {
@@ -94,6 +116,7 @@ html body #gform_wrapper_1 form svg * {
 html body #form-bottom form li,
 html body #gform_wrapper_11 form li,
 html body #gform_wrapper_9 form li,
+html body #gform_wrapper_3 form li,
 html body #gform_wrapper_2 form li,
 html body #gform_wrapper_4 form li,
 html body #gform_wrapper_1 form li {
@@ -108,6 +131,7 @@ html body #gform_wrapper_1 form li {
 html body #form-bottom form li label,
 html body #gform_wrapper_11 form li label,
 html body #gform_wrapper_9 form li label,
+html body #gform_wrapper_3 form li label,
 html body #gform_wrapper_2 form li label,
 html body #gform_wrapper_4 form li label,
 html body #gform_wrapper_1 form li label {
@@ -123,6 +147,7 @@ html body #gform_wrapper_1 form li label {
 html body #form-bottom form li label:hover,
 html body #gform_wrapper_11 form li label:hover,
 html body #gform_wrapper_9 form li label:hover,
+html body #gform_wrapper_3 form li label:hover,
 html body #gform_wrapper_2 form li label:hover,
 html body #gform_wrapper_4 form li label:hover,
 html body #gform_wrapper_1 form li label:hover {
@@ -131,12 +156,14 @@ html body #gform_wrapper_1 form li label:hover {
 html body #form-bottom form li input,
 html body #gform_wrapper_11 form li input,
 html body #gform_wrapper_9 form li input,
+html body #gform_wrapper_3 form li input,
 html body #gform_wrapper_2 form li input,
 html body #gform_wrapper_4 form li input,
 html body #gform_wrapper_1 form li input,
 html body #form-bottom form li textarea,
 html body #gform_wrapper_11 form li textarea,
 html body #gform_wrapper_9 form li textarea,
+html body #gform_wrapper_3 form li textarea,
 html body #gform_wrapper_2 form li textarea,
 html body #gform_wrapper_4 form li textarea,
 html body #gform_wrapper_1 form li textarea {
@@ -151,12 +178,14 @@ html body #gform_wrapper_1 form li textarea {
 html body #form-bottom form li input:focus,
 html body #gform_wrapper_11 form li input:focus,
 html body #gform_wrapper_9 form li input:focus,
+html body #gform_wrapper_3 form li input:focus,
 html body #gform_wrapper_2 form li input:focus,
 html body #gform_wrapper_4 form li input:focus,
 html body #gform_wrapper_1 form li input:focus,
 html body #form-bottom form li textarea:focus,
 html body #gform_wrapper_11 form li textarea:focus,
 html body #gform_wrapper_9 form li textarea:focus,
+html body #gform_wrapper_3 form li textarea:focus,
 html body #gform_wrapper_2 form li textarea:focus,
 html body #gform_wrapper_4 form li textarea:focus,
 html body #gform_wrapper_1 form li textarea:focus {
@@ -166,6 +195,7 @@ html body #gform_wrapper_1 form li textarea:focus {
 html body #form-bottom form li textarea,
 html body #gform_wrapper_11 form li textarea,
 html body #gform_wrapper_9 form li textarea,
+html body #gform_wrapper_3 form li textarea,
 html body #gform_wrapper_2 form li textarea,
 html body #gform_wrapper_4 form li textarea,
 html body #gform_wrapper_1 form li textarea {
@@ -175,6 +205,7 @@ html body #gform_wrapper_1 form li textarea {
 html body #form-bottom form .focused label,
 html body #gform_wrapper_11 form .focused label,
 html body #gform_wrapper_9 form .focused label,
+html body #gform_wrapper_3 form .focused label,
 html body #gform_wrapper_2 form .focused label,
 html body #gform_wrapper_4 form .focused label,
 html body #gform_wrapper_1 form .focused label {
@@ -188,12 +219,14 @@ html body #gform_wrapper_1 form .focused label {
 html body #form-bottom form input.filled,
 html body #gform_wrapper_11 form input.filled,
 html body #gform_wrapper_9 form input.filled,
+html body #gform_wrapper_3 form input.filled,
 html body #gform_wrapper_2 form input.filled,
 html body #gform_wrapper_4 form input.filled,
 html body #gform_wrapper_1 form input.filled,
 html body #form-bottom form textarea.filled,
 html body #gform_wrapper_11 form textarea.filled,
 html body #gform_wrapper_9 form textarea.filled,
+html body #gform_wrapper_3 form textarea.filled,
 html body #gform_wrapper_2 form textarea.filled,
 html body #gform_wrapper_4 form textarea.filled,
 html body #gform_wrapper_1 form textarea.filled {
@@ -202,6 +235,7 @@ html body #gform_wrapper_1 form textarea.filled {
 html body #form-bottom form:before,
 html body #gform_wrapper_11 form:before,
 html body #gform_wrapper_9 form:before,
+html body #gform_wrapper_3 form:before,
 html body #gform_wrapper_2 form:before,
 html body #gform_wrapper_4 form:before,
 html body #gform_wrapper_1 form:before {
@@ -220,6 +254,7 @@ html body #gform_wrapper_1 form:before {
 html body #form-bottom form [id^="validation_message"],
 html body #gform_wrapper_11 form [id^="validation_message"],
 html body #gform_wrapper_9 form [id^="validation_message"],
+html body #gform_wrapper_3 form [id^="validation_message"],
 html body #gform_wrapper_2 form [id^="validation_message"],
 html body #gform_wrapper_4 form [id^="validation_message"],
 html body #gform_wrapper_1 form [id^="validation_message"] {
@@ -235,6 +270,7 @@ html body #gform_wrapper_1 form [id^="validation_message"] {
 html body #form-bottom form .validation_error,
 html body #gform_wrapper_11 form .validation_error,
 html body #gform_wrapper_9 form .validation_error,
+html body #gform_wrapper_3 form .validation_error,
 html body #gform_wrapper_2 form .validation_error,
 html body #gform_wrapper_4 form .validation_error,
 html body #gform_wrapper_1 form .validation_error {
@@ -247,6 +283,7 @@ html body #gform_wrapper_1 form .validation_error {
 html body #form-bottom form .gform_ajax_spinner,
 html body #gform_wrapper_11 form .gform_ajax_spinner,
 html body #gform_wrapper_9 form .gform_ajax_spinner,
+html body #gform_wrapper_3 form .gform_ajax_spinner,
 html body #gform_wrapper_2 form .gform_ajax_spinner,
 html body #gform_wrapper_4 form .gform_ajax_spinner,
 html body #gform_wrapper_1 form .gform_ajax_spinner {
@@ -258,6 +295,7 @@ html body #gform_wrapper_1 form .gform_ajax_spinner {
 html body #form-bottom form .gform_footer,
 html body #gform_wrapper_11 form .gform_footer,
 html body #gform_wrapper_9 form .gform_footer,
+html body #gform_wrapper_3 form .gform_footer,
 html body #gform_wrapper_2 form .gform_footer,
 html body #gform_wrapper_4 form .gform_footer,
 html body #gform_wrapper_1 form .gform_footer {
@@ -267,6 +305,7 @@ html body #gform_wrapper_1 form .gform_footer {
 html body #form-bottom form .gfield_html_formatted,
 html body #gform_wrapper_11 form .gfield_html_formatted,
 html body #gform_wrapper_9 form .gfield_html_formatted,
+html body #gform_wrapper_3 form .gfield_html_formatted,
 html body #gform_wrapper_2 form .gfield_html_formatted,
 html body #gform_wrapper_4 form .gfield_html_formatted,
 html body #gform_wrapper_1 form .gfield_html_formatted {
@@ -276,6 +315,7 @@ html body #gform_wrapper_1 form .gfield_html_formatted {
 html body #form-bottom form .ginput_container,
 html body #gform_wrapper_11 form .ginput_container,
 html body #gform_wrapper_9 form .ginput_container,
+html body #gform_wrapper_3 form .ginput_container,
 html body #gform_wrapper_2 form .ginput_container,
 html body #gform_wrapper_4 form .ginput_container,
 html body #gform_wrapper_1 form .ginput_container {
@@ -284,12 +324,14 @@ html body #gform_wrapper_1 form .ginput_container {
 html body #form-bottom form .gform_validation_container,
 html body #gform_wrapper_11 form .gform_validation_container,
 html body #gform_wrapper_9 form .gform_validation_container,
+html body #gform_wrapper_3 form .gform_validation_container,
 html body #gform_wrapper_2 form .gform_validation_container,
 html body #gform_wrapper_4 form .gform_validation_container,
 html body #gform_wrapper_1 form .gform_validation_container,
 html body #form-bottom form .gform_hidden,
 html body #gform_wrapper_11 form .gform_hidden,
 html body #gform_wrapper_9 form .gform_hidden,
+html body #gform_wrapper_3 form .gform_hidden,
 html body #gform_wrapper_2 form .gform_hidden,
 html body #gform_wrapper_4 form .gform_hidden,
 html body #gform_wrapper_1 form .gform_hidden {
@@ -298,6 +340,7 @@ html body #gform_wrapper_1 form .gform_hidden {
 html body #form-bottom form .txt,
 html body #gform_wrapper_11 form .txt,
 html body #gform_wrapper_9 form .txt,
+html body #gform_wrapper_3 form .txt,
 html body #gform_wrapper_2 form .txt,
 html body #gform_wrapper_4 form .txt,
 html body #gform_wrapper_1 form .txt {
@@ -306,6 +349,7 @@ html body #gform_wrapper_1 form .txt {
 html body #form-bottom input[type="submit"],
 html body #gform_wrapper_11 input[type="submit"],
 html body #gform_wrapper_9 input[type="submit"],
+html body #gform_wrapper_3 input[type="submit"],
 html body #gform_wrapper_2 input[type="submit"],
 html body #gform_wrapper_4 input[type="submit"],
 html body #gform_wrapper_1 input[type="submit"] {
@@ -316,6 +360,7 @@ html body #gform_wrapper_1 input[type="submit"] {
 html body #form-bottom #form-heading,
 html body #gform_wrapper_11 #form-heading,
 html body #gform_wrapper_9 #form-heading,
+html body #gform_wrapper_3 #form-heading,
 html body #gform_wrapper_2 #form-heading,
 html body #gform_wrapper_4 #form-heading,
 html body #gform_wrapper_1 #form-heading {
@@ -324,6 +369,7 @@ html body #gform_wrapper_1 #form-heading {
 html body #form-bottom .uploader,
 html body #gform_wrapper_11 .uploader,
 html body #gform_wrapper_9 .uploader,
+html body #gform_wrapper_3 .uploader,
 html body #gform_wrapper_2 .uploader,
 html body #gform_wrapper_4 .uploader,
 html body #gform_wrapper_1 .uploader {
@@ -332,6 +378,7 @@ html body #gform_wrapper_1 .uploader {
 html body #form-bottom .uploader input,
 html body #gform_wrapper_11 .uploader input,
 html body #gform_wrapper_9 .uploader input,
+html body #gform_wrapper_3 .uploader input,
 html body #gform_wrapper_2 .uploader input,
 html body #gform_wrapper_4 .uploader input,
 html body #gform_wrapper_1 .uploader input {
@@ -341,6 +388,7 @@ html body #gform_wrapper_1 .uploader input {
 html body #form-bottom .uploader label,
 html body #gform_wrapper_11 .uploader label,
 html body #gform_wrapper_9 .uploader label,
+html body #gform_wrapper_3 .uploader label,
 html body #gform_wrapper_2 .uploader label,
 html body #gform_wrapper_4 .uploader label,
 html body #gform_wrapper_1 .uploader label {
@@ -349,6 +397,7 @@ html body #gform_wrapper_1 .uploader label {
 html body #form-bottom [id*="gform_wrapper_"],
 html body #gform_wrapper_11 [id*="gform_wrapper_"],
 html body #gform_wrapper_9 [id*="gform_wrapper_"],
+html body #gform_wrapper_3 [id*="gform_wrapper_"],
 html body #gform_wrapper_2 [id*="gform_wrapper_"],
 html body #gform_wrapper_4 [id*="gform_wrapper_"],
 html body #gform_wrapper_1 [id*="gform_wrapper_"] {
@@ -358,6 +407,7 @@ html body #gform_wrapper_1 [id*="gform_wrapper_"] {
 html body #form-bottom [id*="gform_wrapper_"]:hover,
 html body #gform_wrapper_11 [id*="gform_wrapper_"]:hover,
 html body #gform_wrapper_9 [id*="gform_wrapper_"]:hover,
+html body #gform_wrapper_3 [id*="gform_wrapper_"]:hover,
 html body #gform_wrapper_2 [id*="gform_wrapper_"]:hover,
 html body #gform_wrapper_4 [id*="gform_wrapper_"]:hover,
 html body #gform_wrapper_1 [id*="gform_wrapper_"]:hover {
@@ -369,6 +419,12 @@ html body form#gform_8 {
   max-width: inherit;
   display: flex;
   justify-content: center;
+}
+@media only screen and (max-width: 991px) {
+  html body form#gform_10,
+  html body form#gform_8 {
+    display: block;
+  }
 }
 html body form#gform_10 .gform_footer,
 html body form#gform_8 .gform_footer {
@@ -429,6 +485,14 @@ html body form#gform_8 input[type="submit"] {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+@media only screen and (max-width: 991px) {
+  html body form#gform_10 input[type="submit"],
+  html body form#gform_8 input[type="submit"] {
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
 html body form#gform_10 input[type="tel"],
 html body form#gform_8 input[type="tel"] {
   height: 3em;
@@ -436,6 +500,14 @@ html body form#gform_8 input[type="tel"] {
   border-radius: 4px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+@media only screen and (max-width: 991px) {
+  html body form#gform_10 input[type="tel"],
+  html body form#gform_8 input[type="tel"] {
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 html body form#gform_10 .gform_footer > input,
 html body form#gform_8 .gform_footer > input {
@@ -472,20 +544,32 @@ html body form#gform_10 .gform_fields,
 html body form#gform_8 .gform_fields {
   margin-right: -0.25em;
 }
-html body hr {
+@media only screen and (max-width: 991px) {
+  html body form#gform_10 .gform_body,
+  html body form#gform_8 .gform_body,
+  html body form#gform_10 .gform_footer,
+  html body form#gform_8 .gform_footer {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    float: none;
+  }
+}
+hr {
   max-width: 100px;
   margin: 0 auto !important;
   padding-bottom: .5em;
   min-height: 1px;
   min-width: 100px;
 }
-html body hr:before {
+hr:before {
   content: none;
 }
-html body #form-heading {
+#form-heading {
   text-align: center;
 }
-html body #form-heading h2 {
+#form-heading h2 {
   color: #be3929;
   font-weight: bold;
   text-transform: uppercase;
@@ -493,7 +577,7 @@ html body #form-heading h2 {
   font-weight: 900;
   font-size: 1.7em;
 }
-html body #form-heading h3 {
+#form-heading h3 {
   font-style: italic!important;
   font-weight: 100!important;
   color: #838383!important;
@@ -504,19 +588,23 @@ html body #form-heading h3 {
   color: #75c54e;
   font-weight: bold;
 }
+#gform_3,
 #gform_4,
 #gform_2 {
   border: solid 1px #eee;
   clip-path: none !important;
 }
+#gform_3 ul,
 #gform_4 ul,
 #gform_2 ul {
   margin-top: 0!important;
 }
+#gform_3 #gform_ajax_spinner_2,
 #gform_4 #gform_ajax_spinner_2,
 #gform_2 #gform_ajax_spinner_2 {
   margin-top: 1.8em;
 }
+#gform_3 .validation_error,
 #gform_4 .validation_error,
 #gform_2 .validation_error {
   margin: 0!important;
@@ -525,6 +613,53 @@ html body #form-heading h3 {
   left: 50%!important;
   bottom: 4.6em!important;
   position: absolute!important;
+}
+#gform_9 select {
+  display: none;
+}
+#gform_9 #field_9_14 label {
+  display: none;
+}
+#gform_3 .gfield_radio li label {
+  position: relative;
+  display: inline-block;
+  margin: 1em;
+}
+#gform_3 .gfield_radio li label {
+  position: relative;
+  display: inline-block;
+  margin: 1em;
+  border: solid 1px #eee !important;
+  color: gray !important;
+  font-size: 1.1em !important;
+  cursor: pointer!important;
+  border-radius: 3px !important;
+}
+#gform_wrapper_3 input[type="radio"]:checked + label {
+  background: #eee;
+}
+#gform_3 .gfield_radio {
+  position: relative;
+  display: inline-block;
+  margin: 1em;
+  width: 100%;
+  text-align: left!important;
+}
+#gform_3 .gfield_radio li {
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 45% !important;
+}
+.gf__radio > label {
+  display: block;
+  margin-bottom: 1em;
+}
+.gf__radio > .ginput_container {
+  display: block;
+  margin-top: 2em;
+  position: relative;
+  margin: 3em 0 0 0!important;
 }
 /* ------------------- */
 /* Select custom style */

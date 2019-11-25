@@ -94,7 +94,7 @@ if($blocs_offre){ ?>
         echo '</ul>';
     } ?><br>
                     <a href="<?php echo $bloc_offre['bouton_lien']; ?>">
-                        <div class="btn btn-blue contact-btn"><?php echo $bloc_offre['bouton_nom']; ?></div>
+                        <div value="Contacter la Digital Academy" class="btn btn-blue contact-btn"><?php echo $bloc_offre['bouton_nom']; ?></div>
                     </a>
                 </div>
             </div>
@@ -144,7 +144,7 @@ if($blocs_offre){ ?>
             }
             echo '</ul>';
         } ?><br>
-                        <a href="#the-form-bottom" class="btn btn-blue contact-btn" style="max-height:3.2em">Contactez-nous</a>
+                        <a value="Contacter la Digital Academy" href="#the-form-bottom" class="btn btn-blue contact-btn" style="height:auto">Contactez-nous</a>
                     </div>
                 </div>
                 <?php } ?>    
@@ -181,7 +181,7 @@ if($blocs_offre){ ?>
         </div>
     </div>
 
-    <section id="contact"><span id="the-form-bottom"></span>
+    <section id="contact">
         <div class="container">
             <div class="row row-same-height">
                 <div class="col-md-5 col-lg-7 valign">
@@ -200,10 +200,10 @@ if($blocs_offre){ ?>
                 <div class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12"></div>
+                            <div class="col-12"><span id="the-form-bottom"></span></div>
                             <div class="container form-container">
                                 <div class="row">
-                                    <?php echo do_shortcode('[gravityform id="11" title="false" description="false" ajax="true"]'); ?>
+                                    <?php echo do_shortcode('[gravityform id="9" title="false" description="false" ajax="true"]'); ?>
                                 </div>
                             </div>
                         </div>

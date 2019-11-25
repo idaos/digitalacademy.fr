@@ -8,8 +8,6 @@ include( 'inc/shortcodes.php' );
 // Enable shortcodes in text widgets
 add_filter('widget_text','do_shortcode');
 
-
-
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
@@ -33,7 +31,7 @@ function tp_enqueue_scripts() {
     wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.css', null );
     wp_enqueue_script( 'formsubmission', get_stylesheet_directory_uri() . '/landing-page-catalogue/res/formSubmission.js', array( 'jquery' ), null, false );
     wp_enqueue_script( 'trackingAnalytics', get_stylesheet_directory_uri() . '/js/trackingAnalytics.js', array( 'jquery' ), null, false );
-    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css', array( 'bootstrap-theme' ), null );
+    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css?ver=2', array( 'bootstrap-theme' ), null );
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', null );
     wp_enqueue_style( 'bootstrap-theme', get_stylesheet_directory_uri() . '/css/bootstrap-theme.min.css', array( 'bootstrap' ), null );
     wp_enqueue_style( 'tp', get_stylesheet_directory_uri() . '/css/tp.css', array( 'main', 'js_composer_front' ), null );
@@ -180,7 +178,6 @@ function custom_scripts_and_styles_courses(){
     //Check which template is assigned to current page we are looking at
     $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
     if(($template_name == 'tpl-nos-formations.php')||(isCoursesListPage())){
-
         wp_enqueue_style( 'bootstrap4-grid', get_template_directory_uri() . '/landing-page-catalogue/vendor/bootsrap4/css/bootstrap-grid.min.css', null );
         wp_enqueue_style( 'page-nos-formations', get_template_directory_uri() . '/css/page-nos-formations.css', array( 'main', 'references-style' ), null );
 
@@ -202,11 +199,19 @@ function custom_scripts_and_styles_courses(){
 function isCoursesListPage(){
     $a = get_link_by_slug('formations');
     $b = getCurrentPageURL();
-    if($a == $b){ return true; }else{ return false; };
+    if($a == $b){ return true; }else{ 
+        if(strpos($b, "https://www.digitalacademy.fr/formations/?thematique=") === 0) {  
+            return true;
+        }else{
+            return false; 
+        }
+    };
 }
 function get_link_by_slug($slug, $type = 'page'){
     $post = get_page_by_path($slug, OBJECT, $type);
-    return get_permalink($post->ID);
+    if($post == NULL){ return false; }else{
+        return get_permalink($post->ID);
+    }    
 }
 function getCurrentPageURL(){
     if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
@@ -945,7 +950,6 @@ add_shortcode( 'kz_ref_slider', 'kz_shortcode_refSlider' );
 add_shortcode( 'references_slider', 'kz_shortcode_refSlider' );
 
 
-
 /* Push all js into the footer
 --------------------------------------------------------------
 */
@@ -957,15 +961,7 @@ function js_to_footer() {
 }
 
 
-
-
-
-
-
-
-
-
-///* Test formulaire
+///* formulaires
 //--------------------------------------------------------------
 //*/
 // dequeue gravity form stylesheet for all forms

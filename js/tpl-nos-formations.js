@@ -255,7 +255,7 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         var th2 = 'strategie-de-marketing-digital';
         var th3 = 'site-contenus-web';
         var th4 = 'webmarketing-e-publicite';
-        var th5 = 'entreprise-2-0';
+        var th5 = 'ressources-humaines-2-0';
         var th6 = 'mobile-e-commerce';
         angular.forEach(items, function(item) {
             // if checkbox is checked for this thematique..

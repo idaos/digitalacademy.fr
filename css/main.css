@@ -471,7 +471,7 @@ body.page-template-nos-formation .container-slider.slider-header{
     margin-top: 80px;
 }
 @media only screen and (max-width: 767px){
-    .container-slider.slider-header{
+    .container-slider.slider-header:not(##kz_heading){
         background: #808080!important;
     }
     .container-slider .slick-slide p{
@@ -1034,17 +1034,19 @@ hr {
 .bg-gray hr {
     margin: 70px auto;
 }
+/*
 hr:before {
-    content: "";
-    display: block;
-    background: url('../images/logo-digital-academy-hr.jpg') center center no-repeat;
-    height: 42px;
-    width: 54px;
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    margin-left: -27px;
+content: "";
+display: block;
+background: url('../images/logo-digital-academy-hr.jpg') center center no-repeat;
+height: 42px;
+width: 54px;
+position: absolute;
+top: -24px;
+left: 50%;
+margin-left: -27px;
 }
+*/
 .bg-gray hr:before{
     background: url('../images/logo-digital-academy-fr-gray.jpg') center center no-repeat;
 }
@@ -1105,7 +1107,7 @@ hr.none:before {
     margin-bottom: 0!important;
 }
 .container-menu-filtre li, .container-menu-filtre{
-/*    padding: 1em;*/
+    /*    padding: 1em;*/
     margin-bottom: 0!important;
 }
 .container-menu-filtre a{
@@ -1119,114 +1121,114 @@ hr.none:before {
 }
 
 .container-menu-filtre ul{
-padding: 15px 0;
-list-style: none;
-margin: 0;
-text-align: center;
-width: 100%;
+    padding: 15px 0;
+    list-style: none;
+    margin: 0;
+    text-align: center;
+    width: 100%;
 }
 .container-menu-filtre ul li{
-display: inline-block;
-margin: 5px;
+    display: inline-block;
+    margin: 5px;
 }
 .container-menu-filtre ul li a{
-/*
-text-transform: uppercase;
-color: #373636;
-background: #E3E3E3;
-padding: 10px 15px;
-display: block;
-font-weight: bold;
-text-decoration: none !important;
-*/
+    /*
+    text-transform: uppercase;
+    color: #373636;
+    background: #E3E3E3;
+    padding: 10px 15px;
+    display: block;
+    font-weight: bold;
+    text-decoration: none !important;
+    */
 }
 .container-menu-filtre ul li.current-menu-item a,
 .container-menu-filtre ul li:hover a{
-background: #c03c2b;
-color: #fff;
-text-decoration: none;
+    background: #c03c2b;
+    color: #fff;
+    text-decoration: none;
 }
 .archive .container-menu-filtre ul li a{
-border: 1px solid #E3E3E3;
+    border: 1px solid #E3E3E3;
 }
 .archive .container-menu-filtre ul li a:hover,
 .archive .container-menu-filtre ul li.current-menu-item a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li a:hover,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.current-menu-item a{
-color: #fff !important;
-border: 1px solid #c03c2b;
+    color: #fff !important;
+    border: 1px solid #c03c2b;
 }
 .archive .container-menu-filtre ul li.theme-orange a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-orange a{
-border: 1px solid #e74c3c;
-color: #e74c3c;
-background: #fff;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    background: #fff;
 }
 .archive .container-menu-filtre ul li.current-menu-item.theme-orange a,
 .archive .container-menu-filtre ul li.theme-orange a:hover,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.current-menu-item.theme-orange a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-orange a:hover{
-background: #e74c3c;
+    background: #e74c3c;
 }
 .archive .container-menu-filtre ul li.theme-gray a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-gray a{
-border: 1px solid #95a5a6;
-color: #95a5a6;
-background: #fff;
+    border: 1px solid #95a5a6;
+    color: #95a5a6;
+    background: #fff;
 }
 .archive .container-menu-filtre ul li.current-menu-item.theme-gray a,
 .archive .container-menu-filtre ul li.theme-gray a:hover,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.current-menu-item.theme-gray a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-gray a:hover{
-background: #95a5a6;
+    background: #95a5a6;
 }
 .archive .container-menu-filtre ul li.theme-blue a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-blue a{
-border: 1px solid #3498db;
-color: #3498db;
-background: #fff;
+    border: 1px solid #3498db;
+    color: #3498db;
+    background: #fff;
 }
 .archive .container-menu-filtre ul li.current-menu-item.theme-blue a,
 .archive .container-menu-filtre ul li.theme-blue a:hover,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.current-menu-item.theme-blue a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-blue a:hover{
-background: #3498db;
+    background: #3498db;
 }
 .archive .container-menu-filtre ul li.theme-yellow a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-yellow a{
-border: 1px solid #f59d00;
-color: #f59d00;
-background: #fff;
+    border: 1px solid #f59d00;
+    color: #f59d00;
+    background: #fff;
 }
 .archive .container-menu-filtre ul li.current-menu-item.theme-yellow a,
 .archive .container-menu-filtre ul li.theme-yellow a:hover,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.current-menu-item.theme-yellow a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-yellow a:hover{
-background: #f59d00;
+    background: #f59d00;
 }
 .archive .container-menu-filtre ul li.theme-green a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-green a{
-border: 1px solid #2ecc71;
-color: #2ecc71;
-background: #fff;
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+    background: #fff;
 }
 .archive .container-menu-filtre ul li.current-menu-item.theme-green a,
 .archive .container-menu-filtre ul li.theme-green a:hover,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.current-menu-item.theme-green a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-green a:hover{
-background: #2ecc71;
+    background: #2ecc71;
 }
 .archive .container-menu-filtre ul li.theme-blue-dark a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-blue-dark a{
-border: 1px solid #34495e;
-color: #34495e;
-background: #fff;
+    border: 1px solid #34495e;
+    color: #34495e;
+    background: #fff;
 }
 .archive .container-menu-filtre ul li.current-menu-item.theme-blue-dark a,
 .archive .container-menu-filtre ul li.theme-blue-dark a:hover,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.current-menu-item.theme-blue-dark a,
 .page-template-tpl-nos-thematiques .container-menu-filtre ul li.theme-blue-dark a:hover{
-background: #34495e;
+    background: #34495e;
 }
 
 /* Template nos formations
@@ -1427,6 +1429,7 @@ body .redtitle h2{
 .content-declinaison span{
     font-size: 1.250em;
     color: #fff;
+    margin-bottom: .5em;
 }
 .content-actu-formation h3{
     margin-bottom: 60px;
@@ -1642,7 +1645,7 @@ body .container-business-case h3{
     background-color: #808080;
 }
 #paginationInfo{
-        width: 100%;
+    width: 100%;
     text-align: center;
     display: block;
 }
@@ -2321,12 +2324,12 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     .table-inscription,
     /*    .content-declinaison .btn-white,*/
     .container-menu-filtre ul li{
-        
+
     }
     .container-border .btn-orange{
         font-size: 0.875em;
     }
-    hr,
+    hr:not(#kz_heading hr),
     .wrapper img.visible-xs,
     .m-100,
     .content-theme ul,
@@ -2431,15 +2434,6 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         border-bottom: 1px solid #fff;
         margin-bottom: 20px;
     }
-    /*
-    .full-width .btn-white {
-    display: inline-block;
-    margin: 15px 0 0 0;
-}
-    */
-    body.home h3 {
-        margin: 0 0 20px 0;
-    }
     .container-slider.slide-logo .slick-next {
         background: url('../images/arrow-next-full.png') center center no-repeat;
         background-size: 20px;
@@ -2536,6 +2530,9 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         margin: 0;
         padding: 0 15px;
         float: none;
+    }
+    .full-width{
+        max-width: 100vw;
     }
     .full-width.bg-gray .container-theme p {
         font-size: 1em;

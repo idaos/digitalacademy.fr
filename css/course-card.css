@@ -30,6 +30,7 @@
 }
 #formations [class*='col-'] .wrapper .alignCenter img {
   display: inline-block;
+  float: left;
 }
 #formations [class*='col-'] .wrapper .nouvelle_formation {
   padding-bottom: 0;
@@ -103,6 +104,7 @@
 #formations [class*='col-'] .wrapper > div img {
   vertical-align: middle;
   max-height: 4em;
+  max-width: 4em;
   width: auto;
   border-radius: 4em;
 }
@@ -271,7 +273,7 @@
   text-decoration: underline;
 }
 #formations [class*='col-'] .wrapper div span {
-  padding: 0 0 .5em 0;
+  padding: .5em 0 .5em 0;
 }
 #formations [class*='col-'] .wrapper div p {
   padding-bottom: 6em;

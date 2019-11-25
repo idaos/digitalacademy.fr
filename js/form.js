@@ -59,9 +59,11 @@ gform.addFilter( 'gform_spinner_target_elem', function( $targetElem, formId ) {
 
 jQuery(document).bind('gform_post_render', function(){
 
+    jQuery( '.ginput_container_multiselect' ).parents('.gfield').children('label').hide(); // hide select label
+
     heading = '<span id="form-heading" class="reverse"><h2>Contactez-nous </h2><h3>Vous souhaitez en savoir plus sur nos offres de formation ?</h3></span><hr><br><br>';
     if( jQuery('#form-heading').length == 0 ){
-        jQuery('#gform_wrapper_11 form, #gform_wrapper_1 form').prepend(heading);
+        jQuery('#gform_wrapper_11 form, #gform_wrapper_1 form, #gform_wrapper_9 form').prepend(heading);
     } 
     jQuery('.gform_ajax_spinner').hide();
 
@@ -70,7 +72,6 @@ jQuery(document).bind('gform_post_render', function(){
     buttonAnim(); 
     customSelect();
 });
-
 
 //-------------------------------------------
 //-------------------------------------------
@@ -85,6 +86,7 @@ function customSelect(){
     if(x.length == 0){
         x =  document.getElementsByClassName("ginput_container_multiselect");
     }
+
     for (i = 0; i < x.length; i++) {
         /* check if the fn is already launch */
         z = x[i].getElementsByClassName("select-selected").length;
@@ -155,8 +157,17 @@ function customSelect(){
                 x[i].classList.add("select-hide");
             }
         }
+        updateSelect();
     }
     /* If the user clicks anywhere outside the select box,
     then close all select boxes: */
     document.addEventListener("click", closeAllSelect);
+
+    function updateSelect(){
+        selectedValue = jQuery('.select-selected').html();
+        jQuery('select option').each(function(index) {
+            jQuery(this).removeAttr("selected");
+        });
+        jQuery('select option[value="'+ selectedValue +'"]').attr('selected','selected'); // select option in the contact for
+    }
 }   

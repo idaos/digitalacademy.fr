@@ -37,7 +37,7 @@
                         <hr>
                         <p>L’offre de la DigitalAcademy© met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
                         <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red marginR">Découvrir nos solutions</div></a>
-                        <a title="Bouton de contact" class="contact-btn" href="#contact" value="Autre"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
+                        <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                     <hr>
                     <p>Le Digital Learning intègre des technologies digitales dans les solutions de formation au service de la performance. Pour favoriser une montée en compétences rapide et continue des apprenants et prolonger le processus d’apprentissage, ces solutions de formation multi-plateformes (desktop, smartphones, tablettes…) sont les parfaits compléments d’un programme présentiel. La DigitalAcademy s’est entourée de partenaires experts dans ces applicatifs spécialisés dans la  distribution en ligne des contenus de formation.</p>
                     <a title="Solutions de formation" href="<?php echo get_page_link(623); ?>"><div class="btn btn-blue marginR">Découvrir cette solution</div></a>
-                    <a title="Bouton de contact" class="contact-btn" href="#contact" value="Créer un programme en Digital Learning (Mooc, Spoc...)"><div class="btn btn-blue-alt">Demander une démo</div></a>
+                    <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Demander une démo digital learning"><div class="btn btn-blue-alt">Demander une démo</div></a>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
                     <hr>
                     <p>Retrouvez en ligne notre catalogue de plus de 30 formations sur le digital, réparties dans les 6 thématiques suivantes : Réseaux Sociaux &amp; E-réputation, Stratégie de Marketing digital, Contenus Web, Webmarketing et E-publicité, Entreprise 2.0, Mobile &amp; E-commerce</p>
                     <a title="Les formations DigitalAcademy" href="/formations/"><div class="btn btn-red marginR">Découvrir nos formations</div></a>
-                    <a title="Télécharger le catalogue en pdf" href="<?php echo get_page_link(213); ?>"><div class="btn btn-red-alt">Télécharger le Catalogue</div></a>
+                    <a title="Télécharger le catalogue en pdf" value="Demander notre catalogue" href="<?php echo get_page_link(213); ?>"><div class="btn btn-red-alt">Télécharger le Catalogue</div></a>
                 </div>
             </div>
         </div>
