@@ -1034,23 +1034,6 @@ hr {
 .bg-gray hr {
     margin: 70px auto;
 }
-/*
-hr:before {
-content: "";
-display: block;
-background: url('../images/logo-digital-academy-hr.jpg') center center no-repeat;
-height: 42px;
-width: 54px;
-position: absolute;
-top: -24px;
-left: 50%;
-margin-left: -27px;
-}
-*/
-.bg-gray hr:before{
-    background: url('../images/logo-digital-academy-fr-gray.jpg') center center no-repeat;
-}
-
 hr.none {
     width:100%;
     margin-top: 20px;
@@ -2237,9 +2220,6 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     }
     .home main.content > .container{
         background-color:#e2e2e2;
-    }
-    .home main.content hr:before{
-        background: url('../images/logo-digital-academy-fr-gray.jpg') center center no-repeat;
     }
     .home .formation-presentation > .vc_column_container .wpb_single_image,
     .home .formation-presentation > .vc_column_container .wpb_single_image img,

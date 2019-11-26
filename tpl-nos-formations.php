@@ -9,6 +9,7 @@
 // get query string
 $search_query = isset($_GET['q']) ?  $_GET['q'] : null ;
 $result = kz_search(" ");
+$courses_count = count(json_decode($result[0])) ;
 // -----------------------------------------------------------------------
 // -----------------------------------------------------------------------
 get_header();
@@ -40,7 +41,7 @@ get_header();
             <div id="kz_heading" class="container-slider main-slider nos-formations slider-header" <?php //echo $bg; ?>>
                 <div class="slick-slide">
                     <div class="clearfix">
-                        <h1 class="title-slider">Consultez notre catalogue de plus de 30 formations au digital</h1>
+                        <h1 class="title-slider">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
                     </div>
                     <hr>
                     <?php //if ( get_field( 'sous_titre' ) ): ?>
