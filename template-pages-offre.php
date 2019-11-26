@@ -156,7 +156,7 @@ if($blocs_offre){ ?>
     if($references){ ?>
     <div id="ref" class="container">
         <div class="row alignCenter">
-            <h2><span>Références</span></h2>
+            <a value="Voir nos references clients en Digital Learning" href="/type-reference/digital-learning/"><h2><span>Références</span></h2></a>
         </div>
         <div class="row owl-carousel owl-theme">
             <?php foreach($references as $reference){?>
@@ -165,6 +165,7 @@ if($blocs_offre){ ?>
             </div>
             <?php } ?>    
         </div>
+        <a value="Voir nos references clients en Digital Learning" href="/type-reference/digital-learning/" class="btn btn-blue-alt btn-sm" style="height:auto;display: table;margin:auto;">Toutes nos références</a>
     </div>
     <?php } ?>
 

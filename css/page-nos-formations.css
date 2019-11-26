@@ -552,7 +552,7 @@ input::placeholder {
 #search-helper p {
   line-height: 3em;
   height: 3em;
-  margin: 0 1em;
+  padding: 0 1em;
 }
 #search-helper p:first-child {
   background: #bb0303;
