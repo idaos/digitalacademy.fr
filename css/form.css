@@ -620,6 +620,17 @@ hr:before {
 #gform_9 #field_9_14 label {
   display: none;
 }
+#gform_1 #courseTitle {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #be3929;
+  height: 5.5em;
+  margin-top: .7em;
+  font-size: 1.2em;
+  text-align: left;
+}
 #gform_3 .gfield_radio li label {
   position: relative;
   display: inline-block;

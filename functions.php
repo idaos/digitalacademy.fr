@@ -1007,3 +1007,21 @@ function spinner_url($image_src, $form) {
     $spinnerPath = get_template_directory_uri() . '/images/spinner.gif';
     return $spinnerPath;
 }
+
+// -----------------------------------------------------------------------
+// FN: Preinscription form heading
+// -----------------------------------------------------------------------
+
+function kz_shortcode_preInscrFormHeading( $atts ) {
+    if ( isset($_GET["objet"]) ){
+        ?><script>
+            document.addEventListener("DOMContentLoaded", function() {
+               jQuery('#gform_1 .gform_body').before('<div id="courseTitle"><?php echo $_GET["objet"]; ?></i>');
+               jQuery('#field_1_2').hide();
+               jQuery('#form-heading').hide();
+            });
+        </script>
+<style>#form-heading, hr{display:none!important;}</style><?php
+    }
+}
+add_shortcode( 'kz_preInscrFormHeading', 'kz_shortcode_preInscrFormHeading' );
