@@ -237,9 +237,6 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
             });
         });  
 
-
-        console.log(scope);
-
         if(arr.length == 0){
             return scope.courses.course;
         }else{

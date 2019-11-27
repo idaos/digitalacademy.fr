@@ -34,8 +34,8 @@ get_header();
             <div class="breadcrumb hidden-xs">
                 <div class="container">
                     <?php if ( function_exists( 'yoast_breadcrumb' ) ) {
-                        yoast_breadcrumb();
-                    } ?>
+    yoast_breadcrumb();
+} ?>
                 </div>
             </div>
             <div id="kz_heading" class="container-slider main-slider nos-formations slider-header" <?php //echo $bg; ?>>
@@ -122,7 +122,7 @@ name="thematique-checkbox-1"
                     résultats de recherche pour : <b>{{searchText}}</b>
                 </p>
                 <p ng-cloak class="no-result" ng-show="(searchText.length != 0) && noResult">Aucun résultat pour la recherche : <b>{{searchText}}</b></p>
-<!--                <p ng-cloak class="no-result" ng-show="((courses.course | searchFor: searchText).length == 0) && (searchText.length != 0) && (filtered.length == 0) && (seekingDB == false)">Aucun résultat pour la recherche : <b>{{searchText}}</b></p>-->
+                <!--                <p ng-cloak class="no-result" ng-show="((courses.course | searchFor: searchText).length == 0) && (searchText.length != 0) && (filtered.length == 0) && (seekingDB == false)">Aucun résultat pour la recherche : <b>{{searchText}}</b></p>-->
                 <p ng-cloak animationend="scrolltoA" class="thema-t1" ng-show="thema.t1 == true">{{filtered.length}} résultats pour le filtre : <b>Réseaux sociaux &amp; e-réputation</b></p>
                 <p ng-cloak animationend="scrolltoA" class="thema-t2" ng-show="thema.t2 == true">{{filtered.length}} résultats pour le filtre : <b>Stratégie de marketing digital</b></p>
                 <p ng-cloak animationend="scrolltoA" class="thema-t3" ng-show="thema.t3 == true">{{filtered.length}} résultats pour le filtre : <b>Site &amp; contenus web</b></p>
@@ -158,7 +158,8 @@ name="thematique-checkbox-1"
                                     <!-- Formateur -->                                        
                                     <img ng-src="{{course.trainer_image}}" alt="" width="100" height="100">
                                     <span>
-                                        <i>Animée par :</i><br>
+                                        <i ng-if="course.id==2166">Coordonnée par :</i>
+                                        <i ng-if="course.id!=2166">Animée par :</i><br>
                                         <b ng-bind-html="course.trainer_name | highlight:searchText"></b>
                                     </span>
                                 </div>
@@ -256,10 +257,10 @@ name="thematique-checkbox-1"
                 <div class="wrapper">
                     <h2 class="hidden-xs">Calendrier des formations 
                         <span 
-                        id="selectedThema" 
-                        ng-show="enableThemaFilter"
-                        ng-class="{'t1-c': thema.t1 == true , 't2-c': thema.t2 == true , 't3-c': thema.t3 == true , 't4-c': thema.t4 == true , 't5-c': thema.t5 == true , 't6-c': thema.t6 == true } "
-                        ></span>
+                              id="selectedThema" 
+                              ng-show="enableThemaFilter"
+                              ng-class="{'t1-c': thema.t1 == true , 't2-c': thema.t2 == true , 't3-c': thema.t3 == true , 't4-c': thema.t4 == true , 't5-c': thema.t5 == true , 't6-c': thema.t6 == true } "
+                              ></span>
                     </h2>
                     <div id="calendar" class="hidden-xs">
                         <div id="calendar"></div>
