@@ -33,10 +33,6 @@ get_header(); ?>
             <p>Aujourd’hui, notre studio de production conçoit des ressources plus innovantes et plus collaboratives en e-learning, mobile learning, micro-learning à déployer sur des solutions LMS.</p>
             <p>Nos experts « métiers » et pédagogiques développent des réponses adaptées en multimodale selon le périmètre des apprentissages demandés.</p>
             <p>Pour accompagner la transformation, l’acculturation et la montée en expertise de vos organisations et de vos équipes, DigitalAcademy offre donc : des formations en intra ou en inter sur les thématiques du web , une offre complète de conseil et de production pour développer votre offre de formation digitale sur toutes les thématiques « métiers ».</p>
-            <ul>
-                <li>La DigitalAcademy forme à tous les nouveaux usages du web : le marketing et la stratégie digitale, l’élaboration et l’optimisation des sites web, les médias sociaux et chacune de ses différentes plateformes, l’e-réputation, le recrutement 2.0, les relations presse 2.0 etc.</li>
-                <li>La DigitalAcademy forme aux métiers du web : la publicité en ligne display, le référencement naturel et payant, l’adexchange et RTB, le CRM, le marketing mobile, l’écriture web, etc.</li>
-            </ul>
         </div>
     </div>
     <div class="row">

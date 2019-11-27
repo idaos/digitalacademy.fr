@@ -27,10 +27,12 @@
   bottom: 2em;
   text-align: center;
   padding-left: 2em;
+  display: flex!important;
+  width: 100%;
+  justify-content: left;
 }
 #formations [class*='col-'] .wrapper .alignCenter img {
   display: inline-block;
-  float: left;
 }
 #formations [class*='col-'] .wrapper .nouvelle_formation {
   padding-bottom: 0;
