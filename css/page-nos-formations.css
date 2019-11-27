@@ -677,7 +677,7 @@ select {
   bottom: 0;
 }
 .slick-slide {
-  padding: 3em 0 0 1em !important;
+  padding: 3em 1em 0 1em !important;
 }
 .course_placeholer {
   width: 100%;

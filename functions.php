@@ -100,6 +100,24 @@ function custom_scripts_and_styles_offre(){
     }
 }
 
+/**
+ * Chargement des styles et scripts pour les pages   'Qui sommes nous'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_quiSommesNous');
+//Load scripts (and styles)
+function custom_scripts_and_styles_quiSommesNous(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        if($template_name == 'template-qui-sommes-nous.php'){
+            wp_enqueue_style( 'qui-sommes-nous-style', get_template_directory_uri() . '/css/qui-sommes-nous.css', null );
+        }
+    }
+}
+
 
 /**
  * Chargement des styles et scripts pour la page   'Contact'
