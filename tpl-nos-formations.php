@@ -172,8 +172,7 @@ name="thematique-checkbox-1"
 -->
                                 <!--                            <b class="no-session" ng-show="course.sessions.length == 0">Aucune session pour cette formation</b> -->
                                 <a class="en-savoir-plus" href="{{course.link}}">
-                                    <!--                                <div class="button">Inscription</div>-->
-                                    <div class="btn btn-red btn-sm">En savoir plus</div>
+                                    <div class="btn btn-red btn-sm" ng-class="selectBtnClass()">En savoir plus</div>
                                 </a>
                             </div>
                         </div>

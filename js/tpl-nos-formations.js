@@ -73,6 +73,21 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
     $scope.database_course = [];
     // ini course placeholder (spinner kind of)
     $scope.seekingDB = false;
+    //color button if courses are filter by thema
+    $scope.selectBtnClass = function(){
+     if($scope.thema.t1)
+         return "btn-t1"
+     else if($scope.thema.t2)
+         return "btn-t2";
+     else if($scope.thema.t3)
+         return "btn-t3";
+     else if($scope.thema.t4)
+         return "btn-t4";
+     else if($scope.thema.t5)
+         return "btn-t5";
+     else if($scope.thema.t6)
+         return "btn-t6";
+    }
     // call getCoursesFromQuery fn if keypress
     // delay it if another key is pressed within a delay
     var delayExpire;
