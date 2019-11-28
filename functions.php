@@ -38,6 +38,7 @@ function tp_enqueue_scripts() {
     //wp_enqueue_script( 'gmaps', 'https://maps.google.com/maps/api/js?sensor=true', null, null, false );
     wp_enqueue_script( 'contact-btn', get_template_directory_uri() . '/js/contact-btn.js', array( 'jquery' ), null, false );
     wp_enqueue_script( 'menu', get_template_directory_uri() . '/js/menu.js', array( 'jquery' ), null, false );
+    wp_enqueue_script( 'accordeon', get_template_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
     wp_enqueue_style( 'button-style', get_template_directory_uri() . '/css/button.css', array( 'main', 'bootstrap' ), null );
 
     wp_register_script( 'slick-courses', get_stylesheet_directory_uri() . '/js/slickCourses.js', array( 'slick' ), null, false );
@@ -1014,14 +1015,16 @@ function spinner_url($image_src, $form) {
 
 function kz_shortcode_preInscrFormHeading( $atts ) {
     if ( isset($_GET["objet"]) ){
-        ?><script>
-            document.addEventListener("DOMContentLoaded", function() {
-               jQuery('#gform_1 .gform_body').before('<div id="courseTitle"><?php echo $_GET["objet"]; ?></i>');
-               jQuery('#field_1_2').hide();
-               jQuery('#form-heading').hide();
-            });
-        </script>
+?><script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if(jQuery('#courseTitle').length){}else{
+            jQuery('#gform_1 .gform_body').before('<div id="courseTitle"><?php echo $_GET["objet"]; ?></i>');
+            jQuery('#field_1_2').hide();
+            jQuery('#form-heading').hide();
+        }
+    });
+</script>
 <style>#form-heading, hr{display:none!important;}</style><?php
-    }
+                                }
 }
 add_shortcode( 'kz_preInscrFormHeading', 'kz_shortcode_preInscrFormHeading' );
