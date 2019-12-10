@@ -407,6 +407,12 @@ heading2 img {
 #faq .question li {
   line-height: 1.5em;
 }
+a[data-modal='button'] > img {
+  transition: all .2s ease;
+}
+a[data-modal='button']:hover > img {
+  filter: brightness(110%);
+}
 #contact {
   background-color: #fcfcfc;
   padding: 3em 0 3em 0;
