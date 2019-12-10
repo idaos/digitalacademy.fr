@@ -2816,9 +2816,14 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         font-size: 30px !important;
     }
 }
-
+.visible-xs{
+    display: none!important;
+}
 @media only screen and (max-width: 768px){
 
+	.visible-xs {
+		display: block!important;
+	}
     .vc_single_image-img{
         margin-left: 12px;
         padding-left: 5px;
