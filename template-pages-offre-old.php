@@ -11,6 +11,7 @@ if( has_post_thumbnail() ) {
     $bg = 'style="background-image:url(\''. $url .'\');background-size: cover;background-position:center center"';
 }
 ?>
+
 <div class="breadcrumb hidden-xs">
     <div class="container">
         <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>

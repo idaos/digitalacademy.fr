@@ -84,9 +84,6 @@ html body {
 .page-id-270 h2{
     padding-left: 0!important;
 }
-.page-id-270 p{
-    padding-right: 30px!important;
-}
 .page-id-270 .vc_btn3{
     margin-right:30px;
     margin-left:30px;
@@ -393,6 +390,33 @@ body .content-theme h3{
     white-space: nowrap;
 }
 
+/* Layout inners (page /solutions/ + page /thematique-xxx/ + page /solutions/xxx/)
+--------------------------------------------- */
+
+.vc_column-inner{
+    background: #fff;
+    font-size:105%;
+}
+.content-theme{
+    margin:1em 0;
+}
+.vc_empty_space{
+    display:none;
+}
+
+.vc_column-inner h2{
+    color:#bf3b2b;
+    font-size:1.5em;
+    margin-top:2em;
+    text-transform:uppercase;
+}
+.vc_column-inner p{
+    margin:0;
+}
+.vc_column-inner figure{
+    margin-top: 3em !important;
+}
+
 /* Heading
 --------------------------------------------- */
 
@@ -402,14 +426,14 @@ body .content-theme h3{
     align-items: center;
 }
 .container-slider .slick-slide{
-	display: block;
+    display: block;
     text-align: center;
     width: 100%;
     color: #fff;
     padding: 2em;
 }
 .container-slider .slick-slide p{
-	display: inline-block;
+    display: inline-block;
     background: rgba(256,256,256,.3);
     padding: .5em;
     margin: 0;
@@ -536,17 +560,6 @@ hr.none:before {
     display: inline-block;
     margin: 5px;
 }
-.container-menu-filtre ul li a{
-    /*
-    text-transform: uppercase;
-    color: #373636;
-    background: #E3E3E3;
-    padding: 10px 15px;
-    display: block;
-    font-weight: bold;
-    text-decoration: none !important;
-    */
-}
 .container-menu-filtre ul li.current-menu-item a,
 .container-menu-filtre ul li:hover a{
     background: #c03c2b;
@@ -656,7 +669,7 @@ body:not(.home) .container-reference{
     color: #808080;
 }
 
-/* Template une formations
+/* Template une formation
 --------------------------------------------- */
 
 .fs20 p{
@@ -895,7 +908,6 @@ body .redtitle h2{
     font-size: 1.625em;
     margin: 10px 0 50px 0;
 }
-
 
 /* Clients
 --------------------------------------------- */
@@ -1467,9 +1479,7 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     }
     .container-menu-filtre ul li a,
     .breadcrumb,
-    /*    .content-theme .btn,*/
     .table-inscription,
-    /*    .content-declinaison .btn-white,*/
     .container-menu-filtre ul li{
 
     }
@@ -1920,9 +1930,9 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
 }
 @media only screen and (max-width: 768px){
 
-	.visible-xs {
-		display: block!important;
-	}
+    .visible-xs {
+        display: block!important;
+    }
     .vc_single_image-img{
         margin-left: 12px;
         padding-left: 5px;
@@ -1978,27 +1988,7 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     padding-bottom: 3.2em;
     max-height: 700px;
 }
-/* MENU CONTACT HIGHLIGHTS */
 
-.current-menu-item:hover>a, .current-menu-ancestor:hover>a, .current-menu-parent:hover>a{
-    color:#fff!important;
-}
-.sub-menu>.current_page_item>a,.sub-menu>a,.current-menu-item>a{
-    color:#fff!important;
-}
-/* home */
-/* contact */
-.navbar-nav>li:last-child{
-    background-color:#bf3b2b!important;
-}
-.navbar-nav>li:last-child>a{
-    color:#fff !important;
-}
-#menu-menu-haut{
-    font-size: 15.5px;
-}
-/* MENU CONTACT HIGHLIGHTS END */
-/*-------------------*/
 /*-------------------*/
 
 .formation-template-default .content-info > img{
@@ -2016,16 +2006,16 @@ form[role='search']{
 .slider-header{
     background-position:center;
 }
+.container-slider img{
+    margin: auto;
+}
 .wpb_map_wraper iframe{		
     height:40em;
 }
 
-
 /* ---- */
 /* ---- */
 /* ---- */
-
-
 
 .page-template-tpl-nos-formateurs .content{
     background: #eee;
@@ -2167,8 +2157,6 @@ form[role='search']{
 }
 #top-formations hr:before{display: none;}
 
-
-
 /* ---- */
 /* ---- */
 /* ---- */
@@ -2202,7 +2190,6 @@ form input::placeholder, form textarea::placeholder{
     padding: 1em;
 }
 
-
 /* ---- */
 .site-container{
     top: 0;
@@ -2223,7 +2210,4 @@ form input::placeholder, form textarea::placeholder{
     .site-container{
         padding-top: 7.9em
     }
-}
-@media(max-width:576px){
-
 }
