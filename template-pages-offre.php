@@ -41,7 +41,8 @@ $color2 = get_field( 'color2');
 <?php $blocs_offre = get_field('blocs_offre');
 if($blocs_offre){ ?>
 
-<div id="page">
+<div id="page">                    
+   
     <section id="heading">
         <div class="bloc-1">
             <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -75,12 +76,15 @@ if($blocs_offre){ ?>
 
     <div class="gray-bg blanckspace"></div>
     <?php foreach($blocs_offre as $bloc_offre){
-    $bulletpoints = $bloc_offre['bulletpoints']; ?>
+    $bulletpoints = $bloc_offre['bulletpoints'];
+    $video_url = $bloc_offre['video_url']; ?>
     <div class="offre-wrapper gray-bg">
         <div class="container offre">
             <div class="row flex-column-reverse flex-md-row">
                 <div class="col-12 col-md-6">
-                    <img src="<?php echo $bloc_offre['image']['url']; ?>" alt="<?php echo $bloc_offre['image']['alt']; ?>">
+                   <?php if($video_url){ echo '<a href="'. $video_url .'" data-modal="button">'; } ?>
+                      <img src="<?php echo $bloc_offre['image']['url']; ?>" alt="<?php echo $bloc_offre['image']['alt']; ?>">
+                   <?php if($video_url){ echo '</a>'; } ?>
                     <!--<div class="blend"></div>-->
                 </div>
                 <div class="col-12 col-md-6 txt">

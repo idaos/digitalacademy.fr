@@ -86,8 +86,10 @@ function custom_scripts_and_styles_offre(){
         //Check which template is assigned to current page we are looking at
         $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
         if($template_name == 'template-pages-offre.php'){
+            wp_enqueue_script( 'modal', get_stylesheet_directory_uri() . '/js/modal.js', array( 'jquery' ), null, false );
             wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.carousel.min.js', null, null, false );
             wp_enqueue_script( 'pages-offre', get_stylesheet_directory_uri() . '/pages-offre/pages-offre.js', array( 'jquery', 'owl-carousel' ), null, false );
+            wp_enqueue_style( 'modal', get_template_directory_uri() . '/css/modal.css', null );
             wp_enqueue_style( 'owl-carousel-style', get_template_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.carousel.min.css', null );
             wp_enqueue_style( 'owl-carousel-theme-style', get_template_directory_uri() . '/pages-offre/vendor/owl-carousel/owl.theme.default.min.css', null );
             wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
@@ -221,6 +223,8 @@ function isCoursesListPage(){
     if($a == $b){ return true; }else{ 
         if(strpos($b, "https://www.digitalacademy.fr/formations/?thematique=") === 0) {  
             return true;
+        }else if(strpos($b, "https://www.digitalacademy.fr/formations/?q=") === 0) {
+            return true; 
         }else{
             return false; 
         }
