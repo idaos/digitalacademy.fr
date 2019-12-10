@@ -24,6 +24,7 @@ body .container-menu-filtre ul li a {
   height: inherit;
   white-space: normal;
   line-height: normal;
+  text-align: center;
   padding: 1em;
   margin: 1em 0;
 }
@@ -329,6 +330,7 @@ body .bg-orange .btn-white {
   height: inherit;
   white-space: normal;
   line-height: normal;
+  text-align: center;
   padding: 1em;
   margin: 1em 0;
   border: solid 1px #fff;
