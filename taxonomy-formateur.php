@@ -73,13 +73,13 @@ $formateur_ID = get_queried_object_id();
             <?php endif; ?>
         </div>
     </div>
-    
-<?php
-ob_start(); // prevent echo when the shortcode return is null
-echo do_shortcode( '[kz_courses_slider nb=20 taxo="formateur"]' );
-$short_out = ob_get_contents();
-ob_end_clean();
-if(strlen($short_out)>0){ ?>
+
+    <?php
+    ob_start(); // prevent echo when the shortcode return is null
+    echo do_shortcode( '[kz_courses_slider nb=20 taxo="formateur"]' );
+    $short_out = ob_get_contents();
+    ob_end_clean();
+    if(strlen($short_out)>0){ ?>
     <section id="slider-formations">
         <div class="container">
             <div class="row">
@@ -94,9 +94,9 @@ if(strlen($short_out)>0){ ?>
             </div>
         </div>
     </section>
-<?php } ?>
-    
-    
+    <?php } ?>
+
+
 </main><!-- Main end -->
 
 

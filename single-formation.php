@@ -2,13 +2,14 @@
 <?php 
 $url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
 if (strpos($_SERVER["REQUEST_URI"], '?')) {
-    
+
     $url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
     $url_parameters = $url_parameters[1];
 }else{
     $url_parameters = null;
 }
 ?>
+
 <div class="breadcrumb hidden-xs">
     <div class="container">
         <?php if ( function_exists( 'yoast_breadcrumb' ) ) {
@@ -370,8 +371,8 @@ $thematic_css = empty( $thematic_css ) ? '' : ' theme-'.$thematic_css; ?>
                 <div class="col-xs-12">
                     <br><br>
                     <span class="reverse">
-                    <h2>Nos formations digitales</h2>
-                    <h3>Un catalogue de plus de 30 formations digitales</h3>
+                        <h2>Nos formations digitales</h2>
+                        <h3>Un catalogue de plus de 30 formations digitales</h3>
                     </span>
                     <p>Les participants à cette formation ont également consulté les formations suivantes :</p>
                     <hr>

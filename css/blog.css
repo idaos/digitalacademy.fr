@@ -324,113 +324,118 @@ hr:before{background:none!important;}
 /* social share button */
 
 #social-share a:nth-child(1) {
-  background: #00aced;
+    background: #00aced;
 }
 #social-share a:nth-child(1):before {
-  background-image: url('https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/social-icon-twitter.svg');
+    background-image: url('https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/social-icon-twitter.svg');
 }
 #social-share a:nth-child(2) {
-  background: #3b5998;
+    background: #3b5998;
 }
 #social-share a:nth-child(2):before {
-  background-image: url('https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/social-icon-fb.svg');
+    background-image: url('https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/social-icon-fb.svg');
 }
 #social-share a:nth-child(3) {
-  background: #007bb6;
+    background: #007bb6;
 }
 #social-share a:nth-child(3):before {
-  background-image: url('https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/social-icon-linkedin.svg');
+    background-image: url('https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/social-icon-linkedin.svg');
 }
 #social-share a:nth-child(4) {
-  background: #f1c40f;
+    background: #f1c40f;
 }
 #social-share a:nth-child(4):before {
-  background-image: url('https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/social-icon-mail.svg');
+    background-image: url('https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/social-icon-mail.svg');
 }
 #social-share a {
-  display: inline-block;
-  position: relative;
-  padding: .5em 1em;
-  padding-left: 2em;
-  border-radius: 4px;
-  color: #fff;
-  font-family: sans-serif;
-  font-size: .9em;
-  margin: 0 .1em;
-  margin-top: .5em;
+    display: inline-block;
+    position: relative;
+    padding: .5em 1em;
+    padding-left: 2em;
+    border-radius: 4px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: .9em;
+    margin: 0 .1em;
+    margin-top: .5em;
 }
 #social-share a:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-55%);
-  left: .6em;
-  height: 1em;
-  width: 1em;
-  background-size: cover;
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-55%);
+    left: .6em;
+    height: 1em;
+    width: 1em;
+    background-size: cover;
 }
 #social-share a:hover {
-  filter: brightness(110%);
-	text-decoration:none;
-	cursor:pointer;
+    filter: brightness(110%);
+    text-decoration:none;
+    cursor:pointer;
 }
 #social-share a:focus, #social-share a:active {
-	text-decoration:none;
+    text-decoration:none;
 }
 
 .content-share{
-	margin:0;
-	margin-bottom:1em;
-	border:solid 1px #eee;
-	padding:.8em 1.5em;
-	display:inline-block;
-	background: #f8f8f8;
-	min-height: 4.5em;
+    margin:0;
+    margin-bottom:1em;
+    border:solid 1px #eee;
+    padding:.8em 1.5em;
+    display:inline-block;
+    background: #f8f8f8;
+    min-height: 4.5em;
 }
 .content-share p {
-	display:inline-block;
-	width:auto;
-	margin:0;
-	margin-right:1em !important;
-	font-weight:bold;
+    display:inline-block;
+    width:auto;
+    margin:0;
+    margin-right:1em !important;
+    font-weight:bold;
 }
 #social-share{
-	display:inline-block;
-	height:3em;
+    display:inline-block;
+    height:3em;
 }
 @media screen and (max-width: 476px) {
-	.content-share{
-		width: 100%;
-		display:flex;
-		align-items: center;
-		justify-content: center;
-	}
-	#social-share {
-		width: 100%;	
-	}
-	#social-share a{
-		width: 0;
-	    height: 2.5em;
-		display: inline-block !important;
-		text-indent: -9999px;
-		margin: .4em;
-	}
-	#social-share a:before{
-		height: 1.5em;
-		width: 1.5em;
-		left: .8em;
-	}
-	.content-share p{
-		white-space: nowrap;
-	}
+    .content-share{
+        width: 100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #social-share {
+        width: 100%;	
+    }
+    #social-share a{
+        width: 0;
+        height: 2.5em;
+        display: inline-block !important;
+        text-indent: -9999px;
+        margin: .4em;
+    }
+    #social-share a:before{
+        height: 1.5em;
+        width: 1.5em;
+        left: .8em;
+    }
+    .content-share p{
+        white-space: nowrap;
+    }
 }
 @media screen and (max-width: 395px) {
 
-	.content-share p{
-		text-indent: -9999px;
-	}
-	#social-share {
-		position:absolute;	
-		width:initial;
-	}
+    .content-share p{
+        text-indent: -9999px;
+    }
+    #social-share {
+        position:absolute;	
+        width:initial;
+    }
+}
+.post-template-default .site-container .content-white .btn{
+    color: #fff;
+    width: calc(100% - 2em);
+    margin: 1em;
 }

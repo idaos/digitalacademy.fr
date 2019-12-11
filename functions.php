@@ -120,6 +120,18 @@ function custom_scripts_and_styles_quiSommesNous(){
     }
 }
 
+/**
+ * Chargement des styles et scripts pour les pages   'Une formation'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_singleFormation');
+//Load scripts (and styles)
+function custom_scripts_and_styles_singleFormation(){
+    if(is_single()){ //Check if we are viewing an article
+        wp_enqueue_style( 'formation-style', get_template_directory_uri() . '/css/single-formation.css', array( 'main' ), null );
+    }
+}
 
 /**
  * Chargement des styles et scripts pour la page   'Contact'

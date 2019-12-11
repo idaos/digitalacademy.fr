@@ -11,12 +11,22 @@ if( has_post_thumbnail() ) {
     $bg = 'style="background-image:url(\''. $url .'\');background-size: cover;background-position:center"';
 }
 ?>
-
 <style>
+    .full-width p{
+        text-align: center;
+    }
     hr{margin:2em auto}
-    .content-white ul{padding-bottom: 3em;}
+    .content-white{
+        padding:1.5em;
+        padding-bottom: 3em;
+    }
+    .content-white ul {
+        padding-bottom: 4em;
+    }
+    .content-white li a{
+        color:#000;
+    }
 </style>
-
 <div class="breadcrumb hidden-xs">
     <div class="container">
         <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
