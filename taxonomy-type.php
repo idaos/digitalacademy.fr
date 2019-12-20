@@ -7,7 +7,7 @@
 } ?>
     </div>
 </div>
-<div class="container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php the_field( 'img_bandeau', 'type-reference_' . get_queried_object_id() ) ?>)">
+<div class="container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php the_field( 'img_bandeau', 'type-reference_' . get_queried_object_id() ) ?>);background-color:#c5c5c5;">
     <div class="slick-slide">
         <div class="clearfix">
             <h1 class="title-slider">Nos références en formation</h1>

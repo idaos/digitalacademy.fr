@@ -28,7 +28,7 @@ $thematic_css = get_field( 'couleur', 'thematique_'.$thematic->term_id );
 $thematic_css = empty( $thematic_css ) ? '' : ' theme-'.$thematic_css; ?>
 <div class="container-slider main-slider slider-header<?php echo esc_attr( $thematic_css ); ?>">
     <div class="slick-slide">
-        <h1 class="title-slider"><?php the_title(); ?></h1>
+        <h1 class="title-slider">Formation - <?php the_title(); ?></h1>
     </div>
 </div>
 <div class="xs-container-menu-filtre">
