@@ -684,13 +684,13 @@ function kz_search($keywords){
                 // Course Image
                 $course_image = get_field( 'image_header_formation', $formation->ID ); 
             }
-            if ( get_field( 'nouvelle_formation', $formation->ID ) ){
+            if ( get_field( 'tag_nouvelle_formation', $formation->ID ) ){
                 // New Course ?
                 $course_new = true;
             }else{
                 $course_new = false;
             }
-            if ( get_field( 'top_formation', $formation->ID ) ){
+            if ( get_field( 'tag_top_formation', $formation->ID ) ){
                 // Top Course ?
                 $course_top = true;
             }else{

@@ -257,7 +257,6 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         }else{
             return arr;
         }
-
     }
 })
     .filter('searchThema', function(){

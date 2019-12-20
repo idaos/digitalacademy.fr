@@ -32,9 +32,11 @@ function hideValidationMessage(){
     jQuery('input').on("click", function(){  
         jQuery( this ).parents('form li').children('.validation_message').hide();
     });
-    jQuery('.validation_message').on("click", function(){  
-        jQuery( this ).parents('form li').children('input').focus();
-        jQuery( this ).hide();
+    jQuery( ".validation_message" ).each(function(index) {
+        jQuery(this).on("click", function(){
+            jQuery( this ).parents('form li').find('input').focus();
+            jQuery( this ).hide();
+        });
     });
 }
 

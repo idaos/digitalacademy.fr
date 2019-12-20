@@ -189,8 +189,8 @@ html body #gform_wrapper_3 form li textarea:focus,
 html body #gform_wrapper_2 form li textarea:focus,
 html body #gform_wrapper_4 form li textarea:focus,
 html body #gform_wrapper_1 form li textarea:focus {
-  border: solid 1px #72b8e3;
-  box-shadow: 0 2px 0 0 #72b8e3;
+  border: solid 1px #d2d2d2;
+  box-shadow: 0 2px 0 0 #d2d2d2;
 }
 html body #form-bottom form li textarea,
 html body #gform_wrapper_11 form li textarea,
@@ -212,7 +212,7 @@ html body #gform_wrapper_1 form .focused label {
   background: #ffffff;
   transform: translateY(-136%);
   padding: 0 .5em;
-  color: #72b8e3;
+  color: #4b4b4b;
   font-size: .9em;
   margin-left: .2em;
 }
