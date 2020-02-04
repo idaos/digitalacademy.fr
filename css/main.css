@@ -1996,4 +1996,13 @@ form input::placeholder, form textarea::placeholder{
     margin: auto;
 }
 /*------*/
+
+/* BG "s'inscrire à la newsletter" sur les pages offres */
+.page-template-template-pages-offre-old .bg-orange > .clearfix{
+	background: #BF3B2B !important;
+}
+.page-template-template-pages-offre-old .bg-orange > .clearfix > .m-100{
+    background: none;
+}
+
 /*------*/
