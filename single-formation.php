@@ -69,7 +69,12 @@ $thematic_css = empty( $thematic_css ) ? '' : ' theme-'.$thematic_css; ?>
 
             <div class="full-width bg-gray fs20 p30" id="presentation">
                 <div class="row clearfix">
-                    <h2>Présentation</h2>
+
+			<?php if ( get_field( 'titre_presentation' ) ): ?>
+			<h2><?php the_field( 'titre_presentation' ); ?></h2>
+			<?php else : ?>
+			<h2>Présentation</h2>
+			<?php endif; ?>
 
                     <div class="content-show">
                         <p class="visible-xs toggleplus">+</p>
