@@ -61,7 +61,11 @@
 			$blocs[ $i ] .= '<div class="vc_column-inner">';
 			$blocs[ $i ] .= '<div class="wpb_wrapper">';
 			$blocs[ $i ] .= '<div class="text-center">';
-			$blocs[ $i ] .= '<h3>' . $formation->post_title . '</h3>';
+			$blocs[ $i ] .= '<h3>';
+			$blocs[ $i ] .= '<a href="' . get_the_permalink( $formation->ID ) . '">';
+            $blocs[ $i ] .= 'Formation ' . $formation->post_title;
+            $blocs[ $i ] .= '</a>';
+            $blocs[ $i ] .= '</h3>';
 			$blocs[ $i ] .= '</div>';
 			$blocs[ $i ] .= '<div class="clearfix">';
 			if ( get_field( 'visuel_presentation', $formation->ID ) ) {
