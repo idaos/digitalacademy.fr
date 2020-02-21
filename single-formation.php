@@ -529,25 +529,25 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
 
 <!-- Témoignages -->
 <?php if ( $temoignages = get_field( 'temoignages' ) ): ?>
-<section class="testimonial-wrapper" class="container-wp">
+<section class="testimonial-wrapper container-wp">
     <div class="container" id="temoignages">
-       
+
         <h2>Témoignages</h2>
         <hr>
-       
+
         <div class="content-show">
             <p class="visible-xs toggleplus">+</p>
             <div class="content-wrapper">
-                <div class="row">
+                <div class="row" style="padding-top:0">
                     <div class="col-xs-12">
-<!--
-                        <span class="reverse">
-                            <h2>Témoignages</h2>
-                            <h3>Ce que disent nos apprenants de la DigitalAcademy</h3>
-                        </span>
-                        <hr>
+                        <!--
+<span class="reverse">
+<h2>Témoignages</h2>
+<h3>Ce que disent nos apprenants de la DigitalAcademy</h3>
+</span>
+<hr>
 -->
-                        <br><p>Retrouvez les points de vue des apprenants qui commentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
+                        <br><p style="margin-top:0;">Retrouvez les points de vue des apprenants qui commentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
                     </div>
                 </div>
                 <div class="row row-same-height">

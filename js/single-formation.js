@@ -5,7 +5,7 @@
 jQuery( document ).ready(function() {
 
     jQuery( ".toggable" ).each(function() {
-        
+
         var toggaled = jQuery( this );
         jQuery( this ).children(".toggable-content").hide();
         jQuery( this ).children(".toggable-title").parent().click(function () {
@@ -50,7 +50,7 @@ jQuery(window).scroll(function() {
     }
 
     // -------------------------- //
-    //   Btn highlights on scoll
+    //   Btn highlights on scroll
     // -------------------------- //
 
     // get scroll position
@@ -66,7 +66,7 @@ jQuery(window).scroll(function() {
     // highlight nav btn
     jQuery('#sub-nav li a').each(function( index ) {
         if( jQuery(this).attr('href').substring(1) == scrolled_id ){
-
+            
             jQuery(this).addClass('btn-red');
             jQuery(this).removeClass('btn-gray');
         }else{
