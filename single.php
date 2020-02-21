@@ -11,7 +11,7 @@
             <p class="title-slider">Blog</p>
         </div>
         <p>
-            Suivez l'actualité de la DigitalAcademy©
+            Suivez l'actualité de la DigitalAcademy
         </p>
     </div>
 </div>

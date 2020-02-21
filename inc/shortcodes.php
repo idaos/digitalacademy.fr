@@ -299,7 +299,7 @@ add_shortcode( 'business_case', 'digitalacademy_shortcode_businessCase' );
 
 /**
  * Shortcode slider des témoignages
- * [temoignages nb=2 titre="Ce que disent nos clients de la DigitalAcademy©" sous_titre="Lorem ipsum dolor sit amet,
+ * [temoignages nb=2 titre="Ce que disent nos clients de la DigitalAcademy" sous_titre="Lorem ipsum dolor sit amet,
  * consectetur adipiscing elit. Ut sed felis accumsan, egestas diam in, aliquam dolor. Aliquam venenatis nibh vitae
  * odio commodo, sit amet fermentum neque pharetra. Mauris molestie maximus mollis. Aliquam erat volutpat. Pellentesque
  * pretium mauris nec condimentum interdum."]
@@ -311,7 +311,7 @@ add_shortcode( 'business_case', 'digitalacademy_shortcode_businessCase' );
 function digitalacademy_shortcode_temoignages( $atts ) {
 	$a = shortcode_atts( array(
 		'nb'         => 2,
-		'titre'      => 'Ce que disent nos clients de la DigitalAcademy©',
+		'titre'      => 'Ce que disent nos clients de la DigitalAcademy',
 		'sous_titre' => false,
 		'lien'       => false
 	), $atts );

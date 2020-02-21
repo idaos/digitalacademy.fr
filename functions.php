@@ -129,7 +129,17 @@ add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_singleFormation');
 //Load scripts (and styles)
 function custom_scripts_and_styles_singleFormation(){
     if(is_single()){ //Check if we are viewing an article
+
         wp_enqueue_style( 'formation-style', get_template_directory_uri() . '/css/single-formation.css', array( 'main' ), null );
+        wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
+        wp_enqueue_script( 'toggable-tabs', get_stylesheet_directory_uri() . '/js/bootstrap-toggable-tabs.js', array( 'moment' ), null, false );
+        wp_enqueue_script( 'toggable-tabs-init', get_stylesheet_directory_uri() . '/js/bootstrap-toggable-tabs-kz-init.js', array( 'toggable-tabs' ), null, false );
+        wp_enqueue_style( 'custom_form_style', get_template_directory_uri() . '/css/form.css', array(), null );
+        wp_enqueue_script( 'single-formation', get_stylesheet_directory_uri() . '/js/single-formation.js', array( 'jquery' ), null, false );
+
+        // datepicker load
+        wp_enqueue_style( 'datepicker-tiny', get_template_directory_uri() . '/css/tiny-date-picker.min.css', array( 'main' ), null );
+        wp_enqueue_script( 'datepicker-tiny', get_stylesheet_directory_uri() . '/js/tiny-date-picker.min.js', array( 'jquery' ), null, false );
     }
 }
 
@@ -165,7 +175,29 @@ function custom_scripts_and_styles_home(){
     if(is_page()){ 
         if(is_front_page()){
             wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
+            wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
             wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/js/home_script.js', array( 'jquery' ), null, false );
+        }
+    }
+}
+
+
+/**
+ * Chargement des styles et scripts pour la page   'Nos solutions de formation'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_nos_solutions');
+//Load scripts (and styles)
+function custom_scripts_and_styles_nos_solutions(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        if($template_name == 'template-nos-solutions-de-formation.php'){
+            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
+            wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/js/home_script.js', array( 'jquery' ), null, false );
+            wp_enqueue_style( 'nos-solutions-style', get_template_directory_uri() . '/css/nos-solutions.css', array( 'home-style' ), null );
         }
     }
 }
@@ -208,7 +240,11 @@ add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_courses');
 function custom_scripts_and_styles_courses(){
     global $wp_query;
     //Check which template is assigned to current page we are looking at
-    $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+    if( isset($wp_query->post->ID) ){
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+    }else{
+        $template_name = false;
+    }
     if(($template_name == 'tpl-nos-formations.php')||(isCoursesListPage())){
         wp_enqueue_style( 'bootstrap4-grid', get_template_directory_uri() . '/landing-page-catalogue/vendor/bootsrap4/css/bootstrap-grid.min.css', null );
         wp_enqueue_style( 'page-nos-formations', get_template_directory_uri() . '/css/page-nos-formations.css', array( 'main', 'references-style' ), null );
@@ -699,9 +735,9 @@ function kz_search($keywords){
             // Course Title
             $course_title = get_the_title( $formation->ID );
             // Course Session
+            $session_arr = array();
             if( have_rows('sessions', $formation->ID) ){    
                 $row = 0;
-                $session_arr = array();
                 while ( have_rows('sessions', $formation->ID) ) { 
                     the_row();
                     $row +=1;
@@ -875,17 +911,6 @@ function kz_shortcode_coursesSlider( $atts ) {
                                     <?php if ( get_field( 'presentation', $formation->ID ) ): ?>
                                     <p><span class="line-clamp line-clamp-sm-3"><?php echo wp_trim_words( get_field( 'presentation', $formation->ID ), 30, '...' ); ?></span> <!-- <a class="course-link" href="{{course.link}}">En savoir plus sur cette formation.</a>--></p><?php endif; ?>
                                 </div>
-                                <div class="alignCenter">
-                                    <!-- Formateur -->                                        
-                                    <?php if ( $formateurs = wp_get_post_terms( $formation->ID, 'formateur' ) ): ?>
-                                    <?php $j = 0; foreach ( $formateurs as $formateur ): ?>
-                                    <?php if($j==0){?>
-                                    <img
-                                         src="<?php the_field( 'avatar', 'formateur_' . $formateur->term_id ); ?>"
-                                         alt="" width="100" height="100">
-                                    <span><i>Animée par :</i><br><b><?php echo $formateur->name; ?></b>
-                                    </span><?php } $j=+1; ?><?php endforeach; ?><?php endif; ?>
-                                </div>
                                 <a class="en-savoir-plus" href="<?php echo get_the_permalink( $formation->ID ); ?>">
                                     <div class="btn btn-xs btn-red margin0">En savoir plus</div>
                                 </a>
@@ -1035,7 +1060,7 @@ function kz_shortcode_preInscrFormHeading( $atts ) {
     document.addEventListener("DOMContentLoaded", function() {
         if(jQuery('#courseTitle').length){}else{
             jQuery('#gform_1 .gform_body').before('<div id="courseTitle"><?php echo $_GET["objet"]; ?></i>');
-            jQuery('#field_1_2').hide();
+            //            jQuery('#field_1_2').hide();
             jQuery('#form-heading').hide();
         }
     });

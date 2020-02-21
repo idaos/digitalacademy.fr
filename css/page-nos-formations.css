@@ -291,7 +291,7 @@ hr {
 #nos-formations #formations [class*='col-'] .wrapper > div {
   position: relative;
   padding: 0 .9em;
-  padding-bottom: 2.8em;
+  padding-bottom: 1.5em;
 }
 #nos-formations #formations [class*='col-'] .wrapper > div a > h4 {
   color: #515151;
@@ -305,7 +305,6 @@ hr {
   text-transform: uppercase;
 }
 #nos-formations #formations [class*='col-'] .wrapper > div p {
-  padding-bottom: 4.9em;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -659,9 +658,6 @@ select {
 }
 #formations [class*='col-'] .wrapper div span {
   padding: 0 0 .5em 0;
-}
-#formations [class*='col-'] .wrapper div p {
-  padding-bottom: 9em;
 }
 #formations [class*='col-'] .wrapper .alignCenter {
   bottom: 6em;

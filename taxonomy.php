@@ -12,7 +12,7 @@
         <div class="clearfix">
             <h1 class="title-slider">Nos formateurs</h1>
         </div>
-        <p>Découvrez l'ensemble de nos formateurs DigitalAcademy©</p>
+        <p>Découvrez l'ensemble de nos formateurs DigitalAcademy</p>
     </div>
 </div>
 <main class="content">

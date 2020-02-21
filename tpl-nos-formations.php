@@ -154,15 +154,6 @@ name="thematique-checkbox-1"
                                         <!--                                    <a class="course-link" href="{{course.link}}">En savoir plus sur cette formation.</a>-->
                                     </p>
                                 </div>
-                                <div class="alignCenter">
-                                    <!-- Formateur -->                                        
-                                    <img ng-src="{{course.trainer_image}}" alt="" width="100" height="100">
-                                    <span>
-                                        <i ng-if="course.id==2166">Coordonnée par :</i>
-                                        <i ng-if="course.id!=2166">Animée par :</i><br>
-                                        <b ng-bind-html="course.trainer_name | highlight:searchText"></b>
-                                    </span>
-                                </div>
                                 <!--
 <form action="" ng-show="course.sessions.length > 0">
 <select name="" id="">

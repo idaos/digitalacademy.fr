@@ -35,6 +35,13 @@ html body {
 .col-middle {
     vertical-align: middle;
 }
+h3{
+    font-style: italic!important;
+    font-weight: 100!important;
+    color: #838383!important;
+    margin-bottom: 0;
+    font-size: 1.1em!important;
+}
 /* Classic
 --------------------------------------------- */
 .text-center,
@@ -150,9 +157,6 @@ html body {
     margin: 0 auto;
     position: relative;
 }
-.single-formation .content .container{
-    padding-top:30px;
-}
 .full-width:before,
 .full-width:after,
 .container-top-header:before,
@@ -211,7 +215,7 @@ body:not(.home) .wrapper{
 .bg-gray,
 .bg-gray:before,
 .bg-gray:after{
-    background: #e2e2e2;
+    background: #eeeeee;
 }
 .bg-gray-light,
 .bg-gray-light:before,
@@ -388,7 +392,7 @@ body .content-theme h3{
     margin-bottom: 60px;
 }
 
-.no-wrap{
+.no-wrap, .noWrap{
     white-space: nowrap;
 }
 
@@ -675,18 +679,18 @@ body:not(.home) .container-reference{
 --------------------------------------------- */
 /*
 .container-border{
-    border: 1px solid #dbdbdb;
-    height: 100%;
-    background-color: #E2E2E2;
-    position: relative;
-    max-height:650px;
+border: 1px solid #dbdbdb;
+height: 100%;
+background-color: #eeeeee;
+position: relative;
+max-height:650px;
 }
 .content-gray{
-    background: #e2e2e2;
-    padding: 20px;
+background: #eeeeee;
+padding: 20px;
 }
 .content-img img{
-    width: 100%;
+width: 100%;
 }
 */
 
@@ -722,7 +726,7 @@ body:not(.home) .container-reference{
 }
 .container-business-case .col-sm-9 p:last-child,
 .content-business-case{
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 1px solid #eeeeee;
 }
 .container-business-case .col-sm-9 p:last-child{
     padding-bottom: 20px;
@@ -1168,7 +1172,7 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         width:100%;
     }
     .home main.content > .container{
-        background-color:#e2e2e2;
+        background-color:#eeeeee;
     }
     .home .formation-presentation > .vc_column_container .wpb_single_image,
     .home .formation-presentation > .vc_column_container .wpb_single_image img,
@@ -1216,16 +1220,27 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     .display-table .col-sm-9{
         float: left;
     }
-    .content-show *,
+    .content-show > *,
     .sidebar{
         display: none;
     }
     .m-100,
     .content-show p.visible-xs,
-    .content-show.show *,
+    .content-show.show > .content-wrapper,
     .row-height,
     .col-height{
         display: block;
+    }
+    .content-show.show .nav{
+        display: flex;
+    }
+    .content-show.show script{
+        display: none;
+    }
+    @media only screen and (max-width: 767px){
+        .content-show.show li{
+            display: flex;
+        }
     }
     .content-theme h3,
     .top-title{
@@ -1322,6 +1337,9 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     .gform_wrapper{
         padding: 15px;
     }
+    .single-formation .gform_wrapper{
+        padding: 0;    
+    } 
     .bloc-formateurs,
     .full-width-contact.full-width p{
         padding: 15px 0;
@@ -1435,6 +1453,7 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         display: inherit;
         width: 100%;
     }
+/*
     .full-width.bg-gray .container-theme .content-show .visible-xs,
     .toggleplus.visible-xs{
         font-size: 50px;
@@ -1447,6 +1466,7 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         margin: 0;
         background-color: rgba(0, 0, 0, 0);
     }
+*/
     .btn-orange {
         display: inline-block;
         top: 0;
@@ -1998,11 +2018,25 @@ form input::placeholder, form textarea::placeholder{
 /*------*/
 
 /* BG "s'inscrire à la newsletter" sur les pages offres */
+.page-template-default .bg-orange > .clearfix,
 .page-template-template-pages-offre-old .bg-orange > .clearfix{
-	background: #BF3B2B !important;
+    background: #BF3B2B !important;
 }
+.page-template-default .bg-orange > .clearfix > .m-100,
 .page-template-template-pages-offre-old .bg-orange > .clearfix > .m-100{
     background: none;
 }
 
 /*------*/
+
+/* Page - Un formateur */
+ul.picto{
+    padding: 0;
+}
+ul.picto li{
+    display: inline-block;
+}
+ul.picto img{
+    max-width: 40px;
+    margin: .5em;
+}

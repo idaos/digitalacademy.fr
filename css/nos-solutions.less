@@ -1,0 +1,103 @@
+#offre-1{
+    ol{
+        list-style: none;
+        counter-reset: the-counter;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        li{
+            counter-increment: the-counter;
+            display: block;
+            width: 100%;
+            font-size: 1em;
+            margin-bottom: .5em;
+            margin-top: .5em;
+            font-weight: bold;
+            //background: #f9f9f9;
+            padding: .4em;
+            &:before {
+                content: "" counter(the-counter);
+                font-weight: bold;
+                font-size: 1em;
+                margin-right: 0.5em;
+                line-height: 1;
+                padding: .5em .8em;
+                border: solid 1px #000;
+
+            }
+        }
+    }
+    ul{
+        list-style: none;
+        li{
+            margin: .5em 0;
+            &:before {
+                content: "\2022";
+                color: #505a9b;
+                display: inline-block;
+                width: 1.7em;
+                margin-left: -2em;
+            }
+        }
+    }
+
+    .business-case-wrapper{
+        p{
+            max-width: inherit;
+            display: block;
+        }
+        h4{
+            font-size: 1.5em;
+            color: #505a9b;
+            margin: 1.5em 0 .5em 0;
+        }
+        .encart{
+            max-width:800px;
+            margin:auto;
+            padding: .5em 2em;
+            border: solid 1px #c7c7c7;
+            p{
+                margin-bottom: 0;
+            }
+            i{
+                line-height: 1.5em;
+            }
+        }
+    }
+}
+
+svg.top-left{
+    bottom: inherit;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+svg.bottom-left{
+    bottom: -5vw !important;
+    top: inherit;
+    width: 100%;
+    left: 0;
+}
+svg.xs{
+    height: 5vw;
+}
+.alignCenter{
+    text-align: center;
+}
+.alignRight{
+    text-align: right;
+}
+.alignLeft{
+    text-align: left;
+}
+.valign{
+    display: flex;
+    align-items: center;
+}
+.padding0{
+    padding: 0!important;
+}
+blockquote p:before {
+    top: 37px;
+}

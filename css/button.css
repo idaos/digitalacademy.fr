@@ -361,7 +361,7 @@ body .absolute100 {
   bottom: 0;
   width: calc(100% - 2em);
 }
-body .navigation li a:hover {
+body .navigation li a body:hover {
   filter: brightness(109%);
 }
 #kz_header .btn {
@@ -374,8 +374,8 @@ body .navigation li a:hover {
 .page-template-tpl-nos-formateurs .thewrapper .btn {
   position: absolute !important;
   bottom: 0;
-  width: calc(100% - 2em);
-  margin: 1em !important;
+  width: calc(100% - 4.5em);
+  margin: 0 1em 2.5em 1em !important;
   height: 2.5em;
 }
 @media (max-width: 576px) {
@@ -385,4 +385,53 @@ body .navigation li a:hover {
   #thematiques-input label {
     width: 100%;
   }
+}
+.tab-pane:not(.active) {
+  display: none;
+}
+.nav-tabs {
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  margin: 0;
+  padding: 0;
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+}
+.nav-tabs li {
+  flex: 1;
+  list-style: none;
+  display: inline-block;
+  float: left;
+}
+.nav-tabs li:last-child {
+  float: none;
+}
+.nav-tabs li .btn-tabs {
+  width: 100%;
+  margin: 0;
+  border-radius: 0 !important;
+  background: #fff !important;
+  border: solid 1px #c3c3c3;
+  border-right: none;
+}
+.nav-tabs li:last-child .btn-tabs {
+  border-right: solid 1px #c3c3c3;
+}
+.nav-tabs li.active .btn-tabs {
+  background: #bf3b2b !important;
+  color: #fff;
+  border: solid 1px #bf3b2b;
+}
+.tab-content {
+  background: #fff;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  max-width: 500px;
+  margin: auto;
+}
+.tab-content .form-heading {
+  margin-top: 0;
+  padding: 1em;
+}
+.tab-content .btn {
+  zoom: 85%;
 }

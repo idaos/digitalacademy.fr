@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 
-    $(".content-show").click(function () {
-        $(this).toggleClass("show");
+    jQuery(".toggleplus").click(function () {
+        jQuery(this).parent('.content-show').toggleClass("show");
     });
 });
