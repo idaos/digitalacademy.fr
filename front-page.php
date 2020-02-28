@@ -254,7 +254,7 @@
                 </div>
             </div>
         </div>
-        <a title="Voiur tous nos temoignages" href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
+        <a title="Voir tous nos temoignages" href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
     </section>
     <section id="contact"><span id="contact-anchor"></span>
         <div class="container">

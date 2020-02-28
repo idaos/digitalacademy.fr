@@ -31,8 +31,11 @@ if ( $types = wp_get_post_terms( get_the_ID(), 'type' ) ){
         }
     }
 }
+//---------------------------------------------------------------------------
+// Generate Course ref
+//---------------------------------------------------------------------------
+$course_ref = '3120' . get_the_ID(); 
 ?>
-
 
 
 <div id="breadcrumb" class="breadcrumb hidden-xs">
@@ -49,10 +52,14 @@ if ( $types = wp_get_post_terms( get_the_ID(), 'type' ) ){
 <?php if ( get_field( 'obsolete' ) === "Oui" ): ?>
 <div id="obsolete">
     <div class="container" style="padding: 0 22px;text-align:center;">
-        <span>&#9888;</span>
-        <span>Nous ne dispensons plus cette formation. Pour plus d'informations, contactez-nous au &nbsp;<span class="noWrap">09 77 21 53 21.</span></span>
+        <span class="alert-ico">&#9888;</span>
+        <span>Nous ne dispensons plus cette formation. Pour plus d'informations, contactez-nous au &nbsp;</span>
+        <a href="tel:0977215321" class="btn btn-xs btn-red-alt-neg">
+            <span class="noWrap margin0">09 77 21 53 21</span>
+        </a>
     </div>
 </div>
+<div></div>
 <?php endif; ?>
 
 
@@ -104,10 +111,8 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
                 <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#presentation">Présentation</a></li>
                 <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#informations">Informations &amp; Objectifs</a></li>
                 <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#programme">Programme</a></li>
-                <?php if ( get_field( 'obsolete' ) === "Non" ): ?>
-                <?php if (!empty($enabled_tabs)): // check whether the course is obsolete ?> 
+                <?php if ( get_field( 'obsolete' ) === "Non" ): // check whether the course is obsolete ?>
                 <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#Inscription">Dates, lieu &amp; inscription</a></li>
-                <?php endif; ?>
                 <?php endif; ?>
                 <?php if ( $temoignages = get_field( 'temoignages' ) ): ?>
                 <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#temoignages">Témoignages</a></li>
@@ -214,16 +219,42 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
 
                     <div class="col-xs-12 col-sm-4 container__orange border0">
 
-                        <p style="margin: 2em 0;text-align:center">
+                        <p style="margin: 2em 0;">
                             <strong>Informations pratiques</strong>
                         </p>
-                        <?php if ( get_field( 'informations' ) ): ?>
-                        <?php the_field( 'informations' ); ?>
-                        <?php endif; ?>
+
+                        <!-- Infos - Encadré rouge -->
+                        <ul>
+                            <li>Numéro de référence :&nbsp;<?php echo $course_ref; ?></li>
+                            <li>Lieu :&nbsp;
+                                <?php if ( get_field( 'lieu' ) ): ?>
+                                <?php the_field( 'lieu' ); ?>
+                                <?php endif; ?>
+                            </li>
+                            <li>Durée :&nbsp;
+                                <?php if ( get_field( 'duree' ) ): ?>
+                                <?php the_field( 'duree' ); ?>
+                                <?php endif; ?>
+                            </li>
+                            <li>Effectif maximum :&nbsp;
+                                <?php if ( get_field( 'taille' ) ): ?>
+                                <?php the_field( 'taille' ); ?>
+                                <?php endif; ?>
+                                &nbsp;personnes
+                            </li>
+                            <li>Tarif :&nbsp;
+                                <?php if ( get_field( 'prix' ) ): ?>
+                                <?php the_field( 'prix' ); ?>
+                                <?php endif; ?>
+                            </li>
+                            <li>
+                                Autres : Accès Wifi
+                            </li>
+                        </ul>
 
                         <!-- Prerequis -->
                         <?php if ( get_field( 'prerequis_formation' ) ): ?>
-                        <div class="info-item" style="text-align:center">
+                        <div class="info-item">
                             <p><strong>Prérequis de la formation</strong></p>
                             <?php the_field( 'prerequis_formation' ); ?>
                         </div>
@@ -334,7 +365,10 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
                         $programme_arr_clean = array();
 
                         foreach( $programme_arr as $programme_item ){
-
+                            
+                            $programme_item = str_replace("<ul>", "", $programme_item);
+                            $programme_item = str_replace("</ul>", "", $programme_item);
+                            
                             $programme_item = str_replace("<p><strong>", "</ul></div></div><div class='p-wp col-sm-6 col-md-4'><div class='card'><h4 class='".$thema_color_str."'>", $programme_item);
                             $programme_item = str_replace("</strong></p>", "</h4><ul>", $programme_item);
 
@@ -344,8 +378,17 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
                             $programme_item = str_replace("<p><i><span style=\"font-weight: 400;\">", "<i>", $programme_item);
                             $programme_item = str_replace("</span></i></p>", "</i>", $programme_item);
 
+                            $programme_item = str_replace("<i><span style=\"font-weight: 400;\">", "<i>", $programme_item);
+                            $programme_item = str_replace("</span></i>", "</i>", $programme_item);
+
+                            $programme_item = str_replace("<p><em>", "<i>", $programme_item);
+                            $programme_item = str_replace("</em></p>", "</i>", $programme_item);
+
                             $programme_item = str_replace("<p>", "<li>", $programme_item);
                             $programme_item = str_replace("</p>", "</li>", $programme_item);
+
+                            $programme_item = str_replace("<strong>", "", $programme_item);
+                            $programme_item = str_replace("</strong>", "", $programme_item);
 
                             if(( $programme_item != "<li>&nbsp;</li>" ) && ( $programme_item != "" )){
                                 array_push($programme_arr_clean, $programme_item);
@@ -357,6 +400,7 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
                         </ul></div></div>
                 </div>
                 <?php if ( get_field( 'version' ) ): ?>
+
                 <div id="version">
                     <?php the_field( 'version' ); ?>
                 </div>
@@ -368,44 +412,47 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
 
 
 
+<?php 
+// count how many sessions are scheduled
+$remaining_session = 0;
+while ( have_rows( 'sessions' ) ){
+    the_row();
+    $row = get_row();
+    $date_session = strtotime( get_sub_field( 'date_session' ) );
 
+    if ( time() < $date_session ){
+        $remaining_session += 1;
+    }
+} 
+?>
 
-<?php if ( get_field( 'obsolete' ) === "Non" ): ?>
-<?php if (!empty($enabled_tabs)): // check whether the course is obsolete ?> 
+<?php if ( get_field( 'obsolete' ) === "Non" ): // check whether the course is obsolete ?>
 <div class="container-wp">
     <div class="container" id="Inscription">
-
         <h2>Inscription</h2>
         <hr>
-        <?php //if ( have_rows( 'sessions' ) ): // check whether the course has sessions ?>
-        <?php //endif; ?>
 
         <div class="content-show">
             <p class="visible-xs toggleplus">+</p>
             <div class="content-wrapper">
 
-                <?php if ( have_rows( 'sessions' ) ): ?>
+                <?php if($remaining_session != 0): // check whether the course has sessions ?>
                 <div class="row clearfix">
-                    <div class="col-sm-4">
-                        <div class="col-sm-11" style="padding-right:0">
-                            <p><strong>Découvrez les prochaines dates de la formation «<?php the_title(); ?>»</strong></p>
+                    <div class="col-sm-4 alignCenter">
 
-                            <p>Si cette formation vous intéresse mais que les dates ne vous conviennent pas,
-                                n’hésitez pas à nous contacter. </p>
-
-                            <div class="content-info">
-                                <img
-                                     src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-infos.jpg"
-                                     alt=""/>
-
-                                <p>Plus d'infos ?</p>
-
-                                <p class="m250"><strong><?php echo get_field( 'telephone', 'option' ); ?></strong></p>
-                                <a href="<?php echo get_field( 'page_contact', 'option' ); ?>" onclick="return gtag_report_conversion();"
-                                   class="btn btn-red">Nous contacter</a>
+                        <div class="insert-alt">
+                            <img width="100" height="100" src="<?php echo get_stylesheet_directory_uri(); ?>/images/calendar-icon.svg">
+                            <div class="wrapper">
+                                <strong style="margin-bottom:.3em;">Découvrez les prochaines dates de la formation :</strong>  
+                                <br><i style="font-size:1.1em;"> « <?php the_title(); ?> » </i> 
                             </div>
                         </div>
-                        <div class="col-sm-1"></div>
+
+                        <i style="margin-top:.3em;width:100%;text-align:center;display:inline-block;">Si cette formation vous intéresse mais que les dates ne vous conviennent pas, n’hésitez pas à nous contacter.</i>
+                        <a href="<?php echo get_field( 'page_contact', 'option' ); ?>" onclick="return gtag_report_conversion();" class="btn btn-red btn-xs" style="margin: 1.5em 0 .4em 0;">Nous contacter</a>
+                        <a href="tel:0977215321" class="btn btn-xs btn-red-alt">
+                            Nous appeler au <span class="noWrap">09 77 21 53 21</span>
+                        </a>
                     </div>
                     <div class="col-sm-8" style="padding-left:0">
                         <div class="col-sm-1"></div>
@@ -478,6 +525,14 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
                         <!-- Tabs content -->
                         <div class="tab-content">
 
+                            <?php if ( ( !in_array ( 'inter', $enabled_tabs ) )
+                                      &&( !in_array ( 'intra-entreprises', $enabled_tabs ) )
+                                      &&( !in_array ( 'sur-mesure', $enabled_tabs ) ) ): ?>
+                            <div id="tab-inter" class="tab-pane active">
+                                <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
+                            </div>
+                            <?php endif; ?>
+
                             <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
                             <div id="tab-inter" class="tab-pane active">
                                 <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
@@ -510,6 +565,7 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
                                 </div>
                             </div>
                             <?php endif; ?>
+
                         </div>
                     </div>
                 </div>
@@ -519,8 +575,7 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
     </div>
 </div>
 <?php else: ?>
-<hr style="border-color: #fff;">
-<?php endif; ?>
+<div></div>
 <?php endif; ?>
 <!-- end/ - inscription -->
 
@@ -593,7 +648,7 @@ $thema_color_str = get_field( 'couleur', 'thematique_'.$thematic->term_id );
 
 
 
-<section id="slider-formations" class="container-wp">
+<section id="slider-formations" class="container-wp" style="background:#fff!important;">
     <div id="null" class="container">
         <div class="row">
             <div class="col-xs-12">
