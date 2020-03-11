@@ -87,7 +87,9 @@ get_header();
                         </div>
                     </div>
 
-                    <!--
+<?php
+/**
+<!--
 <div id="thematiques-input" class="alignCenter">
 <div class="row alignCenter">
 <div ng-repeat="thema in courses.themas">
@@ -99,22 +101,18 @@ ng-click="onCheckboxEvent($event); searchText = '';" >
 </div>
 </div>
 </div>
-
-
 ng-model="thema.t1" 
 id="thematique-checkbox-1" 
 name="thematique-checkbox-1"
 -->
+*/
+?>
 
                 </div>
             </div>
 
             <!-- Lien vers le formulaire demande de catalogue -->
             <?php //echo get_field( 'page_demande_catalogue', 'option' ); ?>
-
-
-
-
 
             <div id="search-helper" class="alignCenter">
                 <p ng-cloak ng-show="((courses.course | searchFor: searchText).length < courses.course.length) && ((courses.course | searchFor: searchText).length > 0)">
@@ -154,14 +152,19 @@ name="thematique-checkbox-1"
                                         <!--                                    <a class="course-link" href="{{course.link}}">En savoir plus sur cette formation.</a>-->
                                     </p>
                                 </div>
-                                <!--
+                                
+<?php
+/**                                
+<!--
 <form action="" ng-show="course.sessions.length > 0">
 <select name="" id="">
 <option ng-repeat="session in course.sessions" value="{{session.date}}" link="{{session.link}}">À {{session.place}} le {{session.date}}</option> 
 </select>
 </form>
 -->
-                                <!--                            <b class="no-session" ng-show="course.sessions.length == 0">Aucune session pour cette formation</b> -->
+<!--                            <b class="no-session" ng-show="course.sessions.length == 0">Aucune session pour cette formation</b> -->
+*/
+?>
                                 <a class="en-savoir-plus" href="{{course.link}}">
                                     <div class="btn btn-red btn-sm" ng-class="selectBtnClass()">En savoir plus</div>
                                 </a>

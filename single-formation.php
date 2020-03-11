@@ -429,7 +429,7 @@ while ( have_rows( 'sessions' ) ){
 <?php if ( get_field( 'obsolete' ) === "Non" ): // check whether the course is obsolete ?>
 <div class="container-wp">
     <div class="container" id="Inscription">
-        <h2>Inscription</h2>
+        <h2>Inscription à la formation <?php the_title();?></h2>
         <hr>
 
         <div class="content-show">
