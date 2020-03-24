@@ -257,17 +257,18 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         }else{
             return arr;
         }
+
     }
 })
     .filter('searchThema', function(){
     return function(items, thema, scope) {
         var result = [];
-        var th1 = 'reseaux-sociaux-e-reputation';
-        var th2 = 'strategie-de-marketing-digital';
-        var th3 = 'site-contenus-web';
-        var th4 = 'webmarketing-e-publicite';
-        var th5 = 'ressources-humaines-2-0';
-        var th6 = 'mobile-e-commerce';
+        var th1 = 'reseaux-sociaux';
+        var th2 = 'webmarketing';
+        var th3 = 'contenus-site-web';
+        var th4 = 'e-publicite-acquisition';
+        var th5 = 'ressources-humaines-web';
+        var th6 = 'e-reputations-relation-client-web';
         angular.forEach(items, function(item) {
             // if checkbox is checked for this thematique..
             if(thema.t1 != false) {

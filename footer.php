@@ -45,7 +45,7 @@
             <img style="margin: 0px 11px;" src="<?php bloginfo('template_url'); ?>/images/datadock_wht.png" title="Logo Datadock blanc"/></p>
             <span style="margin-top:.8em; display:block;color:#fff; font-style:italic;font-weight:100;">* Donnez vie à l'apprentissage numérique.</span>
         <div>
-            <span class="copyright">Copyright DigitalAcademy <?php echo date('Y'); ?></span> <?php echo wp_nav_menu(array('theme_location' => 'bottom', 'container' => false,)); ?>
+            <span class="copyright">Copyright DigitalAcademy© <?php echo date('Y'); ?></span> <?php echo wp_nav_menu(array('theme_location' => 'bottom', 'container' => false,)); ?>
         </div>
     </div>
 </div>

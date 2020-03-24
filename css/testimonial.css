@@ -17,8 +17,6 @@
 }
 .testimonial-wrapper .row-same-height {
   padding-bottom: 0;
-  justify-content: center;
-  display: flex;
 }
 .testimonial-wrapper .row-same-height > [class^='col-'] {
   margin-bottom: 0;

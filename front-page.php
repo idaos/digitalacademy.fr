@@ -35,7 +35,7 @@
                             <h3>Faites vivre le digital dans votre entreprise</h3>
                         </span>
                         <hr>
-                        <p>L’offre de la DigitalAcademy met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
+                        <p>L’offre de la DigitalAcademy© met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
                         <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red marginR">Découvrir nos solutions</div></a>
                         <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
                     </div>
@@ -200,7 +200,7 @@
             </div>
         </div>
     </section>
-    <section class="testimonial-wrapper">
+    <section id="testimonial">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -254,7 +254,7 @@
                 </div>
             </div>
         </div>
-        <a title="Voir tous nos temoignages" href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
+        <a title="Voiur tous nos temoignages" href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
     </section>
     <section id="contact"><span id="contact-anchor"></span>
         <div class="container">

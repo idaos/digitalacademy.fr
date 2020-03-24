@@ -100,37 +100,6 @@ input {
 input {
   text-overflow: ellipsis;
 }
-blockquote {
-  margin: 0;
-}
-blockquote span {
-  display: block;
-}
-blockquote p {
-  font-style: italic;
-  font-size: 1.15em;
-  position: relative;
-}
-blockquote p:before,
-blockquote p:after {
-  content: "";
-  position: absolute;
-  background-image: url('../images/quotation-mark.svg');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 15px;
-  height: 15px;
-}
-blockquote p:before {
-  left: -30px;
-  top: -7px;
-}
-blockquote p:after {
-  right: -25px;
-  top: 2em;
-  transform: rotate(180deg);
-}
 /* the slides */
 .slick-slide {
   margin: 0 27px;
@@ -264,6 +233,37 @@ svg {
   padding: 0 60px;
   margin: 2em 0;
 }
+#video blockquote {
+  margin: 0;
+}
+#video blockquote span {
+  display: block;
+}
+#video blockquote p {
+  font-style: italic;
+  font-size: 1.15em;
+  position: relative;
+}
+#video blockquote p:before,
+#video blockquote p:after {
+  content: "";
+  position: absolute;
+  background-image: url('../images/quotation-mark.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+}
+#video blockquote p:before {
+  left: -30px;
+  top: -7px;
+}
+#video blockquote p:after {
+  right: -25px;
+  top: 2em;
+  transform: rotate(180deg);
+}
 #video #player-wrapper {
   padding: 0;
   margin: auto;
@@ -325,6 +325,71 @@ svg {
   position: relative;
   top: -0.5em;
   left: -15px;
+}
+#testimonial {
+  background: #f5f5f5;
+  padding: 3em 0;
+  text-align: center;
+}
+#testimonial p {
+  display: inline-block;
+  max-width: 800px;
+}
+#testimonial hr {
+  width: 200px;
+  max-width: 200px;
+}
+#testimonial .row {
+  padding: 2em 0;
+}
+#testimonial .row-same-height {
+  padding-bottom: 0;
+}
+#testimonial .row-same-height > [class^='col-'] {
+  margin-bottom: 0;
+}
+#testimonial .row-same-height > [class^='col-'] .wrapper {
+  background: #fff;
+  padding: 1em;
+  text-align: left;
+}
+#testimonial .row-same-height > [class^='col-'] .wrapper .name {
+  font-size: 1.5em;
+}
+#testimonial .row-same-height > [class^='col-'] .wrapper .company {
+  font-size: 1.2em;
+  font-weight: 100;
+}
+#testimonial .row-same-height > [class^='col-'] .wrapper .course {
+  color: #adadad;
+  font-weight: bold;
+  font-size: .9em;
+  margin-top: .7em;
+}
+#testimonial .row-same-height > [class^='col-'] .wrapper .testimonial {
+  margin-top: .5em;
+}
+#testimonial .row-same-height > [class^='col-'] .wrapper img {
+  z-index: 11;
+  position: absolute;
+  right: 45px;
+  top: -25px;
+  width: 70px;
+  height: 70px;
+  box-shadow: 0px 3px 5px #c6c6c6;
+}
+#testimonial .row-same-height > [class^='col-'] .wrapper svg {
+  z-index: 10;
+  height: 4vh;
+  top: -4vh;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+  width: calc(100% - 30px);
+  left: 15px;
+}
+#testimonial .btn {
+  margin-top: 3em;
 }
 #top-formations {
   z-index: 3;
@@ -481,11 +546,11 @@ svg {
   .bloc-1 [class^='col-']:last-child hr {
     margin: auto!important;
   }
-  blockquote p:before {
+  #video blockquote p:before {
     top: 40%;
     left: -36px;
   }
-  blockquote p:after {
+  #video blockquote p:after {
     top: 42%;
     right: -36px;
   }
@@ -497,10 +562,10 @@ svg {
   svg {
     left: 0;
   }
-  .testimonial-wrapper .row-same-height > [class*='col-'] {
+  #testimonial .row-same-height > [class*='col-'] {
     margin-bottom: 5em !important;
   }
-  .testimonial-wrapper .row-same-height > [class*='col-']:last-child {
+  #testimonial .row-same-height > [class*='col-']:last-child {
     margin-bottom: 0 !important;
   }
   #offre-1,
