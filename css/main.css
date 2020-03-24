@@ -535,7 +535,7 @@ hr.none:before {
 }
 /* Fil d'ariane
 --------------------------------------------- */
-.breadcrumb{
+.breadcrumb, .rank-math-breadcrumb{
     padding: 15px 0;
     background: #fbfbfb;
     margin: 0;
@@ -546,10 +546,17 @@ hr.none:before {
     font-size: .90em;
     padding-left: 1em;
 }
-.breadcrumb_last{
+.rank-math-breadcrumb{
+	padding: 0;
+	border: none;
+}
+.rank-math-breadcrumb p{
+	margin: 0;
+}
+.breadcrumb .breadcrumb_last, .breadcrumb .last{
     color: #d13333;
 }
-.breadcrumb a{
+.breadcrumb a, .rank-math-breadcrumb a{
     color: #373636;
 }
 /* Menu filtre
