@@ -1,6 +1,7 @@
 /* Body
 --------------------------------------------- */
 *{
+    /*    border-radius:5px;*/
     font-display: swap;
 }
 a,
@@ -35,6 +36,31 @@ html body {
 .col-middle {
     vertical-align: middle;
 }
+h3{
+    font-style: italic!important;
+    font-weight: 100!important;
+    color: #838383!important;
+    margin-bottom: 0;
+    font-size: 1.1em!important;
+}
+.text-center h3{
+    font-size: 1.3em!important;
+    font-weight: bold!important;
+    font-style: inherit!important;
+}
+.alignCenter{
+	text-align: center;
+}
+
+
+/* Recrutment
+--------------------------------------------- */
+
+.page-id-776 .bg-wht{
+	margin-top: -10em;
+	display: inline-block;
+}
+
 /* Classic
 --------------------------------------------- */
 .text-center,
@@ -150,9 +176,6 @@ html body {
     margin: 0 auto;
     position: relative;
 }
-.single-formation .content .container{
-    padding-top:30px;
-}
 .full-width:before,
 .full-width:after,
 .container-top-header:before,
@@ -211,7 +234,7 @@ body:not(.home) .wrapper{
 .bg-gray,
 .bg-gray:before,
 .bg-gray:after{
-    background: #e2e2e2;
+    background: #eeeeee;
 }
 .bg-gray-light,
 .bg-gray-light:before,
@@ -388,7 +411,7 @@ body .content-theme h3{
     margin-bottom: 60px;
 }
 
-.no-wrap{
+.no-wrap, .noWrap{
     white-space: nowrap;
 }
 
@@ -677,12 +700,12 @@ body:not(.home) .container-reference{
 .container-border{
 border: 1px solid #dbdbdb;
 height: 100%;
-background-color: #E2E2E2;
+background-color: #eeeeee;
 position: relative;
 max-height:650px;
 }
 .content-gray{
-background: #e2e2e2;
+background: #eeeeee;
 padding: 20px;
 }
 .content-img img{
@@ -722,7 +745,7 @@ width: 100%;
 }
 .container-business-case .col-sm-9 p:last-child,
 .content-business-case{
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 1px solid #eeeeee;
 }
 .container-business-case .col-sm-9 p:last-child{
     padding-bottom: 20px;
@@ -1168,7 +1191,7 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         width:100%;
     }
     .home main.content > .container{
-        background-color:#e2e2e2;
+        background-color:#eeeeee;
     }
     .home .formation-presentation > .vc_column_container .wpb_single_image,
     .home .formation-presentation > .vc_column_container .wpb_single_image img,
@@ -1216,16 +1239,27 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     .display-table .col-sm-9{
         float: left;
     }
-    .content-show *,
+    .content-show > *,
     .sidebar{
         display: none;
     }
     .m-100,
     .content-show p.visible-xs,
-    .content-show.show *,
+    .content-show.show > .content-wrapper,
     .row-height,
     .col-height{
         display: block;
+    }
+    .content-show.show .nav{
+        display: flex;
+    }
+    .content-show.show script{
+        display: none;
+    }
+    @media only screen and (max-width: 767px){
+        .content-show.show li{
+            display: flex;
+        }
     }
     .content-theme h3,
     .top-title{
@@ -1322,6 +1356,9 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     .gform_wrapper{
         padding: 15px;
     }
+    .single-formation .gform_wrapper{
+        padding: 0;    
+    } 
     .bloc-formateurs,
     .full-width-contact.full-width p{
         padding: 15px 0;
@@ -1414,9 +1451,9 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         max-width: 100vw;
     }
     .full-width.bg-gray .container-theme p {
-        font-size: 1em;
-        padding: 0 15px;
-        margin: 15px 0;
+        font-size: 1em !important;
+        padding: 0 15px !important;
+        margin: 15px 0 !important;
     }
     ul.list,
     .container__orange ul{
@@ -1435,18 +1472,20 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
         display: inherit;
         width: 100%;
     }
+    /*
     .full-width.bg-gray .container-theme .content-show .visible-xs,
     .toggleplus.visible-xs{
-        font-size: 50px;
-        line-height: 26px;
-        position: relative;
-        z-index: 0;
-        cursor: pointer;
-        padding: 10px 0!important;
-        text-align: center;
-        margin: 0;
-        background-color: rgba(0, 0, 0, 0);
-    }
+    font-size: 50px;
+    line-height: 26px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+    padding: 10px 0!important;
+    text-align: center;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+    */
     .btn-orange {
         display: inline-block;
         top: 0;
@@ -1777,9 +1816,9 @@ form[role='search']{
     height:40em;
 }
 
-/* ---- */
-/* ---- */
-/* ---- */
+/* ---------------- */
+/* Page Témoignages */
+/* ---------------- */
 
 .page-template-tpl-nos-formateurs .content{
     background: #eee;
@@ -1789,6 +1828,9 @@ form[role='search']{
 }
 .post-type-archive-temoignage .content #matchheight-container .container-border {
     border: 1px solid #dbdbdb;
+    padding: 1em;
+    text-align: left;
+    height: 100%;
 }
 
 .post-type-archive-temoignage .content #matchheight-container > .row {
@@ -1796,7 +1838,9 @@ form[role='search']{
     margin-top:40px;
 }
 
-
+/* ---- */
+/* ---- */
+/* ---- */
 
 .post-template-default hr{margin: auto; margin-bottom: 2em; display: block;}
 

@@ -35,7 +35,7 @@
                             <h3>Faites vivre le digital dans votre entreprise</h3>
                         </span>
                         <hr>
-                        <p>L’offre de la DigitalAcademy© met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
+                        <p>L’offre de la DigitalAcademy met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
                         <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red marginR">Découvrir nos solutions</div></a>
                         <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
                     </div>
@@ -195,12 +195,13 @@
             <div class="row">
                 <div class="col-xs-12">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/like-icon.svg" alt="">
-                    <h4>98% de nos apprenants sont satisfaits</h4>
+                    <h4>90% de nos apprenants sont satisfaits</h4>
+<!--                    <br><a href="/temoignage" class="btn btn-xs btn-green-alt-neg" style="margin-top:0">Découvrir leurs témoignages</a>-->
                 </div>
             </div>
         </div>
     </section>
-    <section id="testimonial">
+    <section class="testimonial-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -254,7 +255,7 @@
                 </div>
             </div>
         </div>
-        <a title="Voiur tous nos temoignages" href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
+        <a title="Voir tous nos temoignages" href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
     </section>
     <section id="contact"><span id="contact-anchor"></span>
         <div class="container">

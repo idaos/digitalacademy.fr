@@ -23,8 +23,8 @@
         margin: 1em!important ;
         .wrapper{
             border: solid 1px #d8d8d8;
-            background-color: #fff;
-            padding-bottom:15px;
+            background-color: #fff!important;
+            padding-bottom: 38px;
             height: 100% !important;
             margin: auto;
             position: relative;
@@ -72,18 +72,46 @@
                     content: "Top formation !";
                 }
             }
+            .goals{
+                ul{padding: 0;}
+                li{
+                    list-style: none;
+                    font-size: 1.1em!important;
+                    font-weight: 400;
+                    margin-bottom: .4em;
+                    padding-left: 19px;
+                    margin-top: 10px;
+                    font-size: .93em!important;
+                    &:after{content: none;}
+                    &:before{
+                        content: '';
+                        background-image: url(../images/ok-icon-02.svg);
+                        height: 1em;
+                        width: 1em;
+                        background-position: center;
+                        background-size: cover;
+                        display: inline-block;
+                        margin-right: 6px;
+                        margin-left: -21px;
+                    }
+                }
+                padding: .5em 0;
+            }
             > div{
                 position: relative;
                 padding: 0 .9em;
-                padding-bottom: 1.8em;
-                a>h4{color: #515151;&:hover{color:@color-dac;}}
+                padding-bottom: 1em;
                 h4{
                     margin-top: .6em;
-                    font-size:1.2em;
+                    font-size: 1.1em;
                     text-transform: uppercase;
+                    color: #BF3B2B;
+                    margin: 1em 0 .5em 0;
+                    &:hover{
+                        color: #ac1807;
+                    }
                 }
                 p{
-                    padding-bottom: 4.9em;
                     flex-grow: 1;
                     flex-shrink: 1;
                     flex-basis: auto;
@@ -275,19 +303,13 @@
     color: #bf3b2b;
     cursor: pointer;
 }
-#formations [class*='col-'] .wrapper div a > h4 {
-    color: #bf3b2b;
-    text-transform: inherit;
-    font-weight: bold;
-    font-size: 1.5em;
-}
 .where, .when, .arrow-right, .arrow-left{
     color: #000 !important;
 }
 #formations .wrapper > a:first-child{
     position: relative;
     display: block;
-    min-height: 154px;
+//    min-height: 154px;
     background: #cbcbcb;
 }
 .nouvelle_formation, .top_formation{
@@ -302,7 +324,6 @@
     text-decoration: underline;
 }
 #formations [class*='col-'] .wrapper div span {padding: .5em 0 .5em 0;}
-#formations [class*='col-'] .wrapper div p {padding-bottom:6em;}
 #formations [class*='col-'] .wrapper .alignCenter {
     bottom: 3em; 
     padding:0 1em 1.5em 2em; 

@@ -237,7 +237,10 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;  
-}                    
+}    
+.content-white{
+    padding: 1em;
+}
 .sidebar .thewrapper{
     border: none;
     padding-bottom: 0 !important;
@@ -253,7 +256,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 200%;
+    width: 1em;
 }
 .last-article-title{
     font-weight: bold;

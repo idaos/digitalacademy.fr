@@ -1,0 +1,739 @@
+#chart-wrp {
+  display: flex;
+  flex-direction: column-reverse;
+}
+#chart-wrp .items {
+  display: block;
+  position: relative;
+  height: auto;
+  overflow-x: hidden;
+}
+#chart-wrp .items .owl-stage {
+  display: flex;
+}
+#chart-wrp .items .owl-dots {
+  display: none;
+}
+#chart-wrp .items .owl-nav {
+  text-align: center;
+  width: 100%;
+}
+#chart-wrp .items .owl-nav .owl-prev,
+#chart-wrp .items .owl-nav .owl-next {
+  background: #fff;
+  border-radius: 50em;
+  border: solid 1px #afafaf;
+  display: inline-block;
+  color: #afafaf;
+  font-weight: bolder;
+  height: 1.5em;
+  line-height: 0;
+  width: 1.5em;
+  font-size: 1.5em;
+  margin: 2em 0.2em 0 0.2em;
+}
+#chart-wrp .items .owl-nav .owl-prev:hover,
+#chart-wrp .items .owl-nav .owl-next:hover {
+  opacity: 0.8;
+}
+#chart-wrp .items .item {
+  display: inline-block;
+  width: 100%;
+  min-height: 8em;
+  height: auto;
+  text-align: center;
+  background: #fff;
+  padding: 1em;
+  border-radius: 4px;
+  position: relative;
+  margin-top: 3em;
+}
+#chart-wrp .items .item [class^="value-"] {
+  margin-top: -2.33333333em;
+  font-size: 1.25em;
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 3.5em;
+  line-height: 3.5em;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+#chart-wrp .items .item .value-1 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-2 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-3 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-4 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-5 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-6 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-7 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-8 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-9 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-10 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-11 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-12 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-13 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-14 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-15 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-16 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-17 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-18 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-19 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-20 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-21 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-22 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-23 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-24 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-25 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-26 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-27 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-28 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-29 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-30 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-31 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-32 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-33 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-34 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-35 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-36 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-37 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-38 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-39 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-40 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-41 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-42 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-43 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-44 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-45 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-46 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-47 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-48 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-49 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-50 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-51 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-52 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-53 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-54 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-55 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-56 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-57 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-58 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-59 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-60 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-61 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-62 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-63 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-64 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-65 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-66 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-67 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-68 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-69 {
+  background: #ffe322;
+}
+#chart-wrp .items .item .value-70 {
+  background: #fae322;
+}
+#chart-wrp .items .item .value-71 {
+  background: #f5e322;
+}
+#chart-wrp .items .item .value-72 {
+  background: #f0e322;
+}
+#chart-wrp .items .item .value-73 {
+  background: #ebe322;
+}
+#chart-wrp .items .item .value-74 {
+  background: #e6e322;
+}
+#chart-wrp .items .item .value-75 {
+  background: #e1e322;
+}
+#chart-wrp .items .item .value-76 {
+  background: #dce322;
+}
+#chart-wrp .items .item .value-77 {
+  background: #d7e322;
+}
+#chart-wrp .items .item .value-78 {
+  background: #d2e322;
+}
+#chart-wrp .items .item .value-79 {
+  background: #cde322;
+}
+#chart-wrp .items .item .value-80 {
+  background: #c8e322;
+}
+#chart-wrp .items .item .value-81 {
+  background: #c3e322;
+}
+#chart-wrp .items .item .value-82 {
+  background: #bee322;
+}
+#chart-wrp .items .item .value-83 {
+  background: #b9e322;
+}
+#chart-wrp .items .item .value-84 {
+  background: #b4e322;
+}
+#chart-wrp .items .item .value-85 {
+  background: #afe322;
+}
+#chart-wrp .items .item .value-86 {
+  background: #aae322;
+}
+#chart-wrp .items .item .value-87 {
+  background: #a5e322;
+}
+#chart-wrp .items .item .value-88 {
+  background: #a0e322;
+}
+#chart-wrp .items .item .value-89 {
+  background: #9be322;
+}
+#chart-wrp .items .item .value-90 {
+  background: #96e322;
+}
+#chart-wrp .items .item .value-91 {
+  background: #91e322;
+}
+#chart-wrp .items .item .value-92 {
+  background: #8ce322;
+}
+#chart-wrp .items .item .value-93 {
+  background: #87e322;
+}
+#chart-wrp .items .item .value-94 {
+  background: #82e322;
+}
+#chart-wrp .items .item .value-95 {
+  background: #7de322;
+}
+#chart-wrp .items .item .value-96 {
+  background: #78e322;
+}
+#chart-wrp .items .item .value-97 {
+  background: #73e322;
+}
+#chart-wrp .items .item .value-98 {
+  background: #6ee322;
+}
+#chart-wrp .items .item .value-99 {
+  background: #69e322;
+}
+#chart-wrp .items .item .value-100 {
+  background: #64e322;
+}
+#chart-wrp .items .item .course {
+  font-style: italic;
+  margin-top: 3em;
+}
+#chart-wrp [class^="average-"] {
+  margin-top: -2.66666667em;
+  font-size: 1.42857143em;
+  height: 4em;
+  width: 4em;
+  border-radius: 4em;
+  line-height: 4em;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+#chart-wrp .average-1 {
+  background: #ffe322;
+}
+#chart-wrp .average-2 {
+  background: #ffe322;
+}
+#chart-wrp .average-3 {
+  background: #ffe322;
+}
+#chart-wrp .average-4 {
+  background: #ffe322;
+}
+#chart-wrp .average-5 {
+  background: #ffe322;
+}
+#chart-wrp .average-6 {
+  background: #ffe322;
+}
+#chart-wrp .average-7 {
+  background: #ffe322;
+}
+#chart-wrp .average-8 {
+  background: #ffe322;
+}
+#chart-wrp .average-9 {
+  background: #ffe322;
+}
+#chart-wrp .average-10 {
+  background: #ffe322;
+}
+#chart-wrp .average-11 {
+  background: #ffe322;
+}
+#chart-wrp .average-12 {
+  background: #ffe322;
+}
+#chart-wrp .average-13 {
+  background: #ffe322;
+}
+#chart-wrp .average-14 {
+  background: #ffe322;
+}
+#chart-wrp .average-15 {
+  background: #ffe322;
+}
+#chart-wrp .average-16 {
+  background: #ffe322;
+}
+#chart-wrp .average-17 {
+  background: #ffe322;
+}
+#chart-wrp .average-18 {
+  background: #ffe322;
+}
+#chart-wrp .average-19 {
+  background: #ffe322;
+}
+#chart-wrp .average-20 {
+  background: #ffe322;
+}
+#chart-wrp .average-21 {
+  background: #ffe322;
+}
+#chart-wrp .average-22 {
+  background: #ffe322;
+}
+#chart-wrp .average-23 {
+  background: #ffe322;
+}
+#chart-wrp .average-24 {
+  background: #ffe322;
+}
+#chart-wrp .average-25 {
+  background: #ffe322;
+}
+#chart-wrp .average-26 {
+  background: #ffe322;
+}
+#chart-wrp .average-27 {
+  background: #ffe322;
+}
+#chart-wrp .average-28 {
+  background: #ffe322;
+}
+#chart-wrp .average-29 {
+  background: #ffe322;
+}
+#chart-wrp .average-30 {
+  background: #ffe322;
+}
+#chart-wrp .average-31 {
+  background: #ffe322;
+}
+#chart-wrp .average-32 {
+  background: #ffe322;
+}
+#chart-wrp .average-33 {
+  background: #ffe322;
+}
+#chart-wrp .average-34 {
+  background: #ffe322;
+}
+#chart-wrp .average-35 {
+  background: #ffe322;
+}
+#chart-wrp .average-36 {
+  background: #ffe322;
+}
+#chart-wrp .average-37 {
+  background: #ffe322;
+}
+#chart-wrp .average-38 {
+  background: #ffe322;
+}
+#chart-wrp .average-39 {
+  background: #ffe322;
+}
+#chart-wrp .average-40 {
+  background: #ffe322;
+}
+#chart-wrp .average-41 {
+  background: #ffe322;
+}
+#chart-wrp .average-42 {
+  background: #ffe322;
+}
+#chart-wrp .average-43 {
+  background: #ffe322;
+}
+#chart-wrp .average-44 {
+  background: #ffe322;
+}
+#chart-wrp .average-45 {
+  background: #ffe322;
+}
+#chart-wrp .average-46 {
+  background: #ffe322;
+}
+#chart-wrp .average-47 {
+  background: #ffe322;
+}
+#chart-wrp .average-48 {
+  background: #ffe322;
+}
+#chart-wrp .average-49 {
+  background: #ffe322;
+}
+#chart-wrp .average-50 {
+  background: #ffe322;
+}
+#chart-wrp .average-51 {
+  background: #ffe322;
+}
+#chart-wrp .average-52 {
+  background: #ffe322;
+}
+#chart-wrp .average-53 {
+  background: #ffe322;
+}
+#chart-wrp .average-54 {
+  background: #ffe322;
+}
+#chart-wrp .average-55 {
+  background: #ffe322;
+}
+#chart-wrp .average-56 {
+  background: #ffe322;
+}
+#chart-wrp .average-57 {
+  background: #ffe322;
+}
+#chart-wrp .average-58 {
+  background: #ffe322;
+}
+#chart-wrp .average-59 {
+  background: #ffe322;
+}
+#chart-wrp .average-60 {
+  background: #ffe322;
+}
+#chart-wrp .average-61 {
+  background: #ffe322;
+}
+#chart-wrp .average-62 {
+  background: #ffe322;
+}
+#chart-wrp .average-63 {
+  background: #ffe322;
+}
+#chart-wrp .average-64 {
+  background: #ffe322;
+}
+#chart-wrp .average-65 {
+  background: #ffe322;
+}
+#chart-wrp .average-66 {
+  background: #ffe322;
+}
+#chart-wrp .average-67 {
+  background: #ffe322;
+}
+#chart-wrp .average-68 {
+  background: #ffe322;
+}
+#chart-wrp .average-69 {
+  background: #ffe322;
+}
+#chart-wrp .average-70 {
+  background: #fae322;
+}
+#chart-wrp .average-71 {
+  background: #f5e322;
+}
+#chart-wrp .average-72 {
+  background: #f0e322;
+}
+#chart-wrp .average-73 {
+  background: #ebe322;
+}
+#chart-wrp .average-74 {
+  background: #e6e322;
+}
+#chart-wrp .average-75 {
+  background: #e1e322;
+}
+#chart-wrp .average-76 {
+  background: #dce322;
+}
+#chart-wrp .average-77 {
+  background: #d7e322;
+}
+#chart-wrp .average-78 {
+  background: #d2e322;
+}
+#chart-wrp .average-79 {
+  background: #cde322;
+}
+#chart-wrp .average-80 {
+  background: #c8e322;
+}
+#chart-wrp .average-81 {
+  background: #c3e322;
+}
+#chart-wrp .average-82 {
+  background: #bee322;
+}
+#chart-wrp .average-83 {
+  background: #b9e322;
+}
+#chart-wrp .average-84 {
+  background: #b4e322;
+}
+#chart-wrp .average-85 {
+  background: #afe322;
+}
+#chart-wrp .average-86 {
+  background: #aae322;
+}
+#chart-wrp .average-87 {
+  background: #a5e322;
+}
+#chart-wrp .average-88 {
+  background: #a0e322;
+}
+#chart-wrp .average-89 {
+  background: #9be322;
+}
+#chart-wrp .average-90 {
+  background: #96e322;
+}
+#chart-wrp .average-91 {
+  background: #91e322;
+}
+#chart-wrp .average-92 {
+  background: #8ce322;
+}
+#chart-wrp .average-93 {
+  background: #87e322;
+}
+#chart-wrp .average-94 {
+  background: #82e322;
+}
+#chart-wrp .average-95 {
+  background: #7de322;
+}
+#chart-wrp .average-96 {
+  background: #78e322;
+}
+#chart-wrp .average-97 {
+  background: #73e322;
+}
+#chart-wrp .average-98 {
+  background: #6ee322;
+}
+#chart-wrp .average-99 {
+  background: #69e322;
+}
+#chart-wrp .average-100 {
+  background: #64e322;
+}
+#chart-wrp .year {
+  background: #f3f3f3;
+  margin-bottom: 3em;
+  padding: 2em;
+  position: relative;
+}
+#chart-wrp .year .chart_heading {
+  text-align: center;
+  padding: 2em;
+  padding-top: 4em;
+}
+#chart-wrp .year hr {
+  border-color: #d4d4d4 !important;
+  width: 100%;
+  margin: 0;
+  margin-top: 2em;
+}
+#chart-wrp .year .toggable-btn {
+  min-height: 4em;
+  padding: 1.5em 3em 1.5em 1.5em;
+  background: #eee;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  font-style: italic;
+  color: #a0a0a0;
+  font-weight: bold;
+  cursor: pointer;
+}
+#chart-wrp .year .toggable-btn:hover {
+  background: #e2e2e2;
+}
+#chart-wrp .year .toggable-btn:after {
+  content: "+";
+  position: absolute;
+  right: 1.2em;
+  font-size: 1.5em;
+  transition: all 0.2s ease;
+  transform: rotate(0deg);
+  top: 0.8em;
+}
+#chart-wrp .year .toggaled:after {
+  transform: rotate(45deg);
+}
+#chart-wrp h3 {
+  display: block;
+  margin-top: 1em;
+}
+#chart-wrp svg {
+  z-index: 0;
+  height: 1.5em;
+  top: -1.5em;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}

@@ -1,9 +1,9 @@
 html body{
 
-
     // contact forms
     #form-bottom,
     #gform_wrapper_11,
+    #gform_wrapper_12,
     #gform_wrapper_9, 
     #gform_wrapper_3, // newsletter 
     #gform_wrapper_2, // demande de catalogue
@@ -61,8 +61,8 @@ html body{
                     border: solid 1px #eee;
                     margin-top: 1.5em;
                     &:focus {
-                        border: solid 1px #72b8e3;
-                        box-shadow: 0 2px 0 0 #72b8e3;
+                        border: solid 1px #d2d2d2;
+                        box-shadow: 0 2px 0 0 #d2d2d2;
                     }
                 }
                 textarea{
@@ -74,7 +74,7 @@ html body{
                 background: rgba(256,256,256,1);
                 transform: translateY(-136%);
                 padding: 0 .5em;
-                color: #72b8e3;
+                color: #4b4b4b;
                 font-size: .9em;
                 margin-left: .2em;
             }
@@ -143,7 +143,7 @@ html body{
             margin-bottom: 3em;
             margin-top: 1em;
         }
-        #form-heading{
+        #form-heading, .form-heading{
             padding-top: 2em;
         }
         .uploader{
@@ -271,7 +271,7 @@ hr{
         content: none;
     }
 }
-#form-heading{
+#form-heading, .form-heading{
     text-align: center;
     h2{
         color: #be3929;
@@ -303,7 +303,14 @@ hr{
     #gform_ajax_spinner_2{margin-top: 1.8em;}
     .validation_error{margin: 0!important;}
 }
-
+// pages formation
+#gform_12{
+    margin: auto!important;
+    clip-path: none !important;
+}
+#gform_wrapper_12 form:before{
+    padding: .5em 2em 1em 2em !important;
+}
 // page contact
 #gform_1{
     svg{
@@ -330,19 +337,20 @@ hr{
         font-weight: bold;
         color: #be3929;
         height: 5.5em;
-        margin-top: .7em;
+        margin-top: 0em;
+        margin-bottom: 1em;
         font-size: 1.2em;
         text-align: left;
     }
-//    span{
-//        margin-top: .7em;
-//        text-transform: uppercase;
-//        color: #969696;
-//        font-weight: bold;
-//        border-bottom: solid 2px #eee;
-//        display: block;
-//        padding-bottom: .5em;
-//    } 
+    //    span{
+    //        margin-top: .7em;
+    //        text-transform: uppercase;
+    //        color: #969696;
+    //        font-weight: bold;
+    //        border-bottom: solid 2px #eee;
+    //        display: block;
+    //        padding-bottom: .5em;
+    //    } 
 }
 
 // newsletter
@@ -452,7 +460,27 @@ hr{
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* ----------------------------------- */
+/*       Fiche formation - helper      */
+/* ----------------------------------- */
+#gform_wrapper_12{
+    .gfield_description{
+        font-style: italic;
+        color: #888;
+        margin-top: .6em;
+        margin-left: .2em;
+    }
+}
 
+/* ----------------------------------- */
+/* Page contact / confirmation message */
+/* ----------------------------------- */
+.gform_confirmation_wrapper_1{
+    background: #fff;
+    padding: 2em;
+    margin-top: 3em;
+    font-size: .9em;    
+}
 
 /* ----------------------------------- */
 /* Change Autocomplete styles in Chrome*/
@@ -472,4 +500,15 @@ select:-webkit-autofill:focus {
 }
 
 
-
+/* ----------------------------------- */
+/* ------------ Datepicker ------------*/
+/* ----------------------------------- */
+.dp-day:hover, .dp-month:hover, .dp-year:hover, .dp-current:focus, .dp-current, .dp-day:focus, .dp-month:focus, .dp-year:focus, .dp-close:hover, .dp-close:focus, .dp-clear:hover, .dp-clear:focus, .dp-today:hover, .dp-today:focus, .dp-next:hover, .dp-next:focus, .dp-prev:hover, .dp-prev:focus, .dp-cal-month:focus, .dp-cal-month:hover, .dp-cal-year:hover, .dp-cal-year:focus {
+    background: #ff5d49 !important;
+}
+.dp:before, .dp-selected:hover, .dp-selected:focus, .dp-selected {
+    background: #be3929 !important;
+}
+.dp-day-today:after {
+    content: none !important;
+}

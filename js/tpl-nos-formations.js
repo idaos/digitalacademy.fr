@@ -45,6 +45,7 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
             top:                  element.course_top, 
             title:                element.course_title, 
             description:          element.course_description, 
+            goals:                element.course_goals, 
             sessions:             element.course_sessions,
             trainer_name:         element.trainer_name,
             trainer_image:        element.trainer_image,
@@ -257,7 +258,6 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         }else{
             return arr;
         }
-
     }
 })
     .filter('searchThema', function(){

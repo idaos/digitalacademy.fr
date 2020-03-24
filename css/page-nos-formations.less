@@ -276,10 +276,35 @@ hr{
                         content: "Top formation !";
                     }
                 }
+                .goals{
+                    ul{padding: 0;}
+                    li{
+                        list-style: none;
+                        font-size: 1.1em!important;
+                        font-weight: 400;
+                        margin-bottom: .4em;
+                        padding-left: 19px;
+                        margin-top: 10px;
+                        font-size: .93em!important;
+                        &:after{content: none;}
+                        &:before{
+                            content: '';
+                            background-image: url(../images/ok-icon-02.svg);
+                            height: 1em;
+                            width: 1em;
+                            background-position: center;
+                            background-size: cover;
+                            display: inline-block;
+                            margin-right: 6px;
+                            margin-left: -21px;
+                        }
+                    }
+                    padding: .5em 0;
+                }
                 > div{
                     position: relative;
                     padding: 0 .9em;
-                    padding-bottom: 2.8em;
+                    padding-bottom: 3em;
                     a>h4{color: #515151;&:hover{color:@color-dac;}}
                     h4{
                         margin-top: .6em;
@@ -287,7 +312,6 @@ hr{
                         text-transform: uppercase;
                     }
                     p{
-                        padding-bottom: 4.9em;
                         flex-grow: 1;
                         flex-shrink: 1;
                         flex-basis: auto;
@@ -647,7 +671,6 @@ select{
     height: 2.2em;
 }
 #formations [class*='col-'] .wrapper div span {padding: 0 0 .5em 0;}
-#formations [class*='col-'] .wrapper div p {padding-bottom:9em;}
 #formations [class*='col-'] .wrapper .alignCenter {
     bottom: 6em; 
     padding:0 1em 1.5em 5em; 

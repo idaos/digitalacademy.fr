@@ -1,27 +1,13 @@
 // -------------------------- //
-//   Slidown txt on click
+//   Show / Hide on Click
 // -------------------------- //
 
-jQuery( document ).ready(function() {
+jQuery(document).ready(function ($) {
 
-    jQuery( ".toggable" ).each(function() {
-        
-        var toggaled = jQuery( this );
-        jQuery( this ).children(".toggable-content").hide();
-        jQuery( this ).children(".toggable-title").parent().click(function () {
-
-            if ( jQuery( this ).children(".toggable-content").is( ":hidden" ) ) {
-                jQuery( this ).children(".toggable-content").slideDown( 200 );
-                toggaled.addClass('toggaled');
-            }else{
-                jQuery( this ).children(".toggable-content").slideUp( 200 );
-                toggaled.removeClass('toggaled');
-            }
-        });
+    jQuery(".toggleplus").click(function () {
+        jQuery(this).parent('.content-show').toggleClass("show");
     });
-
 });
-
 
 
 // -------------------------- //
@@ -36,6 +22,7 @@ jQuery(window).scroll(function() {
     var h3 = jQuery('#sub-nav').height();
     h2 += jQuery('#breadcrumb').height();
     h2 += jQuery('#heading').height();
+    h2 += jQuery('#obsolete').height();
     h2 -= h3;
 
     if(jQuery(window).scrollTop() > h2) {
@@ -50,7 +37,7 @@ jQuery(window).scroll(function() {
     }
 
     // -------------------------- //
-    //   Btn highlights on scoll
+    //   Btn highlights on scroll
     // -------------------------- //
 
     // get scroll position
@@ -66,7 +53,7 @@ jQuery(window).scroll(function() {
     // highlight nav btn
     jQuery('#sub-nav li a').each(function( index ) {
         if( jQuery(this).attr('href').substring(1) == scrolled_id ){
-
+            
             jQuery(this).addClass('btn-red');
             jQuery(this).removeClass('btn-gray');
         }else{
@@ -78,4 +65,15 @@ jQuery(window).scroll(function() {
 });
 
 
+//-------------------------------------------
+//--------- Form custom heading -------------
+//-------------------------------------------
 
+jQuery(document).bind('gform_post_render', function(){
+
+    if (typeof form_heading == 'undefined'){ form_heading = '<span id="form-heading" class="reverse"><h2>SESSION INTER ENTREPRISES</h2><h3>Demander la création d\'une session à la carte</h3></span><hr><br><br>'; }
+    
+    if( jQuery('#form-heading').length == 0 ){
+        jQuery('#gform_wrapper_12 form').prepend(form_heading);
+    } 
+});

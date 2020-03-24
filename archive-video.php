@@ -14,7 +14,7 @@
 			<div class="clearfix">
 				<h1 class="title-slider">Nos vidéos</h1>
 			</div>
-			<p>Consultez nos vidéos pour vous faire une idée de la formation DigitalAcademy©</p>
+			<p>Consultez nos vidéos pour vous faire une idée de la formation DigitalAcademy</p>
 		</div>
 	</div>
 	<main class="content">
