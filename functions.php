@@ -121,6 +121,35 @@ function custom_scripts_and_styles_quiSommesNous(){
 }
 
 /**
+ * Chargement des styles et scripts pour les pages   'Thematiques'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_taxo_thema');
+//Load scripts (and styles)
+function custom_scripts_and_styles_taxo_thema(){
+	global $wp_query;
+	//Check which template is assigned to current page we are looking at
+	if ( is_tax( 'thematique' ) || is_page_template( 'tpl-nos-thematiques.php' ) ) {
+		wp_enqueue_style( 'bootstrap4-grid', get_template_directory_uri() . '/landing-page-catalogue/vendor/bootsrap4/css/bootstrap-grid.min.css', null );
+		wp_enqueue_style( 'page-nos-formations', get_template_directory_uri() . '/css/page-nos-formations.css', array( 'main', 'references-style' ), null );
+		wp_enqueue_style( 'taxonomy-thematiques', get_template_directory_uri() . '/css/taxonomy-thematiques.css', null );
+		wp_enqueue_script( 'angular', get_stylesheet_directory_uri() . '/js/angular.min.js', null, null, false );
+		wp_enqueue_script( 'angular-sanitize', get_stylesheet_directory_uri() . '/js/angular-sanitize.min.js', null, null, false );
+		wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
+		wp_enqueue_script( 'angular-controller', get_stylesheet_directory_uri() . '/js/tpl-nos-formations.js', array( 'jquery', 'angular', 'angular-sanitize', 'angular-animate' ), null, false );
+		wp_enqueue_style( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
+		wp_enqueue_style( 'fullcalendar-print', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.print.css', array( 'fullcalendar' ), null, 'print' );
+		wp_enqueue_style( 'calendar-style', get_stylesheet_directory_uri() . '/css/calendar.css', array( 'main' ), null );
+		wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'jquery' ), null, false );
+		wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array( 'moment' ), null, false );
+		wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        
+		wp_enqueue_script( 'getCoursesByKeyword', get_stylesheet_directory_uri() . '/js/ajaxurl.js', array('jquery'), '1.0', true );
+		wp_localize_script('getCoursesByKeyword', 'ajaxurl', admin_url( 'admin-ajax.php' ) );    
+	}
+}
+
+/**
  * Chargement des styles et scripts pour les pages   'Une formation'
  */
 
@@ -509,9 +538,9 @@ function digital_get_reference_menu( $term_id = false, $first = false ) {
 	if ( ! empty( $categories ) ) {
 		foreach ( $categories as $category ) {
 			$class = strpos( $_SERVER['REQUEST_URI'], $category->slug ) ? ' class="btn btn-xs btn-red marginR"' : ' class="btn btn-xs btn-gray marginR" ';
-            $menu .= '<a ' . $class . ' href="' . esc_url( 'https://www.digitalacademy.fr/type/' . substr($current_term->slug,0,5) . '-' . $category->slug . '/') . '">';
-            $menu .= esc_html( $category->name );
-            $menu .= '</a>';
+			$menu .= '<a ' . $class . ' href="' . esc_url( 'https://www.digitalacademy.fr/type/' . substr($current_term->slug,0,5) . '-' . $category->slug . '/') . '">';
+			$menu .= esc_html( $category->name );
+			$menu .= '</a>';
 		}
 	}
 	$menu .= '</ul>';
@@ -680,7 +709,7 @@ class KZ_Walker_Digital_Top_Menu extends Walker_Nav_Menu {
 
 include_once(get_stylesheet_directory().'/inc/acf/custom-search.php');
 
-function kz_search($keywords){
+function kz_search($keywords, $thema_ID = false){
 
 	if(isset($_POST['keywords'])){
 		$keywords = $_POST['keywords'];
@@ -691,6 +720,22 @@ function kz_search($keywords){
 		'post_status'    => 'publish',
 		's'              => $keywords
 	);
+
+	// Add thematique filter if is set
+	if($thema_ID){
+		$args = array(
+			'posts_per_page' => -1,
+			'post_type'      => 'formation',
+			'post_status'    => 'publish',
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'thematique',
+					'field'    => 'term_id',
+					'terms'    => $thema_ID,
+				)
+			)
+		);
+	}
 	// The Query
 	$ACF_query = new WP_Query( $args );
 
