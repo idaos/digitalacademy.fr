@@ -52,15 +52,22 @@
   text-indent: 1em;
 }
 .testimonial-wrapper .row-same-height > [class^='col-'] .wrapper .testimonial span {
-  position: absolute;
-  font-size: 2em;
   line-height: 1em;
   margin-right: 0.2em;
-  margin-left: -0.55em;
 }
 .testimonial-wrapper .row-same-height > [class^='col-'] .wrapper .testimonial span:last-child {
   margin-right: 0;
   margin-left: 0.2em;
+}
+.testimonial-wrapper .row-same-height > [class^='col-'] .wrapper .testimonial.x:first-line {
+  text-indent: 0;
+}
+.testimonial-wrapper .row-same-height > [class^='col-'] .wrapper .testimonial.x li {
+  margin-left: 2em;
+  margin-top: 0.5em;
+}
+.testimonial-wrapper .row-same-height > [class^='col-'] .wrapper .testimonial.x li:first-line {
+  text-indent: -1.4em;
 }
 .testimonial-wrapper .row-same-height > [class^='col-'] .wrapper img {
   z-index: 11;

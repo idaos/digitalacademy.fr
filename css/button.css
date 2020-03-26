@@ -349,29 +349,29 @@ body .btn-aqua-alt-neg:hover {
 }
 body .btn-aqua {
   color: #fff;
-  background: #507c9b;
+  background: #4faeff;
 }
 body .btn-aqua:after {
-  background: #8dadc4;
+  background: #b5ddff;
 }
 body .btn-aqua:hover {
-  background: #3f6179;
+  background: #1c97ff;
   color: #fff;
 }
 body .btn-aqua a {
-  background: #507c9b;
+  background: #4faeff;
   color: #fff;
 }
 body .btn-aqua-alt {
-  color: #507c9b;
+  color: #4faeff;
   background: #fff;
-  border: solid 1px #507c9b;
+  border: solid 1px #4faeff;
 }
 body .btn-aqua-alt:after {
-  background: #8dadc4;
+  background: #b5ddff;
 }
 body .btn-aqua-alt:hover {
-  color: #507c9b;
+  color: #4faeff;
   background: #fff;
 }
 body .btn-aqua-alt-neg {
@@ -380,12 +380,12 @@ body .btn-aqua-alt-neg {
   border: solid 1px #fff;
 }
 body .btn-aqua-alt-neg:after {
-  background: #8dadc4;
+  background: #b5ddff;
 }
 body .btn-aqua-alt-neg:hover {
-  color: #76c6ff;
-  background: rgba(80, 124, 155, 0.17);
-  border: solid 1px #76c6ff;
+  color: #a7d6ff;
+  background: rgba(79, 174, 255, 0.17);
+  border: solid 1px #a7d6ff;
 }
 body .btn-aqua.btn-arr-down:before {
   position: absolute;
@@ -397,7 +397,7 @@ body .btn-aqua.btn-arr-down:before {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid #507c9b;
+  border-top: 10px solid #4faeff;
   transition: all 0.2s ease;
 }
 body .btn-aqua.btn-arr-down:hover:before {

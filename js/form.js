@@ -40,7 +40,6 @@ function hideValidationMessage(){
     });
 }
 
-
 //-------------------------------------------
 //-------------------------------------------
 //-------------- spinner btn ----------------
@@ -83,48 +82,53 @@ jQuery(document).bind('gform_post_render', function(){
     } else {
         var xsSxreen = true;
     }
-
     if (!xsSxreen) {
-        if (typeof TinyDatePicker === "function") { 
-            const dp = TinyDatePicker( '.date-input', {
+        if (typeof TinyDatePicker === "function") {
+            // datepicker close event
+            var nowFrDateformat = function nowFrDateformat() {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
+                var yyyy = today.getFullYear();
+                return dd + '/' + mm + '/' + yyyy;
+            };
+
+            var dateFrDateformat = function dateFrDateformat(date) {
+                var dd = String(date.getDate()).padStart(2, '0');
+                var mm = String(date.getMonth() + 1).padStart(2, '0');
+                var yyyy = date.getFullYear();
+                return dd + '/' + mm + '/' + yyyy;
+            };
+
+            var insertSelectedDateIntoDOM = function insertSelectedDateIntoDOM(selectedDate) {
+                var date_inputs = document.getElementsByClassName('date-input');
+
+                for (var i = 0; i < date_inputs.length; i++) {
+                    jQuery('.date-input input').attr("value", dateFrDateformat(selectedDate));
+                    formEventStyle();
+                }
+            };
+
+            var dp = TinyDatePicker('.date-input', {
                 lang: {
                     days: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
                     months: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
                     today: 'Aujourd\'hui',
                     clear: 'Annuler',
-                    close: 'Fermer',
+                    close: 'Fermer'
                 },
-                format(date) {
+                format: function format(date) {
                     return date.toLocaleDateString();
                 },
                 mode: 'dp-below',
                 hilightedDate: new Date(),
                 min: nowFrDateformat(),
                 max: '10/1/2040',
-                dayOffset: 1,
+                dayOffset: 1
             });
-            dp.on('close', () => insertSelectedDateIntoDOM(dp.state.selectedDate) ); // datepicker close event
-
-            function nowFrDateformat(){
-                var today = new Date();
-                var dd = String(today.getDate()).padStart(2, '0');
-                var mm = String(today.getMonth() + 1).padStart(2, '0');
-                var yyyy = today.getFullYear();
-                return dd + '/' + mm + '/' + yyyy;
-            }
-            function dateFrDateformat(date){
-                var dd = String(date.getDate()).padStart(2, '0');
-                var mm = String(date.getMonth() + 1).padStart(2, '0');
-                var yyyy = date.getFullYear();
-                return dd + '/' + mm + '/' + yyyy;
-            }
-            function insertSelectedDateIntoDOM(selectedDate){
-                var date_inputs = document.getElementsByClassName('date-input');
-                for(var i=0;i< date_inputs.length;i ++) {
-                    jQuery('.date-input input').attr("value",dateFrDateformat(selectedDate));
-                    formEventStyle();
-                }
-            }
+            dp.on('close', function () {
+                return insertSelectedDateIntoDOM(dp.state.selectedDate);
+            });
         }
     }
 });

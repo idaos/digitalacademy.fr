@@ -919,13 +919,15 @@ function kz_shortcode_coursesSlider( $atts ) {
 	}else{
 		$post_id = null;
 	}
+    
 
 	wp_enqueue_script( 'slick-courses' );
 	wp_enqueue_style( 'course-card');
 
+    // get attributes
 	$a = shortcode_atts( array(
 		'type' => false,
-		'nb'   => 10,
+		'nb'   => 8,
 		'taxo' => false,
 		'wrapper' => false,
 		'bg' => true
@@ -934,7 +936,7 @@ function kz_shortcode_coursesSlider( $atts ) {
 	// slider 'Top Formations'
 	if ( $a['taxo'] == 'top' ) {
 		$args = array(
-			'posts_per_page' => 8,
+			'posts_per_page' => $a['nb'],
 			'post_type'      => 'formation',
 			'post_status'    => 'publish',
 			'meta_key'       => 'position_formation',

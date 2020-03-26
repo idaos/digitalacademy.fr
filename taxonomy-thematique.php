@@ -59,6 +59,7 @@ function kz_get_thema_data() {
 			$th["color"] = get_field('couleur', $thematique);
 			$th["color_hex"] = 0;
 			$th["img"] = get_field('picto', $thematique);
+			$th["url"] = "";
 
 			array_push($th_list, $th);
 		}
@@ -78,7 +79,7 @@ class KzThema{
 
 }
 $th = new KzThema();
-var_dump( $th->getColor(23) );
+//var_dump( $th->getColor(23) );
 ?>
 
 

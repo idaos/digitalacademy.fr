@@ -24,12 +24,13 @@ jQuery( document ).ready(function() {
                 jQuery(this).addClass('toggaled');
                 
                 btnLabel = toggaled.children(".toggable-btn").html();
-                if( btnLabel == "En savoir plus" ){ toggaled.children(".toggable-btn").html("Réduire"); }
+                if( btnLabel == "En savoir +" ){ toggaled.children(".toggable-btn").html("Réduire"); }
             }else{
                 toggaled.children(".toggable-content").slideUp( 300 );
                 jQuery(this).removeClass('toggaled');
                 
                 btnLabel = toggaled.children(".toggable-btn").html();
+                if( btnLabel == "Réduire" ){ toggaled.children(".toggable-btn").html("En savoir +"); }
             }
         });
     });
