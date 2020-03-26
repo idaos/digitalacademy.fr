@@ -668,22 +668,6 @@ get_header(); ?>
         </div>
     </div>
 </section>
-<!--<section id="datadock">
-<svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-<polygon fill="#236fa8" points="0,100 100,0 100,100"/>
-</svg>
-<svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-<polygon fill="#56aef2" points="0,0 0,100 100,0"/>
-</svg>
-<div class="container">
-<div class="row">
-<div class="col-xs-12">
-<h4>Organisme validé et référencé </h4>
-<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/datadock-logo.svg" alt="">
-</div>
-</div>
-</div>
-</section>-->
 <section id="satisfaction">
     <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
         <polygon fill="#2f905e" points="0,100 100,0 100,100"/>
@@ -695,7 +679,7 @@ get_header(); ?>
         <div class="row">
             <div class="col-xs-12">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/like-icon.svg" alt="">
-                <h4>98% de nos apprenants sont satisfaits</h4>
+                <h4>En 2019, 93% de nos stagiaires étaient satisfaits de nos formations en Inter Entreprise</h4>
             </div>
         </div>
     </div>

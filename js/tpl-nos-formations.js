@@ -33,6 +33,7 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
     $scope.onCheckboxEvent = function(event, selected_index) {
         // clear keyword filtering
         $scope.search = '';
+        $scope.searchText = '';
         $scope.database_course = [];
         // prevent happening next time
         $scope.enableThemaFilter = true;
@@ -298,8 +299,6 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
                 }
             }
         });
-
-        console.log(scope.thema)
 
         if (scope.enableThemaFilter == true){
             return result;

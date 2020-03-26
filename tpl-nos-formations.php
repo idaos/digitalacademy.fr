@@ -47,7 +47,7 @@ get_header();
                     <div id="search">
                         <div class="container alignCenter">
                             <input ng-model="searchText" ng-init="searchText='<?php echo $search_query; ?>'" 
-                                   ng-keypress="thema.t1 = 'false';thema.t2 = 'false';thema.t3 = 'false';thema.t4 = 'false';thema.t5 = 'false';thema.t6 = 'false';queryDatabase($event)"
+                                   ng-keypress="thema.t1.enabled = 'false';thema.t2.enabled = 'false';thema.t3.enabled = 'false';thema.t4.enabled = 'false';thema.t5.enabled = 'false';thema.t6.enabled = 'false';queryDatabase($event)"
                                    placeholder="Rechercher une formation..." autofocus class="search-txt">
                             <div class="btn btn-red search-btn" ng-click="getCoursesFromQuery()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13"><g stroke-width="2" stroke="#fff" fill="none"><path d="M11.29 11.71l-4-4"/><circle cx="5" cy="5" r="4"/></g></svg>
@@ -182,7 +182,7 @@ get_header();
                         <span 
                               id="selectedThema" 
                               ng-show="enableThemaFilter"
-                              ng-class="{'t1-c': thema.t1 == true , 't2-c': thema.t2 == true , 't3-c': thema.t3 == true , 't4-c': thema.t4 == true , 't5-c': thema.t5 == true , 't6-c': thema.t6 == true } "
+                              ng-class="{'t1-c': thema.t1.enabled == true , 't2-c': thema.t2.enabled == true , 't3-c': thema.t3.enabled == true , 't4-c': thema.t4.enabled == true , 't5-c': thema.t5.enabled == true , 't6-c': thema.t6.enabled == true } "
                               ></span>
                     </h2>
                     <div id="calendar" class="hidden-xs">
