@@ -1279,3 +1279,123 @@ function kz_shortcode_preInscrFormHeading( $atts ) {
 								}
 }
 add_shortcode( 'kz_preInscrFormHeading', 'kz_shortcode_preInscrFormHeading' );
+
+
+// -----------------------------------------------------------------------
+// CLASS: Get thematiques data
+// -----------------------------------------------------------------------
+function kz_get_thema_data() {
+    $th_list = array();
+    if ( $thematiques = get_terms( 'thematique' ) ) {
+        foreach ( $thematiques as $thematique ) {
+            $th = array();
+            $th["id"] = $thematique->term_id;
+            $th["name"] = $thematique->name;
+            $th["slug"] = $thematique->slug;
+            $th["color"] = get_field('couleur', $thematique);
+            $th["img"] = get_field('picto', $thematique);
+            $th["url"] = site_url() . '/thematique-formation/' . $thematique->slug;
+            array_push($th_list, $th);
+        }
+    }
+    return($th_list);
+}
+class KzThema{
+
+    function __construct($id = 0)
+    {
+        $this->themas = kz_get_thema_data();
+        $this->id = $id;
+        $this->slug = $this->getSlug();
+        $this->name = $this->getName();
+        $this->color = $this->getColor();
+        $this->colorhex = $this->getColorHex();
+        $this->image = $this->getImage();
+        $this->url = $this->getUrl();
+    }
+    function getColor()
+    {
+        foreach( $this->themas as $key => $th ){
+            if($th['id'] == $this->id){
+                return $th['color'];
+            }
+        }
+        return false;
+    }
+    function getName()
+    {
+        foreach( $this->themas as $key => $th ){
+            if($th['id'] == $this->id){
+                return $th['name'];
+            }
+        }
+        return false;
+    }
+    function getSlug()
+    {
+        foreach( $this->themas as $key => $th ){
+            if($th['id'] == $this->id){
+                return $th['slug'];
+            }
+        }
+        return false;
+    }
+    function getImage()
+    {
+        foreach( $this->themas as $key => $th ){
+            if($th['id'] == $this->id){
+                return $th['img'];
+            }
+        }
+        return false;
+    }
+    function getUrl()
+    {
+        foreach( $this->themas as $key => $th ){
+            if($th['id'] == $this->id){
+                return $th['url'];
+            }
+        }
+        return false;
+    }
+    function getColorHex()
+    {
+        foreach( $this->themas as $key => $th ){
+            if($this->color == 'orange'){
+                return "#e74c3c";
+            }
+            if($this->color == 'gray'){
+                return "#95a5a6";
+            }
+            if($this->color == 'blue'){
+                return "#3498db";
+            }
+            if($this->color == 'yellow'){
+                return "#f59d00";
+            }
+            if($this->color == 'green'){
+                return "#2ecc71";
+            }
+            if($this->color == 'blue-dark'){
+                return "#34495e";
+            }
+        }
+        return false;
+    }
+    function setColorHex()
+    {
+        foreach( $this->themas as $key => $th ){
+            $this->color = $th['color'];
+            $this->themas[$key]['colorhex'] = $this->getColorHex();
+        }
+    }
+    function getData()
+    {
+        $this->setColorHex() ;
+        return $this->themas ;
+    }
+}
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+
