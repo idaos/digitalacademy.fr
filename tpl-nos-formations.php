@@ -29,15 +29,14 @@ get_header();
 
 
     <div ng-app="courseFilteringApp" id="nos-formations">
-
         <div ng-controller="courseFilteringController as courses">
-
             <div class="breadcrumb hidden-xs">
                 <div class="container">
                     <?php if ( function_exists( 'yoast_breadcrumb' ) ) {yoast_breadcrumb();}?>
                     <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                 </div>
             </div>
+            
             <div id="kz_heading" class="container-slider main-slider nos-formations slider-header" <?php //echo $bg; ?>>
                 <div class="slick-slide">
                     <div class="clearfix">
@@ -96,7 +95,7 @@ get_header();
                                     <div class="goals" ng-bind-html="course.goals | highlight:searchText"></div>
                                 </div>
                                 <a class="en-savoir-plus" href="{{course.link}}">
-                                    <div class="btn btn-red btn-sm" ng-class="selectBtnClass()">En savoir plus</div>
+                                    <div class="btn btn-sm" ng-class="selectBtnClass()">En savoir plus</div>
                                 </a>
                             </div>
                         </div>
@@ -242,30 +241,37 @@ get_header();
                             ?>
                         ], // filter by thematique
                         eventRender: function eventRender( event, element, view ) {
-                            if (jQuery('#thematique-checkbox-1').is(":checked")){
-                                jQuery('#selectedThema').html('Réseaux Sociaux');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-1').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-2').is(":checked")){
-                                jQuery('#selectedThema').html('Webmarketing');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-2').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-3').is(":checked")){
-                                jQuery('#selectedThema').html('Contenus &amp; Site Web');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-3').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-4').is(":checked")){
-                                jQuery('#selectedThema').html('E-publicité &amp; Acquisition');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-4').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-5').is(":checked")){
-                                jQuery('#selectedThema').html('Ressources Humaines Web 2.0');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-5').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-6').is(":checked")){
-                                jQuery('#selectedThema').html('E-réputation &amp; Relation Client Web');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-6').attr('value') ) >= 0
-                            }
+//                            jQuery('[id^=thematique-checkbox-]').each(function( index ) {
+//                                if ( jQuery(this).is(":checked") ){
+//                                    jQuery('#selectedThema').html(jQuery( this ).next().text());
+//                                    return ['all', event.color].indexOf( jQuery(this).attr('value') ) >= 0
+//                                }
+                                
+                                if (jQuery('#thematique-checkbox-orange').is(":checked")){
+                                    jQuery('#selectedThema').html('Réseaux Sociaux');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-orange').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-gray').is(":checked")){
+                                    jQuery('#selectedThema').html('Webmarketing');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-gray').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-blue-dark').is(":checked")){
+                                    jQuery('#selectedThema').html('Contenus &amp; Site Web');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue-dark').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-yellow').is(":checked")){
+                                    jQuery('#selectedThema').html('E-publicité &amp; Acquisition');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-yellow').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-green').is(":checked")){
+                                    jQuery('#selectedThema').html('Ressources Humaines Web 2.0');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-green').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-blue').is(":checked")){
+                                    jQuery('#selectedThema').html('E-réputation &amp; Relation Client Web');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue').attr('value') ) >= 0
+                                }
+//                            });
                         }
                     });
                 }

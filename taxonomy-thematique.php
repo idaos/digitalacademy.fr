@@ -81,53 +81,11 @@ $courses_count = count(json_decode($result[0])) ;
                     <div id="search">
                         <div class="container alignCenter">
                             <input ng-model="searchText" ng-init="searchText='<?php echo $search_query; ?>'" 
-                                   ng-keypress="thema.t1 = 'false';thema.t2 = 'false';thema.t3 = 'false';thema.t4 = 'false';thema.t5 = 'false';thema.t6 = 'false';queryDatabase($event)"
                                    placeholder="Rechercher une formation..." autofocus class="search-txt">
                             <div class="btn btn-red search-btn" ng-click="getCoursesFromQuery()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13"><g stroke-width="2" stroke="#fff" fill="none"><path d="M11.29 11.71l-4-4"/><circle cx="5" cy="5" r="4"/></g></svg>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div id="search-helper" class="alignCenter hide">
-                <p ng-cloak ng-show="((courses.course | searchFor: searchText).length < courses.course.length) && ((courses.course | searchFor: searchText).length > 0)">
-                    <span ng-show="seekingDB == false">{{filtered.length}} </span>
-                    résultats de recherche pour : <b>{{searchText}}</b>
-                </p>
-                <p ng-cloak class="no-result" ng-show="(searchText.length != 0) && noResult">Aucun résultat pour la recherche : <b>{{searchText}}</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t1" ng-show="thema.t1 == true">{{filtered.length}} résultats pour le filtre : <b>Réseaux sociaux</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t2" ng-show="thema.t2 == true">{{filtered.length}} résultats pour le filtre : <b>Webmarketing</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t3" ng-show="thema.t3 == true">{{filtered.length}} résultats pour le filtre : <b>Contenus &amp; Site Web</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t4" ng-show="thema.t4 == true">{{filtered.length}} résultats pour le filtre : <b>E-publicité &amp; Acquisition</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t5" ng-show="thema.t5 == true">{{filtered.length}} résultats pour le filtre : <b>Ressources Humaines Web 2.0</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t6" ng-show="thema.t6 == true">{{filtered.length}} résultats pour le filtre : <b>E-réputation &amp; Relation Client Web</b></p>
-            </div>
-            <div id="thematiques-input" class="alignCenter hide">
-                <div class="row alignCenter">
-                    <div>
-                        <input type="checkbox" value="#e74c3c" ng-model="thema.t1" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-1" name="thematique-checkbox-1">
-                        <label for="thematique-checkbox-1" class="button btn btn-md">Réseaux Sociaux</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" value="#95a5a6" ng-model="thema.t2" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-2" name="thematique-checkbox-2">
-                        <label for="thematique-checkbox-2" class="button btn btn-md">Webmarketing</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" value="#3498db" ng-model="thema.t3" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-3" name="thematique-checkbox-3">
-                        <label for="thematique-checkbox-3" class="button btn btn-md">Contenus &amp; Site Web</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" value="#f59d00" ng-model="thema.t4" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-4" name="thematique-checkbox-4">
-                        <label for="thematique-checkbox-4" class="button btn btn-md">E-publicité &amp; Acquisition</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" value="#2ecc71" ng-model="thema.t5" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-5" name="thematique-checkbox-5">
-                        <label for="thematique-checkbox-5" class="button btn btn-md">Ressources Humaines Web 2.0</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" value="#34495e" ng-model="thema.t6" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-6" name="thematique-checkbox-6">
-                        <label for="thematique-checkbox-6" class="button btn btn-md">E-réputation &amp; Relation Client Web</label>
                     </div>
                 </div>
             </div>

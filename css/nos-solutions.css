@@ -283,8 +283,8 @@ html .testimonial-wrapper .row:first-child {
     max-width: inherit;
     width: 100%;
   }
-  .wrapper {
-    width: calc(100vw - 8em);
+  .col-md-4 > .wrapper {
+    width: calc(100vw - 8em) !important;
   }
   .numerical-data [class^="col-"] {
     margin-bottom: 2em;
@@ -324,6 +324,52 @@ html .testimonial-wrapper .row:first-child {
   }
   .container.w.testimonial-wrapper {
     padding-bottom: 5em!important;
+  }
+  #offer-intra {
+    padding-top: 2em;
+    padding-bottom: 14em;
+  }
+  .testimonial-wrapper .row {
+    padding: 0;
+  }
+  html .business-case .numerical-data {
+    margin-top: 1em!important;
+  }
+  html .business-case .numerical-data + p {
+    margin: 0;
+    margin-bottom: 1em;
+  }
+  .container.w.testimonial-wrapper {
+    padding-bottom: 0!important;
+  }
+  .site-container .toggable-btn {
+    margin-bottom: 6em;
+  }
+  section.offer-digital-learning {
+    padding-bottom: 15em;
+  }
+  section.offer-inter {
+    padding-top: 1em;
+    padding-bottom: 14em;
+  }
+  #offer-transfo .col-xs-12.col-sm-6.col-md-5.col-lg-5 img {
+    margin-top: 0!important;
+  }
+  section.offer-transfo {
+    padding-top: 0;
+    padding-bottom: 15em;
+  }
+  #references {
+    padding: 0!important;
+  }
+  #satisfaction {
+    padding: 3em 1em 1em 1em;
+  }
+  #contact {
+    padding: 4em 0;
+  }
+  .full-width-contact.full-width {
+    padding: 2em;
   }
 }
 @media (max-width: 768px) {

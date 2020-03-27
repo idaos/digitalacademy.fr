@@ -390,7 +390,7 @@ get_header(); ?>
 
 
 <!-- Offer Inter - BC -->
-<section class="business-case">
+<section class="business-case" style="background:#f5f5f5">
     <!-- Bottom Triangles -->
     <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
         <polygon fill="#fff" points="100,100 100,0 0,100"/>
@@ -726,68 +726,3 @@ echo do_shortcode( '[cta texte="Restez informé sur nos formations digitales" ur
 ?>
 
 <?php get_footer(); ?>
-
-
-
-
-
-
-<!--<style>
-.same-height-row {
-display: flex;
-flex-flow: row wrap;
-&::before {
-display: block;
-}
-}
-#parallax-wrapper{
-position: relative;
-}
-[id^='parallax-img']{
-position: absolute;
-transform-origin: center;
-mix-blend-mode: normal!important;
-}
-</style>
-
-<script>
-
-jQuery( window ).scroll(function() {
-
-var viewPortHeight = jQuery( window ).height();
-var imgWrapperPositionFromTop = jQuery( "#parallax-wrapper" ).offset().top;
-var imgWrapperHeight = jQuery( "#parallax-wrapper" ).height()
-var imgWrapperCenterPoint = imgWrapperPositionFromTop + (imgWrapperHeight / 2);
-var scrollFromTop = jQuery(window).scrollTop();
-
-function wrapperIsIntoView(){
-var a = scrollFromTop + imgWrapperHeight;
-var b = imgWrapperPositionFromTop + imgWrapperHeight;
-if( ( a > imgWrapperPositionFromTop )&&( scrollFromTop < b ) ){
-return true;
-}else{
-return false;
-}        
-}
-if(wrapperIsIntoView() ){
-var c = imgWrapperHeight * 2;
-var d = scrollFromTop - (imgWrapperPositionFromTop - imgWrapperHeight);
-var imgWrapperPercentScrolled = (d/c)*100;
-
-var imgHeight = jQuery( "#parallax-img" ).height();
-jQuery( "#parallax-img" ).css('top',imgWrapperHeight/2 - imgHeight );
-jQuery( "#parallax-img" ).css('transform','translateY(' + imgWrapperPercentScrolled + '%)' );
-
-var imgHeight2 = jQuery( "#parallax-img2" ).height();
-jQuery( "#parallax-img2" ).css('bottom',imgWrapperHeight/2 - imgHeight2 );
-jQuery( "#parallax-img2" ).css('transform','translateY(' + -imgWrapperPercentScrolled + '%)' );
-}
-});
-
-</script>-->
-
-
-
-
-
-

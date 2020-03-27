@@ -77,13 +77,15 @@
                             <div class="offre-cta" style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/Offre-de-formation-Digital-Academy.jpg')">
                                 <p>Découvrez notre offre de formation</p>
                                 <p>DigitalAcademy, l'institut de formation qui fait vivre le digital en entreprise</p>
-                                <a class="btn btn-sm" style="line-height: 2.1em;" href="https://digitalacademy.fr/">Découvrir</a>
+                                <a class="btn btn-sm" style="line-height: 2.1em;" href="/solutions">Découvrir</a>
                             </div>
                         </div>
                     </div>
                     <h3 style="font-weight:normal;font-size:1.2em;">Nos formations</h3>
                     <hr style="margin-bottom: 2em;width:80%!important;">
                     <?php echo do_shortcode( '[kz_shortcode_associatedCourses]' ); ?>
+                     <a class="btn btn-sm btn-red-alt" style="margin:auto;margin: auto;display: flow-root;max-width: 19em;" href="/formations">Toutes les formations</a>
+                    
                 </aside> 
             </div>
         </div>

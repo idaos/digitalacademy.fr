@@ -22,12 +22,10 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         element['enabled'] = false;
         $scope.thema[key] = element ;
     });
-    
-    
-    $scope.thema.selected = false;
 
-    
-    
+    $scope.thema.selected = false;
+    $scope.bythema = [];
+
     // disable all thema checkboxes on first click on a checkbox
     $scope.enableThemaFilter = false;
     $scope.onCheckboxEvent = function(event, selected_index) {
@@ -37,13 +35,18 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         $scope.database_course = [];
         // prevent happening next time
         $scope.enableThemaFilter = true;
+        // ini
+        $scope.selectedColor = "red";
         // toggle checkboxes
+        $i = -1;
         angular.forEach($scope.thema,function(element,index){
+            $i += 1;
             // uncheck all
             $scope.thema[index].enabled = false;
-            if( $scope.thema[index] == selected_index ){
+            if( $i == selected_index ){
                 // check one
                 $scope.thema[index].enabled = true;
+                $scope.selectedColor = $scope.thema[index].color;
             }
         })
     }
@@ -88,12 +91,8 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
     $scope.seekingDB = false;
     //color button if courses are filter by thema
     $scope.selectBtnClass = function(){
-        angular.forEach($scope.thema,function(element,index){
-            if(element.enabled){
-                return "btn-" + index;
-            }
 
-        })
+        return "btn_c_" + $scope.selectedColor;
     }
     // call getCoursesFromQuery fn if keypress
     // delay it if another key is pressed within a delay
@@ -269,8 +268,7 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
 })
     .filter('searchThema', function(){
     return function(items, thema, scope) {
-        var result = [];
-
+        var result = [];        
         // get slug of the selected thema
         angular.forEach(scope.courses.themas, function(item) {
             if( item.enabled ){
@@ -307,6 +305,35 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         }
     };
 })
+    .filter('filterThema', function(){
+    return function(items,thema_slug, scope) {
+        var result = [];
+
+        // foreach course
+        angular.forEach(items, function(item) {
+            // loop through course themas
+            for (var i = 0; i < Object.keys(scope.thema).length; i++) {
+                if(typeof item.thema[i] != 'undefined') {
+                    // check if item thema has a slug
+                    if (item.thema[i].hasOwnProperty('slug')){
+                        // if checked thematique = item thematique, keep it
+                        if ( item.thema[i].slug == thema_slug ){
+                            // check duplicated objects
+                            if ( result.indexOf(item) > -1 ) {
+                            }else{
+                                // output it
+                                result.push(item);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        return result;
+
+    };
+})
 
 
 // scroll on filter press
@@ -340,9 +367,9 @@ function scrollToResults(){
 // -------------------------------------
 // ------ Calendar ---------------------
 // -------------------------------------
-
-
 // rerender calendar on thematique selection
-jQuery('[id^=thematique-checkbox-]').on('change',function(){
-    jQuery('#calendar').fullCalendar('rerenderEvents');
+jQuery( document ).ready(function() {
+    jQuery('[id^=thematique-checkbox-]').on('change',function(){
+        jQuery('#calendar').fullCalendar('rerenderEvents');
+    });
 })
