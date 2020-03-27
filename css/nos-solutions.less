@@ -1,72 +1,31 @@
-#offre-1{
-    ol{
-        list-style: none;
-        counter-reset: the-counter;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0;
-        padding: 0;
-        li{
-            counter-increment: the-counter;
-            display: block;
-            width: 100%;
-            font-size: 1em;
-            margin-bottom: .5em;
-            margin-top: .5em;
-            font-weight: bold;
-            //background: #f9f9f9;
-            padding: .4em;
-            &:before {
-                content: "" counter(the-counter);
-                font-weight: bold;
-                font-size: 1em;
-                margin-right: 0.5em;
-                line-height: 1;
-                padding: .5em .8em;
-                border: solid 1px #000;
+@aqua: #4faeff;
+@salmon: #E66343;
+@light-gray: #f1f1f1;
+@blue: #505a9b;
+@red: #bf3b2b;
 
-            }
-        }
-    }
-    ul{
+// Helpers
+ul.valid-list{
+    padding: 0;
+    li{
         list-style: none;
-        li{
-            margin: .5em 0;
-            &:before {
-                content: "\2022";
-                color: #505a9b;
-                display: inline-block;
-                width: 1.7em;
-                margin-left: -2em;
-            }
-        }
-    }
-
-    .business-case-wrapper{
-        p{
-            max-width: inherit;
-            display: block;
-        }
-        h4{
-            font-size: 1.5em;
-            color: #505a9b;
-            margin: 1.5em 0 .5em 0;
-        }
-        .encart{
-            max-width:800px;
-            margin:auto;
-            padding: .5em 2em;
-            border: solid 1px #c7c7c7;
-            p{
-                margin-bottom: 0;
-            }
-            i{
-                line-height: 1.5em;
-            }
+        font-size: 1.1em!important;
+        font-weight: 400;
+        margin-bottom: .4em;
+        &:after{content: none;}
+        &:before{
+            content: '';
+            background-image: url(../images/ok-icon-02.svg);
+            height: 1em;
+            width: 1em;
+            background-position: center;
+            background-size: cover;
+            display: inline-block;
+            margin-right: .5em;
+            margin-left: 0!important;
         }
     }
 }
-
 svg.top-left{
     bottom: inherit;
     top: 0;
@@ -101,3 +60,349 @@ svg.xs{
 blockquote p:before {
     top: 37px;
 }
+.padding0{padding: 0;}
+// end - Helpers
+
+
+
+section{
+    z-index: 1;
+    ul{
+        list-style: none;
+        li{
+            margin: .5em 0;
+            &:before {
+                content: "\2022";
+                color: #000;
+                display: inline-block;
+                width: 2em;
+                margin-left: -2em;
+            }
+        }
+    }
+}
+
+
+
+// Offer 0 - Intra
+section.offer-inter{
+    background: #fff!important;
+    padding-top: 8em;
+    padding-bottom: 20em;
+    h2 {color: @red;}
+    ul li:before {color: @red;}
+}
+section.offer-inter+.business-case{
+    h4{
+        color: @red;
+    }
+}
+#nos-formations{
+    padding-bottom: 2em!important;
+}
+#formations{
+    width: 90%;
+    margin: auto;
+}
+.slick-next {
+    right: -99px !important;
+    zoom: 81%;
+}
+.slick-prev {
+    left: -99px !important;
+    zoom: 81%;
+}
+// end - Offer 1 - Intra
+
+
+// Offer 2 - Intra
+section.offer-intra{
+    background: #fff!important;
+    padding-top: 6em;
+    padding-bottom: 18em;
+    h2 {color: @aqua;}
+    ul li:before {color: @aqua;}
+}
+section.offer-intra+.business-case{
+    background: @aqua;
+    h4{
+        color: @aqua;
+    }
+}
+// end - Offer 1 - Intra
+
+// Offer 1 - Transfo
+section.offer-transfo{
+    background: #fff!important;
+    padding-top: 3em;
+    padding-bottom: 17em;
+    h2 {color: @salmon;}
+    ul li:before {color: @salmon;}
+}
+section.offer-transfo+.business-case{
+    background: @salmon !important;
+    h4{
+        color: @salmon;
+    }
+}
+// end - Offer 1 - Transfo
+
+// Offer 1 - Digital Learning
+section.offer-digital-learning{
+    background: #fff!important;
+    padding-top: 3em;
+    padding-bottom: 17em;
+    h2 {color: @blue;}
+    ul li:before {color: @blue;}
+}
+section.offer-digital-learning+.business-case{
+    background: @blue;
+    h4{
+        color: @blue;
+    }
+}
+// end - Offer 1 - Digital Learning
+
+[id^="offer-"] img{
+    float: right;
+    margin-right: 3em;
+}
+section.offer-digital-learning img{
+    max-width: inherit;
+}
+
+
+html .business-case{
+    z-index: 2;
+    padding: 2em 0;
+    text-align: center;
+    hr{
+        max-width: 100px !important;
+    }
+    .w{
+        clip-path: polygon(0 0%, /* left top */ 100% 4%, /* right top */ 100% 100%, /* right bottom */ 0 96% /* left bottom */);
+        margin-top: -14em;
+        background: #fff;
+        //        background: #f1f1f1;
+        border-radius: 5px;
+        padding: 3em 3em 7em 3em;
+    }
+    .g{
+        max-width: 800px;
+        padding: 0 !important;
+        margin: 1em auto;
+    }
+    //    .x{
+    //        filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));  
+    //    }
+    .wrapper{
+        border: solid 1px #e0e0e0;
+        height: 100%!important;
+    }
+    p{
+        max-width: inherit;
+        display: block;
+    }
+    h4{
+        font-size: 1.5em;
+        color: #505a9b;
+        margin: 1.5em 0 .5em 0;
+        text-transform: uppercase;
+    }
+    .encart{
+        //		max-width:900px;
+        margin: 1em 3em;
+        padding: .5em 2em;
+        border: solid 1px #c7c7c7;
+        text-align: left;
+        p{
+            margin-bottom: 0;
+        }
+        i{
+            line-height: 1.5em;
+        }
+    }
+    .numerical-data{
+        text-align: center;
+        font-style: italic;
+        margin: auto;
+        max-width: 800px;
+        padding: 1em 0!important;
+        img{
+            display: block;
+            margin: auto;
+            margin-bottom: 1em;
+            opacity: .5;
+            max-width: 50px;
+        }
+    }
+    .row-same-height{
+        padding: 0;
+    }
+    .row .row-same-height{
+        padding: 0 2em 0 2em;
+    }
+    .numerical-data+p{
+        margin: 2em;
+    }
+}
+
+
+// Accordeon
+html body .content-show > .content-wrapper{
+    display: none;
+}
+html body .content-show.show > .content-wrapper{
+    display: block;
+}
+
+
+
+#contact ul li&:before {
+    content: none;
+}
+#top-formations{
+    background: #f5f5f5;
+}
+html .testimonial-wrapper .row-same-height > [class^='col-'] .wrapper {
+    background: #f5f5f5!important;
+    border: none;
+}
+html .testimonial-wrapper .row:first-child {
+    padding-bottom: 0;
+}
+
+#gform_8{
+    display: block!important;
+}
+.testimonial-wrapper .btn {
+    margin-top: 1em!important;
+}
+
+#cat{
+    position:relative;
+    min-width: 600px;
+    float: right;
+}
+
+@media only screen and (max-width: 992px){
+
+    #cat{
+        float: none;
+        min-width: inherit;
+    }
+
+    .valign{
+        display: block;
+    }
+    [id^="offer-"]{
+        .col-xs-12.col-sm-6.col-md-5.col-lg-5:first-child{
+            margin-bottom: 2em;
+        }
+        p, ul{
+            text-align: left;
+        }   
+        img {
+            float: none;
+            margin: auto;
+            display: block;
+            max-width: inherit;
+            width: 100%;
+        }
+    }
+    .col-md-4 > .wrapper{
+        width: ~"calc(100vw - 8em)"!important;
+    }
+    .numerical-data [class^="col-"]{
+        margin-bottom: 2em
+    }
+    .site-container .btn{
+        width: 100%;
+    }
+    html .business-case .w {
+        clip-path: polygon(0 0%, /* left top */ 100% 2%, /* right top */ 100% 100%, /* right bottom */ 0 98% /* left bottom */);
+    }
+    html .business-case .encart{
+        margin: 0;
+    }
+    [class^="col-"].alignRight{
+        text-align: center!important;
+    }
+    html .business-case p {
+        text-align: center;
+    }
+    .testimonial-wrapper .row-same-height > [class*='col-'] {
+        margin-top: 5em  !important;
+        &:last-child{
+            margin-bottom: 2em  !important;
+        }
+        &:first-child{
+            margin-top: 0  !important;
+        }
+    }
+    html .business-case .w {
+        padding: 1em!important;
+    }
+    html .testimonial-wrapper .row-same-height > [class^='col-'] .wrapper {
+        width: 100%;
+    }
+    html .testimonial-wrapper .row-same-height > [class^='col-'] {
+        margin-bottom: 0!important;
+    }
+    .container.w.testimonial-wrapper{
+        padding-bottom: 5em!important;
+    }
+    #offer-intra{
+        padding-top: 2em;
+        padding-bottom: 14em;
+    }
+    .testimonial-wrapper .row {
+        padding: 0;
+    }
+    html .business-case .numerical-data {
+        margin-top:1em!important;
+    }
+    html .business-case .numerical-data + p {
+        margin:0;
+        margin-bottom:1em;
+    }
+    .container.w.testimonial-wrapper {
+        padding-bottom: 0!important;
+    }
+    .site-container .toggable-btn {
+        margin-bottom:6em
+    }
+    section.offer-digital-learning {
+        padding-bottom:15em;
+    }
+    section.offer-inter {
+        padding-top:1em;
+        padding-bottom:14em;
+    }
+    #offer-transfo .col-xs-12.col-sm-6.col-md-5.col-lg-5 img {
+        margin-top:0!important;
+    }
+    section.offer-transfo {
+        padding-top:0;
+        padding-bottom:15em;
+    }
+    #references{
+        padding:0!important;
+    }
+    #satisfaction {
+        padding: 3em 1em 1em 1em;
+    }
+    #contact{
+        padding: 4em 0;
+    }
+    .full-width-contact.full-width {
+        padding: 2em;
+    }
+}
+@media (max-width: 768px){
+
+    .testimonial-wrapper .row-same-height > [class*='col-'] {
+        margin-bottom: 0 !important;
+    }
+}
+

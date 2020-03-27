@@ -2,6 +2,7 @@
 <div class="breadcrumb hidden-xs">
     <div class="container">
         <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
+        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
     </div>
 </div>
 <div class="container-slider main-slider slider-header slider-formateur hidden-xs" style="background-image:url(<?php the_field('img_blog', 'option') ?>)">
@@ -9,7 +10,7 @@
         <div class="clearfix">
             <h1 class="title-slider">Blog / <?php echo single_cat_title( '', false ); ?></h1>
         </div>
-        <p>Suivez l'actualité de la DigitalAcademy©</p>
+        <p>Suivez l'actualité de la DigitalAcademy</p>
     </div>
 </div>
 <main class="content" style="background:#f6f6f6!important;">

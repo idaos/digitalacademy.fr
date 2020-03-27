@@ -3,6 +3,7 @@
 	<div class="breadcrumb hidden-xs">
 		<div class="container">
 			<?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
+			<?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
 		</div>
 	</div>
 
@@ -14,7 +15,7 @@
 		<div class="container">
 			<h1>404 - Page non trouvée</h1>
                         <p>Oups, la page n'existe pas...</p>
-                        <p>Retourner à la <strong><a href="<?php echo site_url() ?>">page d'accueil DigitalAcademy©</a></strong></p>
+                        <p>Retourner à la <strong><a href="<?php echo site_url() ?>">page d'accueil DigitalAcademy</a></strong></p>
 		</div>
 	</main><!-- Main end -->
         <img style="width:100%" src="<?php echo get_stylesheet_directory_uri() ?>/images/404-default.jpg" alt="" />

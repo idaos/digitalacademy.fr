@@ -2,18 +2,19 @@
 <?php $thematique_ID = get_queried_object_id(); ?>
 <div class="breadcrumb hidden-xs">
     <div class="container">
-        <?php if ( function_exists( 'yoast_breadcrumb' ) ) {
-    yoast_breadcrumb();
-} ?>
+        <?php if ( function_exists( 'yoast_breadcrumb' ) ) {yoast_breadcrumb();}?>
+        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
     </div>
 </div>
-<div class="container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php the_field( 'img_bandeau', 'type-reference_' . get_queried_object_id() ) ?>)">
-    <div class="slick-slide">
-        <div class="clearfix">
-            <h1 class="title-slider">Nos références en formation</h1>
-        </div>
-    </div>
-</div>
+<div class="header" style="height:200px; padding:2em 0;background-image:url(<?php the_field( 'img_bandeau', 'type-reference_' . get_queried_object_id() ) ?>)">    
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 alignCenter">
+				<h1 class="title-slider" style="color:#fff;">Nos références en formation</h1>
+			</div>
+		</div>
+	</div>
+</div>  
 <div class="full-width bg-orange content-declinaison text-center">
     <div class="clearfix">
         <span>Filtrer les références en formation :</span>

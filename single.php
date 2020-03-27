@@ -2,20 +2,34 @@
 
 <div class="breadcrumb hidden-xs">
     <div class="container">			
-        <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>		
+        <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
+        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>		
     </div>
 </div>
-<div class="container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php the_field( 'img_bandeau', get_the_ID() ) ?>)">
-    <div class="slick-slide">
-        <div class="clearfix">
-            <p class="title-slider">Blog</p>
-        </div>
-        <p>
-            Suivez l'actualité de la DigitalAcademy©
-        </p>
-    </div>
+<div class="header" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/blog.jpg);">    
+<!--<div class="header" style="background-image:url(<?php //the_field( 'img_bandeau', get_the_ID() ) ?>)">    -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 alignCenter">
+				<h1 class="title-slider" style="color:#fff">Blog</h1>
+				<hr>
+				<p>Suivez l'actualité de la DigitalAcademy</p>
+			</div>
+		</div>
+	</div>
 </div>
-<main class="content">
+<div class="svg-wrapper-bottom">
+	<svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<polygon fill="#eee" points="0,0 0,100 40,40"></polygon>
+	</svg>
+	<svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<polygon fill="#bf3b2b" points="0,0 100,20 100,100"></polygon>
+	</svg>
+	<svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<polygon fill="#fff" points="0,0 100,100 0,100"></polygon>
+	</svg>
+</div>    
+<main class="content" style="margin-top:-4vw;z-index:5;background:none;">
     <div class="container" style="padding-bottom:5em;">
         <div class="wrapper p5000">
             <div class="row clearfix stretch">
@@ -63,42 +77,15 @@
                             <div class="offre-cta" style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/Offre-de-formation-Digital-Academy.jpg')">
                                 <p>Découvrez notre offre de formation</p>
                                 <p>DigitalAcademy, l'institut de formation qui fait vivre le digital en entreprise</p>
-                                <a class="btn btn-sm" style="line-height: 2.1em;" href="https://digitalacademy.fr/">Découvrir</a>
+                                <a class="btn btn-sm" style="line-height: 2.1em;" href="/solutions">Découvrir</a>
                             </div>
                         </div>
                     </div>
-                    <h3 style="font-weight:normal;font-size:1.2em;">Derniers articles</h3>
+                    <h3 style="font-weight:normal;font-size:1.2em;">Nos formations</h3>
                     <hr style="margin-bottom: 2em;width:80%!important;">
-                    <?php
-                    if ( $recentPosts->have_posts() ) :
-                    while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
-                    ?>
-                    <div style="margin-bottom:2em;">
-                        <div class="thewrapper container-border">
-                            <a href="<?php the_permalink(); ?>" rel="nofollow">
-                                <?php if ( has_post_thumbnail() ): ?>
-                                <?php $post_thumbnail_id = get_post_thumbnail_id( $post ); ?>
-                                <?php $post_thumbnail_url = wp_get_attachment_image_url( $post_thumbnail_id, 'post-thumbnails' ); ?>
-
-                                <div class="blog-thumb-wrapper" style="background-image:url(<?php echo $post_thumbnail_url ?>) ;"></div>
-                                <?php else : ?>
-                                <div class="blog-thumb-wrapper" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/blog-thumb-placeholder.jpg) ;"></div>
-                                <?php endif; ?>
-                            </a>
-                            <div class="content-white">
-                                <p class="last-article-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></p>
-                                <p class="header-infos"><?php echo get_the_date(); ?> | <?php the_author(); ?></p>
-                                <p class="p-cut-3"><?php the_excerpt(); ?></p>
-                                <div class="button-wrapper">
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red absolute100" rel="nofollow">Lire la suite</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                    endwhile;
-                    endif;
-                    ?>
+                    <?php echo do_shortcode( '[kz_shortcode_associatedCourses]' ); ?>
+                     <a class="btn btn-sm btn-red-alt" style="margin:auto;margin: auto;display: flow-root;max-width: 19em;" href="/formations">Toutes les formations</a>
+                    
                 </aside> 
             </div>
         </div>
@@ -110,7 +97,7 @@
             <a class="btn btn-sm" style="line-height: 2.1em;" href="https://digitalacademy.fr/">Découvrir</a>
         </div>
     </div>
-    <?php related_posts(); ?>		
+    <?php related_posts(); ?>
     <div class="container">
         <div class="wrapper "> <?php get_template_part( 'tpl/cta', 'contact' ); ?> </div>
     </div>

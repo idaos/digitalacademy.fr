@@ -59,7 +59,7 @@
                         <i>Appel non surtaxé. Nos conseillers vous répondent du lundi au vendredi de 9h30 à 18h</i>
                         <div class="to-right">
                             <a href="/contact/">
-                                <div class="btn btn-xs btn-red" style="background-color:#be3929; color:#fff;">
+                                <div class="btn btn-xs btn-red">
                                     Contact
                                 </div>
                             </a>

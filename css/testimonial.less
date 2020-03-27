@@ -15,6 +15,9 @@
     }
     .row-same-height{ 
         padding-bottom: 0;
+        justify-content: center;
+        display: flex;
+
         > [class^='col-']{
             margin-bottom: 0;
             .wrapper{
@@ -41,6 +44,34 @@
                 }
                 .testimonial{
                     margin-top: .5em;
+                    &:first-line{
+                        padding-left: 1em;
+                        text-indent: 1em;
+                    }
+                    span{
+//                        position: absolute;
+//                        font-size: 2em;
+                        line-height: 1em;
+                        margin-right: .2em;
+//                        margin-left: -.55em;
+                        &:last-child{
+                            margin-right: 0;
+                            margin-left: .2em;
+
+                        }
+                    }
+                }
+                .testimonial.x{
+                    &:first-line{
+                        text-indent: 0;
+                    }
+                }
+                .testimonial.x li{
+                    margin-left: 2em;
+                    margin-top: .5em;
+                    &:first-line{
+                        text-indent: -1.4em;
+                    }
                 }
                 img{
                     z-index: 11;

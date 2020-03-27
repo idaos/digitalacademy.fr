@@ -7,6 +7,7 @@
 				yoast_breadcrumb();
 			}
 			?>
+			<?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
 		</div>
 	</div>
 
@@ -26,7 +27,7 @@
 			<div class="wrapper">
 				<div class="full-width bg-gray fs20 p30 border-left-bold">
 					<p>Vous en saurez plus sur nos clients, retrouverez les objectifs du programme, la réponse
-						DigitalAcademy©, l’approche pédagogique et les témoignages de nos apprenants. </p>
+						DigitalAcademy, l’approche pédagogique et les témoignages de nos apprenants. </p>
 				</div>
 
 				<div class="p30">
