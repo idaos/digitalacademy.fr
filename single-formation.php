@@ -15,7 +15,7 @@ if (strpos($_SERVER["REQUEST_URI"], '?')) {
 	$url_parameters = $url_parameters[1];
 }else{
 	$url_parameters = null;
-} 
+}
 //---------------------------------------------------------------------------
 // detect which form tabs must be enabled
 //---------------------------------------------------------------------------

@@ -32,6 +32,7 @@ if( has_post_thumbnail() ) {
 		</div>
 	</div>
 </div>
+
 <div class="svg-wrapper-bottom" style="">
 	<svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:4">
 		<polygon fill="#eee" points="0,0 0,100 40,40"></polygon>
@@ -48,6 +49,7 @@ if( has_post_thumbnail() ) {
 </div>    
 <main class="content">
 	<div class="container" style="z-index:5">
+
 		<?php
 		if ( have_posts() ) :
 		while ( have_posts() ) : the_post();
