@@ -195,6 +195,34 @@ add_filter( 'gform_confirmation_anchor', '__return_false' );
 
 
 /**
+ * Chargement des styles et scripts pour les pages   'eGate SEO'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_egate', 9999 );
+add_action( 'wp_head', 'custom_scripts_and_styles_egate', 9999 );
+//Load scripts (and styles)
+function custom_scripts_and_styles_egate(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        if( isset($wp_query->post->ID) ){
+            $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        }else{
+            $template_name = false;
+        }
+        if($template_name == 'tpl-egate.php'){
+            wp_enqueue_style( 'egate-style', get_template_directory_uri() . '/css/egate.css', null );
+            wp_enqueue_script( 'egate-script', get_stylesheet_directory_uri() . '/js/egate.js', array( 'jquery' ), null, false );
+            wp_dequeue_script( 'formsubmission' );
+            wp_dequeue_style( 'js_composer_front' ); //not working
+            wp_dequeue_script( 'wpb_composer_front_js' ); //not working
+            wp_dequeue_script( 'slick' );
+            wp_dequeue_style( 'slick' );
+        }
+    }
+}
+/**
  * Chargement des styles et scripts pour la page   'Home'
  */
 
@@ -210,7 +238,6 @@ function custom_scripts_and_styles_home(){
         }
     }
 }
-
 
 /**
  * Chargement des styles et scripts pour la page   'Nos solutions de formation'
