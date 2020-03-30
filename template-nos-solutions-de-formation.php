@@ -371,7 +371,7 @@ get_header(); ?>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
                 <a title="Les formations DigitalAcademy" href="/formations/">
-                    <h2>Catalogue de formations</h2>
+                    <h2>Catalogue des formations</h2>
                 </a>
                 <hr>
                 <p>Vous êtes une entreprise ? Inscrivez-vous ou inscrivez l’un de vos collaborateurs à l’une de nos formations catalogue en inter-entreprises, ou convenons ensemble d’une date de votre choix pour une formation intra-entreprise avec toute votre équipe. </p>
@@ -683,7 +683,7 @@ get_header(); ?>
         <div class="row">
             <div class="col-xs-12">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/like-icon.svg" alt="">
-                <h4>En 2019, 93% de nos stagiaires étaient satisfaits de nos formations en Inter Entreprise</h4>
+                <h4>93% de nos stagiaires Inter Entreprises satisfaits en 2019</h4>
             </div>
         </div>
     </div>

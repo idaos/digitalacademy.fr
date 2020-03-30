@@ -24,8 +24,8 @@
                 </div>
                 <div class="widget-title">Nous trouver</div>
                 <div class="footer__map" style="width: 315px; overflow: hidden; height: 200px;">
-                <img src="<?php bloginfo('template_url'); ?>/images/map.svg" alt="map" width="400" height="300">
-                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2419457270594!2d2.3408148156748942!3d48.87266407928891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3ef369b3f7%3A0xa41e3c92e19a86c!2s17+Rue+du+Faubourg+Montmartre%2C+75009+Paris!5e0!3m2!1sfr!2sfr!4v1547222906549" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>-->
+                    <img src="<?php bloginfo('template_url'); ?>/images/map.svg" alt="map" width="400" height="300">
+                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2419457270594!2d2.3408148156748942!3d48.87266407928891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3ef369b3f7%3A0xa41e3c92e19a86c!2s17+Rue+du+Faubourg+Montmartre%2C+75009+Paris!5e0!3m2!1sfr!2sfr!4v1547222906549" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>-->
                 </div>
                 <div class="widget-title" style="text-transform:none">DigitalAcademy</div>
                 <p class="adresse">
@@ -41,13 +41,14 @@
 <div class="footer-bottom">
     <div class="container text-center">
         <p>La DigitalAcademy est une marque déposée, propriété de la société IDAOS, et enregistrée au titre de la formation professionnelle auprès de la DIRECCTE <span class='no-wrap'>n°11 92 17377 92 </span>
-            <span style="margin-top:.8em; display:block;">La DigitalAcademy est référencée Datadock.</span><br>
-            <img style="margin: 0px 11px;" src="<?php bloginfo('template_url'); ?>/images/datadock_wht.png" title="Logo Datadock blanc"/></p>
-            <span style="margin-top:.8em; display:block;color:#fff; font-style:italic;font-weight:100;">* Donnez vie à l'apprentissage numérique.</span>
-        <div>
-            <span class="copyright">Copyright DigitalAcademy <?php echo date('Y'); ?></span> <?php echo wp_nav_menu(array('theme_location' => 'bottom', 'container' => false,)); ?>
-        </div>
+        <p>Cet enregistrement ne vaut pas agrément de l’Etat.</p>
+        <span style="margin-top:.8em; display:block;">La DigitalAcademy est référencée Datadock.</span><br>
+        <img style="margin: 0px 11px;" src="<?php bloginfo('template_url'); ?>/images/datadock_wht.png" title="Logo Datadock blanc"/></p>
+    <span style="margin-top:.8em; display:block;color:#fff; font-style:italic;font-weight:100;">* Donnez vie à l'apprentissage numérique.</span>
+    <div>
+        <span class="copyright">Copyright DigitalAcademy <?php echo date('Y'); ?></span> <?php echo wp_nav_menu(array('theme_location' => 'bottom', 'container' => false,)); ?>
     </div>
+</div>
 </div>
 
 </div>

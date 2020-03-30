@@ -37,22 +37,17 @@ $courses_count = count(json_decode($result[0])) ;
     <div class="container">
         <div class="row">
             <div class="col-xs-12 alignCenter">
-                <?php if ( $pictos = digital_get_thematiques_picto() ): ?>
+<!--
+                <?php //if ( $pictos = digital_get_thematiques_picto() ): ?>
                 <ul class="clearfix hidden-xs" style="padding:0 1em">
-                    <?php foreach ( $pictos as $picto ): ?>
-                    <li><img src="<?php echo $picto; ?>" alt=""/></li>
-                    <?php endforeach; ?>
+                    <?php //foreach ( $pictos as $picto ): ?>
+                    <li><img src="<?php //echo $picto; ?>" alt=""/></li>
+                    <?php //endforeach; ?>
                 </ul>
-                <?php endif; ?>
-                <h1 class="title-slider" style="color:#6b6b6b!important"><?php the_title(); ?></h1>
+                <?php //endif; ?>
+-->
+                <h1 class="title-slider" style="color: #fff!important;"><?php the_title(); ?></h1>
                 <hr style="display:block">
-                <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
-                    <div class="container-menu-filtre hidden-xs">
-                        <div class="container">
-                            <?php echo digital_get_thematiques_menu( $thematique_ID ); ?>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -72,7 +67,15 @@ $courses_count = count(json_decode($result[0])) ;
 
 
 <div class="content" style="background-color: #f5f5f5;">
-
+   
+    <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
+        <div class="container-menu-filtre hidden-xs">
+            <div class="container">
+                <?php echo digital_get_thematiques_menu( $thematique_ID ); ?>
+            </div>
+        </div>
+    </div>
+    
     <div ng-app="courseFilteringApp" id="nos-formations">
         <div ng-controller="courseFilteringController as courses">
 

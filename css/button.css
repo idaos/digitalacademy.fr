@@ -63,6 +63,9 @@ body form .gform_button {
 body .btn-md {
   font-size: 0.92em;
 }
+body .btn-lg {
+  font-size: 1.25em;
+}
 body .btn-red:after,
 body .btn-red-alt:after,
 body .btn-red-alt-neg:after {

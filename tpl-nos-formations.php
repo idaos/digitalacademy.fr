@@ -16,33 +16,48 @@ $th = new KzThema();
 get_header();
 ?>
 <main class="content">
-
-
-    <?php // get background img
-    if( has_post_thumbnail() ) {
-        $class = '';
-        $url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
-        $bg = 'style="background-image:url(\''. $url .'\');background-size: cover;background-position:center"';
-    }else{
-        $bg = '';
-    } ?>
+    <div class="breadcrumb hidden-xs">
+        <div class="container">
+            <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
+            <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+        </div>
+    </div>
+    <div class="header">    
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 alignCenter">
+                    <div class="clearfix">
+                        <h1 class="title-slider" style="color:#fff!important;">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="svg-wrapper-bottom" style="">
+        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:4">
+            <polygon fill="#fff" points="0,0 0,100 40,40"></polygon>
+        </svg>
+        <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:3">
+            <polygon fill="#bf3b2b" points="0,0 100,20 100,100"></polygon>
+        </svg>
+        <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:2">
+            <polygon fill="#eee" points="0,0 100,100 0,100"></polygon>
+        </svg>
+    </div>    
 
 
     <div ng-app="courseFilteringApp" id="nos-formations">
         <div ng-controller="courseFilteringController as courses">
-            <div class="breadcrumb hidden-xs">
-                <div class="container">
-                    <?php if ( function_exists( 'yoast_breadcrumb' ) ) {yoast_breadcrumb();}?>
-                    <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
-                </div>
-            </div>
-            
+
+
             <div id="kz_heading" class="container-slider main-slider nos-formations slider-header" <?php //echo $bg; ?>>
                 <div class="slick-slide">
-                    <div class="clearfix">
-                        <h1 class="title-slider">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
-                    </div>
-                    <hr>
+                    <!--
+<div class="clearfix">
+<h1 class="title-slider">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
+</div>
+-->
                     <div id="search">
                         <div class="container alignCenter">
                             <input ng-model="searchText" ng-init="searchText='<?php echo $search_query; ?>'" 
@@ -58,7 +73,7 @@ get_header();
                         <div class="row alignCenter">
                             <div ng-repeat="(key, thema) in thema track by $index">
                                 <input ng-show="thema.name.length > 1" type="checkbox" value="{{thema.colorhex}}" ng-model="thema.enabled" ng-click="onCheckboxEvent($event, $index); searchText = '';" id="thematique-checkbox-{{thema.color}}" name="thematique-checkbox-{{thema.color}}">
-                                <label ng-show="thema.name.length > 1" for="thematique-checkbox-{{thema.color}}" class="button btn btn-md" ng-bind-html="thema.name | unsafe"></label>
+                                <label ng-show="thema.name.length > 1" for="thematique-checkbox-{{thema.color}}" class="button btn btn-lg" ng-bind-html="thema.name | unsafe"></label>
                             </div>
                         </div>
                     </div>
@@ -241,37 +256,37 @@ get_header();
                             ?>
                         ], // filter by thematique
                         eventRender: function eventRender( event, element, view ) {
-//                            jQuery('[id^=thematique-checkbox-]').each(function( index ) {
-//                                if ( jQuery(this).is(":checked") ){
-//                                    jQuery('#selectedThema').html(jQuery( this ).next().text());
-//                                    return ['all', event.color].indexOf( jQuery(this).attr('value') ) >= 0
-//                                }
-                                
-                                if (jQuery('#thematique-checkbox-orange').is(":checked")){
-                                    jQuery('#selectedThema').html('Réseaux Sociaux');
-                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-orange').attr('value') ) >= 0
-                                }
-                                else if (jQuery('#thematique-checkbox-gray').is(":checked")){
-                                    jQuery('#selectedThema').html('Webmarketing');
-                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-gray').attr('value') ) >= 0
-                                }
-                                else if (jQuery('#thematique-checkbox-blue-dark').is(":checked")){
-                                    jQuery('#selectedThema').html('Contenus &amp; Site Web');
-                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue-dark').attr('value') ) >= 0
-                                }
-                                else if (jQuery('#thematique-checkbox-yellow').is(":checked")){
-                                    jQuery('#selectedThema').html('E-publicité &amp; Acquisition');
-                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-yellow').attr('value') ) >= 0
-                                }
-                                else if (jQuery('#thematique-checkbox-green').is(":checked")){
-                                    jQuery('#selectedThema').html('Ressources Humaines Web 2.0');
-                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-green').attr('value') ) >= 0
-                                }
-                                else if (jQuery('#thematique-checkbox-blue').is(":checked")){
-                                    jQuery('#selectedThema').html('E-réputation &amp; Relation Client Web');
-                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue').attr('value') ) >= 0
-                                }
-//                            });
+                            //                            jQuery('[id^=thematique-checkbox-]').each(function( index ) {
+                            //                                if ( jQuery(this).is(":checked") ){
+                            //                                    jQuery('#selectedThema').html(jQuery( this ).next().text());
+                            //                                    return ['all', event.color].indexOf( jQuery(this).attr('value') ) >= 0
+                            //                                }
+
+                            if (jQuery('#thematique-checkbox-orange').is(":checked")){
+                                jQuery('#selectedThema').html('Réseaux Sociaux');
+                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-orange').attr('value') ) >= 0
+                            }
+                            else if (jQuery('#thematique-checkbox-gray').is(":checked")){
+                                jQuery('#selectedThema').html('Webmarketing');
+                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-gray').attr('value') ) >= 0
+                            }
+                            else if (jQuery('#thematique-checkbox-blue-dark').is(":checked")){
+                                jQuery('#selectedThema').html('Contenus &amp; Site Web');
+                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue-dark').attr('value') ) >= 0
+                            }
+                            else if (jQuery('#thematique-checkbox-yellow').is(":checked")){
+                                jQuery('#selectedThema').html('E-publicité &amp; Acquisition');
+                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-yellow').attr('value') ) >= 0
+                            }
+                            else if (jQuery('#thematique-checkbox-green').is(":checked")){
+                                jQuery('#selectedThema').html('Ressources Humaines Web 2.0');
+                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-green').attr('value') ) >= 0
+                            }
+                            else if (jQuery('#thematique-checkbox-blue').is(":checked")){
+                                jQuery('#selectedThema').html('E-réputation &amp; Relation Client Web');
+                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue').attr('value') ) >= 0
+                            }
+                            //                            });
                         }
                     });
                 }

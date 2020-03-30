@@ -195,8 +195,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/like-icon.svg" alt="">
-                    <h4>En 2019, 93% de nos stagiaires étaient satisfaits de nos formations en Inter Entreprise</h4>
-<!--                    <br><a href="/temoignage" class="btn btn-xs btn-green-alt-neg" style="margin-top:0">Découvrir leurs témoignages</a>-->
+                    <h4>93% de nos stagiaires Inter Entreprises satisfaits en 2019</h4>
                 </div>
             </div>
         </div>

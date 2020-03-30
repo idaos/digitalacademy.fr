@@ -47,10 +47,6 @@
 .testimonial-wrapper .row-same-height > [class^='col-'] .wrapper .testimonial {
   margin-top: 0.5em;
 }
-.testimonial-wrapper .row-same-height > [class^='col-'] .wrapper .testimonial:first-line {
-  padding-left: 1em;
-  text-indent: 1em;
-}
 .testimonial-wrapper .row-same-height > [class^='col-'] .wrapper .testimonial span {
   line-height: 1em;
   margin-right: 0.2em;

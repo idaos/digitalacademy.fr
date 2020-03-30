@@ -7,13 +7,13 @@
     </div>
 </div>
 <div class="header" style="height:200px; padding:2em 0;background-image:url(<?php the_field( 'img_bandeau', 'type-reference_' . get_queried_object_id() ) ?>)">    
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 alignCenter">
-				<h1 class="title-slider" style="color:#fff;">Nos références en formation</h1>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 alignCenter">
+                <h1 class="title-slider" style="color:#fff;">Nos références en formation</h1>
+            </div>
+        </div>
+    </div>
 </div>  
 <div class="full-width bg-orange content-declinaison text-center">
     <div class="clearfix">
@@ -50,6 +50,22 @@
     hr{
         margin: 0 auto 2em auto !important;
     }
+    @media only screen and (max-width: 1200px) {
+        .bg-wht{
+            padding: 0;
+        }
+        .references {
+            min-height: 0;
+        }
+        .col-sm-6 {
+            margin-bottom: 2em;
+        }
+        .clearfix > .btn{
+            display: block !important;
+            margin: 1em !important;
+            margin-bottom: 0 !important;
+        }
+    }
 </style>
 <main class="content container">
     <div class="row">
@@ -57,8 +73,9 @@
         <hr>
     </div>
     <?php if ( have_posts() ) : ?>
-    <div class="row">
-        <div class="container-slider references clearfix matchHeight-watch">
+
+    <div class="container-slider references clearfix matchHeight-watch">
+        <div class="row">
             <?php // Start the Loop.
             $i = 0;
             while( have_posts() ) : the_post(); ?>
@@ -69,14 +86,10 @@
                     </div>
                 </a>
             </div>
-            <?php
-            if ( $i % 4 == 3 ) {
-                echo '</div></div><div class="row"><div class="container-slider references clearfix matchHeight-watch">';
-            }
-            $i ++;
-            endwhile; ?>
+            <?php endwhile; ?>
         </div>
     </div>
+
     <?php else : ?>
     <div class="row">
         <h3>Aucun résultats correspondant à vos critères !</h3>
