@@ -5,16 +5,17 @@
 
 get_header(); ?>
 
+<?php 
 
-<?php
-$bg = '';
-if( has_post_thumbnail() ) {
-    $url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
-    $bg = 'style="background-image:url(\''. $url .'\');background-size: cover;background-position:center center"';
+if ( get_field( 'image' ) ){
+
+    $img_url = get_field( 'image' );
+    $bg = 'style="background-image:url(\''. $img_url .'\');background-size: cover;background-position:center center"';
 }else{
     $bg = 'style="background-image:url('.get_stylesheet_directory_uri().'/images/formation-au-digital.jpg);background-size: cover;background-position:center center"';
 }
 ?>
+
 
 
 <div class="breadcrumb hidden-xs">
@@ -33,7 +34,7 @@ if( has_post_thumbnail() ) {
                 </h1>
                 <hr>
                 <p>Digital Academy est un organisme de formation expert en réseaux sociaux. DigitalAcademy est un organisme qui propose un accompagnement personnalisé pour un programme de formation.</p>
-                
+
                 <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red-alt-neg">Découvrir nos solutions</div></a>
                 <a title="Bouton de contact" class="contact-btn" href="/contact/?utm_source=seo-page&utm_medium=seo-page&utm_campaign=egate" value="Prendre contact avec la Digital Academy"><div class="btn btn-red marginR">Contactez-nous</div></a>
 
@@ -72,27 +73,27 @@ if( has_post_thumbnail() ) {
 
 <!-- Glossary -->
 <div id="glossary">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<?php
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <?php
                 $i = 0;
-				$pages = get_pages(array(
-					'meta_key' => '_wp_page_template',
-					'meta_value' => 'tpl-egate.php'
-				));
-				$numItems = count($pages);
-				foreach($pages as $page){
-					$slug = str_replace("-", " ", $page->post_name);
-					echo '<a href="' .get_page_link($page->ID). '">' .$slug. '</a>';
-					if(++$i === $numItems) {}else{
-						echo " | ";
-					}
-				}
-				?>
-			</div>
-		</div>
-	</div>
+                $pages = get_pages(array(
+                    'meta_key' => '_wp_page_template',
+                    'meta_value' => 'tpl-egate.php'
+                ));
+                $numItems = count($pages);
+                foreach($pages as $page){
+                    $slug = str_replace("-", " ", $page->post_name);
+                    echo '<a href="' .get_page_link($page->ID). '">' .$slug. '</a>';
+                    if(++$i === $numItems) {}else{
+                        echo " | ";
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php get_footer(); ?>
