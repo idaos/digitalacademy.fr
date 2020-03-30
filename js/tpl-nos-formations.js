@@ -4,36 +4,51 @@
 
 // prevent display before module full load
 angular.element(document).ready(function () {
-    jQuery('#nos-formations div > #search-helper, #nos-formations div > #formations, #nos-formations div > .container').css('display','block');
+    jQuery('#nos-formations div > #search-helper, #nos-formations div > #formations, #nos-formations div > .container, #thematiques-input').css('display','block');
 });
 
 angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
+
     .controller('courseFilteringController', function($scope, $animate, $timeout, $filter) {
     var courses = this;
     $scope.search = '';     // set the default search/filter term
-    $scope.thema = {
-        t1:false,
-        t2:false,
-        t3:false,
-        t4:false,
-        t5:false,
-        t6:false
-    }
+
+    // get themas and build object
+    $scope.thema = {}
+    courses.themas = response_themas;
+    courses.themas.forEach(function (element, index) {
+        i = index + 1;
+        key = "t"+i;
+        element['enabled'] = false;
+        $scope.thema[key] = element ;
+    });
+
+    $scope.thema.selected = false;
+    $scope.bythema = [];
+
     // disable all thema checkboxes on first click on a checkbox
     $scope.enableThemaFilter = false;
-    $scope.onCheckboxEvent = function(event) {
+    $scope.onCheckboxEvent = function(event, selected_index) {
         // clear keyword filtering
         $scope.search = '';
+        $scope.searchText = '';
         $scope.database_course = [];
         // prevent happening next time
         $scope.enableThemaFilter = true;
+        // ini
+        $scope.selectedColor = "red";
         // toggle checkboxes
-        if(event.target.id.slice(-1) != '1'){$scope.thema.t1 = false;}else{$scope.thema.t1 = true;}
-        if(event.target.id.slice(-1) != '2'){$scope.thema.t2 = false;}else{$scope.thema.t2 = true;}
-        if(event.target.id.slice(-1) != '3'){$scope.thema.t3 = false;}else{$scope.thema.t3 = true;}
-        if(event.target.id.slice(-1) != '4'){$scope.thema.t4 = false;}else{$scope.thema.t4 = true;}
-        if(event.target.id.slice(-1) != '5'){$scope.thema.t5 = false;}else{$scope.thema.t5 = true;}
-        if(event.target.id.slice(-1) != '6'){$scope.thema.t6 = false;}else{$scope.thema.t6 = true;}
+        $i = -1;
+        angular.forEach($scope.thema,function(element,index){
+            $i += 1;
+            // uncheck all
+            $scope.thema[index].enabled = false;
+            if( $i == selected_index ){
+                // check one
+                $scope.thema[index].enabled = true;
+                $scope.selectedColor = $scope.thema[index].color;
+            }
+        })
     }
     courses.course = [];
     response.forEach(function (element, index) {
@@ -45,6 +60,7 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
             top:                  element.course_top, 
             title:                element.course_title, 
             description:          element.course_description, 
+            goals:                element.course_goals, 
             sessions:             element.course_sessions,
             trainer_name:         element.trainer_name,
             trainer_image:        element.trainer_image,
@@ -52,7 +68,7 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         };  
         courses.course.push(thisElt);
     });
-    courses.themas = response_themas;
+
     // call function after animation ending
     $scope.scrolltoA = function(event) {
         $scope.$apply();
@@ -73,6 +89,11 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
     $scope.database_course = [];
     // ini course placeholder (spinner kind of)
     $scope.seekingDB = false;
+    //color button if courses are filter by thema
+    $scope.selectBtnClass = function(){
+
+        return "btn_c_" + $scope.selectedColor;
+    }
     // call getCoursesFromQuery fn if keypress
     // delay it if another key is pressed within a delay
     var delayExpire;
@@ -163,6 +184,7 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         }
     };
 })
+    .filter('unsafe', function($sce) { return $sce.trustAsHtml; })
     .filter('highlight', function($sce) {
     return function(input, phrase) {
 
@@ -237,127 +259,83 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
             });
         });  
 
-
-        console.log(scope);
-
         if(arr.length == 0){
             return scope.courses.course;
         }else{
             return arr;
         }
-
     }
 })
     .filter('searchThema', function(){
     return function(items, thema, scope) {
-        var result = [];
-        var th1 = 'reseaux-sociaux-e-reputation';
-        var th2 = 'strategie-de-marketing-digital';
-        var th3 = 'site-contenus-web';
-        var th4 = 'webmarketing-e-publicite';
-        var th5 = 'entreprise-2-0';
-        var th6 = 'mobile-e-commerce';
-        angular.forEach(items, function(item) {
-            // if checkbox is checked for this thematique..
-            if(thema.t1 != false) {
-                // loop through item themas
-                for (var i = 0; i < item.thema.length; i++) {
-                    // check if item thema is set
-                    if(typeof item.thema[i] != 'undefined') {
-                        // check if item thema has a slug
-                        if (item.thema[i].hasOwnProperty('slug')){
-                            // if checked thematique = item thematique, keep it
-                            if ( item.thema[i].slug == th1 ){
-                                // check duplicated objects
-                                if ( result.indexOf(item) > -1 ) {
-                                }else{
-                                    result.push(item);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            else if(thema.t2 != false) {
-                for (var i = 0; i < item.thema.length; i++) {
-                    if(typeof item.thema[i] != 'undefined') {
-                        if (item.thema[i].hasOwnProperty('slug')){
-                            if ( item.thema[i].slug == th2 ){
-                                if ( result.indexOf(item) > -1 ) {
-                                }else{
-                                    result.push(item);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            else if(thema.t3 != false) {
-                for (var i = 0; i < item.thema.length; i++) {
-                    if(typeof item.thema[i] != 'undefined') {
-                        if (item.thema[i].hasOwnProperty('slug')){
-                            if ( item.thema[i].slug == th3 ){
-                                if ( result.indexOf(item) > -1 ) {
-                                }else{
-                                    result.push(item);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            else if(thema.t4 != false) {
-                for (var i = 0; i < item.thema.length; i++) {
-                    if(typeof item.thema[i] != 'undefined') {
-                        if (item.thema[i].hasOwnProperty('slug')){
-                            if ( item.thema[i].slug == th4 ){   
-                                if ( result.indexOf(item) > -1 ) {
-                                }else{
-                                    result.push(item);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            else if(thema.t5 != false) {
-                for (var i = 0; i < item.thema.length; i++) {
-                    if(typeof item.thema[i] != 'undefined') {
-                        if (item.thema[i].hasOwnProperty('slug')){
-                            if ( item.thema[i].slug == th5 ){
-                                if ( result.indexOf(item) > -1 ) {
-                                }else{
-                                    result.push(item);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            else if(thema.t6 != false) {
-                for (var i = 0; i < item.thema.length; i++) {
-                    if(typeof item.thema[i] != 'undefined') {
-                        if (item.thema[i].hasOwnProperty('slug')){
-                            if ( item.thema[i].slug == th6 ){
-                                if ( result.indexOf(item) > -1 ) {
-                                }else{
-                                    result.push(item);
-                                }
-                            }
-                        }
-                    }
-                }
-            }else{
-                scope.enableThemaFilter = false;
+        var result = [];        
+        // get slug of the selected thema
+        angular.forEach(scope.courses.themas, function(item) {
+            if( item.enabled ){
+                selectedThema = item.slug;
             }
         });
+        // foreach course
+        angular.forEach(items, function(item) {
+            // loop through course themas
+            for (var i = 0; i < item.thema.length; i++) {
+                if(typeof item.thema[i] != 'undefined') {
+                    // check if item thema has a slug
+                    if (item.thema[i].hasOwnProperty('slug')){
+                        // if checked thematique = item thematique, keep it
+                        if ( item.thema[i].slug == selectedThema ){
+                            // check duplicated objects
+                            if ( result.indexOf(item) > -1 ) {
+                            }else{
+                                // output it
+                                result.push(item);
+                            }
+                        }
+                    }
+                }else{
+                    scope.enableThemaFilter = false;
+                }
+            }
+        });
+
         if (scope.enableThemaFilter == true){
             return result;
         }else{
             return items;
         }
     };
-});
+})
+    .filter('filterThema', function(){
+    return function(items,thema_slug, scope) {
+        var result = [];
+
+        // foreach course
+        angular.forEach(items, function(item) {
+            // loop through course themas
+            for (var i = 0; i < Object.keys(scope.thema).length; i++) {
+                if(typeof item.thema[i] != 'undefined') {
+                    // check if item thema has a slug
+                    if (item.thema[i].hasOwnProperty('slug')){
+                        // if checked thematique = item thematique, keep it
+                        if ( item.thema[i].slug == thema_slug ){
+                            // check duplicated objects
+                            if ( result.indexOf(item) > -1 ) {
+                            }else{
+                                // output it
+                                result.push(item);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        return result;
+
+    };
+})
+
+
 // scroll on filter press
 var filterLabels = document.querySelectorAll("#thematiques-input label");
 filterLabels = Array.from(filterLabels); // IE11 compatibility
@@ -389,9 +367,9 @@ function scrollToResults(){
 // -------------------------------------
 // ------ Calendar ---------------------
 // -------------------------------------
-
-
 // rerender calendar on thematique selection
-jQuery('[id^=thematique-checkbox-]').on('change',function(){
-    jQuery('#calendar').fullCalendar('rerenderEvents');
+jQuery( document ).ready(function() {
+    jQuery('[id^=thematique-checkbox-]').on('change',function(){
+        jQuery('#calendar').fullCalendar('rerenderEvents');
+    });
 })

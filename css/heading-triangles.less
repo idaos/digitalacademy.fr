@@ -1,0 +1,79 @@
+.header{
+    position: relative;
+    height: auto;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3em 0 10vw 0;
+    padding-bottom: calc(10vw + 3em);
+	background-position: center;
+	background-size: cover;
+	.container{
+		z-index: 1;
+	}
+	&:after{
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background: #000;
+		opacity: .45;
+		top: 0;
+		left: 0;
+		z-index: 0;
+	}
+	h1 {
+		color: #ff705e;
+		text-transform: uppercase;
+		font-weight: 900;
+		font-size: 1.7em;
+		margin: 0.5em 0 !important;
+	}
+	h3{
+		color: #fff !important;
+	}
+	hr{
+		border-top-color: #fff !important;
+		max-width: 20%;
+		margin: 0;
+		opacity: 0.5;
+		margin: 0 auto !important;
+		padding-bottom: 0.5em;
+		min-height: 1px;
+		min-width: 100px;
+	}
+	p{
+		max-width: 800px;
+		margin: auto;
+		line-height: 1.5em;
+		margin-top: 1em;
+		color: #fff;
+	}
+}
+.svg-wrapper-bottom{
+	position: relative;
+	display: block;
+	height:10vw;
+	width: 100%;
+	margin-top: -10vw;
+
+	[class^="svg-"]{
+		top:0;
+		display:block;
+		height:10vw;
+		left:0;
+		position:absolute;
+		width:100%;
+	}
+	.svg-top{
+		z-index:2;
+	}
+	.svg-back{
+		z-index:1;
+	}
+	.svg-bottom{
+		z-index:3;
+	}
+}
+

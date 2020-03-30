@@ -1,5 +1,10 @@
 @color-dac : #bf3b2b;
-@gray : #a8a8a8;
+@orange:#e74c3c;
+@gray:#95a5a6;
+@blue:#3498db;
+@yellow:#f59d00;
+@green:#2ecc71;
+@blue-dark:#34495e;
 
 .container{
     max-width: 1230px;
@@ -10,6 +15,10 @@ h1{
     color: #4a4a4a !important;
     font-size: 1.7em;
     margin: 0 !important;
+    @media only screen and (max-width: 767px){
+        margin: .5em 0 !important;
+        font-size: 1.3em!important;
+    }
 }
 hr{
     margin: 1em auto 0 auto;
@@ -19,30 +28,68 @@ hr{
     .container {
         max-width: 1230px;
     }
-}
+} 
 
 //-----------------------------------
 //-----------------------------------
 //------ Nos formations general -----
 //-----------------------------------
 //-----------------------------------
-.t1-c{
-    color: #e74c3c;
+
+
+.t1-c, .c_orange{
+    color: @orange !important;
 }
-.t2-c{
-    color: #95a5a6;
+.t2-c, .c_gray{
+    color: @gray !important;
 }
-.t3-c{
-    color: #3498db;
+.t3-c, .c_blue{
+    color: @blue !important;
 }
-.t4-c{
-    color: #f59d00;
+.t4-c, .c_yellow{
+    color: @yellow !important;
 }
-.t5-c{
-    color: #2ecc71;
+.t5-c, .c_green{
+    color: @green !important;
 }
-.t6-c{
-    color: #34495e;
+.t6-c, .c_blue-dark{
+    color: @blue-dark !important;
+}
+.btn-t1, .btn_c_orange, .bg_orange{
+    background-color: @orange !important;
+}
+.btn-t2, .btn_c_gray, .bg_gray{
+    background-color: @gray !important;
+}
+.btn-t3, .btn_c_blue, .bg_blue{
+    background-color: @blue !important;
+}
+.btn-t4, .btn_c_yellow, .bg_yellow{
+    background-color: @yellow !important;
+}
+.btn-t5, .btn_c_green, .bg_green{
+    background-color: @green !important;
+}
+.btn-t6, .btn_c_blue-dark, .bg_blue-dark{
+    background-color: @blue-dark !important;
+}
+.border_orange{
+    border-bottom: solid 2px @orange;
+}
+.border_gray{
+    border-bottom: solid 2px @gray;
+}
+.border_blue{
+    border-bottom: solid 2px @blue;
+}
+.border_yellow{
+    border-bottom: solid 2px @yellow;
+}
+.border_green{
+    border-bottom: solid 2px @green;
+}
+.border_blue-dark{
+    border-bottom: solid 2px @blue-dark;
 }
 
 #nos-formations{
@@ -116,6 +163,7 @@ hr{
         text-align: center;
         align-items: center;
         justify-content: center;
+        white-space: nowrap;
     }
     .margin0{margin:0!important;}
     .valign{
@@ -253,10 +301,35 @@ hr{
                         content: "Top formation !";
                     }
                 }
+                .goals{
+                    ul{padding: 0;}
+                    li{
+                        list-style: none;
+                        font-size: 1.1em!important;
+                        font-weight: 400;
+                        margin-bottom: .4em;
+                        padding-left: 19px;
+                        margin-top: 10px;
+                        font-size: .93em!important;
+                        &:after{content: none;}
+                        &:before{
+                            content: '';
+                            background-image: url(../images/ok-icon-02.svg);
+                            height: 1em;
+                            width: 1em;
+                            background-position: center;
+                            background-size: cover;
+                            display: inline-block;
+                            margin-right: 6px;
+                            margin-left: -21px;
+                        }
+                    }
+                    padding: .5em 0;
+                }
                 > div{
                     position: relative;
                     padding: 0 .9em;
-                    padding-bottom: 2.8em;
+                    padding-bottom: 3em;
                     a>h4{color: #515151;&:hover{color:@color-dac;}}
                     h4{
                         margin-top: .6em;
@@ -264,7 +337,6 @@ hr{
                         text-transform: uppercase;
                     }
                     p{
-                        padding-bottom: 4.9em;
                         flex-grow: 1;
                         flex-shrink: 1;
                         flex-basis: auto;
@@ -440,71 +512,71 @@ input::placeholder{
 .no-result{
     background: #bb0303;
 }
-#thematique-checkbox-1 + .button:hover, #thematique-checkbox-1:checked + .button{
+#thematique-checkbox-orange + .button:hover, #thematique-checkbox-orange:checked + .button{
     filter: brightness(120%);
 }
-#thematique-checkbox-1 + .button{
-    background:#af0029;
+#thematique-checkbox-orange + .button{
+    background:@orange;
     color:#fff;
-    outline: solid 2px #e74c3c;
+    outline: solid 2px @orange;
 }
-.thema-t1{
-    background:#af0029;
+.thema-orange{
+    background:@orange;
 }
-#thematique-checkbox-2 + .button:hover, #thematique-checkbox-2:checked + .button{
+#thematique-checkbox-gray + .button:hover, #thematique-checkbox-gray:checked + .button{
     filter: brightness(120%);
 }
-#thematique-checkbox-2 + .button{
-    background:#95a5a6;
+#thematique-checkbox-gray + .button{
+    background:@gray;
     color:#fff;
-    outline: solid 2px #95a5a6;
+    outline: solid 2px @gray;
 }
-.thema-t2{
-    background:#95a5a6;
+.thema-gray{
+    background:@gray;
 }
-#thematique-checkbox-3 + .button:hover, #thematique-checkbox-3:checked + .button{
+#thematique-checkbox-blue + .button:hover, #thematique-checkbox-blue:checked + .button{
     filter: brightness(120%);
 }
-#thematique-checkbox-3 + .button{
-    background:#3498db;
+#thematique-checkbox-blue + .button{
+    background:@blue;
     color:#fff;
-    outline: solid 2px #3498db;
+    outline: solid 2px @blue;
 }
-.thema-t3{
-    background:#3498db;
+.thema-blue{
+    background:@blue;
 }
-#thematique-checkbox-4 + .button:hover, #thematique-checkbox-4:checked + .button{
+#thematique-checkbox-yellow + .button:hover, #thematique-checkbox-yellow:checked + .button{
     filter: brightness(120%);
 }
-#thematique-checkbox-4 + .button{
-    background:#f59d00;
+#thematique-checkbox-yellow + .button{
+    background:@yellow;
     color:#fff;
-    outline: solid 2px #f59d00;
+    outline: solid 2px @yellow;
 }
-.thema-t4{
-    background:#f59d00;
+.thema-yellow{
+    background:@yellow;
 }
-#thematique-checkbox-5 + .button:hover, #thematique-checkbox-5:checked + .button{
+#thematique-checkbox-green + .button:hover, #thematique-checkbox-green:checked + .button{
     filter: brightness(120%);
 }
-#thematique-checkbox-5 + .button{
-    background:#2ecc71;
+#thematique-checkbox-green + .button{
+    background:@green;
     color:#fff;
-    outline: solid 2px #2ecc71;
+    outline: solid 2px @green;
 }
-.thema-t5{
-    background:#2ecc71;
+.thema-green{
+    background:@green;
 }
-#thematique-checkbox-6 + .button:hover, #thematique-checkbox-6:checked + .button{
+#thematique-checkbox-blue-dark + .button:hover, #thematique-checkbox-blue-dark:checked + .button{
     filter: brightness(120%);
 }
-#thematique-checkbox-6 + .button{
-    background:#34495e;
+#thematique-checkbox-blue-dark + .button{
+    background:@blue-dark;
     color:#fff;
-    outline: solid 2px #34495e;
+    outline: solid 2px @blue-dark;
 }
-.thema-t6{
-    background:#34495e;
+.thema-blue-dark{
+    background:@blue-dark;
 }
 .highlighted{
     color: red;
@@ -522,20 +594,6 @@ input::placeholder{
     font-style: italic;
     border-radius: .2em;
 }
-//.animated-item {
-//    -webkit-transition:all ease 0.3s;
-//    transition:all ease 0.3s;
-//}
-//.animated-item.ng-leave.ng-leave-active,
-//.animated-item.ng-move,
-//.animated-item.ng-enter {
-//    opacity:0;
-//}
-//.animated-item.ng-leave,
-//.animated-item.ng-move.ng-move-active,
-//.animated-item.ng-enter.ng-enter-active {
-//    opacity:1;
-//}
 #search-helper{
     max-height: 3em;
     height: auto;
@@ -545,7 +603,8 @@ input::placeholder{
 #search-helper p{
     line-height: 3em;
     height: 3em;
-    margin:0;
+    padding: 0 1em;
+    margin: 0;
 }
 #search-helper p:first-child{
     background: #bb0303;
@@ -624,7 +683,6 @@ select{
     height: 2.2em;
 }
 #formations [class*='col-'] .wrapper div span {padding: 0 0 .5em 0;}
-#formations [class*='col-'] .wrapper div p {padding-bottom:9em;}
 #formations [class*='col-'] .wrapper .alignCenter {
     bottom: 6em; 
     padding:0 1em 1.5em 5em; 
@@ -658,7 +716,7 @@ select{
     }
 }
 .slick-slide{
-    padding: 3em 0 0 1em !important;
+    padding: 3em 1em 0 1em !important;
 }
 .course_placeholer{
     width:100%;
@@ -817,8 +875,9 @@ select{
 }
 
 // hide app before js load 
+#thematiques-input,
 #nos-formations div > #search-helper,
 #nos-formations div > #formations,
 #nos-formations div > .container{
-	display:none;
+    display:none;
 }

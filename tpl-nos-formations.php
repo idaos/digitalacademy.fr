@@ -9,6 +9,8 @@
 // get query string
 $search_query = isset($_GET['q']) ?  $_GET['q'] : null ;
 $result = kz_search(" ");
+$courses_count = count(json_decode($result[0])) ;
+$th = new KzThema();
 // -----------------------------------------------------------------------
 // -----------------------------------------------------------------------
 get_header();
@@ -27,29 +29,24 @@ get_header();
 
 
     <div ng-app="courseFilteringApp" id="nos-formations">
-
         <div ng-controller="courseFilteringController as courses">
-
             <div class="breadcrumb hidden-xs">
                 <div class="container">
-                    <?php if ( function_exists( 'yoast_breadcrumb' ) ) {
-                        yoast_breadcrumb();
-                    } ?>
+                    <?php if ( function_exists( 'yoast_breadcrumb' ) ) {yoast_breadcrumb();}?>
+                    <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                 </div>
             </div>
+            
             <div id="kz_heading" class="container-slider main-slider nos-formations slider-header" <?php //echo $bg; ?>>
                 <div class="slick-slide">
                     <div class="clearfix">
-                        <h1 class="title-slider">Consultez notre catalogue de plus de 30 formations au digital</h1>
+                        <h1 class="title-slider">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
                     </div>
                     <hr>
-                    <?php //if ( get_field( 'sous_titre' ) ): ?>
-                    <!--<p><?php //the_field( 'sous_titre' ); ?></p>-->
-                    <?php //endif; ?>
                     <div id="search">
                         <div class="container alignCenter">
                             <input ng-model="searchText" ng-init="searchText='<?php echo $search_query; ?>'" 
-                                   ng-keypress="thema.t1 = 'false';thema.t2 = 'false';thema.t3 = 'false';thema.t4 = 'false';thema.t5 = 'false';thema.t6 = 'false';queryDatabase($event)"
+                                   ng-keypress="thema.t1.enabled = 'false';thema.t2.enabled = 'false';thema.t3.enabled = 'false';thema.t4.enabled = 'false';thema.t5.enabled = 'false';thema.t6.enabled = 'false';queryDatabase($event)"
                                    placeholder="Rechercher une formation..." autofocus class="search-txt">
                             <div class="btn btn-red search-btn" ng-click="getCoursesFromQuery()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13"><g stroke-width="2" stroke="#fff" fill="none"><path d="M11.29 11.71l-4-4"/><circle cx="5" cy="5" r="4"/></g></svg>
@@ -59,75 +56,21 @@ get_header();
                     <div id="thematiques-input" class="alignCenter">
                         <span>ou filtrer par thématique :</span>
                         <div class="row alignCenter">
-                            <div>
-                                <input type="checkbox" value="#e74c3c" ng-model="thema.t1" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-1" name="thematique-checkbox-1">
-                                <label for="thematique-checkbox-1" class="button btn btn-md">RÉSEAUX SOCIAUX &amp; E-RÉPUTATION</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="#95a5a6" ng-model="thema.t2" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-2" name="thematique-checkbox-2">
-                                <label for="thematique-checkbox-2" class="button btn btn-md">STRATÉGIE DE MARKETING DIGITAL</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="#3498db" ng-model="thema.t3" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-3" name="thematique-checkbox-3">
-                                <label for="thematique-checkbox-3" class="button btn btn-md">SITE &amp; CONTENUS WEB</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="#f59d00" ng-model="thema.t4" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-4" name="thematique-checkbox-4">
-                                <label for="thematique-checkbox-4" class="button btn btn-md">WEBMARKETING &amp; E-PUBLICITÉ</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="#2ecc71" ng-model="thema.t5" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-5" name="thematique-checkbox-5">
-                                <label for="thematique-checkbox-5" class="button btn btn-md">ENTREPRISE 2.0</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="#34495e" ng-model="thema.t6" ng-click="onCheckboxEvent($event); searchText = '';" id="thematique-checkbox-6" name="thematique-checkbox-6">
-                                <label for="thematique-checkbox-6" class="button btn btn-md">MOBILE &amp; E-COMMERCE</label>
+                            <div ng-repeat="(key, thema) in thema track by $index">
+                                <input ng-show="thema.name.length > 1" type="checkbox" value="{{thema.colorhex}}" ng-model="thema.enabled" ng-click="onCheckboxEvent($event, $index); searchText = '';" id="thematique-checkbox-{{thema.color}}" name="thematique-checkbox-{{thema.color}}">
+                                <label ng-show="thema.name.length > 1" for="thematique-checkbox-{{thema.color}}" class="button btn btn-md" ng-bind-html="thema.name | unsafe"></label>
                             </div>
                         </div>
                     </div>
-
-                    <!--
-<div id="thematiques-input" class="alignCenter">
-<div class="row alignCenter">
-<div ng-repeat="thema in courses.themas">
-<input  type="checkbox" 
-value="{{thema.color}}" 
-ng-model="thema.slug" 
-ng-click="onCheckboxEvent($event); searchText = '';" >
-<label for="thematique-checkbox-1" class="button" ng-bind-html="thema.name"></label>
-</div>
-</div>
-</div>
-
-
-ng-model="thema.t1" 
-id="thematique-checkbox-1" 
-name="thematique-checkbox-1"
--->
-
                 </div>
             </div>
-
-            <!-- Lien vers le formulaire demande de catalogue -->
-            <?php //echo get_field( 'page_demande_catalogue', 'option' ); ?>
-
-
-
-
-
             <div id="search-helper" class="alignCenter">
                 <p ng-cloak ng-show="((courses.course | searchFor: searchText).length < courses.course.length) && ((courses.course | searchFor: searchText).length > 0)">
                     <span ng-show="seekingDB == false">{{filtered.length}} </span>
                     résultats de recherche pour : <b>{{searchText}}</b>
                 </p>
                 <p ng-cloak class="no-result" ng-show="(searchText.length != 0) && noResult">Aucun résultat pour la recherche : <b>{{searchText}}</b></p>
-<!--                <p ng-cloak class="no-result" ng-show="((courses.course | searchFor: searchText).length == 0) && (searchText.length != 0) && (filtered.length == 0) && (seekingDB == false)">Aucun résultat pour la recherche : <b>{{searchText}}</b></p>-->
-                <p ng-cloak animationend="scrolltoA" class="thema-t1" ng-show="thema.t1 == true">{{filtered.length}} résultats pour le filtre : <b>Réseaux sociaux &amp; e-réputation</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t2" ng-show="thema.t2 == true">{{filtered.length}} résultats pour le filtre : <b>Stratégie de marketing digital</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t3" ng-show="thema.t3 == true">{{filtered.length}} résultats pour le filtre : <b>Site &amp; contenus web</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t4" ng-show="thema.t4 == true">{{filtered.length}} résultats pour le filtre : <b>Webmarketing &amp; e-publicité</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t5" ng-show="thema.t5 == true">{{filtered.length}} résultats pour le filtre : <b>Entreprise 2.0</b></p>
-                <p ng-cloak animationend="scrolltoA" class="thema-t6" ng-show="thema.t6 == true">{{filtered.length}} résultats pour le filtre : <b>Mobile &amp; e-commerce</b></p>
+                <p ng-cloak ng-repeat="(key, thema) in thema track by $index" animationend="scrolltoA" class="thema-{{thema.color}}" ng-show="thema.enabled == true">{{filtered.length}} résultats pour le filtre : <b ng-bind-html="thema.name | unsafe"></b></p>
             </div>
             <div id="formations">
                 <div class="container">
@@ -148,37 +91,18 @@ name="thematique-checkbox-1"
                                     </a>  
                                     <div class="nouvelle_formation" ng-show="course.new != false"></div>
                                     <div class="top_formation" ng-show="course.top != false"></div>
-                                    <p>
-                                        <span ng-bind-html="course.description | highlight:searchText"></span>
-                                        <!--                                    <a class="course-link" href="{{course.link}}">En savoir plus sur cette formation.</a>-->
-                                    </p>
+
+                                    <div class="goals" ng-bind-html="course.goals | highlight:searchText"></div>
                                 </div>
-                                <div class="alignCenter">
-                                    <!-- Formateur -->                                        
-                                    <img ng-src="{{course.trainer_image}}" alt="" width="100" height="100">
-                                    <span>
-                                        <i>Animée par :</i><br>
-                                        <b ng-bind-html="course.trainer_name | highlight:searchText"></b>
-                                    </span>
-                                </div>
-                                <!--
-<form action="" ng-show="course.sessions.length > 0">
-<select name="" id="">
-<option ng-repeat="session in course.sessions" value="{{session.date}}" link="{{session.link}}">À {{session.place}} le {{session.date}}</option> 
-</select>
-</form>
--->
-                                <!--                            <b class="no-session" ng-show="course.sessions.length == 0">Aucune session pour cette formation</b> -->
                                 <a class="en-savoir-plus" href="{{course.link}}">
-                                    <!--                                <div class="button">Inscription</div>-->
-                                    <div class="btn btn-red btn-sm">En savoir plus</div>
+                                    <div class="btn btn-sm" ng-class="selectBtnClass()">En savoir plus</div>
                                 </a>
                             </div>
                         </div>
                         <div ng-cloak ng-show="seekingDB" class="col-md-6 col-xl-4">
                             <div class="wrapper course_placeholer"></div>
                         </div>
-                        <i aria-hidden="true" class="col-md-6 col-xl-4"></i> <!-- Left align flexbox trick, see : https://dev.to/stel/a-little-trick-to-left-align-items-in-last-row-with-flexbox-230l -->
+                        <i aria-hidden="true" class="col-md-6 col-xl-4"></i>
                         <i aria-hidden="true" class="col-md-6 col-xl-4"></i> <!-- Left align flexbox trick, see : https://dev.to/stel/a-little-trick-to-left-align-items-in-last-row-with-flexbox-230l -->
                     </div>
                 </div>
@@ -255,10 +179,10 @@ name="thematique-checkbox-1"
                 <div class="wrapper">
                     <h2 class="hidden-xs">Calendrier des formations 
                         <span 
-                        id="selectedThema" 
-                        ng-show="enableThemaFilter"
-                        ng-class="{'t1-c': thema.t1 == true , 't2-c': thema.t2 == true , 't3-c': thema.t3 == true , 't4-c': thema.t4 == true , 't5-c': thema.t5 == true , 't6-c': thema.t6 == true } "
-                        ></span>
+                              id="selectedThema" 
+                              ng-show="enableThemaFilter"
+                              ng-class="{'t1-c': thema.t1.enabled == true , 't2-c': thema.t2.enabled == true , 't3-c': thema.t3.enabled == true , 't4-c': thema.t4.enabled == true , 't5-c': thema.t5.enabled == true , 't6-c': thema.t6.enabled == true } "
+                              ></span>
                     </h2>
                     <div id="calendar" class="hidden-xs">
                         <div id="calendar"></div>
@@ -317,30 +241,37 @@ name="thematique-checkbox-1"
                             ?>
                         ], // filter by thematique
                         eventRender: function eventRender( event, element, view ) {
-                            if (jQuery('#thematique-checkbox-1').is(":checked")){
-                                jQuery('#selectedThema').html('RÉSEAUX SOCIAUX &amp; E-RÉPUTATION');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-1').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-2').is(":checked")){
-                                jQuery('#selectedThema').html('STRATÉGIE DE MARKETING DIGITAL');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-2').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-3').is(":checked")){
-                                jQuery('#selectedThema').html('SITE &amp; CONTENUS WEB');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-3').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-4').is(":checked")){
-                                jQuery('#selectedThema').html('WEBMARKETING &amp; E-PUBLICITÉ');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-4').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-5').is(":checked")){
-                                jQuery('#selectedThema').html('ENTREPRISE 2.0');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-5').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-6').is(":checked")){
-                                jQuery('#selectedThema').html('MOBILE &amp; E-COMMERCE');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-6').attr('value') ) >= 0
-                            }
+//                            jQuery('[id^=thematique-checkbox-]').each(function( index ) {
+//                                if ( jQuery(this).is(":checked") ){
+//                                    jQuery('#selectedThema').html(jQuery( this ).next().text());
+//                                    return ['all', event.color].indexOf( jQuery(this).attr('value') ) >= 0
+//                                }
+                                
+                                if (jQuery('#thematique-checkbox-orange').is(":checked")){
+                                    jQuery('#selectedThema').html('Réseaux Sociaux');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-orange').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-gray').is(":checked")){
+                                    jQuery('#selectedThema').html('Webmarketing');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-gray').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-blue-dark').is(":checked")){
+                                    jQuery('#selectedThema').html('Contenus &amp; Site Web');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue-dark').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-yellow').is(":checked")){
+                                    jQuery('#selectedThema').html('E-publicité &amp; Acquisition');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-yellow').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-green').is(":checked")){
+                                    jQuery('#selectedThema').html('Ressources Humaines Web 2.0');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-green').attr('value') ) >= 0
+                                }
+                                else if (jQuery('#thematique-checkbox-blue').is(":checked")){
+                                    jQuery('#selectedThema').html('E-réputation &amp; Relation Client Web');
+                                    return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue').attr('value') ) >= 0
+                                }
+//                            });
                         }
                     });
                 }
@@ -358,7 +289,7 @@ name="thematique-checkbox-1"
             <!--   ----------------------------------------------   -->
             <script>
                 var response = <?php echo $result[0]; ?>;
-                var response_themas = <?php echo $result[1]; ?>;
+                var response_themas = <?php echo json_encode($th->getData()); ?>;
                 var phpSearchTerm = <?php if($search_query){echo 'true';}else{echo 'false';}; ?>;
                 var phpSearchIni = true;
             </script>

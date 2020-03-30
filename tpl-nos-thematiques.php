@@ -4,173 +4,325 @@
  */
 ?>
 <?php get_header(); ?>
-<div class="breadcrumb hidden-xs">
-	<div class="container">
-		<?php if ( function_exists( 'yoast_breadcrumb' ) ) {
-			yoast_breadcrumb();
-		} ?>
-	</div>
-</div>
-<div class="mobile-invert">
-	<div class="container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php the_field( 'img_nos_thematiques', 'option' ) ?>)">
-		<div class="slick-slide">
-			<?php if ( $pictos = digital_get_thematiques_picto() ): ?>
-			<ul class="clearfix hidden-xs">
-				<?php foreach ( $pictos as $picto ): ?>
-				<li><img src="<?php echo $picto; ?>" alt=""/></li>
-			<?php endforeach; ?>
-		</ul>
-	<?php endif; ?>
-	<h1 class="title-slider"><?php the_title(); ?></h1>
-</div>
-</div>
-<div class="full-width bg-orange full-width-contact">
-	<p class="clearfix"><span class="m-100">Découvrez la liste complète de nos formations</span> <a
-		href="<?php echo get_field( 'page_demande_catalogue', 'option' ); ?>" class="btn-white">Demander le
-		catalogue</a></p>
-	</div>
-</div>
-<div class="xs-container-menu-filtre">
-	<div class="sticky-wrapper-relative">
-		<div class="container-menu-filtre hidden-xs">
-			<div class="container">
-				<?php echo digital_get_thematiques_menu( null, true ); ?>
-			</div>
-		</div>
-	</div>
-</div>
-<?php
-$blocs = array();
-if ( $thematiques = get_terms( 'thematique' ) ) {
-	$i = 0;
-	$color = array(
-		'gray'      => '#95a5a6',
-		'orange'    => '#e74c3c',
-		'yellow'    => '#f59d00',
-		'green'     => '#2ecc71',
-		'blue'      => '#3498db',
-		'blue-dark' => '#34495e'
-		);
-	foreach ( $thematiques as $thematique ) {
-		$couleur = get_field( 'couleur', 'thematique_' . $thematique->term_id );
-		$blocs[ $i ] = '<div class="container-theme theme-' . $couleur . ' clearfix">';
-		$blocs[ $i ] .= '<div class="content-theme">';
-		$blocs[ $i ] .= '<div class="wpb_wrapper">';
-		$blocs[ $i ] .= '<div class="col-sm-3 text-center">';
-		$blocs[ $i ] .= '<h3>' . $thematique->name . '</h3>';
-		if ( $picto = get_field( 'picto', 'thematique_' . $thematique->term_id ) ) {
-			$blocs[ $i ] .= '<img src="' . $picto . '" alt="" />';
-		}
-		$blocs[ $i ] .= '</div>';
-		$blocs[ $i ] .= '<div class="col-sm-9 content-show">';
-		$blocs[ $i ] .= '<p class="visible-xs">+</p>';
-		$formations = get_posts(
-			array(
-				'posts_per_page' => - 1,
-				'post_type'      => 'formation',
-				'tax_query'      => array(
-					array(
-						'taxonomy' => 'thematique',
-						'field'    => 'term_id',
-						'terms'    => $thematique->term_id,
-						)
-					)
-				)
-			);
-		$formation_list = array();
-		if ( $formations ) {
-			$u = 0;
-			foreach ( $formations as $formation ) {
-				$formation_list[] = '<li><a href="' . get_the_permalink( $formation->ID ) . '">' . $formation->post_title . '</a></li>';
-				if ( $formation_dates = digital_get_formation_dates( $formation->ID ) ) {
-					$thematique_infos[ $thematique->name ][ $color[ $couleur ] ][] = $formation_dates;
-				}
-			}
-		}
-		$formation_list = array_chunk( $formation_list, ceil( count( $formation_list ) / 2 ) );
-		$blocs[ $i ] .= '<ul>';
-		foreach ( $formation_list as $list ) {
-			$blocs[ $i ] .= implode( "\n", $list );
-		}
-		$blocs[ $i ] .= '</ul>';
-		$blocs[ $i ] .= '</div>';
-		$blocs[ $i ] .= '</div>';
-		$blocs[ $i ] .= '</div>';
-		$blocs[ $i ] .= '</div>';
-		$i ++;
-	}
-}
+<?php $thematique_ID = get_queried_object_id(); 
+$th = new KzThema($thematique_ID);
+
+
+// -----------------------------------------------------------------------
+// GET ALL "FORMATIONS"
+// -----------------------------------------------------------------------
+// get query string
+$search_query = isset($_GET['q']) ?  $_GET['q'] : null ;
+$result = kz_search(" ");
+$courses_count = count(json_decode($result[0])) ;
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 ?>
-<main class="content">
-	<div class="container">
-		<div class="wrapper">
-			<h2 class="hidden-xs">Calendrier des formations</h2>
-			<div id="calendar" class="hidden-xs">
-				<div id="calendar"></div>
-				<script>
-				setTimeout(function(){
-					
-				jQuery(document).ready(function ($) {
-					$('#calendar').fullCalendar({
-						header: {
-							right: 'today prev,next',
-							center: '',
-							left: 'title'
-						},
-						defaultDate: '<?php echo date( 'Y-m-d' ); ?>',
-						firstDay: 1,
-						editable: false,
-						eventLimit: true,
-						events: [
-						<?php
-						$events = '';
-						foreach( $thematique_infos as $formation_title => $formation_infos )
-						{
-							foreach( $formation_infos as $couleur => $arrayDates )
-							{
-								foreach( $arrayDates as $dates )
-								{
-									foreach( $dates as $date )
-									{
-										$events .= '{';
-										$events .= 'title:    "'. html_entity_decode ($date['titre']) .'",';
-										$events .= 'start:    "'. $date['date'] .'",';
-										$events .= 'end:      "'. date( 'Y-m-d', strtotime( $date['date'] . ' + '. $date['nombre_jours'] .' days' ) ) .'",';
-										$events .= 'url:      "'. $date['url'] .'",';
-										$events .= 'color:    "'. $couleur .'"';
-										$events .= '},';
-									}
-								}
-							}
-						}
-						echo rtrim( $events, ',' );
-						?>
-						]
-					});
-				});
-				}, 1000);
-			</script>
+<script>
+    // Pass var to js
+    var response_themas = <?php echo $result[1]; ?>;
+</script>
+
+
+<!-- BreadCrumbs -->
+<div class="breadcrumb hidden-xs">
+    <div class="container">
+        <?php if ( function_exists( 'yoast_breadcrumb' ) ) {yoast_breadcrumb();}?>
+        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+    </div>
 </div>
-<div class="full-width bg-gray p30">
-	<h2>Nos <?php echo count( $thematiques ); ?> thématiques</h2>
-	<?php
-	if ( count( $blocs ) > 0 ) {
-		foreach ( $blocs as $bloc ) {
-			echo $bloc;
-		}
-	}
-	?>
+
+<!-- Heading -->
+<div class="header">    
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 alignCenter">
+                <?php if ( $pictos = digital_get_thematiques_picto() ): ?>
+                <ul class="clearfix hidden-xs" style="padding:0 1em">
+                    <?php foreach ( $pictos as $picto ): ?>
+                    <li><img src="<?php echo $picto; ?>" alt=""/></li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php endif; ?>
+                <h1 class="title-slider" style="color:#6b6b6b!important"><?php the_title(); ?></h1>
+                <hr style="display:block">
+                <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
+                    <div class="container-menu-filtre hidden-xs">
+                        <div class="container">
+                            <?php echo digital_get_thematiques_menu( $thematique_ID ); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="svg-wrapper-bottom">
+    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#fff" points="0,0 0,100 40,40"></polygon>
+    </svg>
+    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#bf3b2b" points="0,0 100,20 100,100"></polygon>
+    </svg>
+    <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"></polygon>
+    </svg>
+</div>    
+
+
+<div class="content" style="background-color: #f5f5f5;">
+
+    <div ng-app="courseFilteringApp" id="nos-formations">
+        <div ng-controller="courseFilteringController as courses">
+
+            <div id="search" class="hide"><div class="btn"><input></div></div>
+            <div id="formations" style="padding: 0;">
+                <div ng-cloak on-finish-render="ngRepeatFinished"
+                     ng-repeat="thema in thema" 
+                     class="animated-item" 
+                     ng-show="thema.name.length > 1"
+                     >
+                    <div class="container">
+                        <div class="thema-heading border_{{thema.color}}">
+                            <img data-skip-lazy="" src="{{thema.img}}" alt="">
+                            <a href="{{thema.url}}">
+                                <h3 class="c_{{thema.color}}">Nos formations sur la thématique <span ng-bind-html="thema.name | unsafe"></span></h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="container">
+
+                        <div class="row">
+                            <div course-id="{{course.id}}" 
+                                 ng-cloak on-finish-render="ngRepeatFinished"
+                                 ng-repeat="course in courses.course | filterThema: thema.slug:this" 
+                                 class="col-md-6 col-xl-4 animated-item" 
+                                 >
+                                <div class="wrapper">
+                                    <a href="{{course.link}}">   
+                                        <img ng-src="{{course.image}}" alt="">
+                                    </a>
+                                    <div>
+                                        <a href="{{course.link}}">
+                                            <h4 ng-bind-html="course.title | level_hl"></h4>
+                                        </a>  
+                                        <div class="nouvelle_formation" ng-show="course.new != false"></div>
+                                        <div class="top_formation" ng-show="course.top != false"></div>
+
+                                        <div class="goals" ng-bind-html="course.goals | highlight:searchText"></div>
+                                    </div>
+                                    <a class="en-savoir-plus" href="{{course.link}}">
+                                        <div class="btn btn-red btn-sm btn_c_{{thema.color}}" ng-class="selectBtnClass()">En savoir plus</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <i aria-hidden="true" class="col-md-6 col-xl-4"></i>
+                            <i aria-hidden="true" class="col-md-6 col-xl-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="spinner == true" id="spinner-container"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
+        </div>
+    </div>
 </div>
+<div class="content" style="background-color: #fff;">
+
+
+    <!--   ----------------------------------------------   -->
+    <!--   ------------------ CALENDAR ------------------   -->
+    <!--   ----------------------------------------------   -->
+    <?php
+    $blocs = array();
+    if ( $thematiques = get_terms( 'thematique' ) ) {
+        $i = 0;
+        $color = array(
+            'gray'      => '#95a5a6',
+            'orange'    => '#e74c3c',
+            'yellow'    => '#f59d00',
+            'green'     => '#2ecc71',
+            'blue'      => '#3498db',
+            'blue-dark' => '#34495e'
+        );
+        foreach ( $thematiques as $thematique ) {
+            $couleur = get_field( 'couleur', 'thematique_' . $thematique->term_id );
+            $blocs[ $i ] = '<div class="container-theme theme-' . $couleur . ' clearfix">';
+            $blocs[ $i ] .= '<div class="content-theme">';
+            $blocs[ $i ] .= '<div class="wpb_wrapper">';
+            $blocs[ $i ] .= '<div class="col-sm-3 text-center">';
+            $blocs[ $i ] .= '<h3>' . $thematique->name . '</h3>';
+            if ( $picto = get_field( 'picto', 'thematique_' . $thematique->term_id ) ) {
+                $blocs[ $i ] .= '<img src="' . $picto . '" alt="" />';
+            }
+            $blocs[ $i ] .= '</div>';
+            $blocs[ $i ] .= '<div class="col-sm-9 content-show">';
+            $blocs[ $i ] .= '<p class="visible-xs">+</p>';
+            $formations = get_posts(
+                array(
+                    'posts_per_page' => - 1,
+                    'post_type'      => 'formation',
+                    'tax_query'      => array(
+                        array(
+                            'taxonomy' => 'thematique',
+                            'field'    => 'term_id',
+                            'terms'    => $thematique->term_id,
+                        )
+                    )
+                )
+            );
+            $formation_list = array();
+            if ( $formations ) {
+                $u = 0;
+                foreach ( $formations as $formation ) {
+                    $formation_list[] = '<li><a href="' . get_the_permalink( $formation->ID ) . '">' . $formation->post_title . '</a></li>';
+                    if ( $formation_dates = digital_get_formation_dates( $formation->ID ) ) {
+                        $thematique_infos[ $thematique->name ][ $color[ $couleur ] ][] = $formation_dates;
+                    }
+                }
+            }
+            $formation_list = array_chunk( $formation_list, ceil( count( $formation_list ) / 2 ) );
+            $blocs[ $i ] .= '<ul>';
+            foreach ( $formation_list as $list ) {
+                $blocs[ $i ] .= implode( "\n", $list );
+            }
+            $blocs[ $i ] .= '</ul>';
+            $blocs[ $i ] .= '</div>';
+            $blocs[ $i ] .= '</div>';
+            $blocs[ $i ] .= '</div>';
+            $blocs[ $i ] .= '</div>';
+            $i ++;
+        }
+    }
+    ?>
+    <div class="container" style="margin-top:3em;">
+        <div class="wrapper">
+            <h2 class="hidden-xs">Calendrier des formations <?php echo $th->getName(); ?>
+                <span 
+                      id="selectedThema" 
+                      ng-show="enableThemaFilter"
+                      ng-class="{'t1-c': thema.t1.enabled == true , 't2-c': thema.t2.enabled == true , 't3-c': thema.t3.enabled == true , 't4-c': thema.t4.enabled == true , 't5-c': thema.t5.enabled == true , 't6-c': thema.t6.enabled == true } "
+                      ></span>
+            </h2>
+            <div id="calendar" class="hidden-xs">
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--  load calendar-->
+    <script defer>
+        window.onload = function() {
+            checkIfCalendarDependanciesHaveBeenLoad();
+        }
+        function checkIfCalendarDependanciesHaveBeenLoad(){
+            setTimeout(function(){
+                if (window.jQuery) {  
+                    loadCalendar();
+                }else{
+                    checkIfCalendarDependanciesHaveBeenLoad();
+                }
+            }, 300);
+        }
+        function loadCalendar(){
+            jQuery('#calendar').fullCalendar({
+                header: {
+                    right: 'today prev,next',
+                    center: '',
+                    left: 'title'
+                },
+                defaultDate: '<?php echo date( 'Y-m-d' ); ?>',
+                firstDay: 1,
+                editable: false,
+                eventLimit: true,
+                events: [
+                    <?php
+                    $events = '';
+                    foreach( $thematique_infos as $formation_title => $formation_infos )
+                    {
+                        foreach( $formation_infos as $couleur => $arrayDates )
+                        {
+                            foreach( $arrayDates as $dates )
+                            {
+                                foreach( $dates as $date )
+                                {
+                                    $events .= '{';
+                                    $events .= 'title:    "'. html_entity_decode ($date['titre']) .'",';
+                                    $events .= 'start:    "'. $date['date'] .'",';
+                                    $events .= 'end:      "'. date( 'Y-m-d', strtotime( $date['date'] . ' + '. $date['nombre_jours'] .' days' ) ) .'",';
+                                    $events .= 'url:      "'. $date['url'] .'",';
+                                    $events .= 'color:    "'. $couleur .'"';
+                                    $events .= '},';
+                                }
+                            }
+                        }
+                    }
+                    echo rtrim( $events, ',' );
+                    ?>
+                ], // filter by thematique
+                eventRender: function eventRender( event, element, view ) {
+                    if ("<?php echo $th->getColor(); ?>" == "orange"){
+                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-1').attr('value') ) >= 0
+                    }
+                    else if ("<?php echo $th->getColor(); ?>" == "gray"){
+                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-2').attr('value') ) >= 0
+                    }
+                    else if ("<?php echo $th->getColor(); ?>" == "blue"){
+                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-3').attr('value') ) >= 0
+                    }
+                    else if ("<?php echo $th->getColor(); ?>" == "yellow"){
+                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-4').attr('value') ) >= 0
+                    }
+                    else if ("<?php echo $th->getColor(); ?>" == "green"){
+                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-5').attr('value') ) >= 0
+                    }
+                    else if ("<?php echo $th->getColor(); ?>" == "blue-dark"){
+                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-6').attr('value') ) >= 0
+                    }
+                }
+            });
+        }
+    </script>   
+
+
+
+
+    <!--   ----------------------------------------------   -->
+    <!--   ---------------- END CALENDAR ----------------   -->
+    <!--   ----------------------------------------------   -->
+
+
+    <!--   ----------------------------------------------   -->
+    <!--   -------------- ANGULAR POPULATE --------------   -->
+    <!--   ----------------------------------------------   -->
+    <!--   Var used in the angular controller               -->
+    <!--   js/tpl-nos-formations.js                         -->
+    <!--   ----------------------------------------------   -->
+    <script>
+        var response = <?php echo $result[0]; ?>;
+        var response_themas = <?php echo json_encode($th->getData()); ?>;
+        var phpSearchTerm = <?php if($search_query){echo 'true';}else{echo 'false';}; ?>;
+        var phpSearchIni = true;
+    </script>
+    <!--   ----------------------------------------------   -->
+</div><!-- Main end -->
+
+
+<div class="full-width bg-orange full-width-contact">
+    <p class="clearfix"><span class="m-100">Découvrez la liste complète de nos formations</span> 
+        <a href="<?php echo get_field( 'page_demande_catalogue', 'option' ); ?>" class="btn-white">
+            Demander le catalogue
+        </a>
+    </p>
 </div>
-</main><!-- Main end -->
+
+
 <section id="references">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <br><br><br>
                 <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
-                <h2>Nos références clients en formation</h2>
                 <hr>
                 <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
                 <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
@@ -179,4 +331,6 @@ if ( $thematiques = get_terms( 'thematique' ) ) {
         </div>
     </div>
 </section>
+
+
 <?php get_footer(); ?>

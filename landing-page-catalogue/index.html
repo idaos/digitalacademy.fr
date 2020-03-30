@@ -1,560 +1,560 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>DigitalAcademy - Formations au digital</title>
-
-        <link rel="stylesheet" href="vendor/bootsrap4/css/bootstrap-grid.min.css">
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-        <link rel="stylesheet" href="vendor/css3-modal/modal.css">
-    </head>
-    <body>
-
-        <nav>
-            <div class="container d-flex align-items-center">
-                <div class="col-4 col-sm-4 col-md-3 col-lg-2">
-                    <img src="res/img/logo-digitalacademy.svg" width="120" alt="Logo DigitalAcademy">
-                </div>
-                <div class="col-8 col-sm-8 col-md-9 col-lg-4 col-xl-6">
-                    <b>Nos conseillers vous répondent au :</b><br>
-                    <div id="phone-number"><a href="tel:0977215321">09 77 21 53 21</a></div>
-                    <div id="phone-info">appel non surtaxé<br>
-                        du lundi au vendredi de 9h30 à 18h
-                    </div>
-                </div>
-                <form class="d-none d-lg-block col-lg-6 col-xl-4 alignRight" action="">
-                    <img src="res/img/phone-icon.svg" width="12" alt="" id="phone-ico">
-                    <input placeholder="Votre n° de téléphone" required type="tel" name="phone-number" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]">
-                    <button class="button-hover" type="submit">Me faire rappeler</button>
-                </form>
-            </div>
-        </nav>
-
-        <div id="datadock">
-            <div class="container">
-                <span>Toutes nos formations sont validées et référencées datadock.</span>
-                <a href="https://www.data-dock.fr/" target="_blank"><img src="res/img/info-icon.svg" width="15" alt="info"></a>
-                <div><img id="datadock_logo" class="d-none d-md-block" src="res/img/datadock.png" alt="datadock logo"></div>
-            </div>
-        </div>
-
-        <div id="heading" class="container d-flex align-items-center">
-            <div class="d-none d-md-block col-lg-3">
-                <img src="res/img/catalogue.png" alt="">
-            </div>
-            <div class="col-md-12 col-lg-9">
-                <h1>Découvrez notre catalogue de formations <?php echo date("Y"); ?></h1>
-                <h3>DigitalAcademy&copy;, l'institut de formation qui fait vivre le digital en entreprise</h3>
-                <p>La DigitalAcademy est la référence des formations dédiées aux professionnels du Marketing, de la Communication et du Web : plus de 50 formations pour s’approprier le marketing digital de A à Z, avec des contenus exclusifs, mis à jour tous les mois.</p>
-                <a id="openModal" href="#popup"><button class="button-hover">Télécharger le catalogue</button></a>
-            </div>
-        </div>
-
-        <div id="formations">
-            <div class="container">
-                <h2 class="alignCenter">Nos best sellers</h2>
-                <div class="row">
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="wrapper">
-                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
-                            <div>
-                                <h4>Qu'est-ce que le Lorem Ipsum? DOLOR SI AMET CONSECTUIR SEET</h4>
-                                <p>Mment du faux texte employé dans la composition et laLe Lorem Ipsum est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
-                            </div>
-                            <div class="alignCenter">
-                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
-                                <span>
-                                    <i>formateur</i>
-                                    <br><b>Damien L.V.</b>
-                                </span>  
-                            </div>
-                            <a href="#"><button>En savoir plus</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="wrapper">
-                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
-                            <div>
-                                <h4>Qu'est-ce que le Lorem Ipsum? DOLOR SI AMET CONSECTUIR SEET</h4>
-                                <p>Mmeion et laLe Lorem Ipsuz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
-                            </div>
-                            <div class="alignCenter">
-                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
-                                <span>
-                                    <i>formateur</i>
-                                    <br><b>Damien L.V.</b>
-                                </span>  
-                            </div>
-                            <a href="#"><button>En savoir plus</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="wrapper">
-                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
-                            <div>
-                                <h4>Qu'est-ce que le Lorem Ipsum?</h4>
-                                <p>Mment du fadans la composium est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
-                            </div>
-                            <div class="alignCenter">
-                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
-                                <span>
-                                    <i>formateur</i>
-                                    <br><b>Damien L.V.</b>
-                                </span>  
-                            </div>
-                            <a href="#"><button>En savoir plus</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="wrapper">
-                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
-                            <div>
-                                <h4>Qu'est-ce que le Lorem IpET CONSECTUIR SEET</h4>
-                                <p>Mment du faux texte empcomposition orem Ipsum est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
-                            </div>
-                            <div class="alignCenter">
-                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
-                                <span>
-                                    <i>formateur</i>
-                                    <br><b>Damien L.V.</b>
-                                </span>  
-                            </div>
-                            <a href="#"><button>En savoir plus</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="wrapper">
-                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
-                            <div>
-                                <h4>Qu'est-ce que le Lorem Ipsum? DOLOR SI AMET CONSECTUIR SEET</h4>
-                                <p>Mment du faux texte employé dans la composition et laLe Lorem Ipsum est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
-                            </div>
-                            <div class="alignCenter">
-                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
-                                <span>
-                                    <i>formateur</i>
-                                    <br><b>Damien L.V.</b>
-                                </span>  
-                            </div>
-                            <a href="#"><button>En savoir plus</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="wrapper">
-                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
-                            <div>
-                                <h4>Qu'est-ce que le Lorem Ipsum? DOLOR SI AMET CONSECTUIR SEET</h4>
-                                <p>Mmeion et laLe Lorem Ipsuz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
-                            </div>
-                            <div class="alignCenter">
-                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
-                                <span>
-                                    <i>formateur</i>
-                                    <br><b>Damien L.V.</b>
-                                </span>  
-                            </div>
-                            <a href="#"><button>En savoir plus</button></a>
-                        </div>
-                    </div>
-                    <div class="d-none d-xl-block col-sm-6 col-lg-4 col-xl-3">
-                        <div class="wrapper">
-                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
-                            <div>
-                                <h4>Qu'est-ce que le Lorem Ipsum?</h4>
-                                <p>Mment du fadans la composium est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
-                            </div>
-                            <div class="alignCenter">
-                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
-                                <span>
-                                    <i>formateur</i>
-                                    <br><b>Damien L.V.</b>
-                                </span>  
-                            </div>
-                            <a href="#"><button>En savoir plus</button></a>
-                            <a href="#"><button>En savoir plus</button></a>
-                        </div>
-                    </div>
-                    <div class="d-none d-xl-block col-sm-6 col-lg-4 col-xl-3">
-                        <div class="wrapper">
-                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
-                            <div>
-                                <h4>Qu'est-ce que le Lorem IpET CONSECTUIR SEET</h4>
-                                <p>Mment du faux texte empcomposition orem Ipsum est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
-                            </div>
-                            <div class="alignCenter">
-                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
-                                <span>
-                                    <i>formateur</i>
-                                    <br><b>Damien L.V.</b>
-                                </span>  
-                            </div>
-                            <a href="#"><button>En savoir plus</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row alignCenter">
-                        <button id="plus-de-formation" class="button-hover">Plus de formations</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-       
-        <div id="declinaisons">
-            <div class="container">
-                <h2 class="col-12 alignCenter">Nos formations se déclinent en :</h2>
-            </div>
-            <div class="container d-flex align-items-center alignCenter">
-                <div class="row">
-                    <a href="#" class="col-sm-12 col-md- col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/formation-sur-mesure-ico.png" alt="Formation sur mesure">
-                            <h3>Formation sur mesure</h3>
-                            <button>Nous contacter</button>
-                        </div>
-                    </a>
-                    <a href="#" class="col-sm-12 col-md- col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/formation-intra-entreprise-ico.png" alt="Formation intra-entreprise">
-                            <h3>Formation <span class="noWrap">intra-entreprise</span></h3>
-                            <button>Nous contacter</button>
-                        </div>
-                    </a>
-                    <a href="#" class="col-sm-12 col-md- col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/formation-blended-learning-ico.png" alt="Blended learning">
-                            <h3>Blended learning</h3>
-                            <button>Nous contacter</button>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-       
-        <div id="testimonial">
-            <div class="container alignCenter">
-                <h2 class="col-12">Ce que disent nos apprenants de la DigitalAcademy&#169;</h2>
-                <p class="d-none d-xl-block">Retrouvez les points de vue des apprenants qui commentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy© sur une grande variété de thématiques.</p>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
-                        <div>
-                            <p>Questions concrètes, réponses concrètes apportées et justifiées !</p>
-                            <div class="author">Anaïk C.</div>
-                            <div class="fonction">Fédération Française du Bâtiment</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
-                        <div>
-                            <p>Questions concrètes, réponses concrètes apportées et justifiéesréponses concrètes apportées et justifiéesréponses concrètes apportées et justifiées !</p>
-                            <div class="author">Anaïk C.</div>
-                            <div class="fonction">Fédération Française du Bâtiment</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
-                        <div>
-                            <p>Questions concrètes,concrètes apportées et justifiéesréponses concrètes apportées et justifiées !</p>
-                            <div class="author">Anaïk C.</div>
-                            <div class="fonction">Fédération Française du Bâtiment</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
-                        <div>
-                            <p>Questions concrènses concrètes apportées et justifiées !</p>
-                            <div class="author">Anaïk C.</div>
-                            <div class="fonction">Fédération Française du Bâtiment</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
-                        <div>
-                            <p>Qtifiéesréponses concrètes apportées et justifiéesréponses concrètes apportées et justifiées !</p>
-                            <div class="author">Anaïk C.</div>
-                            <div class="fonction">Fédération Française du Bâtiment</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
-                        <div>
-                            <p>Questions concrs et justifiéesréponses concrètes apportées et justifiées !</p>
-                            <div class="author">Anaïk C.</div>
-                            <div class="fonction">Fédération Française du Bâtiment</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-        <div id="satisfaction" class="">
-            <img src="res/img/98-percent.png" width="50" alt="98%">
-            <span>de nos apprenants sont satisfaits !</span>
-        </div>
-        
-        <div id="thematiques" class="d-none d-lg-block">
-            <div class="container">
-                <h2 class="col-12 alignCenter">Nos thématiques de formation</h2>
-            </div>
-            <div class="container d-flex align-items-center alignCenter">
-                <div class="row">
-                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/ico-thematique-web.png" alt="Site et contenus web">
-                            <h3>Site &amp; contenus web</h3>
-                            <button>Découvrir les formations</button>
-                        </div>
-                    </a>
-                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/ico-thematique-reseaux-sociaux.png" alt="Réseaux sociaux et e-réputation">
-                            <h3>Réseaux sociaux &amp; <span class="noWrap">e-réputation</span></h3>
-                            <button>Découvrir les formations</button>
-                        </div>
-                    </a>
-                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/ico-thematique-strategie.png" alt="Entreprise 2.0">
-                            <h3>Stratégie de marketing digital</h3>
-                            <button>Découvrir les formations</button>
-                        </div>
-                    </a>
-                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/ico-thematique-webmarketing.png" alt="Découvrir les formations">
-                            <h3>Webmarketing &amp; <span class="noWrap">e-publicité</span></h3>
-                            <button>Découvrir les formations</button>
-                        </div>
-                    </a>
-                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/ico-thematique-mobile.png" alt="Mobile et e-commerce">
-                            <h3>Mobile &amp; <span class="noWrap">e-commerce</span></h3>
-                            <button>Découvrir les formations</button>
-                        </div>
-                    </a>
-                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="wrapper">
-                            <img src="res/img/ico-thematique-entreprise2.png" alt="Découvrir les formations">
-                            <h3>Entreprise 2.0</h3>
-                            <button>Découvrir les formations</button>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-                
-        <!--<div id="search">
-            <div class="container alignCenter">
-                <h2 class="col-12">Vous n'avez pas encore trouvé votre formation ?</h2>
-                <input placeholder="Recherchez une formation..." required type="text" name="search-query"/>
-                <button type="submit">Rechercher</button>
-            </div>
-        </div>-->
-
-        <div id="contact" >
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 alignCenter">
-                        <h2>Vous souhaitez en savoir plus sur <span class="noWrap">nos offres de formation ?</span></h2>  
-                    </div>
-                    <form class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 form-header"></div>
-                                <div class="col-12"></div>
-                                <div class="col-12 margin0">
-                                    <br><h3>Contactez-nous !</h3><br>
-                                </div>
-                                <div class="col-6">
-                                    <label for="f1-firstname">Votre nom</label> <br>
-                                    <input id="f1-firstname" type="text" placeholder="Quel est votre nom ?"> 
-                                </div>
-                                <div class="col-6">
-                                    <label for="f1-lastname">Votre prénom</label> <br>
-                                    <input id="f1-lastname" type="text" placeholder="Quel est votre prénom ?"> 
-                                </div>
-                                <div class="col-12">
-                                    <label for="f1-email">Votre adresse e-mail</label> <br>
-                                    <input id="f1-email" type="text" placeholder="Quel est votre adresse e-mail ?"> 
-                                </div>
-                                <div class="col-6">
-                                    <label for="f1-firm">Votre entreprise</label> <br>
-                                    <input id="f1-firm" type="text" placeholder="Quel est votre entreprise ?"> 
-                                </div>
-                                <div class="col-6">
-                                    <label for="f1-job">Votre fonction</label> <br>
-                                    <input id="f1-job" type="text" placeholder="Quel est votre fonction ?"> 
-                                </div>
-                                <div class="col-12">
-                                    <label for="f1-phone">Votre numéro de téléphone <i>facultatif</i></label> <br>
-                                    <input id="f1-phone" type="text" placeholder="Quel est votre numéro de téléphone ?"> 
-                                </div>
-                                <div class="col-12">
-                                    <label for="f1-object">Quelle est l'objet de votre demande ?</label> <br>
-                                    <select id="select-1" name="f1-object">
-                                        <option value="catalog">Je souhaite reçevoir le catalogue</option>
-                                        <option value="info">Je souhaite plus de renseignement sur une formation</option>
-                                        <option value="other">Autre</option>
-                                    </select>
-                                </div>                                    
-                                <div class="col-12 select-other-1">
-                                    <label for="f1-other">L'objet de votre demande <i>facultatif</i></label> <br>
-                                    <textarea id="f1-other" type="text" placeholder="Quel est l'objet de votre demande ?"></textarea>
-                                </div>                              
-                                <div class="col-12 alignCenter">
-                                    <input class="button button-hover" type="submit" value="envoyer">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <div class=" col-md-5 col-lg-7 valign">
-                        <div class="container">
-                            <div class="row alignCenter">
-                                <span><img id="logo_dac" src="res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
-                                <b>Nos conseillers vous répondent au :</b>
-                                <span id="phone"><a href="tel:0977215321">09 77 21 53 21</a></span>
-                                <i>appel non surtaxé</i>
-                                <i>du lundi au vendredi de 9h30 à 19h</i>
-                                <form id="phone-form-2" action="">
-                                    <img src="res/img/phone-icon.svg" width="12" alt="" id="phone-ico">
-                                    <input placeholder="Votre n° de téléphone" required type="tel" name="phone-number" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]">
-                                    <button type="submit" class="button-hover">Me faire rappeler</button>
-                                </form>
-                                <i>ou par e-mail</i>
-                                <br><a href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="footer" class="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4">
-                        <a href="https://www.digitalacademy.fr/mentions-legales/" target="_blank">Mentions Légales &amp; Politique de traitement des données pesonnelles</a>
-                    </div>
-                    <div class="col-4 alignCenter"><?php echo date("Y"); ?>&nbsp;Digital Academy &#9400;</div>
-                    <div class="col-4 alignRight">
-                        <div id="social-icons">
-                            <a href="https://www.facebook.com/LaDigitalAcademy" taget="_blank">
-                                <img src="res/img/social-icon-facebook.svg" width="26" alt="Social icon Facebook">
-                            </a>
-                            <a href="https://twitter.com/digital_ac" taget="_blank">
-                                <img src="res/img/social-icon-twitter.svg" width="26" alt="Social icon Twitter">
-                            </a>
-                            <a href="https://www.linkedin.com/groups?gid=3243272" taget="_blank">
-                                <img src="res/img/social-icon-linkedin.svg" width="26" alt="Social icon LinkedIn">
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCRRym8ZzrDiyAvVbpjaO1_A" taget="_blank">
-                                <img src="res/img/social-icon-youtube.svg" width="26" alt="Social icon YouTube">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div id="footer-foot"></div>
-
-
-
-
-
-
-
-
-        <div id="modal">
-            <div class="popup" id="popup">
-                <a href="#"></a>
-                <div class="popup-inner">
-                    <a class="popup__close" href="#"><img src="res/img/ico-cross.svg" width="12" alt=""></a>
-                    <div class="popup__form">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6">
-                                    <br><h3>Contactez-nous !</h3><br>
-                                </div>
-                            </div>
-                        </div>
-                        <form id="form-popup" class="" action="#">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label for="f1-firstname">Votre nom</label> <br>
-                                        <input id="f1-firstname" type="text" placeholder="Quel est votre nom ?"> 
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="f1-lastname">Votre prénom</label> <br>
-                                        <input id="f1-lastname" type="text" placeholder="Quel est votre prénom ?"> 
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="f1-email">Votre adresse e-mail</label> <br>
-                                        <input id="f1-email" type="text" placeholder="Quel est votre adresse e-mail ?"> 
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="f1-firm">Votre entreprise</label> <br>
-                                        <input id="f1-firm" type="text" placeholder="Quel est votre entreprise ?"> 
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="f1-job">Votre fonction</label> <br>
-                                        <input id="f1-job" type="text" placeholder="Quel est votre fonction ?"> 
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="f1-phone">Votre numéro de téléphone <i>facultatif</i></label> <br>
-                                        <input id="f1-phone" type="text" placeholder="Quel est votre numéro de téléphone ?"> 
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="f1-object">Quelle est l'objet de votre demande ?</label> <br>
-                                        <select id="select-2" name="f1-object">
-                                            <option value="catalog">Je souhaite reçevoir le catalogue</option>
-                                            <option value="info">Je souhaite plus de renseignement sur une formation</option>
-                                            <option value="other">Autre</option>
-                                        </select>
-                                    </div>                                    
-                                    <div class="col-12 select-other-2">
-                                        <label for="f1-other">L'objet de votre demande <i>facultatif</i></label> <br>
-                                        <textarea id="f1-other" type="text" placeholder="Quel est l'objet de votre demande ?"></textarea>
-                                    </div>                              
-                                    <div class="col-12 alignCenter">
-                                        <input class="button button-hover" type="submit" value="envoyer">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </body>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
-    <script>
-        // form select 'other' -> show textarea
-        $( ".select-other-1" ).hide();
-        $( "#select-1" ).change(function() {
-            if( $( "#select-1" ).val() == 'other' ) {
-                $( ".select-other-1" ).show( "fast" );
-            }else{
-                $( ".select-other-1" ).hide( "fast" );
-            }
-        });
-        // form select 'other' -> show textarea
-        $( ".select-other-2" ).hide();
-        $( "#select-2" ).change(function() {
-            if( $( "#select-2" ).val() == 'other' ) {
-                $( ".select-other-2" ).show( "fast" );
-            }else{
-                $( ".select-other-2" ).hide( "fast" );
-            }
-        });
-    </script>
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DigitalAcademy - Formations au digital</title>
+
+        <link rel="stylesheet" href="vendor/bootsrap4/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="vendor/css3-modal/modal.css">
+    </head>
+    <body>
+
+        <nav>
+            <div class="container d-flex align-items-center">
+                <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                    <img src="res/img/logo-digitalacademy.svg" width="120" alt="Logo DigitalAcademy">
+                </div>
+                <div class="col-8 col-sm-8 col-md-9 col-lg-4 col-xl-6">
+                    <b>Nos conseillers vous répondent au :</b><br>
+                    <div id="phone-number"><a href="tel:0977215321">09 77 21 53 21</a></div>
+                    <div id="phone-info">appel non surtaxé<br>
+                        du lundi au vendredi de 9h30 à 18h
+                    </div>
+                </div>
+                <form class="d-none d-lg-block col-lg-6 col-xl-4 alignRight" action="">
+                    <img src="res/img/phone-icon.svg" width="12" alt="" id="phone-ico">
+                    <input placeholder="Votre n° de téléphone" required type="tel" name="phone-number" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]">
+                    <button class="button-hover" type="submit">Me faire rappeler</button>
+                </form>
+            </div>
+        </nav>
+
+        <div id="datadock">
+            <div class="container">
+                <span>Toutes nos formations sont validées et référencées datadock.</span>
+                <a href="https://www.data-dock.fr/" target="_blank"><img src="res/img/info-icon.svg" width="15" alt="info"></a>
+                <div><img id="datadock_logo" class="d-none d-md-block" src="res/img/datadock.png" alt="datadock logo"></div>
+            </div>
+        </div>
+
+        <div id="heading" class="container d-flex align-items-center">
+            <div class="d-none d-md-block col-lg-3">
+                <img src="res/img/catalogue.png" alt="">
+            </div>
+            <div class="col-md-12 col-lg-9">
+                <h1>Découvrez notre catalogue de formations <?php echo date("Y"); ?></h1>
+                <h3>DigitalAcademy&copy;, l'institut de formation qui fait vivre le digital en entreprise</h3>
+                <p>La DigitalAcademy est la référence des formations dédiées aux professionnels du Marketing, de la Communication et du Web : plus de 50 formations pour s’approprier le marketing digital de A à Z, avec des contenus exclusifs, mis à jour tous les mois.</p>
+                <a id="openModal" href="#popup"><button class="button-hover">Télécharger le catalogue</button></a>
+            </div>
+        </div>
+
+        <div id="formations">
+            <div class="container">
+                <h2 class="alignCenter">Nos best sellers</h2>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="wrapper">
+                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
+                            <div>
+                                <h4>Qu'est-ce que le Lorem Ipsum? DOLOR SI AMET CONSECTUIR SEET</h4>
+                                <p>Mment du faux texte employé dans la composition et laLe Lorem Ipsum est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
+                            </div>
+                            <div class="alignCenter">
+                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
+                                <span>
+                                    <i>formateur</i>
+                                    <br><b>Damien L.V.</b>
+                                </span>  
+                            </div>
+                            <a href="#"><button>En savoir plus</button></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="wrapper">
+                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
+                            <div>
+                                <h4>Qu'est-ce que le Lorem Ipsum? DOLOR SI AMET CONSECTUIR SEET</h4>
+                                <p>Mmeion et laLe Lorem Ipsuz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
+                            </div>
+                            <div class="alignCenter">
+                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
+                                <span>
+                                    <i>formateur</i>
+                                    <br><b>Damien L.V.</b>
+                                </span>  
+                            </div>
+                            <a href="#"><button>En savoir plus</button></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="wrapper">
+                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
+                            <div>
+                                <h4>Qu'est-ce que le Lorem Ipsum?</h4>
+                                <p>Mment du fadans la composium est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
+                            </div>
+                            <div class="alignCenter">
+                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
+                                <span>
+                                    <i>formateur</i>
+                                    <br><b>Damien L.V.</b>
+                                </span>  
+                            </div>
+                            <a href="#"><button>En savoir plus</button></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="wrapper">
+                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
+                            <div>
+                                <h4>Qu'est-ce que le Lorem IpET CONSECTUIR SEET</h4>
+                                <p>Mment du faux texte empcomposition orem Ipsum est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
+                            </div>
+                            <div class="alignCenter">
+                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
+                                <span>
+                                    <i>formateur</i>
+                                    <br><b>Damien L.V.</b>
+                                </span>  
+                            </div>
+                            <a href="#"><button>En savoir plus</button></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="wrapper">
+                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
+                            <div>
+                                <h4>Qu'est-ce que le Lorem Ipsum? DOLOR SI AMET CONSECTUIR SEET</h4>
+                                <p>Mment du faux texte employé dans la composition et laLe Lorem Ipsum est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
+                            </div>
+                            <div class="alignCenter">
+                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
+                                <span>
+                                    <i>formateur</i>
+                                    <br><b>Damien L.V.</b>
+                                </span>  
+                            </div>
+                            <a href="#"><button>En savoir plus</button></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="wrapper">
+                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
+                            <div>
+                                <h4>Qu'est-ce que le Lorem Ipsum? DOLOR SI AMET CONSECTUIR SEET</h4>
+                                <p>Mmeion et laLe Lorem Ipsuz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
+                            </div>
+                            <div class="alignCenter">
+                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
+                                <span>
+                                    <i>formateur</i>
+                                    <br><b>Damien L.V.</b>
+                                </span>  
+                            </div>
+                            <a href="#"><button>En savoir plus</button></a>
+                        </div>
+                    </div>
+                    <div class="d-none d-xl-block col-sm-6 col-lg-4 col-xl-3">
+                        <div class="wrapper">
+                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
+                            <div>
+                                <h4>Qu'est-ce que le Lorem Ipsum?</h4>
+                                <p>Mment du fadans la composium est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
+                            </div>
+                            <div class="alignCenter">
+                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
+                                <span>
+                                    <i>formateur</i>
+                                    <br><b>Damien L.V.</b>
+                                </span>  
+                            </div>
+                            <a href="#"><button>En savoir plus</button></a>
+                            <a href="#"><button>En savoir plus</button></a>
+                        </div>
+                    </div>
+                    <div class="d-none d-xl-block col-sm-6 col-lg-4 col-xl-3">
+                        <div class="wrapper">
+                            <img src="https://recette.digitalacademy.fr/wp-content/uploads/2015/08/social-network.jpg" alt="">
+                            <div>
+                                <h4>Qu'est-ce que le Lorem IpET CONSECTUIR SEET</h4>
+                                <p>Mment du faux texte empcomposition orem Ipsum est simplementd  zczsc szcs csz csczscsc zc sc zs sz cz csc ss csc scc scn page de texte, comme Aldus PageMaker.</p>
+                            </div>
+                            <div class="alignCenter">
+                                <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/Formateur-07-256px.png" alt="formateur">
+                                <span>
+                                    <i>formateur</i>
+                                    <br><b>Damien L.V.</b>
+                                </span>  
+                            </div>
+                            <a href="#"><button>En savoir plus</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row alignCenter">
+                        <button id="plus-de-formation" class="button-hover">Plus de formations</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+        <div id="declinaisons">
+            <div class="container">
+                <h2 class="col-12 alignCenter">Nos formations se déclinent en :</h2>
+            </div>
+            <div class="container d-flex align-items-center alignCenter">
+                <div class="row">
+                    <a href="#" class="col-sm-12 col-md- col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/formation-sur-mesure-ico.png" alt="Formation sur mesure">
+                            <h3>Formation sur mesure</h3>
+                            <button>Nous contacter</button>
+                        </div>
+                    </a>
+                    <a href="#" class="col-sm-12 col-md- col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/formation-intra-entreprise-ico.png" alt="Formation intra-entreprise">
+                            <h3>Formation <span class="noWrap">intra-entreprise</span></h3>
+                            <button>Nous contacter</button>
+                        </div>
+                    </a>
+                    <a href="#" class="col-sm-12 col-md- col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/formation-blended-learning-ico.png" alt="Blended learning">
+                            <h3>Blended learning</h3>
+                            <button>Nous contacter</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+        <div id="testimonial">
+            <div class="container alignCenter">
+                <h2 class="col-12">Ce que disent nos apprenants de la DigitalAcademy&#169;</h2>
+                <p class="d-none d-xl-block">Retrouvez les points de vue des apprenants qui commentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
+                        <div>
+                            <p>Questions concrètes, réponses concrètes apportées et justifiées !</p>
+                            <div class="author">Anaïk C.</div>
+                            <div class="fonction">Fédération Française du Bâtiment</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
+                        <div>
+                            <p>Questions concrètes, réponses concrètes apportées et justifiéesréponses concrètes apportées et justifiéesréponses concrètes apportées et justifiées !</p>
+                            <div class="author">Anaïk C.</div>
+                            <div class="fonction">Fédération Française du Bâtiment</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
+                        <div>
+                            <p>Questions concrètes,concrètes apportées et justifiéesréponses concrètes apportées et justifiées !</p>
+                            <div class="author">Anaïk C.</div>
+                            <div class="fonction">Fédération Française du Bâtiment</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
+                        <div>
+                            <p>Questions concrènses concrètes apportées et justifiées !</p>
+                            <div class="author">Anaïk C.</div>
+                            <div class="fonction">Fédération Française du Bâtiment</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
+                        <div>
+                            <p>Qtifiéesréponses concrètes apportées et justifiéesréponses concrètes apportées et justifiées !</p>
+                            <div class="author">Anaïk C.</div>
+                            <div class="fonction">Fédération Française du Bâtiment</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <img src="https://www.digitalacademy.fr/wp-content/uploads/2015/08/FFB_Inter_Institutionnel-256x183.jpg" alt="">
+                        <div>
+                            <p>Questions concrs et justifiéesréponses concrètes apportées et justifiées !</p>
+                            <div class="author">Anaïk C.</div>
+                            <div class="fonction">Fédération Française du Bâtiment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div id="satisfaction" class="">
+            <img src="res/img/98-percent.png" width="50" alt="98%">
+            <span>de nos apprenants sont satisfaits !</span>
+        </div>
+        
+        <div id="thematiques" class="d-none d-lg-block">
+            <div class="container">
+                <h2 class="col-12 alignCenter">Nos thématiques de formation</h2>
+            </div>
+            <div class="container d-flex align-items-center alignCenter">
+                <div class="row">
+                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/ico-thematique-web.png" alt="Site et contenus web">
+                            <h3>Site &amp; contenus web</h3>
+                            <button>Découvrir les formations</button>
+                        </div>
+                    </a>
+                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/ico-thematique-reseaux-sociaux.png" alt="Réseaux sociaux et e-réputation">
+                            <h3>Réseaux sociaux &amp; <span class="noWrap">e-réputation</span></h3>
+                            <button>Découvrir les formations</button>
+                        </div>
+                    </a>
+                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/ico-thematique-strategie.png" alt="Entreprise 2.0">
+                            <h3>Stratégie de marketing digital</h3>
+                            <button>Découvrir les formations</button>
+                        </div>
+                    </a>
+                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/ico-thematique-webmarketing.png" alt="Découvrir les formations">
+                            <h3>Webmarketing &amp; <span class="noWrap">e-publicité</span></h3>
+                            <button>Découvrir les formations</button>
+                        </div>
+                    </a>
+                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/ico-thematique-mobile.png" alt="Mobile et e-commerce">
+                            <h3>Mobile &amp; <span class="noWrap">e-commerce</span></h3>
+                            <button>Découvrir les formations</button>
+                        </div>
+                    </a>
+                    <a href="#" class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="wrapper">
+                            <img src="res/img/ico-thematique-entreprise2.png" alt="Découvrir les formations">
+                            <h3>Entreprise 2.0</h3>
+                            <button>Découvrir les formations</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+                
+        <!--<div id="search">
+            <div class="container alignCenter">
+                <h2 class="col-12">Vous n'avez pas encore trouvé votre formation ?</h2>
+                <input placeholder="Recherchez une formation..." required type="text" name="search-query"/>
+                <button type="submit">Rechercher</button>
+            </div>
+        </div>-->
+
+        <div id="contact" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 alignCenter">
+                        <h2>Vous souhaitez en savoir plus sur <span class="noWrap">nos offres de formation ?</span></h2>  
+                    </div>
+                    <form class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 form-header"></div>
+                                <div class="col-12"></div>
+                                <div class="col-12 margin0">
+                                    <br><h3>Contactez-nous !</h3><br>
+                                </div>
+                                <div class="col-6">
+                                    <label for="f1-firstname">Votre nom</label> <br>
+                                    <input id="f1-firstname" type="text" placeholder="Quel est votre nom ?"> 
+                                </div>
+                                <div class="col-6">
+                                    <label for="f1-lastname">Votre prénom</label> <br>
+                                    <input id="f1-lastname" type="text" placeholder="Quel est votre prénom ?"> 
+                                </div>
+                                <div class="col-12">
+                                    <label for="f1-email">Votre adresse e-mail</label> <br>
+                                    <input id="f1-email" type="text" placeholder="Quel est votre adresse e-mail ?"> 
+                                </div>
+                                <div class="col-6">
+                                    <label for="f1-firm">Votre entreprise</label> <br>
+                                    <input id="f1-firm" type="text" placeholder="Quel est votre entreprise ?"> 
+                                </div>
+                                <div class="col-6">
+                                    <label for="f1-job">Votre fonction</label> <br>
+                                    <input id="f1-job" type="text" placeholder="Quel est votre fonction ?"> 
+                                </div>
+                                <div class="col-12">
+                                    <label for="f1-phone">Votre numéro de téléphone <i>facultatif</i></label> <br>
+                                    <input id="f1-phone" type="text" placeholder="Quel est votre numéro de téléphone ?"> 
+                                </div>
+                                <div class="col-12">
+                                    <label for="f1-object">Quelle est l'objet de votre demande ?</label> <br>
+                                    <select id="select-1" name="f1-object">
+                                        <option value="catalog">Je souhaite reçevoir le catalogue</option>
+                                        <option value="info">Je souhaite plus de renseignement sur une formation</option>
+                                        <option value="other">Autre</option>
+                                    </select>
+                                </div>                                    
+                                <div class="col-12 select-other-1">
+                                    <label for="f1-other">L'objet de votre demande <i>facultatif</i></label> <br>
+                                    <textarea id="f1-other" type="text" placeholder="Quel est l'objet de votre demande ?"></textarea>
+                                </div>                              
+                                <div class="col-12 alignCenter">
+                                    <input class="button button-hover" type="submit" value="envoyer">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class=" col-md-5 col-lg-7 valign">
+                        <div class="container">
+                            <div class="row alignCenter">
+                                <span><img id="logo_dac" src="res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
+                                <b>Nos conseillers vous répondent au :</b>
+                                <span id="phone"><a href="tel:0977215321">09 77 21 53 21</a></span>
+                                <i>appel non surtaxé</i>
+                                <i>du lundi au vendredi de 9h30 à 19h</i>
+                                <form id="phone-form-2" action="">
+                                    <img src="res/img/phone-icon.svg" width="12" alt="" id="phone-ico">
+                                    <input placeholder="Votre n° de téléphone" required type="tel" name="phone-number" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]">
+                                    <button type="submit" class="button-hover">Me faire rappeler</button>
+                                </form>
+                                <i>ou par e-mail</i>
+                                <br><a href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="https://www.digitalacademy.fr/mentions-legales/" target="_blank">Mentions Légales &amp; Politique de traitement des données pesonnelles</a>
+                    </div>
+                    <div class="col-4 alignCenter"><?php echo date("Y"); ?>&nbsp;Digital Academy &#9400;</div>
+                    <div class="col-4 alignRight">
+                        <div id="social-icons">
+                            <a href="https://www.facebook.com/LaDigitalAcademy" taget="_blank">
+                                <img src="res/img/social-icon-facebook.svg" width="26" alt="Social icon Facebook">
+                            </a>
+                            <a href="https://twitter.com/digital_ac" taget="_blank">
+                                <img src="res/img/social-icon-twitter.svg" width="26" alt="Social icon Twitter">
+                            </a>
+                            <a href="https://www.linkedin.com/groups?gid=3243272" taget="_blank">
+                                <img src="res/img/social-icon-linkedin.svg" width="26" alt="Social icon LinkedIn">
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCRRym8ZzrDiyAvVbpjaO1_A" taget="_blank">
+                                <img src="res/img/social-icon-youtube.svg" width="26" alt="Social icon YouTube">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="footer-foot"></div>
+
+
+
+
+
+
+
+
+        <div id="modal">
+            <div class="popup" id="popup">
+                <a href="#"></a>
+                <div class="popup-inner">
+                    <a class="popup__close" href="#"><img src="res/img/ico-cross.svg" width="12" alt=""></a>
+                    <div class="popup__form">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <br><h3>Contactez-nous !</h3><br>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="form-popup" class="" action="#">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="f1-firstname">Votre nom</label> <br>
+                                        <input id="f1-firstname" type="text" placeholder="Quel est votre nom ?"> 
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="f1-lastname">Votre prénom</label> <br>
+                                        <input id="f1-lastname" type="text" placeholder="Quel est votre prénom ?"> 
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="f1-email">Votre adresse e-mail</label> <br>
+                                        <input id="f1-email" type="text" placeholder="Quel est votre adresse e-mail ?"> 
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="f1-firm">Votre entreprise</label> <br>
+                                        <input id="f1-firm" type="text" placeholder="Quel est votre entreprise ?"> 
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="f1-job">Votre fonction</label> <br>
+                                        <input id="f1-job" type="text" placeholder="Quel est votre fonction ?"> 
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="f1-phone">Votre numéro de téléphone <i>facultatif</i></label> <br>
+                                        <input id="f1-phone" type="text" placeholder="Quel est votre numéro de téléphone ?"> 
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="f1-object">Quelle est l'objet de votre demande ?</label> <br>
+                                        <select id="select-2" name="f1-object">
+                                            <option value="catalog">Je souhaite reçevoir le catalogue</option>
+                                            <option value="info">Je souhaite plus de renseignement sur une formation</option>
+                                            <option value="other">Autre</option>
+                                        </select>
+                                    </div>                                    
+                                    <div class="col-12 select-other-2">
+                                        <label for="f1-other">L'objet de votre demande <i>facultatif</i></label> <br>
+                                        <textarea id="f1-other" type="text" placeholder="Quel est l'objet de votre demande ?"></textarea>
+                                    </div>                              
+                                    <div class="col-12 alignCenter">
+                                        <input class="button button-hover" type="submit" value="envoyer">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+    <script>
+        // form select 'other' -> show textarea
+        $( ".select-other-1" ).hide();
+        $( "#select-1" ).change(function() {
+            if( $( "#select-1" ).val() == 'other' ) {
+                $( ".select-other-1" ).show( "fast" );
+            }else{
+                $( ".select-other-1" ).hide( "fast" );
+            }
+        });
+        // form select 'other' -> show textarea
+        $( ".select-other-2" ).hide();
+        $( "#select-2" ).change(function() {
+            if( $( "#select-2" ).val() == 'other' ) {
+                $( ".select-other-2" ).show( "fast" );
+            }else{
+                $( ".select-other-2" ).hide( "fast" );
+            }
+        });
+    </script>
+
 </html>

@@ -2,6 +2,7 @@
 <div class="breadcrumb hidden-xs">
     <div class="container">
         <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
+        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
     </div>
 </div>
 <div class="container-slider main-slider slider-header slider-formateur hidden-xs" style="background-image:url(<?php the_field('img_blog', 'option') ?>)">
@@ -9,7 +10,7 @@
         <div class="clearfix">
             <h1 class="title-slider">Blog / <?php echo single_cat_title( '', false ); ?></h1>
         </div>
-        <p>Suivez l'actualité de la DigitalAcademy©</p>
+        <p>Suivez l'actualité de la DigitalAcademy</p>
     </div>
 </div>
 <main class="content" style="background:#f6f6f6!important;">
@@ -29,7 +30,7 @@
                         while ( have_posts() ) : the_post();
                         ?>
                         <div class="col-sm-6 col-md-4" style="margin-bottom:2em;">
-                            <div class="thewrapper container-border">
+                            <div class="thewrapper container-border" style="max-height: 728px;">
                                 <a href="<?php the_permalink(); ?>" rel="nofollow">											
                                     <?php if ( has_post_thumbnail() ): ?>												
                                     <?php $post_thumbnail_id = get_post_thumbnail_id( $post ); ?>	
@@ -47,8 +48,7 @@
                                         | <?php the_author(); ?></p>
 
                                     <p><?php the_excerpt(); ?></p>
-                                    <a href="<?php the_permalink(); ?>" class="btn-orange" rel="nofollow">Lire
-                                        la suite</a>
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red" style="width:calc(100% - 3em);position: absolute;bottom: 0;" rel="nofollow">Lire la suite</a>
                                 </div>
                             </div>
                         </div>

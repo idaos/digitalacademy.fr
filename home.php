@@ -2,18 +2,32 @@
 <div class="breadcrumb hidden-xs">
     <div class="container">
         <?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
+        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
     </div>
 </div>
-<div class="container-slider main-slider slider-header slider-formateur hidden-xs"
-     style="background-image:url(<?php the_field( 'img_blog', 'option' ) ?>)">
-    <div class="slick-slide">
-        <div class="clearfix">
-            <h1 class="title-slider">Blog</h1>
-        </div>
-        <p><?php the_field( 'sous_titre', get_queried_object_id() ); ?></p>
-    </div>
+<div class="header" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/blog.jpg);">    
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 alignCenter">
+				<h1 class="title-slider" style="color:#fff">Blog</h1>
+				<hr>
+				<p><?php the_field( 'sous_titre', get_queried_object_id() ); ?></p>
+			</div>
+		</div>
+	</div>
 </div>
-<main class="content" style="background:#f6f6f6!important;">
+<div class="svg-wrapper-bottom">
+	<svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<polygon fill="#fff" points="0,0 0,100 40,40"></polygon>
+	</svg>
+	<svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<polygon fill="#bf3b2b" points="0,0 100,20 100,100"></polygon>
+	</svg>
+	<svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<polygon fill="#f6f6f6" points="0,0 100,100 0,100"></polygon>
+	</svg>
+</div>    
+<main class="content" style="background:#f6f6f6!important;margin-top:-2vw">
     <div class="container">
         <div class="wrapper">
             <?php $introduction = get_field( 'texte_introduction', get_queried_object_id() );

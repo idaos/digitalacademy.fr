@@ -9,16 +9,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title><?php wp_title('|', true, 'right'); ?></title>
         <?php wp_head(); ?>
-        <!-- Google Tag Manager 
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5Z789B3');
-</script> -->
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                                                              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                                    })(window,document,'script','dataLayer','GTM-5Z789B3');
+        </script>
         <!-- Check if adblocker is active -->
-        <script id="fake-ads" type = "text/javascript" src="https://www.digitalacademy.fr/wp-content/themes/digitalacademy/js/ads.js"></script>
-        <script>
+        <!-- <script id="fake-ads" type = "text/javascript" src="https://www.digitalacademy.fr/wp-content/themes/digitalacademy/js/ads.js"></script> -->
+        <!-- <script>
             // register adblocker info to GA
             var script = document.querySelector('#fake-ads');
             script.addEventListener('load', function() {
@@ -33,14 +33,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     adsblocker: adsblocked
                 });
             });
-        </script>
+        </script> -->
     </head>
     <body <?php body_class(); ?>>
         <!-- Google Tag Manager (noscript) -->
-        <!--
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z789B3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
--->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z789B3"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 
         <header class="site-header clearfix">
@@ -61,7 +59,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <i>Appel non surtaxé. Nos conseillers vous répondent du lundi au vendredi de 9h30 à 18h</i>
                         <div class="to-right">
                             <a href="/contact/">
-                                <div class="btn btn-xs btn-red" style="background-color:#be3929; color:#fff;">
+                                <div class="btn btn-xs btn-red">
                                     Contact
                                 </div>
                             </a>

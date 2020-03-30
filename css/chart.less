@@ -1,0 +1,155 @@
+#chart-wrp{
+	display: flex;
+	flex-direction: column-reverse;
+	.items{
+		display: block;
+		position: relative;
+		height: auto;
+		overflow-x: hidden;
+
+		.owl-stage{
+			display: flex;
+		}
+		.owl-dots{display: none;}
+		.owl-nav{
+			text-align: center;
+			width: 100%;
+			.owl-prev, .owl-next{
+				display: inline-block;
+				background: #fff;
+				border-radius: 50em;
+				border: solid 1px #afafaf;
+				display: inline-block;
+				color: #afafaf;
+				font-weight: bolder;
+				height: 1.5em;
+				line-height: 0;
+				width: 1.5em;
+				font-size: 1.5em;
+				margin: 2em .2em 0 .2em;
+				&:hover{
+					opacity: .8;
+				}
+			}
+		}
+		.item{
+			display: inline-block;
+			width: 100%;
+			min-height: 8em;
+			height: auto;
+			text-align: center;
+			background: #fff;
+			padding: 1em;
+			border-radius: 4px;
+			position: relative;
+			margin-top: 3em;
+			[class^="value-"]{
+				@size: 3.5em;
+				margin-top: -@size/1.5;
+				font-size: @size /2.8;
+				height: @size;
+				width: @size;
+				border-radius: @size;
+				line-height: @size;
+				color: #fff;
+				text-align: center;
+				font-weight: bold;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 1;
+			}
+			.value-(100);
+			.value-(@n, @i: 1) when (@i =< @n) {
+				.value-@{i}{
+					@value: (100 - @i)*5 + 100;
+					background: rgb(@value, 227, 34);
+				}
+				.value-(@n, (@i + 1));
+			}
+			.course{
+				font-style: italic;
+				margin-top: 3em;
+			}
+		}
+	}
+	[class^="average-"]{
+		@size: 4em;
+		margin-top: -@size/1.5;
+		font-size: @size /2.8;
+		height: @size;
+		width: @size;
+		border-radius: @size;
+		line-height: @size;
+		color: #fff;
+		text-align: center;
+		font-weight: bold;
+		margin: auto;
+		display: inline-block;
+	}
+	.average-(100);
+	.average-(@n, @i: 1) when (@i =< @n) {
+		.average-@{i}{
+			@value: (100 - @i)*5 + 100;
+			background: rgb(@value, 227, 34);
+		}
+		.average-(@n, (@i + 1));
+	}
+	.year{
+		background: #f3f3f3;
+		margin-bottom: 3em;
+		padding: 2em;
+		position: relative;
+		.chart_heading{
+			text-align: center;
+			padding: 2em;
+			padding-top: 4em;
+		}
+		hr{
+			border-color: #d4d4d4!important;
+			width: 100%;
+			margin: 0;
+			margin-top: 2em;
+		}
+		.toggable-btn{
+			min-height: 4em;
+			padding: 1.5em 3em 1.5em 1.5em;
+			background: #eee;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: 0;
+			font-style: italic;
+			color: #a0a0a0;
+			font-weight: bold;
+			cursor: pointer;
+			&:hover{
+				background: #e2e2e2;
+			}
+			&:after{
+				content: "+";
+				position: absolute;
+				right: 1.2em;
+				font-size: 1.5em;
+				transition: all .2s ease;
+				transform: rotate(0deg);
+				top: .8em;
+			}
+		}
+		.toggaled:after{
+			transform: rotate(45deg);
+		}
+	}
+	h3{
+		display: block;
+		margin-top: 1em;
+	}
+	svg{
+		z-index: 0;
+		height: 1.5em;
+		top: -1.5em;
+		position: absolute;
+		width: 100%;
+		left: 0;
+	}
+}

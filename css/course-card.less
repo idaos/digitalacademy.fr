@@ -23,10 +23,9 @@
         margin: 1em!important ;
         .wrapper{
             border: solid 1px #d8d8d8;
-            background-color: #fff;
-            padding-bottom:15px;
+            background-color: #fff!important;
+            padding-bottom: 38px;
             height: 100% !important;
-            //            max-width: 400px;
             margin: auto;
             position: relative;
             .alignCenter{
@@ -34,6 +33,9 @@
                 bottom: 2em;
                 text-align: center;
                 padding-left:2em;
+                display:flex!important;
+                width: 100%;
+                justify-content: left;
                 img{
                     display: inline-block;
                 }
@@ -70,18 +72,46 @@
                     content: "Top formation !";
                 }
             }
+            .goals{
+                ul{padding: 0;}
+                li{
+                    list-style: none;
+                    font-size: 1.1em!important;
+                    font-weight: 400;
+                    margin-bottom: .4em;
+                    padding-left: 19px;
+                    margin-top: 10px;
+                    font-size: .93em!important;
+                    &:after{content: none;}
+                    &:before{
+                        content: '';
+                        background-image: url(../images/ok-icon-02.svg);
+                        height: 1em;
+                        width: 1em;
+                        background-position: center;
+                        background-size: cover;
+                        display: inline-block;
+                        margin-right: 6px;
+                        margin-left: -21px;
+                    }
+                }
+                padding: .5em 0;
+            }
             > div{
                 position: relative;
                 padding: 0 .9em;
-                padding-bottom: 1.8em;
-                a>h4{color: #515151;&:hover{color:@color-dac;}}
+                padding-bottom: 1em;
                 h4{
                     margin-top: .6em;
-                    font-size:1.2em;
+                    font-size: 1.1em;
                     text-transform: uppercase;
+                    color: #BF3B2B;
+                    margin: 1em 0 .5em 0;
+                    &:hover{
+                        color: #ac1807;
+                    }
                 }
                 p{
-                    padding-bottom: 4.9em;
                     flex-grow: 1;
                     flex-shrink: 1;
                     flex-basis: auto;
@@ -102,6 +132,7 @@
                 }
                 img{vertical-align:middle;
                     max-height: 4em;
+                    max-width: 4em;
                     width: auto;
                     border-radius: 4em;
                 }
@@ -117,12 +148,12 @@
                 display: block;
                 text-align: center;
                 text-align: center;
-//                .button{
-//                    width: 100%;
-//                    background: @color-dac;
-//                    height:2em;
-//                    line-height: 2em;
-//                }
+                //                .button{
+                //                    width: 100%;
+                //                    background: @color-dac;
+                //                    height:2em;
+                //                    line-height: 2em;
+                //                }
                 .btn-red{
                     width: 100%;
                     margin: 0;
@@ -131,15 +162,15 @@
             &:hover{
                 box-shadow: 0 5px 15px #d8d8d8;
                 cursor: default;
-//                .button{
-//                    background: @color-dac; 
-//                    cursor: pointer;
-//                    &:hover{
-//                        background: #fff;
-//                        color: @color-dac;
-//                        outline: solid 2px @color-dac; 
-//                    }
-//                }
+                //                .button{
+                //                    background: @color-dac; 
+                //                    cursor: pointer;
+                //                    &:hover{
+                //                        background: #fff;
+                //                        color: @color-dac;
+                //                        outline: solid 2px @color-dac; 
+                //                    }
+                //                }
             }
         }
 
@@ -194,14 +225,14 @@
             }
         }
     }
-//    @media (max-width: 1200px) {
-//        .en-savoir-plus{
-//            .button{
-//                height: 2.3em !important;
-//                line-height: 2.3em !important;
-//            }
-//        }
-//    }
+    //    @media (max-width: 1200px) {
+    //        .en-savoir-plus{
+    //            .button{
+    //                height: 2.3em !important;
+    //                line-height: 2.3em !important;
+    //            }
+    //        }
+    //    }
     @media (max-width: 576px) {
         button, .button{
             width:100%;
@@ -272,19 +303,13 @@
     color: #bf3b2b;
     cursor: pointer;
 }
-#formations [class*='col-'] .wrapper div a > h4 {
-    color: #bf3b2b;
-    text-transform: inherit;
-    font-weight: bold;
-    font-size: 1.5em;
-}
 .where, .when, .arrow-right, .arrow-left{
     color: #000 !important;
 }
 #formations .wrapper > a:first-child{
     position: relative;
     display: block;
-    min-height: 154px;
+//    min-height: 154px;
     background: #cbcbcb;
 }
 .nouvelle_formation, .top_formation{
@@ -298,8 +323,7 @@
 .course-link{
     text-decoration: underline;
 }
-#formations [class*='col-'] .wrapper div span {padding: 0 0 .5em 0;}
-#formations [class*='col-'] .wrapper div p {padding-bottom:6em;}
+#formations [class*='col-'] .wrapper div span {padding: .5em 0 .5em 0;}
 #formations [class*='col-'] .wrapper .alignCenter {
     bottom: 3em; 
     padding:0 1em 1.5em 2em; 
@@ -307,9 +331,6 @@
 #nos-formations input[type='checkbox'] {
     display: none;
 }
-//#formations .btn{
-//    line-height: 3.2em;
-//}
 
 /* Line Clamp */
 

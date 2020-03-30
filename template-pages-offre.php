@@ -41,7 +41,8 @@ $color2 = get_field( 'color2');
 <?php $blocs_offre = get_field('blocs_offre');
 if($blocs_offre){ ?>
 
-<div id="page">
+<div id="page">                    
+   
     <section id="heading">
         <div class="bloc-1">
             <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -75,12 +76,15 @@ if($blocs_offre){ ?>
 
     <div class="gray-bg blanckspace"></div>
     <?php foreach($blocs_offre as $bloc_offre){
-    $bulletpoints = $bloc_offre['bulletpoints']; ?>
+    $bulletpoints = $bloc_offre['bulletpoints'];
+    $video_url = $bloc_offre['video_url']; ?>
     <div class="offre-wrapper gray-bg">
         <div class="container offre">
             <div class="row flex-column-reverse flex-md-row">
                 <div class="col-12 col-md-6">
-                    <img src="<?php echo $bloc_offre['image']['url']; ?>" alt="<?php echo $bloc_offre['image']['alt']; ?>">
+                   <?php if($video_url){ echo '<a href="'. $video_url .'" data-modal="button">'; } ?>
+                      <img src="<?php echo $bloc_offre['image']['url']; ?>" alt="<?php echo $bloc_offre['image']['alt']; ?>">
+                   <?php if($video_url){ echo '</a>'; } ?>
                     <!--<div class="blend"></div>-->
                 </div>
                 <div class="col-12 col-md-6 txt">
@@ -94,7 +98,7 @@ if($blocs_offre){ ?>
         echo '</ul>';
     } ?><br>
                     <a href="<?php echo $bloc_offre['bouton_lien']; ?>">
-                        <div class="btn btn-blue contact-btn"><?php echo $bloc_offre['bouton_nom']; ?></div>
+                        <div value="Contacter la Digital Academy" class="btn btn-blue contact-btn"><?php echo $bloc_offre['bouton_nom']; ?></div>
                     </a>
                 </div>
             </div>
@@ -144,7 +148,7 @@ if($blocs_offre){ ?>
             }
             echo '</ul>';
         } ?><br>
-                        <a href="#the-form-bottom" class="btn btn-blue contact-btn" style="max-height:3.2em">Contactez-nous</a>
+                        <a value="Contacter la Digital Academy" href="#the-form-bottom" class="btn btn-blue contact-btn" style="height:auto">Contactez-nous</a>
                     </div>
                 </div>
                 <?php } ?>    
@@ -156,7 +160,7 @@ if($blocs_offre){ ?>
     if($references){ ?>
     <div id="ref" class="container">
         <div class="row alignCenter">
-            <h2><span>Références</span></h2>
+            <a value="Voir nos references clients en Digital Learning" href="/type-reference/digital-learning/"><h2><span>Références</span></h2></a>
         </div>
         <div class="row owl-carousel owl-theme">
             <?php foreach($references as $reference){?>
@@ -165,6 +169,7 @@ if($blocs_offre){ ?>
             </div>
             <?php } ?>    
         </div>
+        <a value="Voir nos references clients en Digital Learning" href="/type-reference/digital-learning/" class="btn btn-blue-alt btn-sm" style="height:auto;display: table;margin:auto;">Toutes nos références</a>
     </div>
     <?php } ?>
 
@@ -181,7 +186,7 @@ if($blocs_offre){ ?>
         </div>
     </div>
 
-    <section id="contact"><span id="the-form-bottom"></span>
+    <section id="contact">
         <div class="container">
             <div class="row row-same-height">
                 <div class="col-md-5 col-lg-7 valign">
@@ -200,10 +205,10 @@ if($blocs_offre){ ?>
                 <div class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12"></div>
+                            <div class="col-12"><span id="the-form-bottom"></span></div>
                             <div class="container form-container">
                                 <div class="row">
-                                    <?php echo do_shortcode('[gravityform id="11" title="false" description="false" ajax="true"]'); ?>
+                                    <?php echo do_shortcode('[gravityform id="9" title="false" description="false" ajax="true"]'); ?>
                                 </div>
                             </div>
                         </div>

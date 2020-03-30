@@ -32,12 +32,13 @@ function hideValidationMessage(){
     jQuery('input').on("click", function(){  
         jQuery( this ).parents('form li').children('.validation_message').hide();
     });
-    jQuery('.validation_message').on("click", function(){  
-        jQuery( this ).parents('form li').children('input').focus();
-        jQuery( this ).hide();
+    jQuery( ".validation_message" ).each(function(index) {
+        jQuery(this).on("click", function(){
+            jQuery( this ).parents('form li').find('input').focus();
+            jQuery( this ).hide();
+        });
     });
 }
-
 
 //-------------------------------------------
 //-------------------------------------------
@@ -59,9 +60,11 @@ gform.addFilter( 'gform_spinner_target_elem', function( $targetElem, formId ) {
 
 jQuery(document).bind('gform_post_render', function(){
 
+    jQuery( '.ginput_container_multiselect' ).parents('.gfield').children('label').hide(); // hide select label
+
     heading = '<span id="form-heading" class="reverse"><h2>Contactez-nous </h2><h3>Vous souhaitez en savoir plus sur nos offres de formation ?</h3></span><hr><br><br>';
     if( jQuery('#form-heading').length == 0 ){
-        jQuery('#gform_wrapper_11 form, #gform_wrapper_1 form').prepend(heading);
+        jQuery('#gform_wrapper_11 form, #gform_wrapper_1 form, #gform_wrapper_9 form').prepend(heading);
     } 
     jQuery('.gform_ajax_spinner').hide();
 
@@ -69,8 +72,66 @@ jQuery(document).bind('gform_post_render', function(){
     formEventStyle();
     buttonAnim(); 
     customSelect();
-});
 
+    // ----------------
+    // -- Datepicker --
+    // ----------------
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    if (viewportWidth > 640) {
+        var xsSxreen = false;
+    } else {
+        var xsSxreen = true;
+    }
+    if (!xsSxreen) {
+        if (typeof TinyDatePicker === "function") {
+            // datepicker close event
+            var nowFrDateformat = function nowFrDateformat() {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
+                var yyyy = today.getFullYear();
+                return dd + '/' + mm + '/' + yyyy;
+            };
+
+            var dateFrDateformat = function dateFrDateformat(date) {
+                var dd = String(date.getDate()).padStart(2, '0');
+                var mm = String(date.getMonth() + 1).padStart(2, '0');
+                var yyyy = date.getFullYear();
+                return dd + '/' + mm + '/' + yyyy;
+            };
+
+            var insertSelectedDateIntoDOM = function insertSelectedDateIntoDOM(selectedDate) {
+                var date_inputs = document.getElementsByClassName('date-input');
+
+                for (var i = 0; i < date_inputs.length; i++) {
+                    jQuery('.date-input input').attr("value", dateFrDateformat(selectedDate));
+                    formEventStyle();
+                }
+            };
+
+            var dp = TinyDatePicker('.date-input', {
+                lang: {
+                    days: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                    months: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    today: 'Aujourd\'hui',
+                    clear: 'Annuler',
+                    close: 'Fermer'
+                },
+                format: function format(date) {
+                    return date.toLocaleDateString();
+                },
+                mode: 'dp-below',
+                hilightedDate: new Date(),
+                min: nowFrDateformat(),
+                max: '10/1/2040',
+                dayOffset: 1
+            });
+            dp.on('close', function () {
+                return insertSelectedDateIntoDOM(dp.state.selectedDate);
+            });
+        }
+    }
+});
 
 //-------------------------------------------
 //-------------------------------------------
@@ -85,6 +146,7 @@ function customSelect(){
     if(x.length == 0){
         x =  document.getElementsByClassName("ginput_container_multiselect");
     }
+
     for (i = 0; i < x.length; i++) {
         /* check if the fn is already launch */
         z = x[i].getElementsByClassName("select-selected").length;
@@ -155,8 +217,17 @@ function customSelect(){
                 x[i].classList.add("select-hide");
             }
         }
+        updateSelect();
     }
     /* If the user clicks anywhere outside the select box,
     then close all select boxes: */
     document.addEventListener("click", closeAllSelect);
+
+    function updateSelect(){
+        selectedValue = jQuery('.select-selected').html();
+        jQuery('select option').each(function(index) {
+            jQuery(this).removeAttr("selected");
+        });
+        jQuery('select option[value="'+ selectedValue +'"]').attr('selected','selected'); // select option in the contact for
+    }
 }   
