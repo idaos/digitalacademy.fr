@@ -16,12 +16,26 @@
 #glossary a:hover {
   text-decoration: underline;
 }
-.header:after {
-  opacity: 0.55;
+.header {
+  display: block;
 }
 .header .btn {
   margin: .5em;
   margin-top: 1.5em;
+}
+.header:after {
+  content: none;
+}
+.header:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.65;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 main h1 {
   color: #bf3b2b;
@@ -35,4 +49,10 @@ main hr {
 main p {
   font-size: 1.2em;
   line-height: 1.3em;
+}
+[id^='speechelevator-'] {
+  mix-blend-mode: screen;
+  display: block;
+  margin: auto;
+  margin-top: .7em;
 }

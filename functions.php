@@ -199,8 +199,7 @@ add_filter( 'gform_confirmation_anchor', '__return_false' );
  */
 
 //Register hook to load scripts
-add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_egate', 9999 );
-add_action( 'wp_head', 'custom_scripts_and_styles_egate', 9999 );
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_egate', 20 );
 //Load scripts (and styles)
 function custom_scripts_and_styles_egate(){
     if(is_page()){ //Check if we are viewing a page
@@ -1251,7 +1250,7 @@ add_shortcode( 'references_slider', 'kz_shortcode_refSlider' );
 /* Push all js into the footer
 --------------------------------------------------------------
 */
-add_action( 'wp_enqueue_scripts', 'js_to_footer' );
+add_action( 'wp_enqueue_scripts', 'js_to_footer', 9999 );
 function js_to_footer() {
     remove_action( 'wp_head', 'wp_print_scripts' );
     remove_action( 'wp_head', 'wp_print_head_scripts', 9 );

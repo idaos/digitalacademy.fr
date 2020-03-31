@@ -3,9 +3,7 @@
  *   Template Name: SEO Page - eGate
  */
 
-get_header(); ?>
-
-<?php 
+get_header(); 
 
 if ( get_field( 'image' ) ){
 
@@ -25,19 +23,15 @@ if ( get_field( 'image' ) ){
     </div>
 </div>
 <div class="header" <?php echo $bg; ?>>    
-    <div class="container">
+    <div class="container" style="z-index:inherit">
         <div class="row">
             <div class="col-xs-12 alignCenter">
-
-                <h1 class="title-slider">
-                    Organisme de formation spécialiste du digital &amp; des réseaux sociaux
-                </h1>
-                <hr>
-                <p>Digital Academy est un organisme de formation expert en réseaux sociaux. DigitalAcademy est un organisme qui propose un accompagnement personnalisé pour un programme de formation.</p>
-
+                <img id="speechelevator-xs">
+                <img id="speechelevator-sm">
+                <img id="speechelevator-md">
+                <img id="speechelevator-lg">
                 <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red-alt-neg">Découvrir nos solutions</div></a>
                 <a title="Bouton de contact" class="contact-btn" href="/contact/?utm_source=seo-page&utm_medium=seo-page&utm_campaign=egate" value="Prendre contact avec la Digital Academy"><div class="btn btn-red marginR">Contactez-nous</div></a>
-
             </div>
         </div>
     </div>
@@ -56,11 +50,8 @@ if ( get_field( 'image' ) ){
 </div>    
 <main class="content">
     <div class="container" style="z-index:5">
-
-
         <h1><?php the_field( 'description' ); ?></h1>
         <hr>
-
         <?php
         if ( have_posts() ) :
         while ( have_posts() ) : the_post();
@@ -95,5 +86,4 @@ if ( get_field( 'image' ) ){
         </div>
     </div>
 </div>
-
 <?php get_footer(); ?>

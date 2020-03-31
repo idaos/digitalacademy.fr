@@ -16,12 +16,24 @@
     }
 }
 .header{
-    &:after{
-        opacity: 0.55;
-    }
+    display: block;
     .btn{
         margin: .5em;
         margin-top: 1.5em;
+    }
+    &:after{
+        content: none;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #000;
+        opacity: 0.65;
+        top: 0;
+        left: 0;
+        z-index: 0;
     }
 }
 
@@ -39,4 +51,9 @@ main{
         font-size: 1.2em;
         line-height: 1.3em;
     }
+}
+
+[id^='speechelevator-']{
+
+    mix-blend-mode: screen; display:block;margin:auto;margin-top: .7em;
 }
