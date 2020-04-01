@@ -1,7 +1,7 @@
 /* Body
 --------------------------------------------- */
 body{
-/*	zoom:90%;*/
+    /*	zoom:90%;*/
 }
 *{
     /*    border-radius:5px;*/
@@ -52,7 +52,7 @@ h3{
     font-style: inherit!important;
 }
 .alignCenter{
-	text-align: center;
+    text-align: center;
 }
 
 
@@ -60,8 +60,8 @@ h3{
 --------------------------------------------- */
 
 .page-id-776 .bg-wht{
-	margin-top: -10em;
-	display: inline-block;
+    margin-top: -10em;
+    display: inline-block;
 }
 
 /* Classic
@@ -458,7 +458,7 @@ body .content-theme h3{
     text-align: center;
     width: 100%;
     color: #fff;
-    padding: 2em;
+    padding: 4em 2em;
 }
 .container-slider .slick-slide p{
     display: inline-block;
@@ -539,10 +539,10 @@ hr.none:before {
 /* Fil d'ariane
 --------------------------------------------- */
 .breadcrumb, .rank-math-breadcrumb{
-    padding: 15px 0;
+    position: relative;
+    padding: 0;
     background: #fbfbfb;
     margin: 0;
-    border-top: 1px solid #F5F5F5;
     color: #373636;
     font-style: italic;
     letter-spacing: 1px;
@@ -550,11 +550,11 @@ hr.none:before {
     padding-left: 1em;
 }
 .rank-math-breadcrumb{
-	padding: 0;
-	border: none;
+    padding: 0;
+    border: none;
 }
 .rank-math-breadcrumb p{
-	margin: 0;
+    margin: 0;
 }
 .breadcrumb .breadcrumb_last, .breadcrumb .last{
     color: #d13333;
@@ -562,6 +562,36 @@ hr.none:before {
 .breadcrumb a, .rank-math-breadcrumb a{
     color: #373636;
 }
+.breadcrumb-wrapper{
+    position: relative;
+}
+.breadcrumb{
+    background: none;
+    position: absolute;
+    top: 1em;
+    z-index: 10;
+    width: 100%;
+    left: 0;
+    padding: 1em;
+    text-shadow: 0px 2px 1px #000;
+    top: 0;
+}
+.breadcrumb nav p, .breadcrumb nav a, .breadcrumb nav span{
+    color: #fff;
+    font-size: 13px!important;
+}
+.breadcrumb nav a:hover{
+    text-decoration: none;
+}
+.breadcrumb nav{
+    background: none;
+}
+.breadcrumb nav .last{
+    color: #fff;
+}
+
+
+
 /* Menu filtre
 --------------------------------------------- */
 .container-menu-filtre{

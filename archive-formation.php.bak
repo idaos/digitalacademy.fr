@@ -1,11 +1,4 @@
 <?php get_header(); ?>
-
-<div class="breadcrumb hidden-xs">
-	<div class="container">
-		<?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
-	</div>
-</div>
-
 <div class="container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php the_field('img_nos_formations', 'option') ?>)">
 	<div class="slick-slide">
 		<div class="clearfix">

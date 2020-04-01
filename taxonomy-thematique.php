@@ -24,17 +24,13 @@ $courses_count = count(json_decode($result[0])) ;
     .header hr{
         border-top-color: <?php echo $th->getColorHex(); ?>!important;
     }
+    .breadcrumb{
+        text-shadow: inherit;
+    }
+    .breadcrumb nav p, .breadcrumb nav a, .breadcrumb nav span{
+        color: #000!important;
+    }
 </style>
-
-
-
-<!-- BreadCrumbs -->
-<div class="breadcrumb hidden-xs">
-    <div class="container">
-        <?php if ( function_exists( 'yoast_breadcrumb' ) ) {yoast_breadcrumb();}?>
-        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
-    </div>
-</div>
 
 <!-- Heading -->
 <div class="header">    

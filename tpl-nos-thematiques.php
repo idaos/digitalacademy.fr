@@ -23,28 +23,19 @@ $courses_count = count(json_decode($result[0])) ;
     var response_themas = <?php echo $result[1]; ?>;
 </script>
 
-
-<!-- BreadCrumbs -->
-<div class="breadcrumb hidden-xs">
-    <div class="container">
-        <?php if ( function_exists( 'yoast_breadcrumb' ) ) {yoast_breadcrumb();}?>
-        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
-    </div>
-</div>
-
 <!-- Heading -->
 <div class="header">    
     <div class="container">
         <div class="row">
             <div class="col-xs-12 alignCenter">
-<!--
-                <?php //if ( $pictos = digital_get_thematiques_picto() ): ?>
-                <ul class="clearfix hidden-xs" style="padding:0 1em">
-                    <?php //foreach ( $pictos as $picto ): ?>
-                    <li><img src="<?php //echo $picto; ?>" alt=""/></li>
-                    <?php //endforeach; ?>
-                </ul>
-                <?php //endif; ?>
+                <!--
+<?php //if ( $pictos = digital_get_thematiques_picto() ): ?>
+<ul class="clearfix hidden-xs" style="padding:0 1em">
+<?php //foreach ( $pictos as $picto ): ?>
+<li><img src="<?php //echo $picto; ?>" alt=""/></li>
+<?php //endforeach; ?>
+</ul>
+<?php //endif; ?>
 -->
                 <h1 class="title-slider" style="color: #fff!important;"><?php the_title(); ?></h1>
                 <hr style="display:block">
@@ -67,7 +58,7 @@ $courses_count = count(json_decode($result[0])) ;
 
 
 <div class="content" style="background-color: #f5f5f5;">
-   
+
     <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
         <div class="container-menu-filtre hidden-xs">
             <div class="container">
@@ -75,7 +66,7 @@ $courses_count = count(json_decode($result[0])) ;
             </div>
         </div>
     </div>
-    
+
     <div ng-app="courseFilteringApp" id="nos-formations">
         <div ng-controller="courseFilteringController as courses">
 

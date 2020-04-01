@@ -1,11 +1,6 @@
 <?php get_header(); ?>
 <?php $thematique_ID = get_queried_object_id(); ?>
-<div class="breadcrumb hidden-xs">
-	<div class="container">
-		<?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
-		<?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
-	</div>
-</div>
+
 <div class="container-slider main-slider nos-formations slider-header hidden-xs">
 	<div class="slick-slide">
 		<div class="clearfix">

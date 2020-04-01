@@ -19,26 +19,26 @@
         <!-- Check if adblocker is active -->
         <!-- <script id="fake-ads" type = "text/javascript" src="https://www.digitalacademy.fr/wp-content/themes/digitalacademy/js/ads.js"></script> -->
         <!-- <script>
-            // register adblocker info to GA
-            var script = document.querySelector('#fake-ads');
-            script.addEventListener('load', function() {
-                if(document.getElementById('KzwTIARDzQclBa')){
-                    window.adsblocked = 'No';
-                } else {
-                    window.adsblocked = 'unknown';
-                }
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: "Window Loaded",
-                    adsblocker: adsblocked
-                });
-            });
-        </script> -->
+// register adblocker info to GA
+var script = document.querySelector('#fake-ads');
+script.addEventListener('load', function() {
+if(document.getElementById('KzwTIARDzQclBa')){
+window.adsblocked = 'No';
+} else {
+window.adsblocked = 'unknown';
+}
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+event: "Window Loaded",
+adsblocker: adsblocked
+});
+});
+</script> -->
     </head>
     <body <?php body_class(); ?>>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z789B3"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 
         <header class="site-header clearfix">
@@ -90,3 +90,28 @@
         </header><!-- Header end -->
 
         <div class="site-container clearfix">  
+
+            <!-- Blue banner -->
+            <?php if ( get_field( 'blue_banner_text', 'options'  ) ): ?>
+            <div id="datadock_subheader">
+                <div class="container">
+                    <?php echo the_field('blue_banner_text', 'options') ?>
+                    <a title="Plus d'info" href="<?php echo the_field('blue_banner_text', 'options') ?>" target="_blank">
+                        <?php if ( get_field( 'blue_banner_link', 'options'  ) ): ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/info-icon.svg" width="18" alt="info"></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php endif; ?>
+
+            <!-- BreadCrumbs -->
+            <?php if(!is_front_page()): ?>
+            <div class="breadcrumb-wrapper">
+                <div class="breadcrumb">
+                    <div class="container">
+                        <?php if ( function_exists( 'yoast_breadcrumb' ) ) {yoast_breadcrumb();}?>
+                        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>

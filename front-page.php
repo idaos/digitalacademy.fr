@@ -1,15 +1,5 @@
 <?php get_header(); ?>
 
-
-
-
-<div id="datadock_subheader">
-    <div class="container">
-        <span>Notre organisme <span class="hidden-xs">de formation&nbsp;</span>est référencé Datadock.</span>
-        <a title="Plus d'info sur Datadock" href="https://www.digitalacademy.fr/digitalacademy-est-certifiee-datadock/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/info-icon.svg" width="18" alt="info"></a>
-    </div>
-</div>
-
 <div id="page">
     <section id="heading">
         <div class="bloc-1">

@@ -416,9 +416,8 @@
 }
 #datadock_subheader {
   background: #1f7efb;
-  height: 3em;
   color: #fff;
-  line-height: 2.7em;
+  padding: 0.8em 0.5em;
 }
 #datadock_subheader a > img {
   margin-left: 0.5em;

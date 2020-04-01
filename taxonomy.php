@@ -1,13 +1,9 @@
+<?php 
 /**
 *   Template Name: Nos formateurs
 **/
-<?php get_header(); ?>
-<div class="breadcrumb hidden-xs">
-	<div class="container">
-		<?php if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb(); } ?>
-		<?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
-	</div>
-</div>
+get_header(); ?>
+
 <div class="container-slider main-slider slider-header slider-formateur hidden-xs">
     <div class="slick-slide">
         <div class="clearfix">
