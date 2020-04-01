@@ -417,7 +417,8 @@
 #datadock_subheader {
   background: #1f7efb;
   color: #fff;
-  padding: 0.8em 0.5em;
+  padding: 0.9em 0.5em;
+  font-size: 14px;
 }
 #datadock_subheader a > img {
   margin-left: 0.5em;
