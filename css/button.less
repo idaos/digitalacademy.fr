@@ -59,7 +59,7 @@ body{
         aqua: #4faeff;
         salmon: #E66343;
         green: #3cb878;
-            }
+        }
         each(@set, {
             .btn-@{key}, .btn-@{key}-alt, .btn-@{key}-alt-neg{
                 &:after{
@@ -113,7 +113,7 @@ body{
     &:hover{
         color: @value;
         background: #fff;
-//        background: fade(@value, 3%);
+        //        background: fade(@value, 3%);
     }
 }
 .btn-@{key}-alt-neg{
@@ -207,6 +207,15 @@ input[type="submit"]{
     border: solid 1px #fff;
     margin-left: 1em;
     &:hover{ background: rgba(256,256,256,.1); }
+}
+.btn-white.active{
+    background: #fff;
+    color: #bf3b2b;
+    &:hover{     
+        background: #fff;
+        color: #bf3b2b;
+        opacity: .8;
+    }
 }
 
 .marginR{
@@ -309,5 +318,5 @@ body .navigation li a
 
 // carrousel arrows
 .slick-arrow:hover{
-        background-color: darken(#bf3b2b, 10%);
+    background-color: darken(#bf3b2b, 10%);
 }

@@ -580,6 +580,7 @@ function digital_get_type_menu( $taxonomy = 'type' ) {
     $menu = '';
 
     if ( $types = get_terms( $taxonomy, array( 'parent' => 0 ) ) ) {
+        
         foreach ( $types as $type ) {
             $class = '';
             if ( $type->term_id == $parent_term_id ) {

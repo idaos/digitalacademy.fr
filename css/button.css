@@ -655,6 +655,15 @@ body .bg-orange .btn-white:hover {
 body .bg-orange .btn-white:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+body .btn-white.active {
+  background: #fff;
+  color: #bf3b2b;
+}
+body .btn-white.active:hover {
+  background: #fff;
+  color: #bf3b2b;
+  opacity: 0.8;
+}
 body .marginR {
   margin-right: 0.9em;
 }
