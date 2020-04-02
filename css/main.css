@@ -573,7 +573,7 @@ hr.none:before {
     width: 100%;
     left: 0;
     padding: 1em .5em;
-    text-shadow: 0px 2px 1px #000;
+/*    text-shadow: 0px 2px 1px #000;*/
     top: 0;
 }
 .breadcrumb nav p, .breadcrumb nav a, .breadcrumb nav span{

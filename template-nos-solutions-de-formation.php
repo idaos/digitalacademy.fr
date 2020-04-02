@@ -70,7 +70,7 @@ get_header(); ?>
                     <li>Le nombre de stagiaires</li>
                 </ul>                
                 <a title="" href="/type-reference/intra-entreprise/" value="null"><div class="btn btn-sm btn-aqua marginR">Nos références</div></a>
-                <a title="" href="#" value="null"><div class="btn btn-sm btn-aqua-alt">Nous Contacter</div></a>
+                <a title="" href="/contact" value="null"><div class="btn btn-sm btn-aqua-alt">Nous Contacter</div></a>
             </div>
         </div>
     </div>
@@ -219,7 +219,7 @@ get_header(); ?>
                 </ul>                
                 <a title="" href="/digital-learning/" value="null"><div class="btn btn-sm btn-blue marginR">Notre studio</div></a>
                 <a title="" href="/type-reference/digital-learning/" value="null"><div class="btn btn-sm btn-blue-alt marginR">Nos références</div></a>
-                <a title="" href="#" value="null"><div class="btn btn-sm btn-blue-alt">Nous Contacter</div></a>
+                <a title="" href="/contact" value="null"><div class="btn btn-sm btn-blue-alt">Nous Contacter</div></a>
             </div>
         </div>
     </div>
@@ -372,7 +372,7 @@ get_header(); ?>
                 </ul>                
                 <a title="" href="/formations/" value="null"><div class="btn btn-sm btn-red marginR">Nos formations</div></a>
                 <a title="" href="/type-reference/intra-entreprise/" value="null"><div class="btn btn-sm btn-red-alt marginR">Nos références</div></a>
-                <a title="" href="#" value="null"><div class="btn btn-sm btn-red-alt">Nous Contacter</div></a>
+                <a title="" href="/contact" value="null"><div class="btn btn-sm btn-red-alt">Nous Contacter</div></a>
             </div>
         </div>
     </div>
@@ -520,7 +520,7 @@ get_header(); ?>
                     <li>Définition d’une feuille de route</li>
                     <li>Programmes de formation</li>
                 </ul>                
-                <a title="" href="#" value="null"><div class="btn btn-sm btn-salmon">Nous Contacter</div></a>
+                <a title="" href="/contact" value="null"><div class="btn btn-sm btn-salmon">Nous Contacter</div></a>
             </div>
         </div>
     </div>
