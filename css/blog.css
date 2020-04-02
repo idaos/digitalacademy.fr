@@ -1,4 +1,5 @@
 /* Heritage main.css */
+
 .container-border{
     border: 1px solid #dbdbdb;
     height: 100%;
@@ -401,6 +402,12 @@ hr:before{background:none!important;}
     display:inline-block;
     height:3em;
 }
+
+.header{
+    padding: 7em 0 10vw 0;
+    padding-bottom: calc(10vw + 4em);
+}
+
 @media screen and (max-width: 476px) {
     .content-share{
         width: 100%;

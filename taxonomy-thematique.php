@@ -259,22 +259,22 @@ $courses_count = count(json_decode($result[0])) ;
                 ], // filter by thematique
                 eventRender: function eventRender( event, element, view ) {
                     if ("<?php echo $th->getColor(); ?>" == "orange"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-1').attr('value') ) >= 0
+                        return ['all', event.color].indexOf( '#e74c3c' ) >= 0
                     }
                     else if ("<?php echo $th->getColor(); ?>" == "gray"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-2').attr('value') ) >= 0
+                        return ['all', event.color].indexOf( '#95a5a6' ) >= 0
                     }
                     else if ("<?php echo $th->getColor(); ?>" == "blue"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-3').attr('value') ) >= 0
+                        return ['all', event.color].indexOf( '#3498db' ) >= 0
                     }
                     else if ("<?php echo $th->getColor(); ?>" == "yellow"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-4').attr('value') ) >= 0
+                        return ['all', event.color].indexOf( '#f59d00' ) >= 0
                     }
                     else if ("<?php echo $th->getColor(); ?>" == "green"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-5').attr('value') ) >= 0
+                        return ['all', event.color].indexOf( '#2ecc71' ) >= 0
                     }
                     else if ("<?php echo $th->getColor(); ?>" == "blue-dark"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-6').attr('value') ) >= 0
+                        return ['all', event.color].indexOf( '#34495e' ) >= 0
                     }
                 }
             });

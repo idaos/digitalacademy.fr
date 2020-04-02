@@ -66,11 +66,11 @@ $th = new KzThema($th_first_id);
     <div class="slick-slide">
 
         <!-- Picto -->
-        <?php if ( get_field( 'picto' ) ): ?>
+        <?php if ($th_set){ ?>
         <div class="w100">
-            <img src="<?php the_field( 'picto' ); ?>" alt="" style="max-width: 80px;"/>
+            <img src="<?php echo $th->getImage(); ?>" alt="" style="max-width: 80px;"/>
         </div>
-        <?php endif; ?>
+        <?php } ?>
 
         <!-- Title -->
         <h1 class="title-slider w100">Formation - <?php the_title(); ?></h1>
