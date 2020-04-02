@@ -424,6 +424,7 @@
 #datadock_subheader a > img {
   margin-left: .5em;
   margin-bottom: .25em;
+  height: 18px;
 }
 #datadock_subheader div {
   position: relative;

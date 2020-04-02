@@ -927,8 +927,7 @@ select {
   }
 }
 @media (max-width: 1500px) {
-  #nos-formations,
-  #references .wrapper {
+  #nos-formations {
     padding: 0!important;
   }
 }

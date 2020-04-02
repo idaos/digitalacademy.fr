@@ -7,10 +7,11 @@ wp_safe_redirect( get_term_link( (int) reset( $terms ), 'type-reference' ) );
 exit;
 get_header(); ?>
 
-<div class="container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php the_field('img_references', 'option') ?>)">
+<div class="header container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php the_field('img_references', 'option') ?>)">
 	<div class="slick-slide">
 		<div class="clearfix">
 			<h1 class="title-slider">Nos références en formation</h1>
+			<hr>
 		</div>
 	</div>
 </div>
@@ -20,7 +21,7 @@ get_header(); ?>
 		<?php echo digital_get_type_menu(); ?>
 	</div>
 </div>
-<div class="xs-container-menu-filtre">
+<div class="xs-container-menu-filtre"> 
 	<div class="container-menu-filtre">
 		<div class="container">
 			<?php echo digital_get_reference_menu( null, true ); ?>

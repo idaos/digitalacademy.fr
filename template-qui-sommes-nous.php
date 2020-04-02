@@ -27,7 +27,7 @@ get_header(); ?>
 		<polygon fill="#fff" points="0,0 100,100 0,100"></polygon>
 	</svg>
 </div>    
-<div class="container content" style="height:initial;margin-top:-4vw;">
+<div class="container content" style="height:initial;margin-top:-4vw;z-index: 5;">
     <div class="row">
         <div class="col-sm-6" style="padding:1em;text-align:center">
             <iframe src="https://www.youtube.com/embed/FpPAwR5X9Yw" width="584" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
