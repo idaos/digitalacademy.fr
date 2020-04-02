@@ -95,11 +95,12 @@ adsblocker: adsblocked
             <?php if ( get_field( 'blue_banner_text', 'options'  ) ): ?>
             <div id="datadock_subheader">
                 <div class="container">
-                    <?php echo get_field('blue_banner_link', 'options') ?>
+                    <?php echo get_field('blue_banner_text', 'options') ?>
                     <a title="Plus d'info" href="<?php echo the_field('blue_banner_link', 'options') ?>" target="_blank">
                         <?php if ( get_field( 'blue_banner_link', 'options'  ) ): ?>
-                        <img src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/info-icon.svg" width="18" alt="info"></a>
+                        <img src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/info-icon.svg" width="18" alt="info">
                     <?php endif; ?>
+                    </a>
                 </div>
             </div>
             <?php endif; ?>
