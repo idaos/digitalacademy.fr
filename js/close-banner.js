@@ -1,14 +1,16 @@
-jQuery("#cross_sub_header").click(function() {
-    setCookie("bannerClosed", "true", "1");
-    jQuery("#datadock_subheader").slideUp('fast');
-}); 
+jQuery( document ).ready(function() {
 
+    jQuery("#cross_sub_header").click(function() {
+        setCookie("bannerClosed", "true", "1");
+        jQuery("#datadock_subheader").slideUp('fast');
+    }); 
 
-if( getCookie("bannerClosed") == null ){
-    jQuery("#datadock_subheader").show();
-}else{
-    jQuery("#datadock_subheader").hide();
-}
+    if( getCookie("bannerClosed") == null ){
+        jQuery("#datadock_subheader").show();
+    }else{
+        jQuery("#datadock_subheader").hide();
+    }
+});
 
 function setCookie(name,value,days) {
     var expires = "";
