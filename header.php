@@ -93,7 +93,7 @@ adsblocker: adsblocked
 
             <!-- Blue banner -->
             <?php if ( get_field( 'blue_banner_text', 'options'  ) ): ?>
-            <div id="datadock_subheader">
+            <div id="datadock_subheader" style="display:none;">
                 <div class="container">
                     <div id="txt">
                         <?php echo get_field('blue_banner_text', 'options') ?>
@@ -103,7 +103,7 @@ adsblocker: adsblocked
                             <?php endif; ?>
                         </a>
                     </div>
-                    <?php if ( get_field( 'blue_banner_closable', 'options'  ) == true ): ?>
+                    <?php if ( get_field( 'blue_banner_closable', 'options'  ) == 'Oui' ): ?>
                         <div id="cross_sub_header">&#x292B;</div>
                     <?php endif; ?>
                 </div>
