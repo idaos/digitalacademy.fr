@@ -24,7 +24,7 @@
 	</svg>
 </div>    
 <main class="content" style="margin-top:-4vw;z-index:5;background:none;">
-    <div class="container" style="padding-bottom:5em;">
+    <div class="container" style="padding-bottom:2em;">
         <div class="wrapper p5000">
             <div class="row clearfix stretch">
                 <div class="container-blog col-md-8">
@@ -93,7 +93,7 @@
     </div>
     <?php related_posts(); ?>
     <div class="container">
-        <div class="wrapper "> <?php get_template_part( 'tpl/cta', 'contact' ); ?> </div>
+        <div class="wrapper w100"> <?php get_template_part( 'tpl/cta', 'contact' ); ?> </div>
     </div>
 </main>
 <!-- Main end -->	

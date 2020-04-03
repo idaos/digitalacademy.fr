@@ -249,6 +249,7 @@
 .sidebar{
     background: #f6f6f6;
     padding-left:2em;
+    padding-bottom:2em;
 }
 .sidebar:after{
     background: #f6f6f6;
