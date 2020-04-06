@@ -36,3 +36,21 @@ jQuery( document ).ready(function() {
     });
 
 });
+
+
+jQuery( document ).ready(function() {
+    jQuery( ".accordeon-item-title" ).each(function() {
+        
+        var item = jQuery( this ).parent( ".accordeon-item" );
+        item.children( ".accordeon-item-title" ).click(function () {
+            item.toggleClass( "active" );
+
+            if (item.children(".accordeon-item-content").is( ":hidden" ) ) {
+                item.children(".accordeon-item-content").slideDown( 300 );
+                
+            }else{
+                item.children(".accordeon-item-content").slideUp( 300 );
+            }
+        });
+    });
+});

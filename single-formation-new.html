@@ -2,7 +2,9 @@
 <html lang="en">
     <head>
 
-        <link rel="stylesheet" href="css/single-formation.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/testimonial.css">
         <link rel="stylesheet" href="css/form.css">
         <link rel="stylesheet" href="css/accordeon.css">
@@ -10,14 +12,13 @@
         <link rel="stylesheet" href="css/heading-triangles.css">
         <link rel="stylesheet" href="css/menu.css">
         <link rel="stylesheet" href="js/slick/slick.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/tp.css">
         <link rel="stylesheet" href="css/button.css">
         <link rel="stylesheet" href="css/course-card.css">
         <link rel="stylesheet" href="css/references.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/single-formation-new.css">
+        <!--        <link rel="stylesheet" href="css/single-formation.css">-->
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="js/bootstrap-toggable-tabs.js"></script>
@@ -40,14 +41,159 @@
     </head>
     <body>
 
+        <div id="fake-header" style="width: 100%; height: 5em; background: #c3c3c3;"></div>
+
+
+        <!-- Heading -->
+        <section id="heading">
+            <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#f7f7f7" points="50,0 100,0 100,100 45,100"></polygon>
+            </svg>
+            <svg class="svg-1-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#f7f7f7" points="0,0 100,0 100,100 0,100"></polygon>
+            </svg>
+            <svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#fff" points="0,100 100,0 100,100"></polygon>
+                <polygon fill="#f59d00" points="-20,80 100,0 100,100"></polygon>
+            </svg>
+            <div class="container">
+                <div class="row">
+                    <div id="course-imgs" class="col-lg-6">
+                        <img id="course-img" src="images/single-formation/course-img-placeholder.jpg" alt="">
+                        <h3>Nos certifications :</h3>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-6 alignRight">
+                                <img src="images/single-formation/datadock-bw.jpg" alt="">
+                            </div>
+                            <div class="col-lg-6 alignLeft">
+                                <img src="images/single-formation/qualiopi-bw.jpg" alt="">
+                            </div>
+                        </div>
+                        <div id="rating">
+                            <img src="images/single-formation/star-full.png" alt=""> 
+                            <img src="images/single-formation/star-full.png" alt=""> 
+                            <img src="images/single-formation/star-full.png" alt=""> 
+                            <img src="images/single-formation/star-full.png" alt=""> 
+                            <img src="images/single-formation/star-half.png" alt=""> 
+                            <span>4.7/5</span>
+                            <i>Satisfacttion de nos apprenants en 2019</i>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <a id="thematic-info" href="#">
+                            <img src="images/single-formation/ico-thematic-yellow.jpg" alt="">
+                            <span class="c-yellow">Formation Contenus &amp; Site Web</span>
+                        </a>
+                        <div id="course-title">
+                            <b>Concevoir</b>, mettre en place et piloter un <b>projet de formation Blended Learning</b>
+                        </div>
+                        <hr>
+
+                        <div id="course-info" class="row sameHeight">
+                            <div class="col-xs-6">
+                                <img src="images/single-formation/ico-pin.jpg" alt="">
+                                <span>Lieu: Paris</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <img src="images/single-formation/ico-clock.jpg" alt="">
+                                <span>7 heures soit une journée</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <img src="images/single-formation/ico-peoples.jpg" alt="">
+                                <span>3 à 12 personnes max par session</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <img src="images/single-formation/ico-coins.jpg" alt="">
+                                <span>980 € HT</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <img src="images/single-formation/ico-arrow.jpg" alt="">
+                                <span>Référence 1512104</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <img src="images/single-formation/ico-building.jpg" alt="">
+                                <span>Formation intra ou sur-mesure possible</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <img src="images/single-formation/ico-online.jpg" alt="">
+                                <span>Formation distancielle possible</span>
+                            </div>
+                        </div>
+                        <div id="btn-wrapper">
+                            <a href="https://www.digitalacademy.fr/solutions/"><div class="btn btn-sm btn-red-alt marginR">Télécharger la fiche en PDF</div></a>
+                            <a title="Bouton de contact" href=""><div class="btn btn-sm btn-red">Parler avec un conseiller</div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end / Heading -->
+        <!-- Content -->
+        <div class="container">
+            <div class="row">
+                <div id="content" class="col-lg-8">
+
+                    <div id="goals">
+                        <h2 class="c-yellow">Objectifs</h2>
+                        <i>Concevoir, mettre en place et piloter un projet de formation Blended Learning</i>
+                        <hr>
+                        <ul>
+                            <li>Construire ou optimiser un compte Instagram moderne et efficace</li>
+                            <li>Augmenter l’engagement de votre compte</li>
+                            <li>Améliorer votre visibilité et votre image de marque</li>
+                            <li>Définir une stratégie de contenu sur Instagram</li>
+                            <li>Publier tout type de contenu avec les différentes options</li>
+                            <li>Déterminer une ligne éditoriale</li>
+                            <li>Vous initier au marketing sur Instagram</li>
+                        </ul>
+                    </div>
+
+                    <div id="program">
+                        <h2 class="c-yellow">Programme</h2>
+                        <i>Concevoir, mettre en place et piloter un projet de formation Blended Learning</i>
+                        <hr>
+                        <div class="accordeon-wrapper">
+                            <div class="accordeon-item active">
+                                <div class="accordeon-item-title bg-yellow">Introduction, quiz et tour de table</div>
+                                <ul class="accordeon-item-content">
+                                    <li>Construire ou optimiser un compte Instagram moderne et efficace</li>
+                                    <li>Augmenter l’engagement de votre compte</li>
+                                    <li>Améliorer votre visibilité et votre image de marque</li>
+                                    <li>Définir une stratégie de contenu sur Instagram</li>
+                                    <li>Publier tout type de contenu avec les différentes options</li>
+                                    <li>Déterminer une ligne éditoriale</li>
+                                    <li>Vous initier au marketing sur Instagram</li>
+                                </ul>
+                            </div>
+                            <div class="accordeon-item">
+                                <div class="accordeon-item-title bg-yellow">Un monde du travail en mutation</div>
+                                <ul class="accordeon-item-content" style="display:none;">
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus tempore tempora nesciunt suscipit provident dolores maxime illum, quam. Eius odit aliquid, voluptatibus, iusto ut labore rem placeat aliquam quas molestias.</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus tempore tempora nesciunt suscipit provident dolores maxime illum, quam. Eius odit aliquid, voluptatibus, iusto ut labore rem placeat aliquam quas molestias.</li>
+                                </ul>
+                            </div>
+                            <div class="accordeon-item">
+                                <div class="accordeon-item-title bg-yellow">Introduction, quiz et tour de table</div>
+                                <ul class="accordeon-item-content" style="display:none;">
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus tempore tempora nesciunt suscipit provident dolores maxime illum, quam. Eius odit aliquid, voluptatibus, iusto ut labore rem placeat aliquam quas molestias.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+        </div>
+        <!-- end / Content -->
+
     </body>
 </html>
 
 
-<div class="container">
-    <div class="col-sm-6"></div>
-    <div class="col-sm-6"></div>
-</div>
 
 
 

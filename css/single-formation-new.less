@@ -1,0 +1,281 @@
+body{padding-bottom: 50vh}
+
+// Thematic color set generation
+
+@color-dac : #bf3b2b;
+@orange:#e74c3c;
+@gray:#95a5a6;
+@blue:#3498db;
+@yellow:#f59d00;
+@green:#2ecc71;
+@blue-dark:#34495e;
+
+@set: {
+    color-dac: @color-dac;
+    orange: @orange;
+    gray: @gray;
+    blue: @blue;
+    yellow: @yellow;
+    green: @green;
+    blue-dark: @blue-dark;
+    }
+
+    each(@set, {
+        .c-@{key}{
+            color: @value !important;
+            }
+    .bg-@{key}{
+        background-color: @value !important;
+        }
+    });
+
+// Font sizing
+@font-xs: 1.6rem;
+@font-lg: 2.5rem;
+
+// Helpers
+.alignRight{
+    text-align: right;
+    @media screen and (max-width: 1200px) {
+        text-align: center;
+    }
+}
+.alignLeft{
+    text-align: left;
+    @media screen and (max-width: 1200px) {
+        text-align: center;
+    }
+}
+
+
+#heading{
+    position: relative;
+    height: auto;
+    background-size: cover;
+    padding: 3em 0;
+    padding-bottom: ~"calc(3em + 7vw)";
+    svg {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 10vw;
+    }
+    .svg-top, .svg-bottom{
+        position: absolute;
+        width: 100%;
+        z-index: 5;
+    }
+    .svg-top{
+        @height: 4vh;
+        top: -@height;
+        left: 0;
+        height: @height;
+    }
+    .svg-bottom{
+        @height: 4vh;
+        bottom: 0;
+        left: 0;
+        height: @height;
+    }  
+    .svg-1, .svg-1-md{
+        top: 0;
+        height: 100%;
+    }
+    .svg-1-md{
+        display: none;
+    }
+    .svg-2{
+        height: 10vw;
+    }
+    hr{max-width: 20%}
+    #thematic-info{
+        margin-left: -10px;
+        font-size: @font-xs;
+        font-weight: bolder;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    #course-title{
+        font-size: @font-lg;
+        text-transform: uppercase;
+        font-weight: lighter;
+        margin: 1em 0;
+        margin-top: .5em;
+    }
+    #course-imgs{
+        text-align: center;
+        padding-right: 3em;
+        #course-img{
+            box-shadow: 0 15px 30px #9a9a9a;
+            margin-bottom: 2em;
+        }
+        img{
+            display: inline-block;
+        }
+        h3{
+            text-align: center;
+        }
+        hr{
+            display: inline-block;
+            min-width: 90%;
+            margin: 1em 0 !important;
+            opacity: .3;
+        }
+        #rating{
+            margin-top: 2em;
+            span{
+                font-weight: bolder;
+                font-size: 1.1em;
+            }
+            i{
+                display: block;
+                margin-top: .5em;
+            }
+        }
+    }
+    #course-info{
+        color: #656565;
+        font-style: italic;
+        img{
+            max-width: 30px;
+            margin-right: .8em
+        }
+        span{
+            padding-top: .3em;
+            padding-right: .5em;
+            position: absolute;
+        }
+        [class^='col-'] {
+            margin-top: 1em
+        }
+    }
+    hr{
+        margin: 0 !important;
+        display: block;
+        border-top: solid 1px #000;
+    }
+    #btn-wrapper{
+        margin-top: 1em;
+    }
+    #course-title + hr{
+        min-width: 70%;
+        opacity: .4;
+    }
+}
+@media(max-width:1200px){
+    #heading{
+        .svg-1{display: none !important;}
+        .svg-1-md{display: inherit !important;}
+        [class^='col-'] {
+            //            padding: 6em 0;
+            //            padding-bottom: 14em;
+        }
+        [class^='col-']:first-child{display: none;}
+        [class^='col-']:last-child{
+            //            padding: 3em !important;
+            //            padding-bottom: 6em !important;
+            text-align: center;
+            hr{margin: auto!important;}
+        }
+    }
+}
+
+
+// Content global
+#content{
+    > div{
+        margin-bottom: 3em;
+    }
+    h2{
+        font-weight: bolder;
+        margin: 1em 0 .2em 0;
+    }
+    hr{
+        min-width: 100%;
+        margin: 1em 0!important;
+        border-top: 1px solid #bababa;
+    }
+}
+
+#goals, .accordeon-item-content{ 
+    padding: 0;
+    ul{padding: 0;}
+    li{
+        list-style: none;
+        font-weight: 400;
+        margin-bottom: .4em;
+        &:after{content: none;}
+        &:before{
+            content: '';
+            background-image: url(../images/ok-icon-02.svg);
+            height: 1em;
+            width: 1em;
+            background-position: center;
+            background-size: cover;
+            display: inline-block;
+            margin-right: .5em;
+        }
+    }
+}
+
+
+// Accordeon
+.accordeon-wrapper{
+    .accordeon-item{
+        border-radius: 5px;
+        box-shadow: 0 0 10px #c3c3c3;
+        margin-bottom: 1.5em;
+        .accordeon-item-title{
+            user-select: none;
+            transition: background .15s ease;
+            position: relative;
+            padding: 0 1em;
+            height: 3em;
+            line-height: 3em;
+            border-radius: 5px;
+            &:after{
+                content:"+";
+                position: absolute;
+                font-weight: bolder;
+                right: 0;
+                height: 3em;
+                zoom:150%;
+                width: 2em;
+                color: #4b4b4b;
+                text-align: center;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .accordeon-item-content{
+            padding: 1em 2em ;
+        }
+    }
+    .accordeon-item.active{
+        .accordeon-item-title{
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            color: #fff;
+            font-weight: bolder;
+            &:after{
+                color: #fff;
+                content: "-";
+            }
+        }
+        .accordeon-item-content{
+            display: block;
+        }
+    }
+    .accordeon-item:not(.active){
+        .accordeon-item-title{
+            background-color: #fff!important;
+            &:hover{
+                background: darken(#fff, 5%) !important;
+            }
+        }
+    }
+}
