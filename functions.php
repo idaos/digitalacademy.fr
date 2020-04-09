@@ -999,6 +999,8 @@ function kz_shortcode_coursesSlider( $atts ) {
     } elseif ( $a['taxo'] == 'thematique' ) {
         $thematiques       = get_the_terms( $post_id, 'thematique' );
         $id_terms          = wp_list_pluck( $thematiques, 'term_id' );
+        $thColor           = new KzThema($id_terms);
+        $thColor           = $thColor->getColor();
         $args['tax_query'] = array( array( 'taxonomy' => 'thematique', 'terms' => $id_terms, 'field' => 'term_id' ) );
     } else {
         $args['meta_query'] = array( array( 'key' => 'top_formation', 'value' => true, 'compare' => '=' ) );
@@ -1047,7 +1049,7 @@ function kz_shortcode_coursesSlider( $atts ) {
                                     <div class="goals"><?php echo $course_goals; ?></div>
                                 </div>
                                 <a class="en-savoir-plus" href="<?php echo get_the_permalink( $formation->ID ); ?>">
-                                    <div class="btn btn-xs btn-red margin0">En savoir plus</div>
+                                    <div class="btn btn-xs btn-red <?php if(isset($thColor)){echo 'btn-' . $thColor;}?> margin0">En savoir plus</div>
                                 </a>
                             </div>
                         </div>

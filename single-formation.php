@@ -19,23 +19,26 @@
         <div class="row">
             <div id="course-imgs" class="col-lg-6 row">
                 <img id="course-img" src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/formation-blended-learning.jpg" alt="">
-                <div class="certification visibleLg">
+                <div class="multiply visibleLg">
                     <h3>Nos certifications :</h3>
                     <hr>
                     <div class="row">
-                        <div class="col-xs-6 alignRight">
-                            <img src="images/single-formation/datadock-bw.jpg" alt="">
+                        <!--                        <div class="col-xs-6 alignRight">-->
+                        <div class="col-xs-12">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/datadock-bw.jpg" alt="">
                         </div>
-                        <div class="col-xs-6 alignLeft">
-                            <img src="images/single-formation/qualiopi-bw.jpg" alt="">
-                        </div>
+                        <!--
+<div class="col-xs-6 alignLeft">
+<img src="<?php //echo get_stylesheet_directory_uri(); ?>/images/single-formation/qualiopi-bw.jpg" alt="">
+</div>
+-->
                     </div>
                     <div class="rating">
-                        <img src="images/single-formation/star-full.png" alt=""> 
-                        <img src="images/single-formation/star-full.png" alt=""> 
-                        <img src="images/single-formation/star-full.png" alt=""> 
-                        <img src="images/single-formation/star-full.png" alt=""> 
-                        <img src="images/single-formation/star-half.png" alt=""> 
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-full.png" alt=""> 
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-full.png" alt=""> 
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-full.png" alt=""> 
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-full.png" alt=""> 
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-half.png" alt=""> 
                         <span>4.7/5</span>
                         <i>Satisfaction de nos apprenants en 2019</i>
                     </div>
@@ -43,8 +46,8 @@
             </div>
             <div class="col-lg-6 alignCenterLg alignLeftSm">
                 <a id="thematic-info" href="#">
-                    <img src="images/single-formation/ico-thematic-yellow.jpg" alt="">
-                    <span class="c-yellow">Formation Contenus &amp; Site Web</span>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-thematic-yellow.jpg" alt="" class="multiply">
+                    <span class="c-yellow">Formations : "Contenus &amp; Site Web"</span>
                 </a>
                 <div id="course-title">
                     <b>Concevoir</b>, mettre en place et piloter un <b>projet de formation Blended Learning</b>
@@ -53,54 +56,57 @@
 
                 <div id="course-info" class="row">
                     <div class="col-sm-6 alignLeft">
-                        <img src="images/single-formation/ico-pin.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-pin.jpg" alt="" class="multiply">
                         <span>Lieu: Paris</span>
                     </div>
                     <div class="col-sm-6 alignLeft">
-                        <img src="images/single-formation/ico-clock.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-clock.jpg" alt="" class="multiply">
                         <span>7 heures soit une journée</span>
                     </div>
                     <div class="col-sm-6 alignLeft">
-                        <img src="images/single-formation/ico-peoples.jpg" alt="">
-                        <span>3 à 12 personnes max par session</span>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-peoples.jpg" alt="" class="multiply">
+                        <span>3 à 12 personnes</span>
                     </div>
                     <div class="col-sm-6 alignLeft">
-                        <img src="images/single-formation/ico-coins.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-coins.jpg" alt="" class="multiply">
                         <span>980 € HT par personne</span>
                     </div>
                     <div class="col-sm-6 alignLeft">
-                        <img src="images/single-formation/ico-arrow.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-arrow.jpg" alt="" class="multiply">
                         <span>Référence 1512104</span>
                     </div>
                     <div class="col-sm-6 alignLeft">
-                        <img src="images/single-formation/ico-building.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
                         <span>Intra ou sur-mesure possible</span>
                     </div>
                     <div class="col-sm-6 alignLeft">
-                        <img src="images/single-formation/ico-online.jpg" alt="">
-                        <span>Distancielle dès aujourd'hui</span>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-online.jpg" alt="" class="multiply">
+                        <span>100% en ligne avec le formateur</span>
                     </div>
                     <div class="col-sm-6 alignLeft">
-                        <img src="images/single-formation/ico-computer.png" alt="">
-                        <span>E-learning bientôt sur vos écrans</span>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-computer.png" alt="" class="multiply">
+                        <span>E-learning sur demande</span>
                     </div>
                 </div>
                 <hr class="hiddenLg alignCenterLg">
-                <div class="certification hiddenLg alignCenterLg">
+                <div class="multiply hiddenLg alignCenterLg">
                     <div class="row" style="padding-top: 1em" class="alignCenterLg">
                         <!--<i>Nos certifications</i>-->
-                        <div class="col-xs-6 col-sm-4 alignRight alignCenterLg alignRightXs">
-                            <img src="images/single-formation/datadock-bw.jpg" alt="">
+                        <div class="col-xs-12 col-sm-6 alignCenterLg">
+                            <!--                        <div class="col-xs-6 col-sm-4 alignRight alignCenterLg alignRightXs">-->
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/datadock-bw.jpg" alt="">
                         </div>
-                        <div class="col-xs-6 col-sm-4 alignLeft alignCenterLg alignLeftXs">
-                            <img src="images/single-formation/qualiopi-bw.jpg" alt="">
-                        </div>
+                        <!--
+<div class="col-xs-6 col-sm-4 alignLeft alignCenterLg alignLeftXs">
+<img src="<?php //echo get_stylesheet_directory_uri(); ?>/images/single-formation/qualiopi-bw.jpg" alt="">
+</div>
+-->
                         <div class="rating" class="col-xs-12 col-sm-4">
-                            <img src="images/single-formation/star-full.png" alt=""> 
-                            <img src="images/single-formation/star-full.png" alt=""> 
-                            <img src="images/single-formation/star-full.png" alt=""> 
-                            <img src="images/single-formation/star-full.png" alt=""> 
-                            <img src="images/single-formation/star-half.png" alt=""> 
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-full.png" alt=""> 
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-full.png" alt=""> 
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-full.png" alt=""> 
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-full.png" alt=""> 
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/star-half.png" alt=""> 
                             <span>4.7/5</span>
                             <br>
                             <i style="font-size: .9em;margin-top: .6em!important;display: inline-block">Satisfaction de nos apprenants <span class="noWrap">en 2019</span></i>
@@ -117,9 +123,9 @@
 </section>
 <!-- end / Heading -->
 <!-- Content -->
-<div class="container">
+<div class="container" style="margin-top:1em;">
     <div class="row row-same-height reverseLg">
-        <div id="content" class="col-lg-7">
+        <div id="content" class="col-lg-8">
 
             <div id="goals">
                 <h2 class="c-yellow">Objectifs</h2>
@@ -207,7 +213,7 @@
                         </div>
                     </div>
                     <div class="accordeon-item">
-                        <div class="accordeon-item-title bg-yellow">Quelles sont les modalités pédagogiques employées</div>
+                        <div class="accordeon-item-title bg-yellow">Quelles sont les modalités pédagogiques employées ?</div>
                         <div class="accordeon-item-content" style="display:none;">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis animi veritatis nulla pariatur alias neque vel nemo, suscipit dolorem, quod consequatur tenetur labore saepe iusto possimus deleniti, maxime sunt, libero?</p>
                         </div>
@@ -222,7 +228,7 @@
             <hr>
             <i>Si cette formation vous intéresse mais que les dates ne vous conviennent pas, n’hésitez pas à nous contacter.</i>
             <div class="insert session-closed">
-                <img src="images/calendar-icon.svg" height=12 alt="">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/calendar-icon.svg" height=12 alt="">
                 <div class="wrapper">
                     <strong style="margin-bottom:.3em;">6 novembre 2020</strong>
                     <br><i>Paris</i>
@@ -230,7 +236,7 @@
                 </div>
             </div>
             <div class="insert">
-                <img src="images/calendar-icon.svg" height=12 alt="">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/calendar-icon.svg" height=12 alt="">
                 <div class="wrapper">
                     <strong style="margin-bottom:.3em;">6 novembre 2020</strong>
                     <br><i>Paris</i>
@@ -238,7 +244,7 @@
                 </div>
             </div>
             <div class="insert">
-                <img src="images/calendar-icon.svg" height=12 alt="">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/calendar-icon.svg" height=12 alt="">
                 <div class="wrapper">
                     <strong style="margin-bottom:.3em;">31 décembre 2020</strong>
                     <br><i>Paris</i>
@@ -248,9 +254,9 @@
             <i><span class="c-color-dac">*</span> Pour les formations sur plusieurs jours, la date correspond au premier jour de la formation</i>
             <i><span class="c-color-dac">**</span> Les inscriptions aux sessions de formations sont closes 5 jours avant la date indiquée</i>
             <i>Les sessions de formation sont maintenus à partir de 3 personnes inscrites</i>
-            <div class="row sameHeight">
+            <div id="insert-alt-wrapper" class="row sameHeight">
                 <div class="insert-alt col-sm-4 col-lg-12">
-                    <img width="100" height="100" src="images/single-formation/ico-sm-phone.jpg">
+                    <img width="100" height="100" src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-sm-phone.jpg">
                     <div class="wrapper">
                         <strong>Vous avez des questions sur <span class="noWrap">cette formation ?</span></strong>
                         <br>
@@ -262,7 +268,7 @@
                     </div>
                 </div>
                 <div class="insert-alt col-sm-4 col-lg-12">
-                    <img width="100" height="100" src="images/formateur-expert-avatar.svg">
+                    <img width="100" height="100" src="<?php echo get_stylesheet_directory_uri(); ?>/images/formateur-expert-avatar.svg">
                     <div class="wrapper">
                         <strong>Formateur</strong>  
                         <p>Notre formateur est un expert des réseaux sociaux. Il a plus de 5 ans d'expérience dans ce domaine.</p> 
@@ -270,10 +276,10 @@
                     </div>
                 </div>
                 <div class="insert-alt col-sm-4 col-lg-12">
-                    <img width="100" height="100" src="images/handicap.svg">
+                    <img width="100" height="100" src="<?php echo get_stylesheet_directory_uri(); ?>/images/handicap.svg">
                     <div class="wrapper">
                         <strong>Accessibilité</strong>  
-                        <p><i>Public en situation de handicap, nous contacter au :</i></p>
+                        <p><i>Public en situation de handicap, <span class="noWrap">nous contacter au :</span></i></p>
                         <a title="Bouton de contact" href="tel:0977215321"><div class="btn btn-xs btn-red-alt">09 77 21 53 21</div></a>
                     </div>
                 </div>
@@ -281,7 +287,62 @@
         </div>
     </div>
 </div>
-<!-- end / Content -->
+<!--
+<div id="content-bottom-svg">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#eee" points="0,0 100,0 100,100"></polygon>
+    </svg>
+    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#f59d00" points="0,0 140,-20 0,100"></polygon>
+    </svg>
+    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#fff" points="0,0 100,0 100,100 0,100"></polygon>
+    </svg>
+</div>
+-->
+
+
+<section id="slider-formations" class="container-wp" style="background:#fff!important;">
+        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#eee" points="0,0 100,0 100,100"></polygon>
+        </svg>
+        <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#f59d00" points="0,0 100,20 0,100"></polygon>
+        </svg>
+        <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#fff" points="0,0 100,0 100,100 0,100"></polygon>
+        </svg>
+    <div id="null" class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <br><br>
+                <span class="reverse">
+                    <h2>Nos formations digitales</h2>
+                    <h3>Un catalogue de plus de 30 formations digitales</h3>
+                </span>
+                <p>Les participants à cette formation ont également consulté les formations suivantes :</p>
+                <hr>
+                <?php echo do_shortcode( '[kz_courses_slider nb=-1 taxo="thematique"]' ); ?>
+                <a href="/formations/"><div class="btn btn-red">Découvrir toutes nos formations</div></a>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</section>    
+<section id="references" class="container-wp">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <br>
+                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
+                <hr>
+                <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
+                <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php get_footer(); ?>
 

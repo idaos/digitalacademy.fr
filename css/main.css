@@ -330,11 +330,6 @@ body.theme-orange h2{
 bodypage-template-nos-thematiques h2{
     margin-bottom: 40px;
 }
-body.single-formation h2,
-body.single-formation .p30 h2{
-    text-align: center;
-    color: #be3b2b;
-}
 .full-width .clearfix span{
     color: #fff;
 }
