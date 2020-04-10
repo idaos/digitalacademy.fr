@@ -68,7 +68,7 @@ get_header(); ?>
         </div>
     </div>
     <div class="row row-same-height team">
-        <div class="col-sm-6 col-md-3">
+        <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
             <div class="wrapper"><img src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/Franck_Perrier.jpg" alt="" /></div>
             <p class="name"><strong>Franck Perrier</strong></p>
             <p class="fonction">Directeur Général / Fondateur de la DigitalAcademy</p>
@@ -77,7 +77,7 @@ get_header(); ?>
             <p>Franck continue de concevoir et d’animer de nombreux programmes sur mesure pour des équipes dirigeantes. Parallèlement, Il intervient en tant que conférencier.</p>
             <p>Diplômé de Northeastern University, de l’IFAM, Franck Perrier a exercé des fonctions de directeur général au sein d’entreprises de la nouvelle économie et a fondé l’agence digitale IDAOS.</p>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
             <div class="wrapper"><img src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/Valérie_Vecchioni.jpg" alt="" /></div>
             <p class="name"><strong>Valérie Vecchioni</strong></p>
             <p class="fonction">Directrice de la pédagogie</p>
@@ -85,6 +85,7 @@ get_header(); ?>
             <p>Au sein de la DigitalAcademy, Valérie analyse et développe des recommandations de formation pour les directions opérationnelles et les directions de la formation. Elle conçoit des ingénieries pédagogiques,  écrit, coordonne et anime de nombreux programmes.</p>
             <p>Valérie Vecchioni est diplômée de  l’Institut d’Etudes Politiques de Paris, Service Public et de l’Université de Paris IV Sorbonne (DESS en Communication politique et sociale).</p>
         </div>
+<!--
         <div class="col-sm-6 col-md-3">
             <div class="wrapper"><img src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/Bertrand_Anne.jpg" alt="" /></div>
             <p class="name"><strong>Bertrand Anne</strong></p>
@@ -94,7 +95,8 @@ get_header(); ?>
             <p>Bertrand Anne développe les outils digitaux des formations, de l’usage des plateformes LMS aux outils qui contribuent à digitaliser les programmes : quiz, évaluations en ligne, classes virtuelles.</p>
             <p>Bertrand Anne est diplômé de l’Ecole Supérieure de Commerce de Chambéry avec une spécialité en WebMarketing et de l’Ecole Multimédia de Paris.</p>
         </div>
-        <div class="col-sm-6 col-md-3">
+-->
+        <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
             <div class="wrapper"><img class="wp-image-3714" src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/Benjamin_Ferrier.jpg" alt="" /></div>
             <p class="name"><strong>Benjamin Ferrier</strong></p>
             <p class="fonction">Chef de projet formation / Ingénierie pédagogique</p>
