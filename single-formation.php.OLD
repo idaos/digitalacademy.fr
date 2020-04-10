@@ -42,7 +42,11 @@ $title = get_the_title();
 
 <?php
 if ( have_posts() ) :
+
+//---------------------------------------------------------------------------
 // Start the Loop.
+//---------------------------------------------------------------------------
+
 while ( have_posts() ) : the_post();
 
 $thematic = wp_get_post_terms( get_the_ID(), 'thematique' );
