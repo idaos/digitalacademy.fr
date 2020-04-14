@@ -23,7 +23,7 @@
         .c-@{key}{
             color: @value !important;
             }
-    .bg-@{key}{
+    .bgc-@{key}{
         background-color: @value !important;
         }
     });
@@ -34,6 +34,10 @@
 
 
 // Theme overrides
+h1{
+    font-size: 1.2em!important;
+    font-weight: lighter;
+}
 .breadcrumb{
     position: relative;
     background: #fff !important;
@@ -47,17 +51,6 @@
 }
 .formation-template-default #slider-formations{
     display: inherit !important;
-}
-@media (max-width: 768px){
-    //    body #nos-formations, #references .wrapper {
-    //        padding: 0 3em !important;
-    //    }
-    //    body .slick-prev {
-    //        left: -100px !important;
-    //    }
-    //    body .slick-next {
-    //        right: -100px !important;
-    //    }
 }
 // Helpers
 .alignRight{
@@ -459,19 +452,27 @@
         display: inline-block;
         width: 100%;
     }
+    @media only screen and (max-width: 1200px){
+        padding-right: 15px;
+        padding-bottom: 7em;
+
+    }
+}
+#content, #cta-col{
     h2{
         font-weight: bolder;
         margin: 1em 0 .2em 0;
+    }
+    i{
+        margin-bottom: .5em;
+    }
+    h2 + i{
+        margin-bottom: 0;
     }
     hr{
         min-width: 100%;
         margin: 1em 0!important;
         border-top: 1px solid #bababa;
-    }
-    @media only screen and (max-width: 1200px){
-        padding-right: 15px;
-        padding-bottom: 7em;
-
     }
 }
 #slider-formations{
@@ -640,24 +641,17 @@
 
 // Right col
 #cta-col{
-    padding-top: 6.78em;
+    padding-top: 2.85em;
     padding-left: 2.5em;
     padding-bottom: 11em;
     margin-top: -2em;
     z-index: 0;
     background: #eeeeee;
-    //    border-left: solid 1px #a1a1a1;
-    //    border-bottom: solid 1px #a1a1a1;
     hr{
         min-width: 100%;
         border-top: solid 1px #a0a0a0;
     }
-    h3{
-        margin: 0 0 .5em 0;
-
-    }
     &:after, &:before{
-        //        border-bottom: solid 1px #a1a1a1;
         position: absolute;
         content: "";
         top: 0;
@@ -668,10 +662,6 @@
     }
     &:before{
         content: none;
-    }
-    i{
-        margin-top: .2em;
-        margin-bottom: .5em;
     }
     #call-link, #mail-link{
         font-size: 1.1em;

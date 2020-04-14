@@ -204,7 +204,9 @@ function getProgram(){
         $program .= get_field( 'programme_3' );
     }
     $program_arr = explode("\n", $program);
+    //    $program_arr_clean = array("<div class='accordeon-wrapper accordeon-has-path'>");
     $program_arr_clean = array();
+    $program_arr_bloc = array();
 
     foreach( $program_arr as $program_item ){
 
@@ -220,8 +222,8 @@ function getProgram(){
         $th = new KzThema($th_first_id);
         $clr =  $th->getColor();
 
-        $program_item = str_replace("<p><strong>", "</ul></div></div><div class='p-wp col-sm-6 col-md-4'><div class='card'><h4 class='".$clr."'>", $program_item);
-        $program_item = str_replace("</strong></p>", "</h4><ul>", $program_item);
+        $program_item = str_replace("<p><strong>", "<div class='accordeon-item-title bgc-" . $clr . "'>", $program_item);
+        $program_item = str_replace("</strong></p>", "</div>", $program_item);
 
         $program_item = str_replace("<p><span style=\"font-weight: 400;\">", "<li>", $program_item);
         $program_item = str_replace("</span></p>", "</li>", $program_item);
@@ -238,10 +240,35 @@ function getProgram(){
         $program_item = str_replace("<strong>", "", $program_item);
         $program_item = str_replace("</strong>", "", $program_item);
 
+
         if(( $program_item != "<li>&nbsp;</li>" ) && ( $program_item != "" )){
-            array_push($program_arr_clean, $program_item);
+
+            $pos = strpos($program_item, "accordeon-item-title");
+
+            if ($pos !== false) {
+
+                array_push($program_arr_clean,"<ul class='accordeon-item-content' style='display:none;'>");
+                foreach ($program_arr_bloc as $item) {
+                    array_push($program_arr_clean, $item);
+                }
+                array_push($program_arr_clean,"</ul>");
+                array_push($program_arr_clean,"</div><div class='accordeon-item'>");
+                array_push($program_arr_clean, $program_item);
+                $program_arr_bloc = array();
+            }else{
+                array_push($program_arr_bloc, $program_item);
+            }
+
         }
     }
+    array_push($program_arr_clean,"<ul class='accordeon-item-content' style='display:none;'>");
+    foreach ($program_arr_bloc as $item) {
+        array_push($program_arr_clean, $item);
+    }
+    array_push($program_arr_clean,"</ul>");
+    array_unshift($program_arr_clean, '<div class="accordeon-wrapper accordeon-has-path"><div>');
+    array_push($program_arr_clean, '</div></div>');
+
     return implode($program_arr_clean);
 }
 function getVersion(){
@@ -374,10 +401,13 @@ $sessions = getSessions();
             <div class="col-lg-6 alignCenterLg alignLeftSm">
                 <a id="thematic-info" href="#">
                     <img src="<?php echo $styleUri; ?>/images/single-formation/ico-thematic-<?php echo $colorTxt; ?>.jpg" alt="" class="multiply">
-                    <span class="c-<?php echo $colorTxt; ?>">Formations : "<?php echo $thName; ?>"</span>
+                    <span class="c-<?php echo $colorTxt; ?>">Thématique : "<?php echo $thName; ?>"</span>
                 </a>
                 <div id="course-title">
-                    <?php echo $title; ?>
+                    <h1>
+                        <b>Formation </b>
+                        <?php echo $title; ?>
+                    </h1>
                     <!--                    <b>Concevoir</b>, mettre en place et piloter un <b>projet de formation Blended Learning</b>-->
                 </div>
                 <hr class="alignCenterLg">
@@ -468,33 +498,7 @@ $sessions = getSessions();
                 <h2 class="c-<?php echo $colorTxt; ?>">Programme</h2>
                 <i><?php echo $title; ?></i>
                 <hr>
-                <div class="accordeon-wrapper accordeon-has-path">
-                    <div class="accordeon-item active">
-                        <div class="accordeon-item-title bg-<?php echo $colorTxt; ?>">Introduction, quiz et tour de table</div>
-                        <ul class="accordeon-item-content">
-                            <li>Construire ou optimiser un compte Instagram moderne et efficace</li>
-                            <li>Augmenter l’engagement de votre compte</li>
-                            <li>Améliorer votre visibilité et votre image de marque</li>
-                            <li>Définir une stratégie de contenu sur Instagram</li>
-                            <li>Publier tout type de contenu avec les différentes options</li>
-                            <li>Déterminer une ligne éditoriale</li>
-                            <li>Vous initier au marketing sur Instagram</li>
-                        </ul>
-                    </div>
-                    <div class="accordeon-item">
-                        <div class="accordeon-item-title bg-<?php echo $colorTxt; ?>">Un monde du travail en mutation</div>
-                        <ul class="accordeon-item-content" style="display:none;">
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus tempore tempora nesciunt suscipit provident dolores maxime illum, quam. Eius odit aliquid, voluptatibus, iusto ut labore rem placeat aliquam quas molestias.</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus tempore tempora nesciunt suscipit provident dolores maxime illum, quam. Eius odit aliquid, voluptatibus, iusto ut labore rem placeat aliquam quas molestias.</li>
-                        </ul>
-                    </div>
-                    <div class="accordeon-item">
-                        <div class="accordeon-item-title bg-<?php echo $colorTxt; ?>">Introduction, quiz et tour de table</div>
-                        <ul class="accordeon-item-content" style="display:none;">
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus tempore tempora nesciunt suscipit provident dolores maxime illum, quam. Eius odit aliquid, voluptatibus, iusto ut labore rem placeat aliquam quas molestias.</li>
-                        </ul>
-                    </div>
-                </div>
+                <?php echo $program; ?>
             </div>
 
             <div id="presentation">
@@ -507,25 +511,25 @@ $sessions = getSessions();
             <div id="prerequisites">
                 <div class="accordeon-wrapper">
                     <div class="accordeon-item">
-                        <div class="accordeon-item-title bg-<?php echo $colorTxt; ?>">Prérequis de la formation</div>
+                        <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">Prérequis de la formation</div>
                         <div class="accordeon-item-content" style="display:none;">
                             <?php echo $prerequisites; ?>
                         </div>
                     </div>
                     <div class="accordeon-item">
-                        <div class="accordeon-item-title bg-<?php echo $colorTxt; ?>">À qui s'adresse cette formation ?</div>
+                        <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">À qui s'adresse cette formation ?</div>
                         <div class="accordeon-item-content" style="display:none;">
                             <?php echo $forWho; ?>
                         </div>
                     </div>
                     <div class="accordeon-item">
-                        <div class="accordeon-item-title bg-<?php echo $colorTxt; ?>">Quelle est la méthodologie pédagogique employée ?</div>
+                        <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">Quelle est la méthodologie pédagogique employée ?</div>
                         <div class="accordeon-item-content" style="display:none;">
                             <?php echo $methodology; ?>
                         </div>
                     </div>
                     <div class="accordeon-item">
-                        <div class="accordeon-item-title bg-<?php echo $colorTxt; ?>">Quelles sont les modalités pédagogiques employées ?</div>
+                        <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">Quelles sont les modalités pédagogiques employées ?</div>
                         <div class="accordeon-item-content" style="display:none;">
                             <?php echo $evaluation; ?>
                         </div>
@@ -536,7 +540,8 @@ $sessions = getSessions();
 
         </div>
         <div id="cta-col" class="col-lg-4">
-            <h3>Prochaines Dates <span class="c-color-dac">*</span></h3>
+            <h2 class="c-<?php echo $colorTxt; ?>">Prochaines Dates <span class="c-color-dac">*</span></h2>
+            <i><?php echo $title; ?></i>
             <hr>
             <i>Si cette formation vous intéresse mais que les dates ne vous conviennent pas, n’hésitez pas à nous contacter.</i>
             <div class="insert session-closed">

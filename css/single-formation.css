@@ -1,44 +1,48 @@
 .c-color-dac {
   color: #bf3b2b !important;
 }
-.bg-color-dac {
+.bgc-color-dac {
   background-color: #bf3b2b !important;
 }
 .c-orange {
   color: #e74c3c !important;
 }
-.bg-orange {
+.bgc-orange {
   background-color: #e74c3c !important;
 }
 .c-gray {
   color: #95a5a6 !important;
 }
-.bg-gray {
+.bgc-gray {
   background-color: #95a5a6 !important;
 }
 .c-blue {
   color: #3498db !important;
 }
-.bg-blue {
+.bgc-blue {
   background-color: #3498db !important;
 }
 .c-yellow {
   color: #f59d00 !important;
 }
-.bg-yellow {
+.bgc-yellow {
   background-color: #f59d00 !important;
 }
 .c-green {
   color: #2ecc71 !important;
 }
-.bg-green {
+.bgc-green {
   background-color: #2ecc71 !important;
 }
 .c-blue-dark {
   color: #34495e !important;
 }
-.bg-blue-dark {
+.bgc-blue-dark {
   background-color: #34495e !important;
+}
+h1 {
+  font-size: 1.2em !important;
+  font-weight: lighter;
 }
 .breadcrumb {
   position: relative;
@@ -52,8 +56,6 @@
 }
 .formation-template-default #slider-formations {
   display: inherit !important;
-}
-@media (max-width: 768px) {
 }
 .alignRight {
   text-align: right;
@@ -533,20 +535,30 @@
   display: inline-block;
   width: 100%;
 }
-#content h2 {
-  font-weight: bolder;
-  margin: 1em 0 0.2em 0;
-}
-#content hr {
-  min-width: 100%;
-  margin: 1em 0!important;
-  border-top: 1px solid #bababa;
-}
 @media only screen and (max-width: 1200px) {
   #content {
     padding-right: 15px;
     padding-bottom: 7em;
   }
+}
+#content h2,
+#cta-col h2 {
+  font-weight: bolder;
+  margin: 1em 0 0.2em 0;
+}
+#content i,
+#cta-col i {
+  margin-bottom: 0.5em;
+}
+#content h2 + i,
+#cta-col h2 + i {
+  margin-bottom: 0;
+}
+#content hr,
+#cta-col hr {
+  min-width: 100%;
+  margin: 1em 0!important;
+  border-top: 1px solid #bababa;
 }
 #slider-formations {
   position: relative;
@@ -714,7 +726,7 @@
   content: none;
 }
 #cta-col {
-  padding-top: 6.78em;
+  padding-top: 2.85em;
   padding-left: 2.5em;
   padding-bottom: 11em;
   margin-top: -2em;
@@ -724,9 +736,6 @@
 #cta-col hr {
   min-width: 100%;
   border-top: solid 1px #a0a0a0;
-}
-#cta-col h3 {
-  margin: 0 0 0.5em 0;
 }
 #cta-col:after,
 #cta-col:before {
@@ -740,10 +749,6 @@
 }
 #cta-col:before {
   content: none;
-}
-#cta-col i {
-  margin-top: 0.2em;
-  margin-bottom: 0.5em;
 }
 #cta-col #call-link,
 #cta-col #mail-link {

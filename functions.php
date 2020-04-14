@@ -63,7 +63,7 @@ function tp_enqueue_scripts() {
     }
 
     if(($template_name != 'template-pages-offre.php')
-       &&($template_name != 'tpl-nos-formations.php')
+       &&((is_archive())&&(is_post_type_archive( 'formation' )))
        &&(is_page(260)) // page Clients
       ){
         wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
@@ -327,7 +327,7 @@ function custom_scripts_and_styles_courses(){
     }else{
         $template_name = false;
     }
-    if(($template_name == 'tpl-nos-formations.php')||(isCoursesListPage())){
+    if((is_archive())&&(is_post_type_archive( 'formation' ))){
         wp_enqueue_style( 'bootstrap4-grid', get_template_directory_uri() . '/landing-page-catalogue/vendor/bootsrap4/css/bootstrap-grid.min.css', null );
         wp_enqueue_style( 'page-nos-formations', get_template_directory_uri() . '/css/page-nos-formations.css', array( 'main', 'references-style' ), null );
 
@@ -346,7 +346,7 @@ function custom_scripts_and_styles_courses(){
     wp_enqueue_script( 'getCoursesByKeyword', get_stylesheet_directory_uri() . '/js/ajaxurl.js', array('jquery'), '1.0', true );
     wp_localize_script('getCoursesByKeyword', 'ajaxurl', admin_url( 'admin-ajax.php' ) );    
 }
-// check whether we are on the page "/formations"  or not
+/*// check whether we are on the page "/formations"  or not
 function isCoursesListPage(){
     $a = get_link_by_slug('formations');
     $b = getCurrentPageURL();
@@ -376,7 +376,7 @@ function getCurrentPageURL(){
     // Append the requested resource location to the URL   
     $url.= $_SERVER['REQUEST_URI'];    
     return $url;  
-}
+}*/
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
