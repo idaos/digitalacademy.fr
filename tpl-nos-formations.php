@@ -92,11 +92,11 @@ get_header();
                              >
                             <div class="wrapper">
                                 <!-- Image -->  
-                                <a href="{{course.link}}">   
+                                <a ng-href="{{course.link}}">   
                                     <img ng-src="{{course.image}}" alt="">
                                 </a>
                                 <div>
-                                    <a href="{{course.link}}">
+                                    <a ng-href="{{course.link}}">
                                         <h4 ng-bind-html="course.title | level_hl | highlight: searchText"></h4>
                                     </a>  
                                     <div class="nouvelle_formation" ng-show="course.new != false"></div>
@@ -104,7 +104,7 @@ get_header();
 
                                     <div class="goals" ng-bind-html="course.goals | highlight:searchText"></div>
                                 </div>
-                                <a class="en-savoir-plus" href="{{course.link}}">
+                                <a class="en-savoir-plus" ng-href="{{course.link}}">
                                     <div class="btn btn-sm" ng-class="selectBtnClass()">En savoir plus</div>
                                 </a>
                             </div>
