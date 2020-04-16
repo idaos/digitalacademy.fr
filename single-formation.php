@@ -458,13 +458,13 @@ while ( have_rows( 'sessions' ) ){
                         <!-- Tabs nav -->
                         <ul class="nav nav-tabs">
                             <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
-                            <li class="active"><a data-toggle="tab" href="_#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
                             <?php endif; ?>
                             <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
-                            <li><a data-toggle="tab" href="_#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
+                            <li><a data-toggle="tab" href="#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
                             <?php endif; ?>
                             <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
-                            <li><a data-toggle="tab" href="_#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
+                            <li><a data-toggle="tab" href="#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
                             <?php endif; ?>
                         </ul>
 
