@@ -497,7 +497,7 @@ $hasSession = hasSessions();
                     <?php echo $goals; ?>
                 </ul>
             </div>
-            
+
             <div class="insert-alt-wrapper-b row sameHeight">
                 <div class="col-sm-4 col-lg-6">
                     <div class="insert-alt">
@@ -520,7 +520,7 @@ $hasSession = hasSessions();
                     </div>
                 </div>
             </div>
-            
+
             <div id="program">
                 <style>.accordeon-has-path .accordeon-item:after{background: <?php echo $colorHex; ?>;}</style>
                 <h2 class="c-<?php echo $colorTxt; ?>">Programme</h2>
@@ -631,67 +631,70 @@ $hasSession = hasSessions();
 <i><?php //echo $title; ?></i>
 <hr>
 -->
-            <!-- Tabs nav -->
-            <ul class="nav nav-tabs">
-                <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
-                <li class="active"><a data-toggle="tab" href="_#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
-                <?php endif; ?>
-                <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
-                <li><a data-toggle="tab" href="_#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
-                <?php endif; ?>
-                <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
-                <li><a data-toggle="tab" href="_#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
-                <?php endif; ?>
-            </ul>
-            <!-- Tabs content -->
-            <div id="tab-content" class="tab-content">
+            <div id="tabled-form">
 
-                <?php if ( ( !in_array ( 'inter', $enabled_tabs ) )
-                          &&( !in_array ( 'intra-entreprises', $enabled_tabs ) )
-                          &&( !in_array ( 'sur-mesure', $enabled_tabs ) ) ): ?>
-                <div id="tab-inter" class="tab-pane active">
-                    <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
-                </div>
-                <?php endif; ?>
+                <!-- Tabs nav -->
+                <ul class="nav nav-tabs">
+                    <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
+                    <li class="active"><a data-toggle="tab" href="_#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
+                    <?php endif; ?>
+                    <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
+                    <li><a data-toggle="tab" href="_#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
+                    <?php endif; ?>
+                    <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
+                    <li><a data-toggle="tab" href="_#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
+                    <?php endif; ?>
+                </ul>
+                <!-- Tabs content -->
+                <div id="tab-content" class="tab-content">
 
-                <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
-                <div id="tab-inter" class="tab-pane active">
-                    <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
-                </div>
-                <?php endif; ?>
-
-                <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
-                <div id="tab-intra" class="tab-pane">
-                    <div class="content-wp">
-                        <span class="form-heading ">
-                            <h3 style="margin-top: 1.5em;">INTRA ENTREPRISE</h3>
-                            <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
-                                Formez vos collaborateurs
-                            </p>                        
-                        </span>
-                        <hr>
-                        <p style="margin-top: -1.2em;">Demander votre devis en 30 secondes, réponse sous 24h</p>
-                        <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme intra entreprise de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Demander un devis</a>
+                    <?php if ( ( !in_array ( 'inter', $enabled_tabs ) )
+                              &&( !in_array ( 'intra-entreprises', $enabled_tabs ) )
+                              &&( !in_array ( 'sur-mesure', $enabled_tabs ) ) ): ?>
+                    <div id="tab-inter" class="tab-pane active">
+                        <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
                     </div>
-                </div>
-                <?php endif; ?>
+                    <?php endif; ?>
 
-                <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
-                <div id="tab-scalable" class="tab-pane">
-                    <div class="content-wp">
-                        <span class="form-heading ">
-                            <h3 style="margin-top: 1.5em;">SUR MESURE</h3>
-                            <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
-                                Votre programme de formation à la demande
-                            </p>                        
-                        </span>
-                        <hr>
-                        <p style="margin-top: -1.2em;">Nos experts conçoivent votre formation sur mesure !</p>
-                        <p>Remplissez le formulaire suivant, et un de nos conseillers vous contactera dans les meilleurs délais.</p>
-                        <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme sur-mesure de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Contactez-nous</a>
+                    <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
+                    <div id="tab-inter" class="tab-pane active">
+                        <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
                     </div>
+                    <?php endif; ?>
+
+                    <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
+                    <div id="tab-intra" class="tab-pane">
+                        <div class="content-wp">
+                            <span class="form-heading ">
+                                <h3 style="margin-top: 1.5em;">INTRA ENTREPRISE</h3>
+                                <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
+                                    Formez vos collaborateurs
+                                </p>                        
+                            </span>
+                            <hr>
+                            <p style="margin-top: -1.2em;">Demander votre devis en 30 secondes, réponse sous 24h</p>
+                            <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme intra entreprise de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Demander un devis</a>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
+                    <div id="tab-scalable" class="tab-pane">
+                        <div class="content-wp">
+                            <span class="form-heading ">
+                                <h3 style="margin-top: 1.5em;">SUR MESURE</h3>
+                                <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
+                                    Votre programme de formation à la demande
+                                </p>                        
+                            </span>
+                            <hr>
+                            <p style="margin-top: -1.2em;">Nos experts conçoivent votre formation sur mesure !</p>
+                            <p>Remplissez le formulaire suivant, et un de nos conseillers vous contactera dans les meilleurs délais.</p>
+                            <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme sur-mesure de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Contactez-nous</a>
+                        </div>
+                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
             </div>
             <!------------------------------------------------>
             <!----------- end / Multi-tabs Form -------------->

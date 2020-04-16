@@ -680,7 +680,6 @@ h1{
 #cta-col{
     padding-top: 2.85em;
     padding-left: 2.5em;
-    padding-bottom: 11em;
     margin-top: -2em;
     z-index: 0;
     background: #eeeeee;
@@ -695,7 +694,7 @@ h1{
         bottom: 0;
         left: 100%;
         background: #eee;
-        width: ~"calc(100% + 2em)";
+        width: 100%;
     }
     &:before{
         content: none;
@@ -731,7 +730,8 @@ h1{
     .nav-tabs {
         margin: 0;
         margin-top: 2em;
-        display: inherit;
+        display: flex;
+        max-width: inherit;
         li .btn-tabs {
             font-size: .7em;
         }
@@ -739,6 +739,7 @@ h1{
     .tab-content{
         margin-top: 0;
         margin-bottom: 0;
+        padding-top: .1em;
         border-radius: 5px;
         max-width: inherit!important;
         .form-heading{
