@@ -261,15 +261,45 @@ h1 {
   top: inherit;
   right: inherit;
 }
+.insert-alt-wrapper-b {
+  margin: 0;
+  margin-bottom: 1em;
+}
+.insert-alt-wrapper-b .wrapper {
+  height: auto!important;
+}
+.insert-alt-wrapper-b .insert-alt {
+  height: 100%;
+  padding: 0 1em;
+  margin-top: 1em;
+}
+.insert-alt-wrapper-b [class^='col-']:nth-child(1) {
+  padding-left: 0;
+}
+.insert-alt-wrapper-b [class^='col-']:nth-child(2) {
+  padding-right: 0;
+}
 @media screen and (max-width: 1200px) {
-  #insert-alt-wrapper {
-    padding-top: 0;
+  .insert-alt-wrapper-b [class^='col-'],
+  #insert-alt-wrapper [class^='col-'],
+  .insert-alt-wrapper-b .insert-alt,
+  #insert-alt-wrapper .insert-alt {
+    width: 100%;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
   }
+  .insert-alt-wrapper-b [class^='col-']:nth-child(2),
+  #insert-alt-wrapper [class^='col-']:nth-child(2) {
+    margin-top: 2em;
+  }
+}
+.sameHeight {
+  display: flex !important;
+  flex-wrap: wrap;
 }
 @media screen and (max-width: 1200px) {
   .sameHeight {
-    display: flex;
-    flex-wrap: wrap;
     width: 100%;
     margin: 0;
     text-align: center;
@@ -530,7 +560,6 @@ h1 {
 }
 #content > div {
   margin: 0.8em 0;
-  height: 100%;
   position: relative;
   display: inline-block;
   width: 100%;
@@ -540,6 +569,14 @@ h1 {
     padding-right: 15px;
     padding-bottom: 7em;
   }
+}
+#content #version {
+  color: #a0a0a0;
+  font-style: italic;
+  font-size: 0.9em;
+}
+#content #program {
+  margin-top: 3em;
 }
 #content h2,
 #cta-col h2 {
@@ -591,7 +628,6 @@ h1 {
 #goals,
 .accordeon-item-content {
   padding: 0;
-  height: auto!important;
 }
 #goals ul,
 .accordeon-item-content ul {
@@ -780,4 +816,51 @@ h1 {
     background: #eeeeee;
     width: 100%;
   }
+}
+#cta-col .nav-tabs {
+  margin: 0;
+  margin-top: 2em;
+  display: inherit;
+}
+#cta-col .nav-tabs li .btn-tabs {
+  font-size: 0.7em;
+}
+#cta-col .tab-content {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 5px;
+  max-width: inherit!important;
+}
+#cta-col .tab-content .form-heading {
+  padding: 0;
+}
+#cta-col .tab-content .form-heading hr {
+  margin-bottom: -0.5em !important;
+}
+#cta-col .tab-content .content-wp {
+  text-align: center;
+}
+#cta-col .tab-content .content-wp a {
+  margin: 0 auto 1.6em auto;
+}
+html body #cta-col .gform_wrapper form,
+html body #cta-col .content-wp {
+  padding: 0 1.5em !important;
+  box-shadow: none !important;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+html body #cta-col .gform_wrapper form hr,
+html body #cta-col .content-wp hr {
+  margin-bottom: 1.6em !important;
+}
+html body #cta-col .gform_wrapper form #form-heading,
+html body #cta-col .content-wp #form-heading,
+html body #cta-col .gform_wrapper form .form-heading,
+html body #cta-col .content-wp .form-heading {
+  padding-top: 0!important;
+}
+html body #cta-col .gform_wrapper form input[type="submit"],
+html body #cta-col .content-wp input[type="submit"] {
+  margin-bottom: 1.75em !important;
 }

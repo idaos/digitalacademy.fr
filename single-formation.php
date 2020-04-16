@@ -8,13 +8,16 @@ $url = site_url();
 //---------------------------------------------------------------------------
 // pass url parameters to contact form for google analytics utm tags handling
 //---------------------------------------------------------------------------
-$url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
-if (strpos($_SERVER["REQUEST_URI"], '?')) {
-
+function getUrlParameters(){
     $url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
-    $url_parameters = $url_parameters[1];
-}else{
-    $url_parameters = null;
+    if (strpos($_SERVER["REQUEST_URI"], '?')) {
+
+        $url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
+        $url_parameters = $url_parameters[1];
+    }else{
+        $url_parameters = null;
+    }
+    return $url_parameters;
 }
 //---------------------------------------------------------------------------
 // detect which form tabs must be enabled
@@ -287,23 +290,6 @@ function getEvaluation(){
     }
     return $out;
 }
-function hasSessions(){
-    // count how many sessions are scheduled
-    $remaining_session = 0;
-    while ( have_rows( 'sessions' ) ){
-        the_row();
-        $row = get_row();
-        $date_session = strtotime( get_sub_field( 'date_session' ) );
-        if ( time() < $date_session ){
-            $remaining_session += 1;
-        }
-    }
-    if($remaining_session > 0){
-        return true;
-    }else{
-        return false;
-    }
-}
 function isObsolete(){
     if ( get_field( 'obsolete' ) === "Non" ){
         return false;
@@ -313,26 +299,44 @@ function isObsolete(){
 }
 function getSessions(){
 
-    //     while ( have_rows( 'sessions' ) ){
-    //         the_row();
-    //         $date_session = strtotime( get_sub_field( 'date_session' ) );
-    //
-    //         if ( time() < $date_session ){
-    //             
-    //             $date = date_i18n( get_option( 'date_format' ), $date_session );
-    //             $place = get_sub_field( 'lieu_session' );
-    //             
-    //            if (( $date_session - time() ) < 432000 ){
-    //                "Session fermée **"
-    //            }elseif ( get_sub_field( 'ouvert' ) ){
-    //                $contactTxt = "Bonjour,\n\n Je souhaiterais me pré-inscrire à la formation " . $post->post_title . ' du ' . date_i18n( get_option( 'date_format' ), strtotime( get_sub_field( 'date_session' ) ) ) . ' à ' . get_sub_field( 'lieu_session' ) . '.';
-    //                $contactLinkUrlEncode   = '?'. $url_parameters .'&objet=' . urlencode( 'Pré-inscription - ' . $post->post_title ) . '&corps=' . urlencode( $contactTxt ) ;
-    //                $contactLinh = get_field( 'page_contact', 'option' ) . $contactLinkUrlEncode;
-    //            }else{
-    //                // indisponible
-    //            }
-    //         }
-    //     }   
+    $sessions = array();
+    while ( have_rows( 'sessions' ) ){
+        $session = array();
+        the_row();
+        $date_session = strtotime( get_sub_field( 'date_session' ) );
+        $url_parameters = getUrlParameters();
+
+        // BO available checkbox checked
+        if ( get_sub_field( 'ouvert' ) ){
+
+            // The session is in the future
+            if ( time() < $date_session ){
+                $session["date"] = date_i18n( get_option( 'date_format' ), $date_session );
+                $session["place"] = get_sub_field( 'lieu_session' );
+                // Registration is closed
+                if (( $date_session - time() ) < 432000 ){
+                    $session["open"] = false;
+                    // Registration is available
+                }else{
+                    $session["open"] = true;
+                    $formMessage = "Bonjour,\n\n Je souhaiterais me pré-inscrire à la formation " . get_the_title() . ' du ' . date_i18n( get_option( 'date_format' ), strtotime( get_sub_field( 'date_session' ) ) ) . ' à ' . get_sub_field( 'lieu_session' ) . '.';
+                    $parameters   = '?'. $url_parameters .'&objet=' . urlencode( 'Pré-inscription - ' . get_the_title() ) . '&corps=' . urlencode( $formMessage ) ;
+                    $session["formLink"] = get_field( 'page_contact', 'option' ) . $parameters;
+                }
+            }
+        } 
+        if( count($session) > 0 ){
+            array_push($sessions, $session);
+        }
+    }
+    return($sessions);
+}
+function hasSessions(){
+    if( count(getSessions()) == 0 ){
+        return false;
+    }else{
+        return true;
+    }
 }
 
 $colorTxt = $th->getColor(); 
@@ -355,6 +359,7 @@ $evaluation = getEvaluation();
 $program = getProgram();
 $version = getVersion();
 $sessions = getSessions();
+$hasSession = hasSessions();
 
 ?>  
 
@@ -492,7 +497,30 @@ $sessions = getSessions();
                     <?php echo $goals; ?>
                 </ul>
             </div>
-
+            
+            <div class="insert-alt-wrapper-b row sameHeight">
+                <div class="col-sm-4 col-lg-6">
+                    <div class="insert-alt">
+                        <img width="100" height="100" src="<?php echo $styleUri; ?>/images/formateur-expert-avatar.svg">
+                        <div class="wrapper">
+                            <strong>Formateur</strong>  
+                            <p>Notre formateur est un expert des réseaux sociaux. Il a plus de 5 ans d'expérience dans ce domaine.</p> 
+                            <p><i>L'équipe d'intervenants sera coordonnée par notre équipe pédagogique.</i></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-6">
+                    <div class="insert-alt">
+                        <img width="100" height="100" src="<?php echo $styleUri; ?>/images/handicap.svg">
+                        <div class="wrapper">
+                            <strong>Accessibilité</strong>  
+                            <p><i>Public en situation de handicap, <span class="noWrap">nous contacter au :</span></i></p>
+                            <a title="Bouton de contact" href="tel:0977215321"><div class="btn btn-xs btn-red-alt">09 77 21 53 21</div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div id="program">
                 <style>.accordeon-has-path .accordeon-item:after{background: <?php echo $colorHex; ?>;}</style>
                 <h2 class="c-<?php echo $colorTxt; ?>">Programme</h2>
@@ -537,41 +565,7 @@ $sessions = getSessions();
                 </div>
             </div>
 
-
-        </div>
-        <div id="cta-col" class="col-lg-4">
-            <h2 class="c-<?php echo $colorTxt; ?>">Prochaines Dates <span class="c-color-dac">*</span></h2>
-            <i><?php echo $title; ?></i>
-            <hr>
-            <i>Si cette formation vous intéresse mais que les dates ne vous conviennent pas, n’hésitez pas à nous contacter.</i>
-            <div class="insert session-closed">
-                <img src="<?php echo $styleUri; ?>/images/calendar-icon.svg" height=12 alt="">
-                <div class="wrapper">
-                    <strong style="margin-bottom:.3em;">6 novembre 2020</strong>
-                    <br><i>Paris</i>
-                    <div class="closed">session fermée</div>
-                </div>
-            </div>
-            <div class="insert">
-                <img src="<?php echo $styleUri; ?>/images/calendar-icon.svg" height=12 alt="">
-                <div class="wrapper">
-                    <strong style="margin-bottom:.3em;">6 novembre 2020</strong>
-                    <br><i>Paris</i>
-                    <a title="Bouton d'inscription" href=""><div class="btn btn-xs btn-red-alt">Inscription</div></a>
-                </div>
-            </div>
-            <div class="insert">
-                <img src="<?php echo $styleUri; ?>/images/calendar-icon.svg" height=12 alt="">
-                <div class="wrapper">
-                    <strong style="margin-bottom:.3em;">31 décembre 2020</strong>
-                    <br><i>Paris</i>
-                    <a title="Bouton d'inscription" href=""><div class="btn btn-xs btn-red-alt">Inscription</div></a>
-                </div>
-            </div>
-            <i><span class="c-color-dac">*</span> Pour les formations sur plusieurs jours, la date correspond au premier jour de la formation</i>
-            <i><span class="c-color-dac">**</span> Les inscriptions aux sessions de formations sont closes 5 jours avant la date indiquée</i>
-            <i>Les sessions de formation sont maintenus à partir de 3 personnes inscrites</i>
-            <div id="insert-alt-wrapper" class="row sameHeight">
+            <div class="insert-alt-wrapper-b row sameHeight">
                 <div class="insert-alt col-sm-4 col-lg-12">
                     <img width="100" height="100" src="<?php echo $styleUri; ?>/images/single-formation/ico-sm-phone.jpg">
                     <div class="wrapper">
@@ -579,28 +573,162 @@ $sessions = getSessions();
                         <br>
                         <p>Nos conseillers vous répondent au :</p>
                         <a id="call-link" href="tel:0977215321">09 77 21 53 21</a>
-                        <i class="lightItalic">appel non surtaxé du lundi au vendredi <br>de 9h30 à 18h</i>
+                        <i class="lightItalic">appel non surtaxé du lundi au vendredi de 9h30 à 18h</i>
                         <i>ou par email</i>
                         <p><a id="mail-link" href="">contact@digitalacademy.fr</a></p>
                     </div>
                 </div>
-                <div class="insert-alt col-sm-4 col-lg-12">
-                    <img width="100" height="100" src="<?php echo $styleUri; ?>/images/formateur-expert-avatar.svg">
-                    <div class="wrapper">
-                        <strong>Formateur</strong>  
-                        <p>Notre formateur est un expert des réseaux sociaux. Il a plus de 5 ans d'expérience dans ce domaine.</p> 
-                        <p><i>L'équipe d'intervenants sera coordonnée par notre équipe pédagogique.</i></p>
-                    </div>
-                </div>
-                <div class="insert-alt col-sm-4 col-lg-12">
-                    <img width="100" height="100" src="<?php echo $styleUri; ?>/images/handicap.svg">
-                    <div class="wrapper">
-                        <strong>Accessibilité</strong>  
-                        <p><i>Public en situation de handicap, <span class="noWrap">nous contacter au :</span></i></p>
-                        <a title="Bouton de contact" href="tel:0977215321"><div class="btn btn-xs btn-red-alt">09 77 21 53 21</div></a>
-                    </div>
+            </div>
+
+            <hr style="margin-bottom: 0!important;opacity:.5">
+            <div id="version"><?php echo $version; ?></div>
+        </div>
+        <div id="cta-col" class="col-lg-4">
+
+            <!-- Course has sessions -->
+            <?php if($hasSession): ?>
+
+            <h2 class="c-<?php echo $colorTxt; ?>">Prochaines Dates <span class="c-color-dac">*</span></h2>
+            <i><?php echo $title; ?></i>
+            <hr>
+            <i>Si cette formation vous intéresse mais que les dates ne vous conviennent pas, n’hésitez pas à nous contacter.</i>
+
+            <?php foreach($sessions as $session): ?>
+
+            <div class="insert <?php if(!$session["open"]): ?>session-closed<?php endif; ?>">
+                <img src="<?php echo $styleUri; ?>/images/calendar-icon.svg" height=12 alt="">
+                <div class="wrapper">
+                    <strong style="margin-bottom:.3em;"><?php echo $session["date"]; ?></strong>
+                    <br><i><?php echo $session["place"]; ?></i>
+                    <?php if(!$session["open"]): ?>
+                    <div class="closed">session fermée **</div>
+                    <?php endif; ?>
+                    <?php if( $session["open"]): ?>
+                    <a title="Bouton d'inscription" href="<?php echo $session["link"]; ?>"><div class="btn btn-xs btn-<?php echo $colorTxt; ?>">Inscription</div></a>
+                    <?php endif; ?>
                 </div>
             </div>
+
+            <?php endforeach; ?>
+
+            <i><span class="c-color-dac">*</span> Pour les formations sur plusieurs jours, la date correspond au premier jour de la formation</i>
+            <i><span class="c-color-dac">**</span> Les inscriptions aux sessions de formations sont closes 5 jours avant la date indiquée</i>
+            <i>Les sessions de formation sont maintenus à partir de 3 personnes inscrites</i>
+
+
+            <!-- Course has not sessions -->
+            <?php else: ?>
+
+            <!-- Course Registering -->
+            <?php endif; ?>
+
+
+            <!------------------------------------------------>
+            <!-------------- Multi-tabs Form ----------------->
+            <!------------------------------------------------>
+            <!--
+<h2 class="c-<?php //echo $colorTxt; ?>">Demande d'informations</h2>
+<i><?php //echo $title; ?></i>
+<hr>
+-->
+            <!-- Tabs nav -->
+            <ul class="nav nav-tabs">
+                <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
+                <li class="active"><a data-toggle="tab" href="_#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
+                <?php endif; ?>
+                <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
+                <li><a data-toggle="tab" href="_#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
+                <?php endif; ?>
+                <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
+                <li><a data-toggle="tab" href="_#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
+                <?php endif; ?>
+            </ul>
+            <!-- Tabs content -->
+            <div id="tab-content" class="tab-content">
+
+                <?php if ( ( !in_array ( 'inter', $enabled_tabs ) )
+                          &&( !in_array ( 'intra-entreprises', $enabled_tabs ) )
+                          &&( !in_array ( 'sur-mesure', $enabled_tabs ) ) ): ?>
+                <div id="tab-inter" class="tab-pane active">
+                    <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
+                </div>
+                <?php endif; ?>
+
+                <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
+                <div id="tab-inter" class="tab-pane active">
+                    <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
+                </div>
+                <?php endif; ?>
+
+                <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
+                <div id="tab-intra" class="tab-pane">
+                    <div class="content-wp">
+                        <span class="form-heading ">
+                            <h3 style="margin-top: 1.5em;">INTRA ENTREPRISE</h3>
+                            <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
+                                Formez vos collaborateurs
+                            </p>                        
+                        </span>
+                        <hr>
+                        <p style="margin-top: -1.2em;">Demander votre devis en 30 secondes, réponse sous 24h</p>
+                        <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme intra entreprise de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Demander un devis</a>
+                    </div>
+                </div>
+                <?php endif; ?>
+
+                <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
+                <div id="tab-scalable" class="tab-pane">
+                    <div class="content-wp">
+                        <span class="form-heading ">
+                            <h3 style="margin-top: 1.5em;">SUR MESURE</h3>
+                            <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
+                                Votre programme de formation à la demande
+                            </p>                        
+                        </span>
+                        <hr>
+                        <p style="margin-top: -1.2em;">Nos experts conçoivent votre formation sur mesure !</p>
+                        <p>Remplissez le formulaire suivant, et un de nos conseillers vous contactera dans les meilleurs délais.</p>
+                        <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme sur-mesure de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Contactez-nous</a>
+                    </div>
+                </div>
+                <?php endif; ?>
+            </div>
+            <!------------------------------------------------>
+            <!----------- end / Multi-tabs Form -------------->
+            <!------------------------------------------------>
+
+
+
+            <!--            <div id="insert-alt-wrapper" class="row sameHeight" style="margin:0">
+<div class="insert-alt col-sm-4 col-lg-12">
+<img width="100" height="100" src="<?php //echo $styleUri; ?>/images/single-formation/ico-sm-phone.jpg">
+<div class="wrapper">
+<strong>Vous avez des questions sur <span class="noWrap">cette formation ?</span></strong>
+<br>
+<p>Nos conseillers vous répondent au :</p>
+<a id="call-link" href="tel:0977215321">09 77 21 53 21</a>
+<i class="lightItalic">appel non surtaxé du lundi au vendredi <br>de 9h30 à 18h</i>
+<i>ou par email</i>
+<p><a id="mail-link" href="">contact@digitalacademy.fr</a></p>
+</div>
+</div>
+<div class="insert-alt col-sm-4 col-lg-12">
+<img width="100" height="100" src="<?php //echo $styleUri; ?>/images/formateur-expert-avatar.svg">
+<div class="wrapper">
+<strong>Formateur</strong>  
+<p>Notre formateur est un expert des réseaux sociaux. Il a plus de 5 ans d'expérience dans ce domaine.</p> 
+<p><i>L'équipe d'intervenants sera coordonnée par notre équipe pédagogique.</i></p>
+</div>
+</div>
+<div class="insert-alt col-sm-4 col-lg-12">
+<img width="100" height="100" src="<?php //echo $styleUri; ?>/images/handicap.svg">
+<div class="wrapper">
+<strong>Accessibilité</strong>  
+<p><i>Public en situation de handicap, <span class="noWrap">nous contacter au :</span></i></p>
+<a title="Bouton de contact" href="tel:0977215321"><div class="btn btn-xs btn-red-alt">09 77 21 53 21</div></a>
+</div>
+</div>
+</div>-->
         </div>
     </div>
 </div>
@@ -647,103 +775,6 @@ $sessions = getSessions();
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Tabs nav -->
-<ul class="nav nav-tabs">
-    <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
-    <li class="active"><a data-toggle="tab" href="_#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
-    <?php endif; ?>
-    <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
-    <li><a data-toggle="tab" href="_#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
-    <?php endif; ?>
-    <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
-    <li><a data-toggle="tab" href="_#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
-    <?php endif; ?>
-</ul>
-
-<!-- Tabs content -->
-<div class="tab-content">
-
-    <?php if ( ( !in_array ( 'inter', $enabled_tabs ) )
-              &&( !in_array ( 'intra-entreprises', $enabled_tabs ) )
-              &&( !in_array ( 'sur-mesure', $enabled_tabs ) ) ): ?>
-    <div id="tab-inter" class="tab-pane active">
-        <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
-    </div>
-    <?php endif; ?>
-
-    <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
-    <div id="tab-inter" class="tab-pane active">
-        <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
-    </div>
-    <?php endif; ?>
-
-    <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
-    <div id="tab-intra" class="tab-pane">
-        <span class="form-heading reverse">
-            <h2>Intra entreprise</h2>
-            <h3>Formez vos collaborateurs</h3>
-        </span>
-        <hr>
-        <div class="content-wp">
-            <p>Demander votre devis en 30 secondes, réponse sous 24h</p>
-            <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme intra entreprise de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Demander un devis</a>
-        </div>
-    </div>
-    <?php endif; ?>
-
-    <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
-    <div id="tab-scalable" class="tab-pane">
-        <span class="form-heading reverse">
-            <h2>Sur mesure</h2>
-            <h3>Votre programme de formation à la demande</h3>
-        </span>
-        <hr>
-        <div class="content-wp">
-            <p>Nos experts conçoivent votre formation sur mesure !</p>
-            <p>Remplissez le formulaire suivant, et un de nos conseillers vous contactera dans les meilleurs délais.</p>
-            <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme sur-mesure de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Contactez-nous</a>
-        </div>
-    </div>
-    <?php endif; ?>
-
-</div>
-
-
-
-
-
 
 
 
@@ -816,17 +847,6 @@ $sessions = getSessions();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <?php
 endwhile;
 endif;
@@ -836,7 +856,7 @@ endif;
     //-------------------------------------------
     //--------- Form custom heading -------------
     //-------------------------------------------
-    var form_heading = '<span id="form-heading" class="reverse"><h2>SESSION INTER ENTREPRISES</h2><p style="font-size:.94em;">Formation "<?php echo $title; ?>"</p><h3>Demander la création d\'une session à la carte</h3></span><hr><br><br>';
+    var form_heading = '<span id="form-heading"><h3 style="margin-top: 1.5em;">SESSION INTER ENTREPRISES</h3><p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">Demander la création d\'une session à la carte</p></span><hr>';
 </script>
 
 

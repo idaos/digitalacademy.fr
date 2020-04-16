@@ -1,12 +1,10 @@
 <?php get_header(); ?>
-
-
 <div class="header" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/temoignages.jpg);">    
 	<!--<div class="header" style="background-image:url(<?php //the_field('img_temoignages', 'option') ?>)">    -->
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 alignCenter">
-				<h1 class="title-slider" style="color:#fff;">Après la formation</h1>
+				<h1 class="title-slider" style="color:#fff;">Satisfaction Clients</h1>
 				<hr>
 				<p style="font-size: 1.3em;">Satisfaction et témoignages de nos apprenants</p>
 			</div>
@@ -34,7 +32,6 @@
 					<div id="chart-wrp"></div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>

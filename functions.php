@@ -300,14 +300,20 @@ add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_testimonial');
 add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_testimonial');
 //Load scripts (and styles)
 function custom_scripts_and_styles_testimonial(){
-    if(is_archive()){ //Check if we are viewing an archive page.
-        if ( is_post_type_archive( 'temoignage' ) ) {
+    global $wp_query;
+    //Check which template is assigned to current page we are looking at
+    if( isset($wp_query->post->ID) ){
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+    }else{
+        $template_name = false;
+    }
+    if( ((is_archive())&&(is_post_type_archive( 'temoignage' )))  //Check if we are viewing an archive page.
+        || ($template_name == 'tpl-satisfaction-clients.php') ){ // or satisfaction page
             wp_enqueue_style( 'chart', get_template_directory_uri() . '/css/chart.css', array( 'main' ), null );
             wp_enqueue_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.js', array( 'owl-carousel', 'accordeon', 'jquery' ), null, false );
             wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array( 'main' ), null );
             wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, false );
             wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
-        }
     }
 }
 
@@ -604,7 +610,15 @@ function dg_liste_references( $query ) {
 
 add_action( 'pre_get_posts', 'dg_liste_temoignages' );
 function dg_liste_temoignages( $query ) {
-    if ( $query->is_post_type_archive( 'temoignage' ) && $query->is_main_query() ) {
+    //Check which template is assigned to current page we are looking at
+    if( isset($wp_query->post->ID) ){
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+    }else{
+        $template_name = false;
+    }
+    if (( $query->is_post_type_archive( 'temoignage' ) && $query->is_main_query() )
+    ||($template_name == 'tpl-satisfaction-clients.php'))
+    {
         $query->set( 'posts_per_page', - 1 );
         $query->set( 'orderby', 'rand' );
     }
