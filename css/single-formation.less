@@ -52,6 +52,9 @@ h1{
 .formation-template-default #slider-formations{
     display: inherit !important;
 }
+.site-container{
+    overflow: hidden;
+}
 // Helpers
 .alignRight{
     text-align: right;
@@ -185,6 +188,9 @@ h1{
     .wrapper, img{
         display: block;
         text-align: center;
+        p:last-child{
+            margin-bottom: 0;
+        }
     }
     .wrapper a{
         display: block;
@@ -365,9 +371,10 @@ h1{
     #course-imgs{
         text-align: center;
         padding-right: 3em;
-        #course-img{
-            //            box-shadow: 0 15px 30px #9a9a9a;
-            margin-bottom: 2em;
+        >img:first-child{
+
+            box-shadow: 0 12px 20px #c9c9c9;
+            margin-bottom: 3em;
             border-radius: 5px;
             @media screen and (max-width: 768px) {
                 border-radius: 0px;
@@ -758,6 +765,9 @@ h1{
 }
 
 // Forms
+html body #gform_wrapper_12 form{
+    max-width: inherit!important;
+}
 html body #cta-col .gform_wrapper form, 
 html body #cta-col .content-wp{
     padding: 0 1.5em !important;
@@ -773,4 +783,7 @@ html body #cta-col .content-wp{
     input[type="submit"]{
         margin-bottom: 1.75em!important;
     }
+}
+#gform_confirmation_message_12{
+    padding: 1em;
 }

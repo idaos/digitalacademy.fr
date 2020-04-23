@@ -57,6 +57,9 @@ h1 {
 .formation-template-default #slider-formations {
   display: inherit !important;
 }
+.site-container {
+  overflow: hidden;
+}
 .alignRight {
   text-align: right;
 }
@@ -247,6 +250,10 @@ h1 {
   display: block;
   text-align: center;
 }
+.insert-alt .wrapper p:last-child,
+.insert-alt img p:last-child {
+  margin-bottom: 0;
+}
 .insert-alt .wrapper a {
   display: block;
   position: relative;
@@ -436,12 +443,13 @@ h1 {
   text-align: center;
   padding-right: 3em;
 }
-#heading #course-imgs #course-img {
-  margin-bottom: 2em;
+#heading #course-imgs > img:first-child {
+  box-shadow: 0 12px 20px #c9c9c9;
+  margin-bottom: 3em;
   border-radius: 5px;
 }
 @media screen and (max-width: 768px) {
-  #heading #course-imgs #course-img {
+  #heading #course-imgs > img:first-child {
     border-radius: 0px;
     width: 100%!important;
   }
@@ -844,6 +852,9 @@ h1 {
 #cta-col .tab-content .content-wp a {
   margin: 0 auto 1.6em auto;
 }
+html body #gform_wrapper_12 form {
+  max-width: inherit!important;
+}
 html body #cta-col .gform_wrapper form,
 html body #cta-col .content-wp {
   padding: 0 1.5em !important;
@@ -864,4 +875,7 @@ html body #cta-col .content-wp .form-heading {
 html body #cta-col .gform_wrapper form input[type="submit"],
 html body #cta-col .content-wp input[type="submit"] {
   margin-bottom: 1.75em !important;
+}
+#gform_confirmation_message_12 {
+  padding: 1em;
 }

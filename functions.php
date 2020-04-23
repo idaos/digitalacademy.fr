@@ -158,7 +158,7 @@ function custom_scripts_and_styles_taxo_thema(){
 add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_singleFormation');
 //Load scripts (and styles)
 function custom_scripts_and_styles_singleFormation(){
-    if(is_single()){ //Check if we are viewing an article
+    if(is_single()){ //Check if we are viewing an article / course page
 
         wp_enqueue_style( 'formation-style', get_template_directory_uri() . '/css/single-formation.css', array( 'main' ), null );
         wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
@@ -171,6 +171,7 @@ function custom_scripts_and_styles_singleFormation(){
         // datepicker load
         wp_enqueue_style( 'datepicker-tiny', get_template_directory_uri() . '/css/tiny-date-picker.min.css', array( 'main' ), null );
         wp_enqueue_script( 'datepicker-tiny', get_stylesheet_directory_uri() . '/js/tiny-date-picker.min.js', array( 'jquery' ), null, false );
+        wp_dequeue_script( 'contact-btn');
     }
 }
 

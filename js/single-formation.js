@@ -64,6 +64,18 @@
 //
 //});
 
+//---------------------------------------------------------------
+//--------- Prevent scroll on click on anchor in tab form -------
+//---------------------------------------------------------------
+jQuery(document).ready(function() {
+    var tlink = jQuery('.nav-tabs .btn');
+    tlink.each(function() {
+        jQuery(this).click(function(e) {
+            e.preventDefault();
+        });
+    });
+});
+
 
 //-------------------------------------------
 //--------- Form custom heading -------------
@@ -81,40 +93,56 @@ jQuery(document).bind('gform_post_render', function(){
 //-------------------------------------------
 //--------- Form auto scroll into view ------
 //-------------------------------------------
-
 jQuery( document ).ready(function() {
 
     var eltTop = jQuery( "#tabled-form" ).offset().top;
     var eltWidth = jQuery( "#tabled-form" ).width();
-    var eltLeft = jQuery( "#tabled-form" ).offset().left;
+    var eltHeight = jQuery( "#tabled-form" ).height();
     var eltHeight = jQuery('#tabled-form').height();
     var navHeight = jQuery('#kz-menu-wrapper').height();
     var colTop = jQuery( "#cta-col" ).offset().top;
     var colHeight = jQuery('#cta-col').height();
     var colBottom = colTop + colHeight
 
-    jQuery(window).scroll(function (event) {
+    jQuery(window).on("load resize scroll",function(e){
+        // Reload on screen resize
+        eltHeight = jQuery('#tabled-form').height();
+        navHeight = jQuery('#kz-menu-wrapper').height();
+        colTop = jQuery( "#cta-col" ).offset().top;
+        colHeight = jQuery('#cta-col').height();
+        colBottom = colTop + colHeight;
+        // If screen size > 1200
+        if ((jQuery(window).width() > 1200)&&(jQuery(window).height() > (eltHeight+navHeight) )) {
 
-        var scrollY = jQuery(window).scrollTop();
-        scrollY += navHeight; // 40 is the margin from top
-        
-        if( scrollY < eltTop ){
+            var scrollY = jQuery(window).scrollTop();
+            scrollY += navHeight; 
+            // Check scroll position
+            if( scrollY < eltTop ){
+                jQuery('#tabled-form').css('position', '')
+                jQuery('#tabled-form').css('width', '100%')
+                jQuery('#tabled-form').css('top', 'inherit')
+                jQuery('#tabled-form').css('bottom', 'inherit') 
+
+            }else if(( scrollY > eltTop )&&( scrollY < (colBottom-eltHeight-74) )){
+                jQuery('#tabled-form').css('position', 'fixed')
+                jQuery('#tabled-form').css('width', eltWidth)
+                jQuery('#tabled-form').css('top', navHeight)
+                jQuery('#tabled-form').css('bottom', 'inherit') 
+            }else{
+                jQuery('#tabled-form').css('position', 'absolute')
+                jQuery('#tabled-form').css('width', eltWidth)
+                jQuery('#tabled-form').css('top', 'inherit')
+                jQuery('#tabled-form').css('bottom', '134px') 
+            }
+        }else{
             jQuery('#tabled-form').css('position', '')
             jQuery('#tabled-form').css('width', '100%')
             jQuery('#tabled-form').css('left', 'inherit')
             jQuery('#tabled-form').css('top', 'inherit')
-        }else if(( scrollY > eltTop )&&( scrollY < (colBottom - eltHeight) )){
-            jQuery('#tabled-form').css('position', 'fixed')
-            jQuery('#tabled-form').css('width', eltWidth)
-            jQuery('#tabled-form').css('left', eltLeft)
-            jQuery('#tabled-form').css('top', navHeight)
-        }else{
-            jQuery('#tabled-form').css('position', 'absolute')
-            jQuery('#tabled-form').css('width', eltWidth)
-            jQuery('#tabled-form').css('left', 'inherit')
-            jQuery('#tabled-form').css('top', 'inherit')
-            jQuery('#tabled-form').css('bottom', '10em') //11 em is the padding
-
+            jQuery('#tabled-form').css('bottom', 'inherit') 
         }
     });
 });
+
+
+

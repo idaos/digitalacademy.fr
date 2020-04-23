@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php 
+<?php
 //---------------------------------------------------------------------------
 // get site url
 //---------------------------------------------------------------------------
@@ -105,6 +105,14 @@ function getPresentationTitle(){
 function getPresentation(){
     if ( get_field( 'presentation' ) ){
         $out = get_field( 'presentation' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getPresentationThema(){
+    if ( get_field( 'intro_thematique' ) ){
+        $out = get_field( 'intro_thematique' );
     }else{
         $out = "";
     }
@@ -338,6 +346,43 @@ function hasSessions(){
         return true;
     }
 }
+function getTestimonials(){
+
+    $testimonials = array();
+    if ( get_field( 'temoignages' ) ){
+        $testimonialsList = get_field( 'temoignages' );
+    }else{
+        return false;
+    }
+    foreach ( $testimonialsList as $item ){
+        $testimonial = array();
+        $company_plus_course = get_field( 'entreprise', $item->ID );
+        $company_plus_course = explode( '-', $company_plus_course ); 
+        $testimonial['company'] = $company_plus_course[0];
+        $testimonial['course'] = $company_plus_course[1];
+        $testimonial['name'] = $item->post_title;
+        $testimonial['content'] = $item->post_content;
+        $testimonial['img'] = get_field( 'visuel_carre', $item->ID );
+        if ( $testimonial['img'] ) {
+            $testimonial['img'] = wp_get_attachment_image( $testimonial['img'], 'testimony' );
+        } else {
+            $testimonial['img'] = get_the_post_thumbnail( $temoignage->ID, 'testimony' );
+        }
+        if( count($testimonial) > 0 ){
+            array_push($testimonials, $testimonial);
+        }
+    }
+    return $testimonials;
+}
+function hasTestimonials(){
+    if( getTestimonials() != false ){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
 
 $colorTxt = $th->getColor(); 
 $colorHex = $th->getColorHex(); 
@@ -347,6 +392,7 @@ $thName = $th->getName();
 $obsoleteHTML = getObsoleteHTML();
 $presentationTitle = getPresentationTitle();
 $presentation = getPresentation();
+$presentationThema = getPresentationThema();
 $courseImgHTML = getCourseImg();
 $pdfUrl = getPdfUrl();
 $informations = getInformations();
@@ -360,6 +406,8 @@ $program = getProgram();
 $version = getVersion();
 $sessions = getSessions();
 $hasSession = hasSessions();
+$testimonials = getTestimonials();
+$hasTestimonials = hasTestimonials();
 
 ?>  
 
@@ -413,14 +461,13 @@ $hasSession = hasSessions();
                         <b>Formation </b>
                         <?php echo $title; ?>
                     </h1>
-                    <!--                    <b>Concevoir</b>, mettre en place et piloter un <b>projet de formation Blended Learning</b>-->
                 </div>
                 <hr class="alignCenterLg">
 
                 <div id="course-info" class="row">
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-pin.jpg" alt="" class="multiply">
-                        <span>Lieu: Paris</span>
+                        <span>Lieu: en présentiel Paris ou France</span>
                     </div>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-clock.jpg" alt="" class="multiply">
@@ -533,6 +580,7 @@ $hasSession = hasSessions();
                 <h2 class="c-<?php echo $colorTxt; ?>">Présentation</h2>
                 <i><?php echo $title; ?></i>
                 <hr>
+                <?php echo $presentationThema; ?>
                 <?php echo $presentation; ?>
             </div>
 
@@ -604,7 +652,7 @@ $hasSession = hasSessions();
                     <div class="closed">session fermée **</div>
                     <?php endif; ?>
                     <?php if( $session["open"]): ?>
-                    <a title="Bouton d'inscription" href="<?php echo $session["link"]; ?>"><div class="btn btn-xs btn-<?php echo $colorTxt; ?>">Inscription</div></a>
+                    <a title="Bouton d'inscription" href="<?php echo $session["link"]; ?>"><div class="btn btn-xs btn-red">Inscription</div></a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -626,23 +674,18 @@ $hasSession = hasSessions();
             <!------------------------------------------------>
             <!-------------- Multi-tabs Form ----------------->
             <!------------------------------------------------>
-            <!--
-<h2 class="c-<?php //echo $colorTxt; ?>">Demande d'informations</h2>
-<i><?php //echo $title; ?></i>
-<hr>
--->
             <div id="tabled-form">
 
                 <!-- Tabs nav -->
                 <ul class="nav nav-tabs">
                     <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
-                    <li class="active"><a data-toggle="tab" href="_#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
+                    <li class="active"><a data-toggle="tab" href="#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
                     <?php endif; ?>
                     <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
-                    <li><a data-toggle="tab" href="_#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
+                    <li><a data-toggle="tab" href="#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
                     <?php endif; ?>
                     <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
-                    <li><a data-toggle="tab" href="_#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
+                    <li><a data-toggle="tab" href="#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
                     <?php endif; ?>
                 </ul>
                 <!-- Tabs content -->
@@ -666,7 +709,7 @@ $hasSession = hasSessions();
                     <div id="tab-intra" class="tab-pane">
                         <div class="content-wp">
                             <span class="form-heading ">
-                                <h3 style="margin-top: 1.5em;">INTRA ENTREPRISE</h3>
+                                <h3 style="margin-top: 1.5em;font-weight:bold;">INTRA ENTREPRISE</h3>
                                 <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
                                     Formez vos collaborateurs
                                 </p>                        
@@ -682,7 +725,7 @@ $hasSession = hasSessions();
                     <div id="tab-scalable" class="tab-pane">
                         <div class="content-wp">
                             <span class="form-heading ">
-                                <h3 style="margin-top: 1.5em;">SUR MESURE</h3>
+                                <h3 style="margin-top: 1.5em;font-weight:bold;">SUR MESURE</h3>
                                 <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
                                     Votre programme de formation à la demande
                                 </p>                        
@@ -699,39 +742,6 @@ $hasSession = hasSessions();
             <!------------------------------------------------>
             <!----------- end / Multi-tabs Form -------------->
             <!------------------------------------------------>
-
-
-
-            <!--            <div id="insert-alt-wrapper" class="row sameHeight" style="margin:0">
-<div class="insert-alt col-sm-4 col-lg-12">
-<img width="100" height="100" src="<?php //echo $styleUri; ?>/images/single-formation/ico-sm-phone.jpg">
-<div class="wrapper">
-<strong>Vous avez des questions sur <span class="noWrap">cette formation ?</span></strong>
-<br>
-<p>Nos conseillers vous répondent au :</p>
-<a id="call-link" href="tel:0977215321">09 77 21 53 21</a>
-<i class="lightItalic">appel non surtaxé du lundi au vendredi <br>de 9h30 à 18h</i>
-<i>ou par email</i>
-<p><a id="mail-link" href="">contact@digitalacademy.fr</a></p>
-</div>
-</div>
-<div class="insert-alt col-sm-4 col-lg-12">
-<img width="100" height="100" src="<?php //echo $styleUri; ?>/images/formateur-expert-avatar.svg">
-<div class="wrapper">
-<strong>Formateur</strong>  
-<p>Notre formateur est un expert des réseaux sociaux. Il a plus de 5 ans d'expérience dans ce domaine.</p> 
-<p><i>L'équipe d'intervenants sera coordonnée par notre équipe pédagogique.</i></p>
-</div>
-</div>
-<div class="insert-alt col-sm-4 col-lg-12">
-<img width="100" height="100" src="<?php //echo $styleUri; ?>/images/handicap.svg">
-<div class="wrapper">
-<strong>Accessibilité</strong>  
-<p><i>Public en situation de handicap, <span class="noWrap">nous contacter au :</span></i></p>
-<a title="Bouton de contact" href="tel:0977215321"><div class="btn btn-xs btn-red-alt">09 77 21 53 21</div></a>
-</div>
-</div>
-</div>-->
         </div>
     </div>
 </div>
@@ -780,24 +790,12 @@ $hasSession = hasSessions();
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
 <!-- Témoignages -->
-<?php if ( $temoignages = get_field( 'temoignages' ) ): ?>
+<?php if ( $hasTestimonials ): ?>
 <section class="testimonial-wrapper container-wp">
     <div class="container" id="temoignages">
-
         <h2>Témoignages</h2>
         <hr>
-
         <div class="content-show">
             <p class="visible-xs toggleplus">+</p>
             <div class="content-wrapper">
@@ -807,37 +805,20 @@ $hasSession = hasSessions();
                     </div>
                 </div>
                 <div class="row row-same-height">
-                    <?php $i=0; ?>
-                    <?php foreach ( $temoignages as $temoignage ): ?>
-                    <?php
-                    $i+=1;
-                    $company_plus_course = get_field( 'entreprise', $temoignage->ID );
-                    $company_plus_course = explode( '-', $company_plus_course ); 
-                    $company = $company_plus_course[0];
-                    $course = $company_plus_course[1];
-
-                    if($i<4){
-                    ?>
+                    <?php $testimonials = array_slice($testimonials, 0, 3);  ?>
+                    <?php foreach ( $testimonials as $testimonial ): ?>
                     <div class="col-sm-6 col-md-4">
                         <div class="wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                                 <polygon fill="#fff" points="0,0 100,100 0,100"/>
                             </svg>
-                            <div class="name"><?php echo $temoignage->post_title; ?></div>
-                            <div class="company"><?php echo $company; ?></div>
+                            <div class="name"><?php echo $testimonial['name']; ?></div>
+                            <div class="company"><?php echo $testimonial['company']; ?></div>
                             <hr>
-                            <div class="testimonial"><?php echo $temoignage->post_content; ?></div>
-                            <?php
-                        $img_carre = get_field( 'visuel_carre', $temoignage->ID );
-                        if ( $img_carre ) {
-                            echo wp_get_attachment_image( $img_carre, 'testimony' );
-                        } else {
-                            echo get_the_post_thumbnail( $temoignage->ID, 'testimony' );
-                        }
-                            ?>
+                            <div class="testimonial"><?php echo $testimonial['content']; ?></div>
+                            <?php echo $testimonial['img']; ?>
                         </div>
                     </div>
-                    <?php } ?>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -846,8 +827,6 @@ $hasSession = hasSessions();
 </section>
 <?php endif; ?>
 <!-- end/ - temoignages -->
-
-
 
 
 <?php
@@ -859,7 +838,7 @@ endif;
     //-------------------------------------------
     //--------- Form custom heading -------------
     //-------------------------------------------
-    var form_heading = '<span id="form-heading"><h3 style="margin-top: 1.5em;">SESSION INTER ENTREPRISES</h3><p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">Demander la création d\'une session à la carte</p></span><hr>';
+    var form_heading = '<span id="form-heading"><h3 style="margin-top: 1.5em;font-weight:bold;">SESSION INTER ENTREPRISES</h3><p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">Demander la création d\'une session à la carte</p></span><hr>';
 </script>
 
 
