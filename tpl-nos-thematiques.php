@@ -79,8 +79,8 @@ $courses_count = count(json_decode($result[0])) ;
                      >
                     <div class="container">
                         <div class="thema-heading border_{{thema.color}}">
-                            <img data-skip-lazy="" src="{{thema.img}}" alt="">
-                            <a href="{{thema.url}}">
+                            <img data-skip-lazy="" ng-src="{{thema.img}}" alt="">
+                            <a ng-href="{{thema.url}}">
                                 <h3 class="c_{{thema.color}}">Nos formations sur la thématique <span ng-bind-html="thema.name | unsafe"></span></h3>
                             </a>
                         </div>
@@ -94,11 +94,11 @@ $courses_count = count(json_decode($result[0])) ;
                                  class="col-md-6 col-xl-4 animated-item" 
                                  >
                                 <div class="wrapper">
-                                    <a href="{{course.link}}">   
+                                    <a ng-href="{{course.link}}">   
                                         <img ng-src="{{course.image}}" alt="">
                                     </a>
                                     <div>
-                                        <a href="{{course.link}}">
+                                        <a ng-href="{{course.link}}">
                                             <h4 ng-bind-html="course.title | level_hl"></h4>
                                         </a>  
                                         <div class="nouvelle_formation" ng-show="course.new != false"></div>
@@ -106,7 +106,7 @@ $courses_count = count(json_decode($result[0])) ;
 
                                         <div class="goals" ng-bind-html="course.goals | highlight:searchText"></div>
                                     </div>
-                                    <a class="en-savoir-plus" href="{{course.link}}">
+                                    <a class="en-savoir-plus" ng-href="{{course.link}}">
                                         <div class="btn btn-red btn-sm btn_c_{{thema.color}}" ng-class="selectBtnClass()">En savoir plus</div>
                                     </a>
                                 </div>
