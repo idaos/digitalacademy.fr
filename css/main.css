@@ -330,11 +330,6 @@ body.theme-orange h2{
 bodypage-template-nos-thematiques h2{
     margin-bottom: 40px;
 }
-body.single-formation h2,
-body.single-formation .p30 h2{
-    text-align: center;
-    color: #be3b2b;
-}
 .full-width .clearfix span{
     color: #fff;
 }
@@ -1863,17 +1858,16 @@ form[role='search']{
 .page-template-tpl-nos-formateurs .content{
     background: #eee;
 }
-.post-type-archive-temoignage .content{
+.page-template-tpl-satisfaction-clients .content, .post-type-archive-temoignage .content{
     background: #fff;
 }
-.post-type-archive-temoignage .content #matchheight-container .container-border {
+.page-template-tpl-satisfaction-clients .content #matchheight-container .container-border, .post-type-archive-temoignage .content #matchheight-container .container-border {
     border: 1px solid #dbdbdb;
     padding: 1em;
     text-align: left;
     height: 100%;
 }
-
-.post-type-archive-temoignage .content #matchheight-container > .row {
+.page-template-tpl-satisfaction-clients .content #matchheight-container > .row, .post-type-archive-temoignage .content #matchheight-container > .row {
     margin:0;
     margin-top:40px;
 }

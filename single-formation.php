@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php 
+<?php
 //---------------------------------------------------------------------------
 // get site url
 //---------------------------------------------------------------------------
@@ -8,13 +8,16 @@ $url = site_url();
 //---------------------------------------------------------------------------
 // pass url parameters to contact form for google analytics utm tags handling
 //---------------------------------------------------------------------------
-$url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
-if (strpos($_SERVER["REQUEST_URI"], '?')) {
-
+function getUrlParameters(){
     $url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
-    $url_parameters = $url_parameters[1];
-}else{
-    $url_parameters = null;
+    if (strpos($_SERVER["REQUEST_URI"], '?')) {
+
+        $url_parameters = explode( '?', $_SERVER["REQUEST_URI"] );
+        $url_parameters = $url_parameters[1];
+    }else{
+        $url_parameters = null;
+    }
+    return $url_parameters;
 }
 //---------------------------------------------------------------------------
 // detect which form tabs must be enabled
@@ -31,26 +34,33 @@ if ( $types = wp_get_post_terms( get_the_ID(), 'type' ) ){
         }
     }
 }
-
 //---------------------------------------------------------------------------
 // Store title into a var
 //---------------------------------------------------------------------------
 $title = get_the_title();
 
 //---------------------------------------------------------------------------
-?>
+// Store stylesheet uri into a var
+//---------------------------------------------------------------------------
+$styleUri= get_stylesheet_directory_uri();
 
-<?php
+
 if ( have_posts() ) :
+
+//---------------------------------------------------------------------------
 // Start the Loop.
+//---------------------------------------------------------------------------
+
 while ( have_posts() ) : the_post();
 
-$thematic = wp_get_post_terms( get_the_ID(), 'thematique' );
+
+//---------------------------------------------------------------------------
+// Get thematic data
+//---------------------------------------------------------------------------
 
 $th_list = wp_get_post_terms( get_the_ID(), 'thematique' );
 
 if(isset( $th_list[0] ) ){
-
     $th_set = true;
     $th_first_id = $th_list[0]->term_id;
 }else{
@@ -58,542 +68,796 @@ if(isset( $th_list[0] ) ){
     $th_first_id = 23;
 }
 $th = new KzThema($th_first_id);
-?>
 
+
+//---------------------------------------------------------------------------
+// Store data into vars
+//---------------------------------------------------------------------------
+
+
+function getObsoleteHTML(){
+    if ( get_field( 'obsolete_texte' ) ){
+        $obsoleteTxt = get_field( 'obsolete_texte' );
+    }else{
+        $obsoleteTxt = "";
+    }
+    if ( get_field( 'obsolete' ) === "Oui" ){
+        $out = <<<EOF
+            <div id="obsolete">
+                <div class="container" style="padding: 0 5px;text-align:center;">
+                    $obsoleteTxt
+                </div>
+            </div>
+            EOF;
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getPresentationTitle(){
+    if ( get_field( 'titre_presentation' ) ){
+        $out = get_field( 'titre_presentation' );
+    }else{
+        $out = "Présentation";
+    }
+    return $out;
+}
+function getPresentation(){
+    if ( get_field( 'presentation' ) ){
+        $out = get_field( 'presentation' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getPresentationThema(){
+    if ( get_field( 'intro_thematique' ) ){
+        $out = get_field( 'intro_thematique' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getInformations(){
+    if ( get_field( 'informations' ) ){
+        $out = get_field( 'informations' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getPrerequisites(){
+    if ( get_field( 'prerequis_formation' ) ){
+        $out = get_field( 'prerequis_formation' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getCourseImg(){
+    if ( get_field( 'visuel_presentation' ) ){
+        $img = get_field( 'visuel_presentation' );
+        $out = '<img src="'. $img .'" alt="'. get_the_title() .'" title="'. get_the_title() .'"/>';
+    }else{
+        $out = '<img src="'. $styleUri .'/images/single-formation/course-img-placeholder.jpg">';
+    }
+    return $out;
+}
+function getPdfUrl(){
+    if ( get_field( 'fiche_formation' ) ){
+        $out = get_field( 'fiche_formation' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getTrainer(){
+    if ( get_field( 'formateur_descr' ) ){
+        $out = get_field( 'formateur_descr' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getForWho(){
+    if ( get_field( 'pour_qui' ) ){
+        $out = get_field( 'pour_qui' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getMethodology(){
+    if ( get_field( 'methodologie' ) ){
+        $out = get_field( 'methodologie' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getGoals(){
+    $out = "";
+    if ( get_field( 'intro_objectifs' ) ){
+        $out .= get_field( 'intro_objectifs' );
+    }
+    if ( get_field( 'objectifs_1' ) ){
+        $out .= get_field( 'objectifs_1' );
+    }
+    if ( get_field( 'objectifs_2' ) ){
+        $out .= get_field( 'objectifs_2' );
+    }
+
+    $goals_arr = explode("\n", $out);
+    $goals_arr_clean = array();
+
+    foreach( $goals_arr as $goals_item ){
+
+        $goals_item = str_replace("<strong>", "", $goals_item);
+        $goals_item = str_replace("</strong>", "", $goals_item);
+        $goals_item = str_replace("<p>", "<li>", $goals_item);
+        $goals_item = str_replace("</p>", "</li>", $goals_item);
+
+        if(( $goals_item != "<li>&nbsp;</li>" ) && ( $goals_item != "" )){
+            array_push($goals_arr_clean, $goals_item);
+        }
+    }
+    return implode($goals_arr_clean);
+}
+function getProgram(){
+    $program = "";
+    if ( get_field( 'programme_1' ) ){
+        $program .= get_field( 'programme_1' );
+    }
+    if ( get_field( 'programme_2' ) ){
+        $program .= get_field( 'programme_2' );
+    }
+    if ( get_field( 'programme_3' ) ){
+        $program .= get_field( 'programme_3' );
+    }
+    $program_arr = explode("\n", $program);
+    //    $program_arr_clean = array("<div class='accordeon-wrapper accordeon-has-path'>");
+    $program_arr_clean = array();
+    $program_arr_bloc = array();
+
+    foreach( $program_arr as $program_item ){
+
+        $th_list = wp_get_post_terms( get_the_ID(), 'thematique' );
+
+        if(isset( $th_list[0] ) ){
+            $th_set = true;
+            $th_first_id = $th_list[0]->term_id;
+        }else{
+            $th_set = false;
+            $th_first_id = 23;
+        }
+        $th = new KzThema($th_first_id);
+        $clr =  $th->getColor();
+
+        $program_item = str_replace("<p><strong>", "<div class='accordeon-item-title bgc-" . $clr . "'>", $program_item);
+        $program_item = str_replace("</strong></p>", "</div>", $program_item);
+
+        $program_item = str_replace("<p><span style=\"font-weight: 400;\">", "<li>", $program_item);
+        $program_item = str_replace("</span></p>", "</li>", $program_item);
+
+        $program_item = str_replace("<p><i><span style=\"font-weight: 400;\">", "<i>", $program_item);
+        $program_item = str_replace("</span></i></p>", "</i>", $program_item);
+
+        $program_item = str_replace("<p><em>", "<i>", $program_item);
+        $program_item = str_replace("</em></p>", "</i>", $program_item);
+
+        $program_item = str_replace("<p>", "<li>", $program_item);
+        $program_item = str_replace("</p>", "</li>", $program_item);
+
+        $program_item = str_replace("<strong>", "", $program_item);
+        $program_item = str_replace("</strong>", "", $program_item);
+
+
+        if(( $program_item != "<li>&nbsp;</li>" ) && ( $program_item != "" )){
+
+            $pos = strpos($program_item, "accordeon-item-title");
+
+            if ($pos !== false) {
+
+                array_push($program_arr_clean,"<ul class='accordeon-item-content' style='display:none;'>");
+                foreach ($program_arr_bloc as $item) {
+                    array_push($program_arr_clean, $item);
+                }
+                array_push($program_arr_clean,"</ul>");
+                array_push($program_arr_clean,"</div><div class='accordeon-item'>");
+                array_push($program_arr_clean, $program_item);
+                $program_arr_bloc = array();
+            }else{
+                array_push($program_arr_bloc, $program_item);
+            }
+
+        }
+    }
+    array_push($program_arr_clean,"<ul class='accordeon-item-content' style='display:none;'>");
+    foreach ($program_arr_bloc as $item) {
+        array_push($program_arr_clean, $item);
+    }
+    array_push($program_arr_clean,"</ul>");
+    array_unshift($program_arr_clean, '<div class="accordeon-wrapper accordeon-has-path"><div>');
+    array_push($program_arr_clean, '</div></div>');
+
+    return implode($program_arr_clean);
+}
+function getVersion(){
+    if ( get_field( 'version' ) ){
+        $out = get_field( 'version' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function getEvaluation(){
+    if ( get_field( 'evaluation' ) ){
+        $out = get_field( 'evaluation' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function isObsolete(){
+    if ( get_field( 'obsolete' ) === "Non" ){
+        return false;
+    }else{
+        return true;
+    }
+}
+function getSessions(){
+
+    $sessions = array();
+    while ( have_rows( 'sessions' ) ){
+        $session = array();
+        the_row();
+        $date_session = strtotime( get_sub_field( 'date_session' ) );
+        $url_parameters = getUrlParameters();
+
+        // BO available checkbox checked
+        if ( get_sub_field( 'ouvert' ) ){
+
+            // The session is in the future
+            if ( time() < $date_session ){
+                $session["date"] = date_i18n( get_option( 'date_format' ), $date_session );
+                $session["place"] = get_sub_field( 'lieu_session' );
+                // Registration is closed
+                if (( $date_session - time() ) < 432000 ){
+                    $session["open"] = false;
+                    // Registration is available
+                }else{
+                    $session["open"] = true;
+                    $formMessage = "Bonjour,\n\n Je souhaiterais me pré-inscrire à la formation " . get_the_title() . ' du ' . date_i18n( get_option( 'date_format' ), strtotime( get_sub_field( 'date_session' ) ) ) . ' à ' . get_sub_field( 'lieu_session' ) . '.';
+                    $parameters   = '?'. $url_parameters .'&objet=' . urlencode( 'Pré-inscription - ' . get_the_title() ) . '&corps=' . urlencode( $formMessage ) ;
+                    $session["formLink"] = get_field( 'page_contact', 'option' ) . $parameters;
+                }
+            }
+        } 
+        if( count($session) > 0 ){
+            array_push($sessions, $session);
+        }
+    }
+    return($sessions);
+}
+function hasSessions(){
+    if( count(getSessions()) == 0 ){
+        return false;
+    }else{
+        return true;
+    }
+}
+function getTestimonials(){
+
+    $testimonials = array();
+    if ( get_field( 'temoignages' ) ){
+        $testimonialsList = get_field( 'temoignages' );
+    }else{
+        return false;
+    }
+    foreach ( $testimonialsList as $item ){
+        $testimonial = array();
+        $company_plus_course = get_field( 'entreprise', $item->ID );
+        $company_plus_course = explode( '-', $company_plus_course ); 
+        $testimonial['company'] = $company_plus_course[0];
+        $testimonial['course'] = $company_plus_course[1];
+        $testimonial['name'] = $item->post_title;
+        $testimonial['content'] = $item->post_content;
+        $testimonial['img'] = get_field( 'visuel_carre', $item->ID );
+        if ( $testimonial['img'] ) {
+            $testimonial['img'] = wp_get_attachment_image( $testimonial['img'], 'testimony' );
+        } else {
+            $testimonial['img'] = get_the_post_thumbnail( $temoignage->ID, 'testimony' );
+        }
+        if( count($testimonial) > 0 ){
+            array_push($testimonials, $testimonial);
+        }
+    }
+    return $testimonials;
+}
+function hasTestimonials(){
+    if( getTestimonials() != false ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function hasInfoPlace(){
+    if ( get_field( 'info_lieu' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function getInfoPlace(){
+    if ( get_field( 'texte_lieu' ) ){
+        $out = get_field( 'texte_lieu' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function hasInfoDuration(){
+    if ( get_field( 'info_duree' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function getInfoDuration(){
+    if ( get_field( 'texte_duree' ) ){
+        $out = get_field( 'texte_duree' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function hasInfoParticipants(){
+    if ( get_field( 'info_participants' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function getInfoParticipants(){
+    if ( get_field( 'texte_participants' ) ){
+        $out = get_field( 'texte_participants' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function hasInfoPrice(){
+    if ( get_field( 'info_tarif' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function getInfoPrice(){
+    if ( get_field( 'texte_tarif' ) ){
+        $out = get_field( 'texte_tarif' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function hasInfoRef(){
+    if ( get_field( 'info_reference' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function hasInfoIntra(){
+    if ( get_field( 'info_intra' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function hasInfoOnline(){
+    if ( get_field( 'info_online' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function hasInfoElearning(){
+    if ( get_field( 'info_e_learning' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+$colorTxt = $th->getColor(); 
+$colorHex = $th->getColorHex(); 
+$thName = $th->getName(); 
+$thImg = $th->getImage();
+$thName = $th->getName();
+$obsoleteHTML = getObsoleteHTML();
+$presentationTitle = getPresentationTitle();
+$presentation = getPresentation();
+$presentationThema = getPresentationThema();
+$courseImgHTML = getCourseImg();
+$pdfUrl = getPdfUrl();
+$informations = getInformations();
+$prerequisites = getPrerequisites();
+$trainer = getTrainer();
+$goals = getGoals();
+$forWho = getForWho();
+$methodology = getMethodology();
+$evaluation = getEvaluation();
+$program = getProgram();
+$version = getVersion();
+$sessions = getSessions();
+$hasSession = hasSessions();
+$testimonials = getTestimonials();
+$hasTestimonials = hasTestimonials();
+
+?>  
+
+<?php echo $obsoleteHTML; ?>
 
 <!-- Heading -->
-<div id="heading" class="container-slider main-slider slider-header theme-<?php echo $th->getColor(); ?>">
-    <div class="slick-slide">
-
-        <!-- Picto -->
-        <?php if ($th_set){ ?>
-        <div class="w100">
-            <img src="<?php echo $th->getImage(); ?>" alt="" style="max-width: 80px;"/>
-        </div>
-        <?php } ?>
-
-        <!-- Title -->
-        <h1 class="title-slider w100">Formation - <?php the_title(); ?></h1>
-
-        <!-- Thema name -->
-        <?php if($th_set){ ?>
-        <div class="text-center theme-<?php echo $th->getColor(); ?> w100" style="font-size: .6em;margin-top:1.5em;">
-            <p class="big-title">Thématique : <?php echo $th->getName(); ?></p>
-        </div>
-        <?php } ?>
-
-    </div>
-</div>
-
-<?php if ( get_field( 'obsolete' ) === "Oui" ): ?>
-<div id="obsolete">
-    <div class="container" style="padding: 0 5px;text-align:center;">
-        <?php if ( get_field( 'obsolete_texte' ) ): the_field( 'obsolete_texte' ); endif; ?>
-    </div>
-</div>
-<div></div>
-<?php endif; ?>
-
-<div id="sub-nav-placeholder"></div>
-<div id="sub-nav" class="xs-container-menu-filtre">
-    <div class="container-menu-filtre hidden-xs">
-        <div class="container">
-            <ul>
-                <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#presentation">Présentation</a></li>
-                <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#informations">Informations &amp; Objectifs</a></li>
-                <?php if($th_set){ ?>
-                <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#programme">Programme</a></li>
-                <?php } ?>
-                <?php if ( get_field( 'obsolete' ) === "Non" ): // check whether the course is obsolete ?>
-                <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#Inscription">Dates, lieu &amp; inscription</a></li>
-                <?php endif; ?>
-                <?php if ( $temoignages = get_field( 'temoignages' ) ): ?>
-                <li><a class="btn btn-xs btn-gray" style="font-size:12px" href="#temoignages">Témoignages</a></li>
-                <?php endif; ?>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- Présentation -->
-<div class="container container-wp" style="background:none;">
-    <div class="row clearfix" id="presentation">
-
-        <?php if ( get_field( 'titre_presentation' ) ): ?>
-        <h2><?php the_field( 'titre_presentation' ); ?></h2>
-        <?php else : ?>
-        <h2>Présentation</h2>
-        <?php endif; ?>
-        <hr>
-
-        <div class="content-wrapper">
-
-            <div class="col-sm-6">
-                <?php if ( get_field( 'visuel_presentation' ) ): ?>
-                <img src="<?php echo the_field( 'visuel_presentation' ); ?>"
-                     alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
-                <?php endif; ?>
-
-                <!-- Nous contacter -->
-                <div class="row" style="max-width:598px;margin-top: 15px;">
-                    <?php if ( get_field( 'fiche_formation' ) ): ?>
-                    <div class="col-xs-6">
-                        <a href="<?php the_field( 'fiche_formation' ); ?>" class="btn btn-xs btn-red" style="width:100%;" target="_blank" rel="nofollow">
-                            Télécharger la fiche en pdf
-                        </a>
-                    </div>
-                    <?php endif; ?>
-                    <div class="col-xs-6">
-                        <a href="tel:0977215321" class="btn btn-xs btn-red-alt" style="width:100%;">
-                            Appelez-nous au <span class="noWrap">09 77 21 53 21</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-sm-6">
-                <?php if ( get_field( 'presentation' ) ): ?>
-                <?php the_field( 'presentation' ); ?>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /end - Présentation -->
-
-
-
-
-<!-- Datadock banner -->
-<section id="datadock">
-    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#236fa8" points="0,100 100,0 100,100"></polygon>
+<section id="heading">
+    <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#f7f7f7" points="47,0 100,0 100,100 42,90"></polygon>
     </svg>
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#56aef2" points="0,0 0,100 100,0"></polygon>
+    <svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#fff" points="-20,80 100,0 100,100"></polygon>
+        <polygon fill="<?php echo $colorHex; ?>" points="-20,80 100,0 100,100"></polygon>
     </svg>
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <h4>Organisme validé et référencé </h4>
-                <img src="https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/datadock-logo.svg" alt="" data-lazy-src="https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/datadock-logo.svg" class="lazyloaded" data-was-processed="true"><noscript><img src="https://www.digitalacademy.fr/wp-content/themes/digitalacademy/images/datadock-logo.svg" alt=""></noscript>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- /end - Datadock banner -->
-
-
-
-
-<!-- Informations -->
-<div class="container-wp">
-    <div class="container" id="informations">
-        <div class="clearfix row">
-            <h2>Informations &amp; Objectifs</h2>
-            <hr>
-
-            <div class="content-show">
-                <p class="visible-xs toggleplus">+</p>
-                <div class="content-wrapper">
-
-                    <div class="col-xs-12 col-sm-4 container__orange border0">
-
-                        <p style="margin: 2em 0;">
-                            <strong>Informations pratiques</strong>
-                        </p>
-                        <?php if ( get_field( 'informations' ) ): ?>
-                        <?php the_field( 'informations' ); ?>
-                        <?php endif; ?>
-
-                        <!-- Prerequis -->
-                        <?php if ( get_field( 'prerequis_formation' ) ): ?>
-                        <div class="info-item">
-                            <p><strong>Prérequis de la formation</strong></p>
-                            <?php the_field( 'prerequis_formation' ); ?>
+            <div id="course-imgs" class="col-lg-6 row">
+                <?php echo $courseImgHTML; ?>
+                <div class="multiply visibleLg">
+                    <h3>Notre certification :</h3>
+                    <hr>
+                    <div class="row">
+                        <!--                        <div class="col-xs-6 alignRight">-->
+                        <div class="col-xs-12">
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/datadock-bw.jpg" alt="">
                         </div>
-                        <?php endif; ?>
-
-                        <!-- Bloc formateur -->
-                        <?php if ( get_field( 'formateur_descr' ) ): ?>
-                        <div class="insert">
-                            <img width="100" height="100" src="<?php echo get_stylesheet_directory_uri(); ?>/images/formateur-expert-avatar.svg">
-                            <div class="wrapper">
-                                <strong style="margin-bottom:.3em;">Formateur</strong>
-                                <?php the_field( 'formateur_descr' ); ?>
-                                <i style="margin-top:.3em;">L’équipe d’intervenants sera coordonnée par notre équipe pédagogique.</i>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-
-                        <!-- Public en situation de handicap -->
-                        <div class="insert">
-                            <img width="100" height="100" src="<?php echo get_stylesheet_directory_uri(); ?>/images/handicap.svg" alt="handicap">
-                            <div class="wrapper">
-                                <strong style="margin-bottom:.3em;">Accessibilité</strong>
-                                Public en situation de handicap, nous contacter au
-                                <a href="tel:0977215321">
-                                    <div class="btn btn-xs btn-gray" id="btn-phone" style="margin-top:.7em;">
-                                        09 77 21 53 21
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-xs-12 col-sm-8 col-r">
-
-                        <div class="info-item" id="objectifs">
-                            <p><strong>Objectifs</strong></p>
-                            <?php if ( get_field( 'intro_objectifs' ) ): ?>
-                            <?php the_field( 'intro_objectifs' ); ?>
-                            <?php endif; ?>
-                            <?php if ( get_field( 'objectifs_1' ) ): ?>
-                            <?php the_field( 'objectifs_1' ); ?>
-                            <?php endif; ?>
-                            <?php if ( get_field( 'objectifs_2' ) ): ?>
-                            <?php the_field( 'objectifs_2' ); ?>
-                            <?php endif; ?>
-                        </div>
-
-                        <?php if ( get_field( 'pour_qui' ) ): ?>
-                        <div class="toggable info-item">
-                            <p class="toggable-btn"><strong>À qui s’adresse cette formation ?</strong></p>
-                            <div class="toggable-content"><?php the_field( 'pour_qui' ); ?></div>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php if ( get_field( 'methodologie' ) ): ?>
-                        <div class="toggable info-item">
-                            <p class="toggable-btn"><strong>Quelle est la méthodologie pédagogique employée ?</strong></p>
-                            <div class="toggable-content"><?php the_field( 'methodologie' ); ?></div>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php if ( get_field( 'evaluation' ) ): ?>
-                        <div class="toggable info-item">
-                            <p class="toggable-btn"><strong>Quelles sont les modalités d'évaluation de l'apprenant ?</strong></p>
-                            <div class="toggable-content"><?php the_field( 'evaluation' ); ?></div>
-                        </div>
-                        <?php endif; ?>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+                        <!--
+<div class="col-xs-6 alignLeft">
+<img src="<?php //echo $styleUri; ?>/images/single-formation/qualiopi-bw.jpg" alt="">
 </div>
-<!-- /end - informations -->
-
-
-
-<?php if($th_set){ ?>
-<div class="container-wp" id="programme-wrapper-<?php echo $th->getColor(); ?>">
-    <div class="container alignCenter" id="programme">
-        <h2>Programme</h2>
-        <hr>
-        <div class="content-show">
-            <p class="visible-xs toggleplus">+</p>
-            <div class="content-wrapper">
-                <div id="programme-flex-wrap" class="row alignLeft">
-                    <div style="display:none;"><div style="display:none;"><ul>
-                        <?php 
-                  $programme = "";
-                  ob_start();
-                  if ( get_field( 'programme_1' ) ){
-                      the_field( 'programme_1' );
-                  }
-                  $programme .= ob_get_contents();
-                  ob_end_clean();
-
-                  $programme_arr = explode("\n", $programme);
-                  $programme_arr_clean = array();
-
-                  foreach( $programme_arr as $programme_item ){
-
-                      $clr =  $th->getColor();
-
-                      $programme_item = str_replace("<p><strong>", "</ul></div></div><div class='p-wp col-sm-6 col-md-4'><div class='card'><h4 class='".$clr."'>", $programme_item);
-                      $programme_item = str_replace("</strong></p>", "</h4><ul>", $programme_item);
-
-                      $programme_item = str_replace("<p><span style=\"font-weight: 400;\">", "<li>", $programme_item);
-                      $programme_item = str_replace("</span></p>", "</li>", $programme_item);
-
-                      $programme_item = str_replace("<p><i><span style=\"font-weight: 400;\">", "<i>", $programme_item);
-                      $programme_item = str_replace("</span></i></p>", "</i>", $programme_item);
-
-                      $programme_item = str_replace("<p><em>", "<i>", $programme_item);
-                      $programme_item = str_replace("</em></p>", "</i>", $programme_item);
-
-                      $programme_item = str_replace("<p>", "<li>", $programme_item);
-                      $programme_item = str_replace("</p>", "</li>", $programme_item);
-
-                      $programme_item = str_replace("<strong>", "", $programme_item);
-                      $programme_item = str_replace("</strong>", "", $programme_item);
-
-                      if(( $programme_item != "<li>&nbsp;</li>" ) && ( $programme_item != "" )){
-                          array_push($programme_arr_clean, $programme_item);
-                      }
-                  }
-
-                  echo implode($programme_arr_clean);
-                        ?>
-                        </ul></div></div>
-                </div>
-                <?php if ( get_field( 'version' ) ): ?>
-
-                <div id="version">
-                    <?php the_field( 'version' ); ?>
-                </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php } ?>
-
-
-<?php 
-// count how many sessions are scheduled
-$remaining_session = 0;
-while ( have_rows( 'sessions' ) ){
-    the_row();
-    $row = get_row();
-    $date_session = strtotime( get_sub_field( 'date_session' ) );
-
-    if ( time() < $date_session ){
-        $remaining_session += 1;
-    }
-} 
-?>
-
-<?php if ( get_field( 'obsolete' ) === "Non" ): // check whether the course is obsolete ?>
-<div class="container-wp">
-    <div class="container" id="Inscription">
-        <h2>Inscription à la formation <?php the_title();?></h2>
-        <hr>
-
-        <div class="content-show">
-            <p class="visible-xs toggleplus">+</p>
-            <div class="content-wrapper">
-
-                <?php if($remaining_session != 0): // check whether the course has sessions ?>
-                <div class="row clearfix">
-                    <div class="col-sm-4 alignCenter">
-
-                        <div class="insert-alt">
-                            <img width="100" height="100" src="<?php echo get_stylesheet_directory_uri(); ?>/images/calendar-icon.svg">
-                            <div class="wrapper">
-                                <strong style="margin-bottom:.3em;">Découvrez les prochaines dates de la formation :</strong>  
-                                <br><i style="font-size:1.1em;"> « <?php the_title(); ?> » </i> 
-                            </div>
-                        </div>
-
-                        <i style="margin-top:.3em;width:100%;text-align:center;display:inline-block;">Si cette formation vous intéresse mais que les dates ne vous conviennent pas, n’hésitez pas à nous contacter.</i>
-                        <a href="<?php echo get_field( 'page_contact', 'option' ); ?>" onclick="return gtag_report_conversion();" class="btn btn-red btn-xs" style="margin: 1.5em 0 .4em 0;">Nous contacter</a>
-                        <a href="tel:0977215321" class="btn btn-xs btn-red-alt">
-                            Nous appeler au <span class="noWrap">09 77 21 53 21</span>
-                        </a>
+-->
                     </div>
-                    <div class="col-sm-8" style="padding-left:0">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-11" style="padding:0">
-                            <table class="table-inscription" style="width:100%">
-                                <tr>
-                                    <th>Prochaines dates *</th>
-                                    <th>Lieu</th>
-                                    <th>Inscription</th>
-                                </tr>
-
-                                <?php while ( have_rows( 'sessions' ) ) : the_row(); ?>
-                                <?php $date_session = strtotime( get_sub_field( 'date_session' ) ) ?>
-                                <?php if ( time() < $date_session ): ?>
-
-                                <tr>
-                                    <td>
-                                        <?php echo date_i18n( get_option( 'date_format' ), $date_session ); ?></td>
-                                    <td><?php the_sub_field( 'lieu_session' ); ?></td>
-                                    <?php if (( $date_session - time() ) < 432000 ): ?>
-                                    <!-- the session occure less than 5 days from now-->
-                                    <td class="indisponible">
-                                        <p style="font-size:1em;">Session fermée **</p>
-                                    </td>
-                                    <?php elseif ( get_sub_field( 'ouvert' ) ):
-                                    $corps = "Bonjour,\n\n Je souhaiterais me pré-inscrire à la formation " . $post->post_title . ' du ' . date_i18n( get_option( 'date_format' ), strtotime( get_sub_field( 'date_session' ) ) ) . ' à ' . get_sub_field( 'lieu_session' ) . '.';
-                                    $url   = '?'. $url_parameters .'&objet=' . urlencode( 'Pré-inscription - ' . $post->post_title ) . '&corps=' . urlencode( $corps ) ;
-                                    ?>
-                                    <td>
-                                        <a href="<?php echo get_field( 'page_contact', 'option' ) . $url ; ?>" 
-                                           class="btn btn-xs btn-red">Pré-inscription</a></td>
-
-                                    <?php else: ?>
-                                    <td class="indisponible">
-                                        <div class="btn btn-xs btn-red">Non disponible</div>
-                                    </td>
-                                    <?php endif; ?>
-                                </tr>
-
-                                <?php endif; ?>
-                                <?php endwhile; ?>
-
-                            </table>
-                            <small>* Pour les formations sur plusieurs jours, la date correspond au premier jour de la formation</small>
+                    <div class="rating">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/star-half.png" alt=""> 
+                        <span>4.7/5</span>
+                        <i>Satisfaction de nos apprenants en 2019</i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 alignCenterLg alignLeftSm">
+                <a id="thematic-info" href="#">
+                    <img src="<?php echo $styleUri; ?>/images/single-formation/ico-thematic-<?php echo $colorTxt; ?>.jpg" alt="" class="multiply">
+                    <span class="c-<?php echo $colorTxt; ?>">Thématique : "<?php echo $thName; ?>"</span>
+                </a>
+                <div id="course-title">
+                    <h1>
+                        <b>Formation </b>
+                        <?php echo $title; ?>
+                    </h1>
+                </div>
+                <hr class="alignCenterLg">
+                <div id="course-info" class="row">
+                    <?php if( hasInfoPlace() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-pin.jpg" alt="" class="multiply">
+                        <span><?php echo getInfoPlace() ?></span>
+                    </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoDuration() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-clock.jpg" alt="" class="multiply">
+                        <span><?php echo getInfoDuration() ?></span>
+                    </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoParticipants() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-peoples.jpg" alt="" class="multiply">
+                        <span><?php echo getInfoParticipants() ?></span>
+                    </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoPrice() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-coins.jpg" alt="" class="multiply">
+                        <span><?php echo getInfoPrice() ?></span>
+                    </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoRef() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-arrow.jpg" alt="" class="multiply">
+                        <span>Référence 1512104</span>
+                    </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoIntra() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
+                        <span>Intra ou sur-mesure possible</span>
+                    </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoOnline() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-online.jpg" alt="" class="multiply">
+                        <span>100% en ligne avec le formateur</span>
+                    </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoElearning() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-computer.png" alt="" class="multiply">
+                        <span>E-learning sur demande</span>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <hr class="hiddenLg alignCenterLg">
+                <div class="multiply hiddenLg alignCenterLg">
+                    <div class="row" style="padding-top: 1em" class="alignCenterLg">
+                        <div class="col-xs-12 col-sm-6 alignCenterLg">
+                            <!--                        <div class="col-xs-6 col-sm-4 alignRight alignCenterLg alignRightXs">-->
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/datadock-bw.jpg" alt="">
+                        </div>
+                        <!--
+<div class="col-xs-6 col-sm-4 alignLeft alignCenterLg alignLeftXs">
+<img src="<?php //echo $styleUri; ?>/images/single-formation/qualiopi-bw.jpg" alt="">
+</div>
+-->
+                        <div class="rating" class="col-xs-12 col-sm-4">
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/star-half.png" alt=""> 
+                            <span>4.7/5</span>
                             <br>
-                            <small>** Les inscriptions aux sessions de formations sont closes 5 jours avant la date indiquée.</small>
-
-                        </div>
-                    </div>
-                </div>            
-
-                <?php else: ?>
-
-                <div class="row">
-                    <div class="col-xs-12">
-
-                        <!-- Tabs nav -->
-                        <ul class="nav nav-tabs">
-                            <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
-                            <li class="active"><a data-toggle="tab" href="#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
-                            <?php endif; ?>
-                            <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
-                            <li><a data-toggle="tab" href="#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
-                            <?php endif; ?>
-                            <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
-                            <li><a data-toggle="tab" href="#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
-                            <?php endif; ?>
-                        </ul>
-
-                        <!-- Tabs content -->
-                        <div class="tab-content">
-
-                            <?php if ( ( !in_array ( 'inter', $enabled_tabs ) )
-                                      &&( !in_array ( 'intra-entreprises', $enabled_tabs ) )
-                                      &&( !in_array ( 'sur-mesure', $enabled_tabs ) ) ): ?>
-                            <div id="tab-inter" class="tab-pane active">
-                                <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
-                            <div id="tab-inter" class="tab-pane active">
-                                <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
-                            <div id="tab-intra" class="tab-pane">
-                                <span class="form-heading reverse">
-                                    <h2>Intra entreprise</h2>
-                                    <h3>Formez vos collaborateurs</h3>
-                                </span>
-                                <hr>
-                                <div class="content-wp">
-                                    <p>Demander votre devis en 30 secondes, réponse sous 24h</p>
-                                    <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme intra entreprise de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Demander un devis</a>
-                                </div>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
-                            <div id="tab-scalable" class="tab-pane">
-                                <span class="form-heading reverse">
-                                    <h2>Sur mesure</h2>
-                                    <h3>Votre programme de formation à la demande</h3>
-                                </span>
-                                <hr>
-                                <div class="content-wp">
-                                    <p>Nos experts conçoivent votre formation sur mesure !</p>
-                                    <p>Remplissez le formulaire suivant, et un de nos conseillers vous contactera dans les meilleurs délais.</p>
-                                    <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme sur-mesure de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Contactez-nous</a>
-                                </div>
-                            </div>
-                            <?php endif; ?>
-
+                            <i style="font-size: .9em;margin-top: .6em!important;display: inline-block">Satisfaction de nos apprenants <span class="noWrap">en 2019</span></i>
                         </div>
                     </div>
                 </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php else: ?>
-<div></div>
-<?php endif; ?>
-<!-- end/ - inscription -->
-
-
-
-
-<!-- Témoignages -->
-<?php if ( $temoignages = get_field( 'temoignages' ) ): ?>
-<section class="testimonial-wrapper container-wp">
-    <div class="container" id="temoignages">
-
-        <h2>Témoignages</h2>
-        <hr>
-
-        <div class="content-show">
-            <p class="visible-xs toggleplus">+</p>
-            <div class="content-wrapper">
-                <div class="row" style="padding-top:0">
-                    <div class="col-xs-12">
-                        <br><p style="margin-top:0;">Retrouvez les points de vue des apprenants qui commentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
-                    </div>
-                </div>
-                <div class="row row-same-height">
-                    <?php $i=0; ?>
-                    <?php foreach ( $temoignages as $temoignage ): ?>
-                    <?php
-                    $i+=1;
-                    $company_plus_course = get_field( 'entreprise', $temoignage->ID );
-                    $company_plus_course = explode( '-', $company_plus_course ); 
-                    $company = $company_plus_course[0];
-                    $course = $company_plus_course[1];
-                    
-                    if($i<4){
-                    ?>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="wrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <polygon fill="#fff" points="0,0 100,100 0,100"/>
-                            </svg>
-                            <div class="name"><?php echo $temoignage->post_title; ?></div>
-                            <div class="company"><?php echo $company; ?></div>
-                            <hr>
-                            <div class="testimonial"><?php echo $temoignage->post_content; ?></div>
-                            <?php
-                            $img_carre = get_field( 'visuel_carre', $temoignage->ID );
-                            if ( $img_carre ) {
-                                echo wp_get_attachment_image( $img_carre, 'testimony' );
-                            } else {
-                                echo get_the_post_thumbnail( $temoignage->ID, 'testimony' );
-                            }
-                            ?>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <?php endforeach; ?>
+                <div id="btn-wrapper" class="alignCenterLg">
+                    <a href="<?php echo $pdfUrl; ?>"><div class="btn btn-sm btn-red-alt marginR">Télécharger la fiche en PDF</div></a>
+                    <a title="Bouton de contact" href=""><div class="btn btn-sm btn-red">Parler avec un conseiller</div></a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<?php endif; ?>
-<!-- end/ - temoignages -->
+<!-- end / Heading -->
+<!-- Content -->
+<div class="container" style="margin-top:1em;">
+    <div class="row row-same-height reverseLg">
+        <div id="content" class="col-lg-8">
+
+            <div id="goals">
+                <h2 class="c-<?php echo $colorTxt; ?>">Objectifs</h2>
+                <i><?php echo $title; ?></i>
+                <hr>
+                <ul>
+                    <?php echo $goals; ?>
+                </ul>
+            </div>
+
+            <div class="insert-alt-wrapper-b row sameHeight">
+                <div class="col-sm-4 col-lg-6">
+                    <div class="insert-alt">
+                        <img width="100" height="100" src="<?php echo $styleUri; ?>/images/formateur-expert-avatar.svg">
+                        <div class="wrapper">
+                            <strong>Formateur</strong>  
+                            <p>Notre formateur est un expert des réseaux sociaux. Il a plus de 5 ans d'expérience dans ce domaine.</p> 
+                            <p><i>L'équipe d'intervenants sera coordonnée par notre équipe pédagogique.</i></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-6">
+                    <div class="insert-alt">
+                        <img width="100" height="100" src="<?php echo $styleUri; ?>/images/handicap.svg">
+                        <div class="wrapper">
+                            <strong>Accessibilité</strong>  
+                            <p><i>Public en situation de handicap, <span class="noWrap">nous contacter au :</span></i></p>
+                            <a title="Bouton de contact" href="tel:0977215321"><div class="btn btn-xs btn-red-alt">09 77 21 53 21</div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="program">
+                <style>.accordeon-has-path .accordeon-item:after{background: <?php echo $colorHex; ?>;}</style>
+                <h2 class="c-<?php echo $colorTxt; ?>">Programme</h2>
+                <i><?php echo $title; ?></i>
+                <hr>
+                <?php echo $program; ?>
+            </div>
+
+            <div id="presentation">
+                <h2 class="c-<?php echo $colorTxt; ?>">Présentation</h2>
+                <i><?php echo $title; ?></i>
+                <hr>
+                <?php echo $presentationThema; ?>
+                <?php echo $presentation; ?>
+            </div>
+
+            <div id="prerequisites">
+                <div class="accordeon-wrapper">
+                    <div class="accordeon-item">
+                        <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">Prérequis de la formation</div>
+                        <div class="accordeon-item-content" style="display:none;">
+                            <?php echo $prerequisites; ?>
+                        </div>
+                    </div>
+                    <div class="accordeon-item">
+                        <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">À qui s'adresse cette formation ?</div>
+                        <div class="accordeon-item-content" style="display:none;">
+                            <?php echo $forWho; ?>
+                        </div>
+                    </div>
+                    <div class="accordeon-item">
+                        <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">Quelle est la méthodologie pédagogique employée ?</div>
+                        <div class="accordeon-item-content" style="display:none;">
+                            <?php echo $methodology; ?>
+                        </div>
+                    </div>
+                    <div class="accordeon-item">
+                        <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">Quelles sont les modalités pédagogiques employées ?</div>
+                        <div class="accordeon-item-content" style="display:none;">
+                            <?php echo $evaluation; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insert-alt-wrapper-b row sameHeight">
+                <div class="insert-alt col-sm-4 col-lg-12">
+                    <img width="100" height="100" src="<?php echo $styleUri; ?>/images/single-formation/ico-sm-phone.jpg">
+                    <div class="wrapper">
+                        <strong>Vous avez des questions sur <span class="noWrap">cette formation ?</span></strong>
+                        <br>
+                        <p>Nos conseillers vous répondent au :</p>
+                        <a id="call-link" href="tel:0977215321">09 77 21 53 21</a>
+                        <i class="lightItalic">appel non surtaxé du lundi au vendredi de 9h30 à 18h</i>
+                        <i>ou par email</i>
+                        <p><a id="mail-link" href="">contact@digitalacademy.fr</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin-bottom: 0!important;opacity:.5">
+            <div id="version"><?php echo $version; ?></div>
+        </div>
+        <div id="cta-col" class="col-lg-4">
+
+            <!-- Course has sessions -->
+            <?php if($hasSession): ?>
+
+            <h2 class="c-<?php echo $colorTxt; ?>">Prochaines Dates <span class="c-color-dac">*</span></h2>
+            <i><?php echo $title; ?></i>
+            <hr>
+            <i>Si cette formation vous intéresse mais que les dates ne vous conviennent pas, n’hésitez pas à nous contacter.</i>
+
+            <?php foreach($sessions as $session): ?>
+
+            <div class="insert <?php if(!$session["open"]): ?>session-closed<?php endif; ?>">
+                <img src="<?php echo $styleUri; ?>/images/calendar-icon.svg" height=12 alt="">
+                <div class="wrapper">
+                    <strong style="margin-bottom:.3em;"><?php echo $session["date"]; ?></strong>
+                    <br><i><?php echo $session["place"]; ?></i>
+                    <?php if(!$session["open"]): ?>
+                    <div class="closed">session fermée **</div>
+                    <?php endif; ?>
+                    <?php if( $session["open"]): ?>
+                    <a title="Bouton d'inscription" href="<?php echo $session["link"]; ?>"><div class="btn btn-xs btn-red">Inscription</div></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <?php endforeach; ?>
+
+            <i><span class="c-color-dac">*</span> Pour les formations sur plusieurs jours, la date correspond au premier jour de la formation</i>
+            <i><span class="c-color-dac">**</span> Les inscriptions aux sessions de formations sont closes 5 jours avant la date indiquée</i>
+            <i>Les sessions de formation sont maintenus à partir de 3 personnes inscrites</i>
 
 
+            <!-- Course has not sessions -->
+            <?php else: ?>
+
+            <!-- Course Registering -->
+            <?php endif; ?>
 
 
+            <!------------------------------------------------>
+            <!-------------- Multi-tabs Form ----------------->
+            <!------------------------------------------------>
+            <div id="tabled-form">
 
+                <!-- Tabs nav -->
+                <ul class="nav nav-tabs">
+                    <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
+                    <li class="active"><a data-toggle="tab" href="#tab-inter" class="btn btn-gray btn-tabs">Inter</a></li>
+                    <?php endif; ?>
+                    <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
+                    <li><a data-toggle="tab" href="#tab-intra" class="btn btn-gray btn-tabs">Intra</a></li>
+                    <?php endif; ?>
+                    <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
+                    <li><a data-toggle="tab" href="#tab-scalable" class="btn btn-gray btn-tabs">Sur Mesure</a></li>
+                    <?php endif; ?>
+                </ul>
+                <!-- Tabs content -->
+                <div id="tab-content" class="tab-content">
 
+                    <?php if ( ( !in_array ( 'inter', $enabled_tabs ) )
+                              &&( !in_array ( 'intra-entreprises', $enabled_tabs ) )
+                              &&( !in_array ( 'sur-mesure', $enabled_tabs ) ) ): ?>
+                    <div id="tab-inter" class="tab-pane active">
+                        <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
+                    <div id="tab-inter" class="tab-pane active">
+                        <?php echo do_shortcode('[gravityform id="12" title="false" description="false" ajax="true"]'); ?>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if( in_array ( 'intra-entreprises', $enabled_tabs ) ): ?>
+                    <div id="tab-intra" class="tab-pane">
+                        <div class="content-wp">
+                            <span class="form-heading ">
+                                <h3 style="margin-top: 1.5em;font-weight:bold!important;">INTRA ENTREPRISE</h3>
+                                <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
+                                    Formez vos collaborateurs
+                                </p>                        
+                            </span>
+                            <hr>
+                            <p style="margin-top: -1.2em;">Demander votre devis en 30 secondes, réponse sous 24h</p>
+                            <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme intra entreprise de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Demander un devis</a>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if( in_array ( 'sur-mesure', $enabled_tabs ) ): ?>
+                    <div id="tab-scalable" class="tab-pane">
+                        <div class="content-wp">
+                            <span class="form-heading ">
+                                <h3 style="margin-top: 1.5em;font-weight:bold!important;">SUR MESURE</h3>
+                                <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
+                                    Votre programme de formation à la demande
+                                </p>                        
+                            </span>
+                            <hr>
+                            <p style="margin-top: -1.2em;">Nos experts conçoivent votre formation sur mesure !</p>
+                            <p>Remplissez le formulaire suivant, et un de nos conseillers vous contactera dans les meilleurs délais.</p>
+                            <a href="<?php echo $url; ?>/contact/?objet=Demande de devis pour un programme sur-mesure de la formation %22<?php the_title(); ?>%22" class="btn btn-red">Contactez-nous</a>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <!------------------------------------------------>
+            <!----------- end / Multi-tabs Form -------------->
+            <!------------------------------------------------>
+        </div>
+    </div>
+</div>
 <?php if($th_set){ ?>
 <section id="slider-formations" class="container-wp" style="background:#fff!important;">
+    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#eee" points="0,0 100,0 100,100"></polygon>
+    </svg>
+    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="<?php echo $colorHex; ?>" points="0,0 100,20 0,100"></polygon>
+    </svg>
+    <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#fff" points="0,0 100,0 100,100 0,100"></polygon>
+    </svg>
     <div id="null" class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -606,20 +870,17 @@ while ( have_rows( 'sessions' ) ){
                 <hr>
                 <?php echo do_shortcode( '[kz_courses_slider nb=-1 taxo="thematique"]' ); ?>
                 <a href="/formations/"><div class="btn btn-red">Découvrir toutes nos formations</div></a>
-                <br><br><br><br>
+                <br><br><br>
             </div>
         </div>
     </div>
-</section>
+</section>    
 <?php } ?>
-
-
-
 <section id="references" class="container-wp">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <br><br><br>
+                <br>
                 <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
                 <hr>
                 <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
@@ -630,6 +891,46 @@ while ( have_rows( 'sessions' ) ){
     </div>
 </section>
 
+
+<!-- Témoignages -->
+<?php if ( $hasTestimonials ): ?>
+<section class="testimonial-wrapper container-wp">
+    <div class="container" id="temoignages">
+        <h2>Témoignages</h2>
+        <hr>
+        <div class="content-show">
+            <p class="visible-xs toggleplus">+</p>
+            <div class="content-wrapper">
+                <div class="row" style="padding-top:0">
+                    <div class="col-xs-12">
+                        <br><p style="margin-top:0;">Retrouvez les points de vue des apprenants qui commentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
+                    </div>
+                </div>
+                <div class="row row-same-height">
+                    <?php $testimonials = array_slice($testimonials, 0, 3);  ?>
+                    <?php foreach ( $testimonials as $testimonial ): ?>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <polygon fill="#fff" points="0,0 100,100 0,100"/>
+                            </svg>
+                            <div class="name"><?php echo $testimonial['name']; ?></div>
+                            <div class="company"><?php echo $testimonial['company']; ?></div>
+                            <hr>
+                            <div class="testimonial"><?php echo $testimonial['content']; ?></div>
+                            <?php echo $testimonial['img']; ?>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+<!-- end/ - temoignages -->
+
+
 <?php
 endwhile;
 endif;
@@ -639,8 +940,10 @@ endif;
     //-------------------------------------------
     //--------- Form custom heading -------------
     //-------------------------------------------
-    var form_heading = '<span id="form-heading" class="reverse"><h2>SESSION INTER ENTREPRISES</h2><p style="font-size:.94em;">Formation "<?php echo $title; ?>"</p><h3>Demander la création d\'une session à la carte</h3></span><hr><br><br>';
+    var form_heading = '<span id="form-heading"><h3 style="margin-top: 1.5em;font-weight:bold!important;">SESSION INTER ENTREPRISES</h3><p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">Demander la création d\'une session à la carte</p></span><hr>';
 </script>
 
 
 <?php get_footer(); ?>
+
+

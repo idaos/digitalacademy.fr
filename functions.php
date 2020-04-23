@@ -63,7 +63,7 @@ function tp_enqueue_scripts() {
     }
 
     if(($template_name != 'template-pages-offre.php')
-       &&($template_name != 'tpl-nos-formations.php')
+       &&((is_archive())&&(is_post_type_archive( 'formation' )))
        &&(is_page(260)) // page Clients
       ){
         wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
@@ -158,7 +158,7 @@ function custom_scripts_and_styles_taxo_thema(){
 add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_singleFormation');
 //Load scripts (and styles)
 function custom_scripts_and_styles_singleFormation(){
-    if(is_single()){ //Check if we are viewing an article
+    if(is_single()){ //Check if we are viewing an article / course page
 
         wp_enqueue_style( 'formation-style', get_template_directory_uri() . '/css/single-formation.css', array( 'main' ), null );
         wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
@@ -171,6 +171,7 @@ function custom_scripts_and_styles_singleFormation(){
         // datepicker load
         wp_enqueue_style( 'datepicker-tiny', get_template_directory_uri() . '/css/tiny-date-picker.min.css', array( 'main' ), null );
         wp_enqueue_script( 'datepicker-tiny', get_stylesheet_directory_uri() . '/js/tiny-date-picker.min.js', array( 'jquery' ), null, false );
+        wp_dequeue_script( 'contact-btn');
     }
 }
 
@@ -300,14 +301,20 @@ add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_testimonial');
 add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_testimonial');
 //Load scripts (and styles)
 function custom_scripts_and_styles_testimonial(){
-    if(is_archive()){ //Check if we are viewing an archive page.
-        if ( is_post_type_archive( 'temoignage' ) ) {
+    global $wp_query;
+    //Check which template is assigned to current page we are looking at
+    if( isset($wp_query->post->ID) ){
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+    }else{
+        $template_name = false;
+    }
+    if( ((is_archive())&&(is_post_type_archive( 'temoignage' )))  //Check if we are viewing an archive page.
+        || ($template_name == 'tpl-satisfaction-clients.php') ){ // or satisfaction page
             wp_enqueue_style( 'chart', get_template_directory_uri() . '/css/chart.css', array( 'main' ), null );
             wp_enqueue_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.js', array( 'owl-carousel', 'accordeon', 'jquery' ), null, false );
             wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array( 'main' ), null );
             wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, false );
             wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
-        }
     }
 }
 
@@ -327,7 +334,7 @@ function custom_scripts_and_styles_courses(){
     }else{
         $template_name = false;
     }
-    if(($template_name == 'tpl-nos-formations.php')||(isCoursesListPage())){
+    if((is_archive())&&(is_post_type_archive( 'formation' ))){
         wp_enqueue_style( 'bootstrap4-grid', get_template_directory_uri() . '/landing-page-catalogue/vendor/bootsrap4/css/bootstrap-grid.min.css', null );
         wp_enqueue_style( 'page-nos-formations', get_template_directory_uri() . '/css/page-nos-formations.css', array( 'main', 'references-style' ), null );
 
@@ -346,7 +353,7 @@ function custom_scripts_and_styles_courses(){
     wp_enqueue_script( 'getCoursesByKeyword', get_stylesheet_directory_uri() . '/js/ajaxurl.js', array('jquery'), '1.0', true );
     wp_localize_script('getCoursesByKeyword', 'ajaxurl', admin_url( 'admin-ajax.php' ) );    
 }
-// check whether we are on the page "/formations"  or not
+/*// check whether we are on the page "/formations"  or not
 function isCoursesListPage(){
     $a = get_link_by_slug('formations');
     $b = getCurrentPageURL();
@@ -376,7 +383,7 @@ function getCurrentPageURL(){
     // Append the requested resource location to the URL   
     $url.= $_SERVER['REQUEST_URI'];    
     return $url;  
-}
+}*/
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
@@ -604,7 +611,15 @@ function dg_liste_references( $query ) {
 
 add_action( 'pre_get_posts', 'dg_liste_temoignages' );
 function dg_liste_temoignages( $query ) {
-    if ( $query->is_post_type_archive( 'temoignage' ) && $query->is_main_query() ) {
+    //Check which template is assigned to current page we are looking at
+    if( isset($wp_query->post->ID) ){
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+    }else{
+        $template_name = false;
+    }
+    if (( $query->is_post_type_archive( 'temoignage' ) && $query->is_main_query() )
+    ||($template_name == 'tpl-satisfaction-clients.php'))
+    {
         $query->set( 'posts_per_page', - 1 );
         $query->set( 'orderby', 'rand' );
     }
@@ -808,11 +823,11 @@ function kz_search($keywords, $thema_ID = false){
                 }
             }
             array_shift($course_thematique);
-            if ( get_field( 'image_header_formation', $formation->ID ) ){
+            if ( get_field( 'visuel_presentation', $formation->ID ) ){
                 // Course Link
                 $course_link = get_the_permalink( $formation->ID );
                 // Course Image
-                $course_image = get_field( 'image_header_formation', $formation->ID ); 
+                $course_image = get_field( 'visuel_presentation', $formation->ID ); 
             }
             if ( get_field( 'tag_nouvelle_formation', $formation->ID ) ){
                 // New Course ?
@@ -999,6 +1014,8 @@ function kz_shortcode_coursesSlider( $atts ) {
     } elseif ( $a['taxo'] == 'thematique' ) {
         $thematiques       = get_the_terms( $post_id, 'thematique' );
         $id_terms          = wp_list_pluck( $thematiques, 'term_id' );
+        $thColor           = new KzThema($id_terms);
+        $thColor           = $thColor->getColor();
         $args['tax_query'] = array( array( 'taxonomy' => 'thematique', 'terms' => $id_terms, 'field' => 'term_id' ) );
     } else {
         $args['meta_query'] = array( array( 'key' => 'top_formation', 'value' => true, 'compare' => '=' ) );
@@ -1024,9 +1041,9 @@ function kz_shortcode_coursesSlider( $atts ) {
                         <div class="col-kard">
                             <div class="wrapper">
                                 <!-- Image -->  
-                                <?php if ( get_field( 'image_header_formation', $formation->ID ) ): ?>
+                                <?php if ( get_field( 'visuel_presentation', $formation->ID ) ): ?>
                                 <a href="<?php echo get_the_permalink( $formation->ID ); ?>">   
-                                    <img src="<?php the_field( 'image_header_formation', $formation->ID ); ?>" alt="">
+                                    <img src="<?php the_field( 'visuel_presentation', $formation->ID ); ?>" alt="">
                                 </a>
                                 <?php endif; ?>
                                 <div>
@@ -1047,7 +1064,7 @@ function kz_shortcode_coursesSlider( $atts ) {
                                     <div class="goals"><?php echo $course_goals; ?></div>
                                 </div>
                                 <a class="en-savoir-plus" href="<?php echo get_the_permalink( $formation->ID ); ?>">
-                                    <div class="btn btn-xs btn-red margin0">En savoir plus</div>
+                                    <div class="btn btn-xs btn-red <?php if(isset($thColor)){echo 'btn-' . $thColor;}?> margin0">En savoir plus</div>
                                 </a>
                             </div>
                         </div>
@@ -1129,7 +1146,7 @@ function kz_shortcode_blogArticle_associatedCourses( $atts ) {
 
             // get data
             // ----------
-            $img_src =  get_field( 'image_header_formation', $formation->ID ) ? get_field( 'image_header_formation', $formation->ID ) : "https://digitalacademy.fr/wp-content/themes/digitalacademy/images/blog-thumb-placeholder.jpg";
+            $img_src =  get_field( 'visuel_presentation', $formation->ID ) ? get_field( 'visuel_presentation', $formation->ID ) : "https://digitalacademy.fr/wp-content/themes/digitalacademy/images/blog-thumb-placeholder.jpg";
             $top =      get_field( 'tag_nouvelle_formation', $formation->ID ) ? '<div class="nouvelle_formation"></div>' : '';
             $new =      get_field( 'tag_top_formation', $formation->ID ) ? '<div class="top_formation"></div>' : '';
             $permalink = get_the_permalink( $formation->ID );
