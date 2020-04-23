@@ -823,11 +823,11 @@ function kz_search($keywords, $thema_ID = false){
                 }
             }
             array_shift($course_thematique);
-            if ( get_field( 'image_header_formation', $formation->ID ) ){
+            if ( get_field( 'visuel_presentation', $formation->ID ) ){
                 // Course Link
                 $course_link = get_the_permalink( $formation->ID );
                 // Course Image
-                $course_image = get_field( 'image_header_formation', $formation->ID ); 
+                $course_image = get_field( 'visuel_presentation', $formation->ID ); 
             }
             if ( get_field( 'tag_nouvelle_formation', $formation->ID ) ){
                 // New Course ?
@@ -1041,9 +1041,9 @@ function kz_shortcode_coursesSlider( $atts ) {
                         <div class="col-kard">
                             <div class="wrapper">
                                 <!-- Image -->  
-                                <?php if ( get_field( 'image_header_formation', $formation->ID ) ): ?>
+                                <?php if ( get_field( 'visuel_presentation', $formation->ID ) ): ?>
                                 <a href="<?php echo get_the_permalink( $formation->ID ); ?>">   
-                                    <img src="<?php the_field( 'image_header_formation', $formation->ID ); ?>" alt="">
+                                    <img src="<?php the_field( 'visuel_presentation', $formation->ID ); ?>" alt="">
                                 </a>
                                 <?php endif; ?>
                                 <div>
@@ -1146,7 +1146,7 @@ function kz_shortcode_blogArticle_associatedCourses( $atts ) {
 
             // get data
             // ----------
-            $img_src =  get_field( 'image_header_formation', $formation->ID ) ? get_field( 'image_header_formation', $formation->ID ) : "https://digitalacademy.fr/wp-content/themes/digitalacademy/images/blog-thumb-placeholder.jpg";
+            $img_src =  get_field( 'visuel_presentation', $formation->ID ) ? get_field( 'visuel_presentation', $formation->ID ) : "https://digitalacademy.fr/wp-content/themes/digitalacademy/images/blog-thumb-placeholder.jpg";
             $top =      get_field( 'tag_nouvelle_formation', $formation->ID ) ? '<div class="nouvelle_formation"></div>' : '';
             $new =      get_field( 'tag_top_formation', $formation->ID ) ? '<div class="top_formation"></div>' : '';
             $permalink = get_the_permalink( $formation->ID );

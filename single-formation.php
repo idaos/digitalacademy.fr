@@ -381,7 +381,94 @@ function hasTestimonials(){
         return false;
     }
 }
-
+function hasInfoPlace(){
+    if ( get_field( 'info_lieu' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function getInfoPlace(){
+    if ( get_field( 'texte_lieu' ) ){
+        $out = get_field( 'texte_lieu' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function hasInfoDuration(){
+    if ( get_field( 'info_duree' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function getInfoDuration(){
+    if ( get_field( 'texte_duree' ) ){
+        $out = get_field( 'texte_duree' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function hasInfoParticipants(){
+    if ( get_field( 'info_participants' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function getInfoParticipants(){
+    if ( get_field( 'texte_participants' ) ){
+        $out = get_field( 'texte_participants' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function hasInfoPrice(){
+    if ( get_field( 'info_tarif' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function getInfoPrice(){
+    if ( get_field( 'texte_tarif' ) ){
+        $out = get_field( 'texte_tarif' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
+function hasInfoRef(){
+    if ( get_field( 'info_reference' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function hasInfoIntra(){
+    if ( get_field( 'info_intra' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function hasInfoOnline(){
+    if ( get_field( 'info_online' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
+function hasInfoElearning(){
+    if ( get_field( 'info_e_learning' ) ){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 
 $colorTxt = $th->getColor(); 
@@ -463,40 +550,55 @@ $hasTestimonials = hasTestimonials();
                     </h1>
                 </div>
                 <hr class="alignCenterLg">
-
                 <div id="course-info" class="row">
+                    <?php if( hasInfoPlace() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-pin.jpg" alt="" class="multiply">
-                        <span>Lieu: en présentiel Paris ou France</span>
+                        <span><?php echo getInfoPlace() ?></span>
                     </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoDuration() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-clock.jpg" alt="" class="multiply">
-                        <span>7 heures soit une journée</span>
+                        <span><?php echo getInfoDuration() ?></span>
                     </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoParticipants() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-peoples.jpg" alt="" class="multiply">
-                        <span>3 à 12 personnes</span>
+                        <span><?php echo getInfoParticipants() ?></span>
                     </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoPrice() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-coins.jpg" alt="" class="multiply">
-                        <span>980 € HT par personne</span>
+                        <span><?php echo getInfoPrice() ?></span>
                     </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoRef() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-arrow.jpg" alt="" class="multiply">
                         <span>Référence 1512104</span>
                     </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoIntra() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
                         <span>Intra ou sur-mesure possible</span>
                     </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoOnline() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-online.jpg" alt="" class="multiply">
                         <span>100% en ligne avec le formateur</span>
                     </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoElearning() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-computer.png" alt="" class="multiply">
                         <span>E-learning sur demande</span>
                     </div>
+                    <?php endif; ?>
                 </div>
                 <hr class="hiddenLg alignCenterLg">
                 <div class="multiply hiddenLg alignCenterLg">
@@ -709,7 +811,7 @@ $hasTestimonials = hasTestimonials();
                     <div id="tab-intra" class="tab-pane">
                         <div class="content-wp">
                             <span class="form-heading ">
-                                <h3 style="margin-top: 1.5em;font-weight:bold;">INTRA ENTREPRISE</h3>
+                                <h3 style="margin-top: 1.5em;font-weight:bold!important;">INTRA ENTREPRISE</h3>
                                 <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
                                     Formez vos collaborateurs
                                 </p>                        
@@ -725,7 +827,7 @@ $hasTestimonials = hasTestimonials();
                     <div id="tab-scalable" class="tab-pane">
                         <div class="content-wp">
                             <span class="form-heading ">
-                                <h3 style="margin-top: 1.5em;font-weight:bold;">SUR MESURE</h3>
+                                <h3 style="margin-top: 1.5em;font-weight:bold!important;">SUR MESURE</h3>
                                 <p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">
                                     Votre programme de formation à la demande
                                 </p>                        
@@ -838,7 +940,7 @@ endif;
     //-------------------------------------------
     //--------- Form custom heading -------------
     //-------------------------------------------
-    var form_heading = '<span id="form-heading"><h3 style="margin-top: 1.5em;font-weight:bold;">SESSION INTER ENTREPRISES</h3><p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">Demander la création d\'une session à la carte</p></span><hr>';
+    var form_heading = '<span id="form-heading"><h3 style="margin-top: 1.5em;font-weight:bold!important;">SESSION INTER ENTREPRISES</h3><p style="color: #e74c3c!important;font-weight: bolder!important;font-size: .95em!important;">Demander la création d\'une session à la carte</p></span><hr>';
 </script>
 
 
