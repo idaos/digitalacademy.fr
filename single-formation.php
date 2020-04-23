@@ -578,7 +578,11 @@ $hasTestimonials = hasTestimonials();
                     <?php if( hasInfoRef() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-arrow.jpg" alt="" class="multiply">
-                        <span>Référence 1512104</span>
+                        <span><?php
+                            global $post;
+                            $number = str_pad($post->ID, 4, '0', STR_PAD_LEFT);
+                            echo '2020' . $number; ?>
+                        </span>
                     </div>
                     <?php endif; ?>
                     <?php if( hasInfoIntra() ): ?>
