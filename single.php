@@ -36,7 +36,9 @@
                                 <p class="day"><?php echo get_the_date( 'd' ); ?></p>
                             </div>
                             <h1><?php the_title(); ?></h1>
-                            <p><?php the_date(); ?> | <?php echo get_the_category_list( ', ' ); ?></p>
+                            <p>
+                            <?php if (function_exists('wp_time_to_read')) { wp_time_to_read(); echo " | "; } ?>
+                            <?php the_date(); ?> | <?php echo get_the_category_list( ', ' ); ?></p>
                         </header>
                         <div class="content-share">
                             <p style="margin-bottom: .3em;">Partager cet article</p>

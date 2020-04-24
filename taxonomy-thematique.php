@@ -329,5 +329,66 @@ $courses_count = count(json_decode($result[0])) ;
     </div>
 </section>
 
+<?php 
+    // get the current category
+    $slug = $th->slug;
+    
+    query_posts( array(
+        'category_name'  => $slug,
+        'posts_per_page' => -1
+    ) );
+                
+?>
+
+<?php
+    if ( have_posts() ) :
+?>
+
+<section id="articles">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <hr>
+                <br><br><br>
+                <span class="reverse"><h2>Derniers articles au sujet des formations <?php echo strtolower($th->name); ?></h2></span>     
+                
+                <div class="row clearfix">
+                <div class="col-xs-12">
+                <div class="row display-flex clearfix">
+                
+                <?php
+                
+                $i = 0;
+                while ( have_posts() && $i < 9) : the_post(); $i++;
+                ?>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="">
+                                <a href="<?php the_permalink(); ?>" rel="nofollow">											
+                                    <?php if ( has_post_thumbnail() ): ?>												
+                                    <?php $post_thumbnail_id = get_post_thumbnail_id( $post ); ?>	
+                                    <?php $post_thumbnail_url = wp_get_attachment_image_url( $post_thumbnail_id, 'post-thumbnails' ); ?>	
+                                    <div class="blog-thumb-wrapper" style="background-image:url(<?php echo $post_thumbnail_url ?>) ;"></div>	
+                                    <?php else : ?>												
+                                    <div class="blog-thumb-wrapper" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/blog-thumb-placeholder.jpg) ;"></div>	
+                                    <?php endif; ?>   
+                                </a>
+                                <div>
+                                    <p class="header-infos">Publié le <?php echo get_the_date(); ?></p>
+                                    <h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+                                </div>
+                            </div>
+                        </div>
+                     <?php endwhile; ?>
+                    </div>
+                	</div>
+            	</div>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php endif; ?>
+
 
 <?php get_footer(); ?>
