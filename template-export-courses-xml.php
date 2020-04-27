@@ -1,6 +1,6 @@
 <?php
 /**
- *   Template Name: JSON Export Courses
+ *   Template Name: XML Export Courses
  */
 
 // -----------------------------------------------------------------------
@@ -88,7 +88,19 @@ function allCourses(){
     $args = array(
         'posts_per_page' => -1,
         'post_type'      => 'formation',
-        'post_status'    => 'publish'
+        'post_status'    => 'publish',
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'thematique',
+                'field'    => 'slug',
+//                'terms'    => 'reseaux-sociaux',
+//                'terms'    => 'webmarketing',
+//                'terms'    => 'contenus-site-web',
+//                'terms'    => 'e-publicite-acquisition',
+//                'terms'    => 'ressources-humaines-web',
+                'terms'    => 'e-reputation-relation-client-web',
+            )
+        )
     );
     // The Query
     $ACF_query = new WP_Query( $args );
@@ -136,14 +148,15 @@ function allCourses(){
                     //---------------------------------------------------------------------
                     // img header
                     //---------------------------------------------------------------------
-                    if ( get_field( 'image_header_formation', $formation->ID ) ){
+                    if ( get_field( 'visuel_presentation', $formation->ID ) ){
                         // Course Link
                         $course_link = get_the_permalink( $formation->ID );
                         // Course Image
-                        $course_image = get_field( 'image_header_formation', $formation->ID );
+                        $course_image = get_field( 'visuel_presentation', $formation->ID );
+                        $course_image = substr($course_image, strrpos($course_image, '/') + 1);
                         // Fix image href for inDesign local img Import
                         global $wp_uploads_path;
-                        $course_image = str_replace($wp_uploads_path, 'File:///img/', $course_image);
+                        $course_image = 'File:///visuels-formations/' . $course_image;
                     }
 
                     //---------------------------------------------------------------------
@@ -216,7 +229,8 @@ function allCourses(){
                     // Course Reference
                     //---------------------------------------------------------------------
                     $course_id = $formation->ID;
-                    $course_ref = '3120' . $course_id; 
+                    $course_id = str_pad($course_id, 4, '0', STR_PAD_LEFT);
+                    $course_ref = 'Référence 2020' . $course_id; 
 
 
                     //---------------------------------------------------------------------
@@ -238,25 +252,43 @@ function allCourses(){
                     //---------------------------------------------------------------------
                     // Course Duration
                     //---------------------------------------------------------------------
-                    $course_duration = ( get_field( 'duree', $formation->ID ) ) ? get_field( 'duree', $formation->ID ) : false;
+                    $course_duration = ( get_field( 'texte_duree', $formation->ID ) ) ? get_field( 'texte_duree', $formation->ID ) : false;
 
 
                     //---------------------------------------------------------------------
                     // Course Size
                     //---------------------------------------------------------------------
-                    $course_size = ( get_field( 'taille', $formation->ID ) ) ? get_field( 'taille', $formation->ID ) : false;
+                    $course_size = ( get_field( 'texte_participants', $formation->ID ) ) ? get_field( 'texte_participants', $formation->ID ) : false;
 
 
                     //---------------------------------------------------------------------
                     // Course Price
                     //---------------------------------------------------------------------
-                    $course_price = ( get_field( 'prix', $formation->ID ) ) ? get_field( 'prix', $formation->ID ) : false;
+                    $course_price = ( get_field( 'texte_tarif', $formation->ID ) ) ? get_field( 'texte_tarif', $formation->ID ) : false;
+
+
+                    //---------------------------------------------------------------------
+                    // Course Intra
+                    //---------------------------------------------------------------------
+                    $course_intra = ( get_field( 'info_intra', $formation->ID ) ) ? 'Intra ou sur-mesure possible' : false;
+
+
+                    //---------------------------------------------------------------------
+                    // Course 100% Online
+                    //---------------------------------------------------------------------
+                    $course_online = ( get_field( 'info_online', $formation->ID ) ) ? '100% en ligne avec le formateur' : false;
+
+
+                    //---------------------------------------------------------------------
+                    // Course e-learning
+                    //---------------------------------------------------------------------
+                    $course_e_learning = ( get_field( 'info_e_learning', $formation->ID ) ) ? 'E-learning sur demande' : false;
 
 
                     //---------------------------------------------------------------------
                     // Course Place
                     //---------------------------------------------------------------------
-                    $course_place = ( get_field( 'lieu', $formation->ID ) ) ? get_field( 'lieu', $formation->ID ) : false;
+                    $course_place = ( get_field( 'texte_lieu', $formation->ID ) ) ? get_field( 'texte_lieu', $formation->ID ) : false;
 
 
                     //---------------------------------------------------------------------
@@ -269,18 +301,19 @@ function allCourses(){
                     // Course Methodology
                     //---------------------------------------------------------------------
                     $course_methodology = ( get_field( 'methodologie', $formation->ID ) ) ? get_field( 'methodologie', $formation->ID ) : false;
-
+                    $course_methodology = HTMLtagsCleanAndExptXML($course_methodology, 'methodology_item');
 
                     //---------------------------------------------------------------------
                     // Course Evaluation
                     //---------------------------------------------------------------------
                     $course_evaluation = ( get_field( 'evaluation', $formation->ID ) ) ? get_field( 'evaluation', $formation->ID ) : false;
-
+                    $course_evaluation = HTMLtagsCleanAndExptXML($course_evaluation, 'evaluation_item');
 
                     //---------------------------------------------------------------------
                     // Course trainer trainer
                     //---------------------------------------------------------------------
                     $course_trainer = ( get_field( 'formateur_descr', $formation->ID ) ) ? get_field( 'formateur_descr', $formation->ID ) : false;
+                    $course_trainer = HTMLtagsCleanAndExptXML($course_trainer, 'formateur_item');
 
 
                     //---------------------------------------------------------------------
@@ -316,11 +349,11 @@ function allCourses(){
                         $program_item = str_replace("<span style=\"font-weight: 400;\">", "", $program_item);
                         $program_item = str_replace("</span>", "", $program_item);
 
-                        $program_item = str_replace("<p><strong>", PHP_EOL . "<program_title>", $program_item);
-                        $program_item = str_replace("</strong></p>", "</program_title>", $program_item);
+                        $program_item = str_replace("<p><strong>", PHP_EOL . "<program_item><strong>", $program_item);
+                        $program_item = str_replace("</strong></p>", "</strong></program_item>", $program_item);
 
-                        $program_item = str_replace("<p><em>", PHP_EOL . "<program_highlight>", $program_item);
-                        $program_item = str_replace("</em></p>", "</program_highlight>", $program_item);
+                        $program_item = str_replace("<p><em>", PHP_EOL . "<program_item>", $program_item);
+                        $program_item = str_replace("</em></p>", "</program_item>", $program_item);
 
                         $program_item = str_replace("<p>", PHP_EOL . "<program_item>", $program_item);
                         $program_item = str_replace("</p>", "</program_item>", $program_item);
@@ -337,7 +370,31 @@ function allCourses(){
                             array_push($program_arr_clean, $program_item);
                         }
                     }
-                    $course_program = implode($program_arr_clean) . PHP_EOL;
+//
+//                    $i = 0;
+//                    $p_title = '';
+//                    $p_content = array();
+//                    $p = array();
+//                    foreach( $program_arr_clean as $program_item ){
+//                        $q = PHP_EOL . '<program_title>';
+//                        if( substr($program_item, 0, strlen($q)) === $q ){
+//                            $p_title = $program_item;
+//                            if($i!=0){
+//                                $p_chapt = '<program_chapt>' . PHP_EOL . $p_title . PHP_EOL . '<program_content>' . PHP_EOL . implode($p_content) . PHP_EOL . '</program_content>' . PHP_EOL . '</program_chapt>' . PHP_EOL;
+//                                array_push( $p, $p_chapt );
+//                            }
+//                            $i+=1;
+//                        }else{
+//                            array_push( $p_content, $program_item );
+//                        }
+//                    }
+//                    $p_chapt = '<program_chapt>' . PHP_EOL . $p_title . PHP_EOL . '<program_content>' . PHP_EOL . implode($p_content) . PHP_EOL . '</program_content>' . PHP_EOL . '</program_chapt>' . PHP_EOL;
+//                    array_push( $p, $p_chapt );
+
+                    $course_program = implode($program_arr_clean);
+
+
+
 
 
                     //---------------------------------------------------------------------
@@ -359,22 +416,25 @@ function allCourses(){
                     $obj = (object) [
                         'title' => $course_title, 
                         'image' => $course_image, 
-                        'goals' => $course_goals, 
-                        'trainer' => $course_trainer, 
-                        'presentation' => $course_presentation, 
-                        'program' => $course_program, 
-                        'version' => $course_version, 
-                        'reference' => $course_ref, 
                         'place' => $course_place, 
                         'duration' => $course_duration, 
                         'size' => $course_size, 
                         'price' => $course_price, 
+                        'ref' => $course_ref, 
+                        'intra' => $course_intra, 
+                        'online' => $course_online, 
+                        'e_learning' => $course_e_learning, 
+                        'goals' => $course_goals, 
+                        'trainer' => $course_trainer, 
                         'prerequisite' => $course_prerequisite, 
                         'public' => $course_public, 
+                        'presentation' => $course_presentation, 
+                        'program' => $course_program, 
                         'methodology' => $course_methodology, 
                         'evaluation' => $course_evaluation, 
-                        'thema' => str_replace('&', 'zk_Amp', $course_thematique[0]['name']),
-                        'link' => $course_link,
+                        //                'thema' => str_replace('&', 'zk_Amp', $course_thematique[0]['name']),
+                        //                'link' => $course_link,
+                        'version' => $course_version, 
                         //                'id' => $formation->ID, 
                         //                'course_new' => $course_new, 
                         //                'course_top' => $course_top, 
@@ -383,8 +443,6 @@ function allCourses(){
                         //                'trainer_image' => $trainer_image,
                     ];
                     array_push($arr, $obj);
-                    //clear vars
-                    $course_goals = $course_public = $course_prerequisite = $course_program = $course_trainer = $course_evaluation = $course_methodology = $course_version = $course_place = $course_price = $course_size = $course_ref = $course_duration = $course_link = $course_image = $course_new = $course_top = $course_title = $course_presentation = $next_session_place = $next_session_date = $next_session_link = $trainer_name = $trainer_image = $course_thematique = null;
                 }
             } // endif obsolete
         } // endif obsolete
@@ -406,14 +464,14 @@ function allCourses(){
 $courses = allCourses();
 
 // generate XML from array of objects
-$xml = '<root>';
+$xml = '<Root>';
 foreach( $courses[0] as $course ){
 
     $xml_generater = new XMLSerializer; 
     $std_class = json_decode(json_encode($course)); 
     $xml .= $xml_generater->generateValidXmlFromObj($std_class);
 }
-$xml .= '</root>';
+$xml .= '</Root>';
 
 
 // Fix image tag for inDesign local img Import
@@ -446,6 +504,9 @@ $out = str_replace('  ', '', $out);
 $out = str_replace('<?xml version="1.0"?>', '', $out); 
 // remove empty lines
 $out = implode("\n", array_filter(explode("\n", $out)));
+// replace ampersand
+$out = str_replace('&amp;', 'et', $out);
+$out = str_replace('&', 'et', $out);
 
 print_R($out);
 
@@ -457,4 +518,4 @@ print_R($out);
 //echo $out;
 
 
-
+?>

@@ -545,8 +545,9 @@ $hasTestimonials = hasTestimonials();
                 </a>
                 <div id="course-title">
                     <h1>
-                        <b>Formation </b>
+                        <b>Formation 
                         <?php echo $title; ?>
+                        </b>
                     </h1>
                 </div>
                 <hr class="alignCenterLg">
@@ -581,7 +582,7 @@ $hasTestimonials = hasTestimonials();
                         <span><?php
                             global $post;
                             $number = str_pad($post->ID, 4, '0', STR_PAD_LEFT);
-                            echo '2020' . $number; ?>
+                            echo 'Référence 2020' . $number; ?>
                         </span>
                     </div>
                     <?php endif; ?>
@@ -657,8 +658,7 @@ $hasTestimonials = hasTestimonials();
                         <img width="100" height="100" src="<?php echo $styleUri; ?>/images/formateur-expert-avatar.svg">
                         <div class="wrapper">
                             <strong>Formateur</strong>  
-                            <p>Notre formateur est un expert des réseaux sociaux. Il a plus de 5 ans d'expérience dans ce domaine.</p> 
-                            <p><i>L'équipe d'intervenants sera coordonnée par notre équipe pédagogique.</i></p>
+                            <p><?php echo $trainer; ?></p>
                         </div>
                     </div>
                 </div>
