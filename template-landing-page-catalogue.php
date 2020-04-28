@@ -89,9 +89,9 @@ if (strpos($_SERVER["REQUEST_URI"], '?')) {
             ?>
             <div class="wrapper">
                 <!-- Image -->  
-                <?php if ( get_field( 'image_header_formation', $formation->ID ) ): ?>
+                <?php if ( get_field( 'visuel_presentation', $formation->ID ) ): ?>
                 <a href="<?php echo get_the_permalink( $formation->ID ); ?>">   
-                    <img src="<?php the_field( 'image_header_formation', $formation->ID ); ?>" alt="">
+                    <img src="<?php the_field( 'visuel_presentation', $formation->ID ); ?>" alt="">
                 </a>
                 <?php if ( get_field( 'tag_nouvelle_formation', $formation->ID ) ): echo "<div class='nouvelle_formation'></div>" ?><?php endif; ?>
                 <?php if ( get_field( 'tag_top_formation', $formation->ID ) ): echo "<div class='top_formation'></div>" ?><?php endif; ?>
