@@ -236,91 +236,6 @@ body .btn-blue.btn-arr-down:before {
 body .btn-blue.btn-arr-down:hover:before {
   top: calc(100% + 4px);
 }
-body .btn-gray:after,
-body .btn-gray-alt:after,
-body .btn-gray-alt-neg:after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 3em;
-  top: 0;
-  left: 0;
-  border-radius: 100%;
-  width: 100%;
-  margin-left: 0;
-  opacity: 0;
-  transition: all 0.5s ease-out;
-  filter: blur(0.1em);
-}
-body .btn-gray:active:after,
-body .btn-gray-alt:active:after,
-body .btn-gray-alt-neg:active:after {
-  width: 0;
-  margin-left: 50%;
-  opacity: 0.3;
-  transition: 0s;
-}
-body .btn-gray:hover,
-body .btn-gray-alt:hover,
-body .btn-gray-alt-neg:hover {
-  filter: brightness(109%);
-}
-body .btn-gray {
-  color: #fff;
-  background: #fcfcfc;
-}
-body .btn-gray:after {
-  background: #ffffff;
-}
-body .btn-gray:hover {
-  background: #e3e3e3;
-  color: #fff;
-}
-body .btn-gray a {
-  background: #fcfcfc;
-  color: #fff;
-}
-body .btn-gray-alt {
-  color: #fcfcfc;
-  background: #fff;
-  border: solid 1px #fcfcfc;
-}
-body .btn-gray-alt:after {
-  background: #ffffff;
-}
-body .btn-gray-alt:hover {
-  color: #fcfcfc;
-  background: #fff;
-}
-body .btn-gray-alt-neg {
-  color: #fff;
-  background: none;
-  border: solid 1px #fff;
-}
-body .btn-gray-alt-neg:after {
-  background: #ffffff;
-}
-body .btn-gray-alt-neg:hover {
-  color: #fffcfc;
-  background: rgba(252, 252, 252, 0.17);
-  border: solid 1px #fffcfc;
-}
-body .btn-gray.btn-arr-down:before {
-  position: absolute;
-  left: 50%;
-  top: calc(100% + -5px);
-  transform: translate(-50%, -50%);
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #fcfcfc;
-  transition: all 0.2s ease;
-}
-body .btn-gray.btn-arr-down:hover:before {
-  top: calc(100% + 4px);
-}
 body .btn-aqua:after,
 body .btn-aqua-alt:after,
 body .btn-aqua-alt-neg:after {
@@ -927,6 +842,7 @@ body .container-menu-filtre ul li a.btn-gray:hover {
   color: #3b3b3b;
   border: solid 1px #9d9d9d;
   filter: brightness(105%);
+  background: #c3c3c3;
 }
 body .btn-gray:after,
 body .container-menu-filtre ul li a.btn-gray:after {
