@@ -25,7 +25,7 @@
 </div>    
 <main class="content" style="margin-top:-4vw;z-index:5;background:none;">
     <div class="container" style="padding-bottom:2em;">
-        <div class="wrapper p5000">
+        <div class="wrapper p5000" style="background:rgba(0,0,0,0)">
             <div class="row clearfix stretch">
                 <div class="container-blog col-md-8">
                     <div class="row clearfix">
