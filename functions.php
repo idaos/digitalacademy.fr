@@ -135,6 +135,7 @@ function custom_scripts_and_styles_taxo_thema(){
         wp_enqueue_style( 'bootstrap4-grid', get_template_directory_uri() . '/landing-page-catalogue/vendor/bootsrap4/css/bootstrap-grid.min.css', null );
         wp_enqueue_style( 'page-nos-formations', get_template_directory_uri() . '/css/page-nos-formations.css', array( 'main', 'references-style' ), null );
         wp_enqueue_style( 'taxonomy-thematiques', get_template_directory_uri() . '/css/taxonomy-thematiques.css', null );
+        wp_enqueue_style( 'blog-home-style', get_template_directory_uri() . '/css/blog-home.css', array( 'main' ), null );
         wp_enqueue_script( 'angular', get_stylesheet_directory_uri() . '/js/angular.min.js', null, null, false );
         wp_enqueue_script( 'angular-sanitize', get_stylesheet_directory_uri() . '/js/angular-sanitize.min.js', null, null, false );
         wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
