@@ -56,10 +56,10 @@ get_header(); ?>
                 <img style="position:relative;" src="<?php echo get_stylesheet_directory_uri(); ?>/images/dacfr_intra-visuel.jpg" alt="">
             </div>
             <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                <h2>Formations intra sur mesure</h2>
+                <h2>Formations sur-mesure</h2>
                 <hr>
-                <p>Vous avez un nombre de salariés important à former sur une thématique précise ? L’offre de la Digital Academy met l’apprenant au centre. C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
-                <p>Les programmes « intra, sur mesure » comportent une phase d’audit, avec des entretiens de cadrage. L’expérience démontre que ces entretiens informels et rapides permettent d’ajuster les programmes et d’optimiser l’affinité avec les attentes opérationnelles des stagiaires. Tous les programmes de notre catalogue sont personnalisables sur mesure.</p>
+                <p>Vous avez un nombre de salariés important à former sur une thématique précise ? L’offre de la Digital Academy met l’apprenant au centre. C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur-mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
+                <p>Les programmes « intra, sur-mesure » comportent une phase d’audit, avec des entretiens de cadrage. L’expérience démontre que ces entretiens informels et rapides permettent d’ajuster les programmes et d’optimiser l’affinité avec les attentes opérationnelles des stagiaires. Tous les programmes de notre catalogue sont personnalisables sur-mesure.</p>
                 <ul>
                     <li>Votre secteur d’activité</li>
                     <li>Votre modèle économique, en évolution ou pas vers le digital</li>
@@ -186,6 +186,145 @@ get_header(); ?>
 
 
 
+<!-- Offer Inter -->
+<div id="offre-inter"></div><!-- Offset Anchor -->
+<section id="offer-inter" class="offer offer-inter">
+    <!-- Bottom Triangles -->
+    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#f5f5f5" points="0,100 100,0 100,100"/>
+    </svg>
+    <!-- Content -->
+    <div class="container">
+        <div class="row valign">
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+                <img id="cat" src="<?php echo get_stylesheet_directory_uri(); ?>/images/catalogue-des-formations-wht.jpg" alt="">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                <a title="Les formations DigitalAcademy" href="/formations/">
+                    <h2>Formations sur catalogue</h2>
+                </a>
+                <hr>
+                <p>Vous êtes une entreprise ? Inscrivez-vous ou inscrivez l’un de vos collaborateurs à l’une de nos formations catalogue en inter-entreprises, ou convenons ensemble d’une date de votre choix pour une formation intra-entreprise avec toute votre équipe. </p>
+                <ul>
+                    <li>Réseaux sociaux</li>
+                    <li>Webmarketing</li>
+                    <li>Contenus &amp; Sites Web</li>
+                    <li>E-publicité &amp; Acquisition</li>
+                    <li>Ressources Humaines Web 2.0</li>
+                    <li>E-réputation &amp; Relation client Web</li>
+                </ul>                
+                <a title="" href="/formations/" value="null"><div class="btn btn-sm btn-red marginR">Nos formations</div></a>
+                <a title="" href="/type-reference/intra-entreprise/" value="null"><div class="btn btn-sm btn-red-alt marginR">Nos références</div></a>
+                <a title="" href="/contact" value="null"><div class="btn btn-sm btn-red-alt">Nous Contacter</div></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Offer Inter - BC -->
+<section class="business-case" style="background:#f5f5f5">
+    <!-- Bottom Triangles -->
+    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
+        <polygon fill="#fff" points="100,100 100,0 0,100"/>
+    </svg>
+    <div style="filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));">
+        <div class="container w testimonial-wrapper" style="max-width: 1100px;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a title="Les formations DigitalAcademy" href="/formations/">
+                        <h4>Business Case &amp; Témoignages</h4>
+                    </a>
+                    <hr>
+                    <p><b style="font-size:1.1em;">Former tous les salariés des entreprises de tous secteurs d’activité</b></p>
+                    <p style="margin:2em 1em">3 de nos TOP formations : Développer une stratégie Marketing Mobile, Booster sa prospection sur commerciale avec Linkedin, Construire la stratégie multi, cross et omni canal de son entreprise.</p>
+                    <?php //echo do_shortcode( '[kz_courses_slider taxo="top" nb="3"]' ); ?>
+                </div>
+            </div>
+            <div class="toggable">
+                <div class="toggable-content">
+                    <div class="container w testimonial-wrapper margin0" style="clip-path:none;padding: 3em 3em 1em 3em;">
+                        <div class="row row-same-height">
+                            <div class="col-md-4">
+                                <div class="wrapper" style="height: 100%!important;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
+                                    </svg>
+                                    <div class="name">Thomas S.</div>
+                                    <div class="company">Microsoft</div>
+                                    <hr>
+                                    <div class="testimonial"><span>“</span>Excellente formation sur le marketing mobile, intervenant de qualité, bon mix entre présentation et exemples concrets.<span>”</span></div>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/microsoft-logo.jpg" alt="">
+                                    <div class="course">Formation "Développer une stratégie marketing mobile"</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="wrapper" style="height: 100%!important;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
+                                    </svg>
+                                    <div class="name">Sonia S.</div>
+                                    <div class="company">Barclays France</div>
+                                    <hr>
+                                    <div class="testimonial"><span>“</span>Formation vivante et enrichissante, qui m’a permis d’apporter une vraie valeur ajoutée sur mon profil utilisateur sur les plateformes Linkedin, avec un rebond pour actionner la prospection.<span>”</span></div>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/barclays-logo.jpg" alt="">
+                                    <div class="course">Formation "Booster sa prospection commerciale avec LinkedIn"</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="wrapper" style="height: 100%!important;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
+                                    </svg>
+                                    <div class="name">Frédéric B.</div>
+                                    <div class="company">Sciences Po</div>
+                                    <hr>
+                                    <div class="testimonial"><span>“</span>Clés et best practices pour poser les bases de sa stratégie digitale multicanale.<span>”</span></div>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-sciences-po.jpg" alt="">
+                                    <div class="course">Formation "Construire la stratégie multi, cross et omni canal de son entreprise"</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row numerical-data" style="max-width:inherit;">
+                        <div class="col-sm-6 col-md-3">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/business-cases-icos/company.png">
+                            Formation <span class="noWrap">inter-entreprises</span> <span class="noWrap">&amp; intra-entreprise</span>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/business-cases-icos/entrer.png">
+                            37 formations sur étagère
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/business-cases-icos/date-span.png">
+                            113 journées de formation dispensées
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/business-cases-icos/conference-call.png">
+                            230 salarié(e)s formé(e)s
+                        </div>
+                    </div>
+                    <p>Le succès de notre catalogue de formation repose sur sa capacité à proposer une expertise dans le digital en adéquation avec les besoins de nos clients. Des formateurs experts de leur sujet sont choisis pour chaque session de formation. Les programmes sont mis à jour régulièrement pour une qualité de formation optimale.</p>
+                    <div class="row row-same-height">
+                        <div class="encart">
+                            <p><b>3 modes de formation principaux sont proposés :</b></p>
+                            <ul style="text-align:left;">
+                                <li><i>Formation « inter-entreprises »</i> : <br>jusque 8 personnes sur une journée minimum : vous pouvez nous envoyer plusieurs salariés sur une session</li>
+                                <li><i>Formation « intra-entreprise »</i> : <br>dans une limite de 12 personnes sur une journée minimum</li>
+                                <li><i>Formation en « Coaching individuel 1 to 1 »</i> : <br>dans nos locaux ou au sein de votre entreprise</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggable-btn btn btn-sm btn-red-alt">En savoir +</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 
 
 <!-- Digital Learning -->
@@ -203,11 +342,11 @@ get_header(); ?>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
                 <a title="Les formations DigitalAcademy" href="/solutions/digital-learning/">
-                    <h2>Production Digital Learning</h2>
+                    <h2>Digital Learning</h2>
                 </a>
                 <hr>
-                <p>Vous souhaitez digitaliser vos formations ? Contactez-nous et bénéficiez du savoir-faire 360° de notre studio de production Digital Learning, de la conception au déploiement de vos programmes, communication interne comprise. Nous vous accompagnons également pour choisir les modalités et solutions de formation les plus adaptées à votre projet de formation. </p>
-                <p>Le Digital Learning intègre des technologies digitales dans les solutions de formation au service de la performance. Pour favoriser une montée en compétences rapide et continue des apprenants et prolonger le processus d’apprentissage, ces solutions de formation multi-plateformes (desktop, smartphones, tablettes…) sont les parfaits compléments d’un programme présentiel.  La Digital Academy s’est entourée de partenaires experts dans ces applicatifs spécialisés dans la  distribution en ligne des contenus de formation.</p>
+                <p>Vous souhaitez digitaliser vos formations ? Digital Academy est une agence de production de contenu digital learning. Pour renforcer l’efficacité de vos formations en « e-learning » ou en « blended learning », nous digitalisons vos programmes de formations présentiels qu'ils soient sur-mesure (personnalisable) ou sur étagère (prêt à l'emploi).</p>
+                <p>Contactez-nous et bénéficiez du savoir-faire 360° de notre studio de production Digital Learning, de la conception au déploiement de vos programmes, communication interne comprise. Nous vous accompagnons également pour choisir les modalités et solutions de formation les plus adaptées à votre projet de formation.</p>
                 <p>Les modalités de formation les plus demandées que nous proposons sont les suivantes : </p>
                 <ul>
                     <li>E-learning (modules)</li>
@@ -339,155 +478,6 @@ get_header(); ?>
 
 
 
-
-
-
-
-<!-- Offer Inter -->
-<div id="offre-inter"></div><!-- Offset Anchor -->
-<section id="offer-inter" class="offer offer-inter">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#f5f5f5" points="0,100 100,0 100,100"/>
-    </svg>
-    <!-- Content -->
-    <div class="container">
-        <div class="row valign">
-            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                <img id="cat" src="<?php echo get_stylesheet_directory_uri(); ?>/images/catalogue-des-formations-wht.jpg" alt="">
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                <a title="Les formations DigitalAcademy" href="/formations/">
-                    <h2>Catalogue des formations</h2>
-                </a>
-                <hr>
-                <p>Vous êtes une entreprise ? Inscrivez-vous ou inscrivez l’un de vos collaborateurs à l’une de nos formations catalogue en inter-entreprises, ou convenons ensemble d’une date de votre choix pour une formation intra-entreprise avec toute votre équipe. </p>
-                <ul>
-                    <li>Réseaux sociaux</li>
-                    <li>Webmarketing</li>
-                    <li>Contenus &amp; Sites Web</li>
-                    <li>E-publicité &amp; Acquisition</li>
-                    <li>Ressources Humaines Web 2.0</li>
-                    <li>E-réputation &amp; Relation client Web</li>
-                </ul>                
-                <a title="" href="/formations/" value="null"><div class="btn btn-sm btn-red marginR">Nos formations</div></a>
-                <a title="" href="/type-reference/intra-entreprise/" value="null"><div class="btn btn-sm btn-red-alt marginR">Nos références</div></a>
-                <a title="" href="/contact" value="null"><div class="btn btn-sm btn-red-alt">Nous Contacter</div></a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Offer Inter - BC -->
-<section class="business-case" style="background:#f5f5f5">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
-        <polygon fill="#fff" points="100,100 100,0 0,100"/>
-    </svg>
-    <div style="filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));">
-        <div class="container w testimonial-wrapper" style="max-width: 1100px;">
-            <div class="row">
-                <div class="col-xs-12">
-                    <a title="Les formations DigitalAcademy" href="/formations/">
-                        <h4>Business Case &amp; Témoignages</h4>
-                    </a>
-                    <hr>
-                    <p><b style="font-size:1.1em;">Former tous les salariés des entreprises de tous secteurs d’activité</b></p>
-                    <p style="margin:2em 1em">3 de nos TOP formations : Développer une stratégie Marketing Mobile, Booster sa prospection sur commerciale avec Linkedin, Construire la stratégie multi, cross et omni canal de son entreprise.</p>
-                    <?php //echo do_shortcode( '[kz_courses_slider taxo="top" nb="3"]' ); ?>
-                </div>
-            </div>
-            <div class="toggable">
-                <div class="toggable-content">
-                    <div class="container w testimonial-wrapper margin0" style="clip-path:none;padding: 3em 3em 1em 3em;">
-                        <div class="row row-same-height">
-                            <div class="col-md-4">
-                                <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
-                                    <div class="name">Thomas S.</div>
-                                    <div class="company">Microsoft</div>
-                                    <hr>
-                                    <div class="testimonial"><span>“</span>Excellente formation sur le marketing mobile, intervenant de qualité, bon mix entre présentation et exemples concrets.<span>”</span></div>
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/microsoft-logo.jpg" alt="">
-                                    <div class="course">Formation "Développer une stratégie marketing mobile"</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
-                                    <div class="name">Sonia S.</div>
-                                    <div class="company">Barclays France</div>
-                                    <hr>
-                                    <div class="testimonial"><span>“</span>Formation vivante et enrichissante, qui m’a permis d’apporter une vraie valeur ajoutée sur mon profil utilisateur sur les plateformes Linkedin, avec un rebond pour actionner la prospection.<span>”</span></div>
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/barclays-logo.jpg" alt="">
-                                    <div class="course">Formation "Booster sa prospection commerciale avec LinkedIn"</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
-                                    <div class="name">Frédéric B.</div>
-                                    <div class="company">Sciences Po</div>
-                                    <hr>
-                                    <div class="testimonial"><span>“</span>Clés et best practices pour poser les bases de sa stratégie digitale multicanale.<span>”</span></div>
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-sciences-po.jpg" alt="">
-                                    <div class="course">Formation "Construire la stratégie multi, cross et omni canal de son entreprise"</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row numerical-data" style="max-width:inherit;">
-                        <div class="col-sm-6 col-md-3">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/business-cases-icos/company.png">
-                            Formation <span class="noWrap">inter-entreprises</span> <span class="noWrap">&amp; intra-entreprise</span>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/business-cases-icos/entrer.png">
-                            37 formations sur étagère
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/business-cases-icos/date-span.png">
-                            113 journées de formation dispensées
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/business-cases-icos/conference-call.png">
-                            230 salarié(e)s formé(e)s
-                        </div>
-                    </div>
-                    <p>Le succès de notre catalogue de formation repose sur sa capacité à proposer une expertise dans le digital en adéquation avec les besoins de nos clients. Des formateurs experts de leur sujet sont choisis pour chaque session de formation. Les programmes sont mis à jour régulièrement pour une qualité de formation optimale.</p>
-                    <div class="row row-same-height">
-                        <div class="encart">
-                            <p><b>3 modes de formation principaux sont proposés :</b></p>
-                            <ul style="text-align:left;">
-                                <li><i>Formation « inter-entreprises »</i> : <br>jusque 8 personnes sur une journée minimum : vous pouvez nous envoyer plusieurs salariés sur une session</li>
-                                <li><i>Formation « intra-entreprise »</i> : <br>dans une limite de 12 personnes sur une journée minimum</li>
-                                <li><i>Formation en « Coaching individuel 1 to 1 »</i> : <br>dans nos locaux ou au sein de votre entreprise</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="toggable-btn btn btn-sm btn-red-alt">En savoir +</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
 <!-- Transfo digital -->
 <div id="offre-transfo"></div><!-- Offset Anchor -->
 <section id="offer-transfo" class="offer offer-transfo">
@@ -516,7 +506,7 @@ get_header(); ?>
                     <li>Digitalisation des parcours clients</li>
                     <li>Identification de nouvelles expériences clients</li>
                     <li>Animations de Comex</li>
-                    <li>Élaboration et mise en œuvre d’un plan sur mesure</li>
+                    <li>Élaboration et mise en œuvre d’un plan sur-mesure</li>
                     <li>Définition d’une feuille de route</li>
                     <li>Programmes de formation</li>
                 </ul>                
