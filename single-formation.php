@@ -902,8 +902,7 @@ $hasTestimonials = hasTestimonials();
     <div class="container" id="temoignages">
         <h2>Témoignages</h2>
         <hr>
-        <div class="content-show">
-            <p class="visible-xs toggleplus">+</p>
+        <div class="">
             <div class="content-wrapper">
                 <div class="row" style="padding-top:0">
                     <div class="col-xs-12">

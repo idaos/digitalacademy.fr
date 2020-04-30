@@ -9,7 +9,6 @@
         <a href="/contact/" class="btn-white">Contactez-nous</a></p>
 </div>
 
-
 <style>
     @media (max-width: 400px) {
         .bg-orange .btn-white{
