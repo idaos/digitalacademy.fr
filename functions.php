@@ -25,7 +25,6 @@ function tp_enqueue_scripts() {
     }
 
     wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'mailchimp', get_stylesheet_directory_uri() . '/js/mailchimp.js', null, null, false );
     wp_enqueue_style( 'heading-triangles', get_template_directory_uri() . '/css/heading-triangles.css', array( 'main' ), null );
     wp_enqueue_style( 'custom-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&display=swap', array(), false, true );
     wp_enqueue_style( 'menu', get_stylesheet_directory_uri() . '/css/menu.css', null, null );
