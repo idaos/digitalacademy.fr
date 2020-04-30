@@ -16,24 +16,8 @@
                     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
                                     })(window,document,'script','dataLayer','GTM-5Z789B3');
         </script>
-        <!-- Check if adblocker is active -->
-        <!-- <script id="fake-ads" type = "text/javascript" src="https://www.digitalacademy.fr/wp-content/themes/digitalacademy/js/ads.js"></script> -->
-        <!-- <script>
-// register adblocker info to GA
-var script = document.querySelector('#fake-ads');
-script.addEventListener('load', function() {
-if(document.getElementById('KzwTIARDzQclBa')){
-window.adsblocked = 'No';
-} else {
-window.adsblocked = 'unknown';
-}
-window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({
-event: "Window Loaded",
-adsblocker: adsblocked
-});
-});
-</script> -->
+        <!-- MailChimp Integration -->
+        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c104d075d46cdfdefd57dc032/421906e8677db194e1145a6a0.js");</script>
     </head>
     <body <?php body_class(); ?>>
         <!-- Google Tag Manager (noscript) -->
