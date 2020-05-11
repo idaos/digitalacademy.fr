@@ -589,7 +589,7 @@ $hasTestimonials = hasTestimonials();
                     <?php if( hasInfoIntra() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
-                        <span>Intra ou sur-mesure possible</span>
+                        <span>Inter, intra, sur-mesure ou distanciel</span>
                     </div>
                     <?php endif; ?>
                     <?php if( hasInfoOnline() ): ?>
