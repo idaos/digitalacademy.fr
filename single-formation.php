@@ -758,7 +758,7 @@ $hasTestimonials = hasTestimonials();
                     <div class="closed">session fermée **</div>
                     <?php endif; ?>
                     <?php if( $session["open"]): ?>
-                    <a title="Bouton d'inscription" href="<?php echo $session["link"]; ?>"><div class="btn btn-xs btn-red">Inscription</div></a>
+                    <a title="Bouton d'inscription" href="<?php echo $session["formLink"]; ?>"><div class="btn btn-xs btn-red">Inscription</div></a>
                     <?php endif; ?>
                 </div>
             </div>
