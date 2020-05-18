@@ -1307,6 +1307,19 @@ function spinner_url($image_src, $form) {
     return $spinnerPath;
 }
 
+// Prevent bot to send form ----------
+// if dropdown item is not selected --
+add_filter( 'gform_field_validation_11_1', 'custom_validation', 10, 4 );
+function custom_validation( $result, $value, $form, $field ) {
+    
+    if ( $result['is_valid'] && $value[0] == "Sélectionnez..." ) {
+        $result['is_valid'] = false;
+        $result['message'] = 'Veuillez sélectionner un objet pour ce message.';
+    }
+    return $result;
+}
+
+
 // -----------------------------------------------------------------------
 // FN: Preinscription form heading
 // -----------------------------------------------------------------------
