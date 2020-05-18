@@ -589,7 +589,7 @@ $hasTestimonials = hasTestimonials();
                     <?php if( hasInfoIntra() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
-                        <span>Intra ou sur-mesure possible</span>
+                        <span>Inter, intra, sur-mesure ou distanciel</span>
                     </div>
                     <?php endif; ?>
                     <?php if( hasInfoOnline() ): ?>
@@ -758,7 +758,7 @@ $hasTestimonials = hasTestimonials();
                     <div class="closed">session fermée **</div>
                     <?php endif; ?>
                     <?php if( $session["open"]): ?>
-                    <a title="Bouton d'inscription" href="<?php echo $session["link"]; ?>"><div class="btn btn-xs btn-red">Inscription</div></a>
+                    <a title="Bouton d'inscription" href="<?php echo $session["formLink"]; ?>"><div class="btn btn-xs btn-red">Inscription</div></a>
                     <?php endif; ?>
                 </div>
             </div>

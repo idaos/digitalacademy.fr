@@ -1212,7 +1212,7 @@ function kz_shortcode_refSlider( $atts ) {
     $args = array(
         'post_type'      => 'reference',
         'post_status'    => 'publish',
-        'posts_per_page' => - 20,
+        'posts_per_page' => -20
     );
     if ( $a['type'] ) {
         $args['tax_query'] = array(
