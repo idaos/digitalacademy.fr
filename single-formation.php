@@ -455,6 +455,14 @@ function hasInfoIntra(){
         return false;
     }
 }
+function getInfoIntra(){
+    if ( get_field( 'texte_intra' ) ){
+        $out = get_field( 'texte_intra' );
+    }else{
+        $out = "";
+    }
+    return $out;
+}
 function hasInfoOnline(){
     if ( get_field( 'info_online' ) ){
         return true;
@@ -546,7 +554,7 @@ $hasTestimonials = hasTestimonials();
                 <div id="course-title">
                     <h1>
                         <b>Formation 
-                        <?php echo $title; ?>
+                            <?php echo $title; ?>
                         </b>
                     </h1>
                 </div>
@@ -589,7 +597,7 @@ $hasTestimonials = hasTestimonials();
                     <?php if( hasInfoIntra() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
-                        <span>Inter, intra, sur-mesure ou distanciel</span>
+                        <span><?php echo getInfoIntra() ?></span>
                     </div>
                     <?php endif; ?>
                     <?php if( hasInfoOnline() ): ?>
@@ -679,6 +687,9 @@ $hasTestimonials = hasTestimonials();
                 <h2 class="c-<?php echo $colorTxt; ?>">Programme</h2>
                 <i><?php echo $title; ?></i>
                 <hr>
+                <?php if(( in_array ( 'sur-mesure', $enabled_tabs ) )&&( count($enabled_tabs) == 1 )): ?>
+                <p style="margin-bottom: 1.5em;">Veuillez trouver un exemple de programme qui a déjà été réalisé par le passé. Nous adaptons votre programme selon votre besoin.</p>
+                <?php endif; ?>
                 <?php echo $program; ?>
             </div>
 

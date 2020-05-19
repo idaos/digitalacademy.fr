@@ -7,7 +7,7 @@
 
 if( has_post_thumbnail() ) {
 	$class = '';
-	$url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+	$url = get_stylesheet_directory_uri() . '/images/nos-formateurs.jpg';
 	$bg = 'style="background-image:url(\''. $url .'\');background-size: cover;background-position:center"';
 }
 ?>
