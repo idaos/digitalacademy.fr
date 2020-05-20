@@ -18,7 +18,7 @@ if( has_post_thumbnail() ) {
 					<?php if( get_field( 'sous_titre' ) ): ?>
 					<h3><?php the_field( 'sous_titre' ); ?></h3>
 					<?php endif; ?>
-				</span>
+	</span>
 				<?php if( get_field( 'texte_introduction' ) ): ?>
 				<hr>
 				<p><?php the_field( 'texte_introduction' ); ?></p>

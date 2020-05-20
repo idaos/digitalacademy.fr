@@ -4,7 +4,12 @@ Template Name: Page Qui-Sommes-Nous
 */
 get_header(); ?>
 
-<div class="header" style="background-image:url(<?php the_field( 'img_blog', 'option' ) ?>);">    
+<?php $bg = '';
+if( has_post_thumbnail() ) {
+	$url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+	$bg = 'style="background-image:url(\''. $url .'\');background-size: cover;background-position:center center"';
+}?>
+<div class="header" <?php echo $bg; ?>>    
 <!--<div class="container-slider main-slider slider-header hidden-xs" style="background-image:url(<?php //the_field('img_dans_les_medias', 'option') ?>)">-->
 	<div class="container">
 		<div class="row">
