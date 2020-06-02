@@ -26,13 +26,13 @@ get_header();
         </div>
     </div>
     <div class="svg-wrapper-bottom" style="">
-        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:inherit">
+        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:4">
             <polygon fill="#fff" points="0,0 0,100 40,40"></polygon>
         </svg>
         <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:3">
             <polygon fill="#bf3b2b" points="0,0 100,20 100,100"></polygon>
         </svg>
-        <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:2">
+        <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:inherit">
             <polygon fill="#eee" points="0,0 100,100 0,100"></polygon>
         </svg>
     </div>    
