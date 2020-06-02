@@ -215,6 +215,7 @@ function custom_scripts_and_styles_egate(){
         }
         if($template_name == 'tpl-egate.php'){
             wp_enqueue_style( 'egate-style', get_template_directory_uri() . '/css/egate.css', null );
+            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
             wp_enqueue_script( 'egate-script', get_stylesheet_directory_uri() . '/js/egate.js', array( 'jquery' ), null, false );
             wp_dequeue_script( 'formsubmission' );
             wp_dequeue_style( 'js_composer_front' ); //not working

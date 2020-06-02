@@ -638,7 +638,7 @@ $hasTestimonials = hasTestimonials();
                     </div>
                 </div>
                 <div id="btn-wrapper" class="alignCenterLg">
-                    <a href="<?php echo $pdfUrl; ?>"><div class="btn btn-sm btn-red-alt marginR">Télécharger la fiche en PDF</div></a>
+                    <a href="<?php echo $pdfUrl; ?>" target="_blank"><div class="btn btn-sm btn-red-alt marginR">Télécharger la fiche en PDF</div></a>
                     <a title="Bouton de contact" href=""><div class="btn btn-sm btn-red">Parler avec un conseiller</div></a>
                 </div>
             </div>
