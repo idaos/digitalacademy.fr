@@ -1,13 +1,17 @@
 <?php get_header(); ?>
 
 <div class="header" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/blog.jpg);">    
-<!--<div class="header" style="background-image:url(<?php //the_field( 'img_bandeau', get_the_ID() ) ?>)">    -->
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 alignCenter">
-				<h1 class="title-slider" style="color:#fff">Blog</h1>
+				<h1 class="title-slider" style="color:#fff"><?php the_title(); ?></h1>
 				<hr>
-				<p>Suivez l'actualité de la DigitalAcademy</p>
+				<p>
+				Publié le <time class="updated entry-time" datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_date(); ?></time>
+				&nbsp;|&nbsp; 
+				<?php if (function_exists('wp_time_to_read')) { wp_time_to_read(); } ?>
+                <?php // echo get_the_category_list( ', ' ); ?>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -30,18 +34,8 @@
                 <div class="container-blog col-md-8">
                     <div class="row clearfix">
                         <?php if ( have_posts() ) :	  while ( have_posts() ) : the_post(); ?>	
-                        <header class="header-title clearfix">
-                            <div class="left content-date">
-                                <p class="month"><?php echo get_the_date( 'M' ); ?></p>
-                                <p class="day"><?php echo get_the_date( 'd' ); ?></p>
-                            </div>
-                            <h1><?php the_title(); ?></h1>
-                            <p>
-                            <?php if (function_exists('wp_time_to_read')) { wp_time_to_read(); echo " | "; } ?>
-                            <?php the_date(); ?> | <?php echo get_the_category_list( ', ' ); ?></p>
-                        </header>
                         <div class="content-share">
-                            <p style="margin-bottom: .3em;">Partager cet article</p>
+                            <p>Partager cet article :</p>
                             <?php digital_share_bouton( get_the_permalink(), get_the_title() ); ?>	
                         </div>
                         <div class="content-main">	
@@ -54,7 +48,7 @@
                             <?php the_content(); ?>									
                         </div>
                         <div class="article-categories">
-                            Catégories : <?php echo get_the_category_list( ', ' ); ?>
+                            Retrouvez nos articles classés dans la thématique <?php echo get_the_category_list( ', ' ); ?>
                         </div>
                         <div class="content-author clearfix display-table">
                             <?php $author_id = get_the_author_meta('ID');										
