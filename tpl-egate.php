@@ -48,9 +48,10 @@ if ( get_field( 'image' ) ){
                 <div class="col-lg-6">
                 </div>
                 <div class="col-lg-6">
-                    <h1 style="font-size: 2.1em;color:#fff;">Organisme de formation spécialiste du digital <span class="noWrap">&amp; du e-learning</span></h1>
-                    <hr>
-                    <p style="font-size: 1.2em;">La Digital Academy, institut de formation qui fait vivre le digital en entreprise, propose des formations digitales en web 2.0, médias sociaux, web marketing.</p>
+<img id="speechelevator-xs">
+<img id="speechelevator-sm">
+<img id="speechelevator-md">
+<img id="speechelevator-lg">
                     <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red-alt-neg marginR">Découvrir nos solutions</div></a>
                     <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy"><div class="btn btn-red">Contactez-nous</div></a>
                 </div>
