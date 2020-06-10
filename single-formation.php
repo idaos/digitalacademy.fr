@@ -528,9 +528,8 @@ $hasTestimonials = hasTestimonials();
                         <div class="col-xs-6 alignRight">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/datadock-bw.jpg" alt="">
                         </div>
-
                         <div class="col-xs-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi-bw.jpg" alt="">
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi.jpg" alt="">
                         </div>
                     </div>
                     <div class="rating">
