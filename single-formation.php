@@ -525,15 +525,13 @@ $hasTestimonials = hasTestimonials();
                     <h3 style="font-weight: inherit!important;">Notre certification :</h3>
                     <hr>
                     <div class="row">
-                        <!--                        <div class="col-xs-6 alignRight">-->
-                        <div class="col-xs-12">
+                        <div class="col-xs-6 alignRight">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/datadock-bw.jpg" alt="">
                         </div>
-                        <!--
-<div class="col-xs-6 alignLeft">
-<img src="<?php //echo $styleUri; ?>/images/single-formation/qualiopi-bw.jpg" alt="">
-</div>
--->
+
+                        <div class="col-xs-6 alignLeft">
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi-bw.jpg" alt="">
+                        </div>
                     </div>
                     <div class="rating">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt=""> 
