@@ -48,10 +48,10 @@ if ( get_field( 'image' ) ){
                 <div class="col-lg-6">
                 </div>
                 <div class="col-lg-6">
-<img id="speechelevator-xs">
-<img id="speechelevator-sm">
-<img id="speechelevator-md">
-<img id="speechelevator-lg">
+                    <img id="speechelevator-xs" style="margin-top: 2.5em;">
+                    <img id="speechelevator-sm" style="margin-top: 2.5em;">
+                    <img id="speechelevator-md" style="margin-top: 2.5em;">
+                    <img id="speechelevator-lg">
                     <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red-alt-neg marginR">Découvrir nos solutions</div></a>
                     <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy"><div class="btn btn-red">Contactez-nous</div></a>
                 </div>
@@ -75,7 +75,7 @@ if ( get_field( 'image' ) ){
 <main class="content">
     <div class="container" style="z-index:5">
         <h1><?php the_title(); ?></h1>
-        <p style="font-style:italic"><?php the_field( 'description' ); ?></p>
+        <?php if ( get_field( 'description' ) ){ ?><p style="font-style:italic"><?php the_field( 'description' ); ?></p><?php } ?>
         <hr style="margin:0">
         <?php
         if ( have_posts() ) :
