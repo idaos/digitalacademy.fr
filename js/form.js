@@ -6,12 +6,15 @@
 userHasScrolled = false;
 window.onscroll = function (e){
     userHasScrolled = true;
+    jQuery( "#input_1_16" ).val('humanDetected')
 }
 jQuery( "#gform_1" ).submit(function( event ) {
     if(!userHasScrolled){
         event.preventDefault();
     }
 });
+
+
 
 //-------------------------------------------
 //-------------------------------------------
