@@ -4,7 +4,6 @@ jQuery( document ).ready(function() {
         setCookie("bannerClosed", "true", "1");
         jQuery("#datadock_subheader").slideUp('fast');
     }); 
-
     if( getCookie("bannerClosed") == null ){
         jQuery("#datadock_subheader").show();
     }else{

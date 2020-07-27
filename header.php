@@ -75,11 +75,14 @@
 
         <div class="site-container clearfix">  
 
-            <!-- Blue banner -->
+            <!-- Blue banner --> 
+            <?php if( !isset($_COOKIE['bannerClosed']) ) : ?>
             <?php if ( get_field( 'blue_banner_text', 'options'  ) ): ?>
-            <div id="datadock_subheader" style="display:none;">
+            <div id="datadock_subheader">
                 <div class="container">
                     <div id="txt">
+                       
+                       
                         <?php echo get_field('blue_banner_text', 'options') ?>
                         <a title="Plus d'info" href="<?php echo the_field('blue_banner_link', 'options') ?>" target="_blank">
                             <?php if ( get_field( 'blue_banner_link', 'options'  ) ): ?>
@@ -92,6 +95,7 @@
                     <?php endif; ?>
                 </div>
             </div>
+            <?php endif; ?>
             <?php endif; ?>
 
             <!-- BreadCrumbs -->
