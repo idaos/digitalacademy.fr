@@ -42,7 +42,7 @@ html body {
 h3{
     font-style: italic!important;
     font-weight: 400!important;
-    color: #838383!important;
+    color: #4d4d4d!important;
     margin-bottom: 0;
     font-size: 1.1em!important;
 }
@@ -1981,8 +1981,8 @@ form[role='search']{
 
 #top-formations h3{
     font-style: italic!important;
-    font-weight: 100!important;
-    color: #838383!important;
+    font-weight: 400!important;
+    color: #4d4d4d!important;
     margin-bottom: 0;
     font-size: 1.1em!important;
 }
