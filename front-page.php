@@ -29,8 +29,8 @@
                         <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red marginR">Découvrir nos solutions</div></a>
                         <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
                         <br>
-                        <img class="logo-cert-datadock" src="<?php bloginfo('template_url'); ?>/images/datadock-logo.svg" title="Logo Datadock blanc"/>
-                        <img class="logo-cert-qualiopi" src="<?php bloginfo('template_url'); ?>/images/qualiopi_wht.png" title="Logo Qualiopi blanc"/>
+                        <img width="180" class="logo-cert-qualiopi" src="<?php bloginfo('template_url'); ?>/images/qualiopi_wht.png" title="Logo Qualiopi blanc"/>
+                        <img width="180" class="logo-cert-datadock" src="<?php bloginfo('template_url'); ?>/images/datadock-logo.svg" title="Logo Datadock blanc"/>
                     </div>
                 </div>
             </div>
