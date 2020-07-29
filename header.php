@@ -41,6 +41,7 @@
                             </div>
                         </a>
                         <i>Appel non surtaxé. Nos conseillers vous répondent du lundi au vendredi de 9h30 à 18h</i>
+                        <img id="qualiopi-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/qualiopi.svg" alt="Logo qualiopi processus certifié">
                         <div class="to-right">
                             <a href="/contact/">
                                 <div class="btn btn-xs btn-red">

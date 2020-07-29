@@ -252,9 +252,6 @@
             }
         }
     }
-    //    .btn-red:hover{
-    //        filter: brightness(90%);
-    //    }
 }
 
 // responsive stuff
@@ -399,6 +396,24 @@
         padding-right: 15px;
     }
 }
+#qualiopi-logo{   
+    max-height: 43px;
+    width: 327px;
+    @media(max-width:1250px){
+        display: none;
+    }
+    @media(max-width:1200px){
+        display: inherit;
+        position: absolute;
+        width: 200px;
+        right: 90px;
+        top: 6px;
+    }
+    @media(max-width:440px){
+        display: none;
+    }
+}
+
 
 @media(max-width:1200px){
     #kz_header{
