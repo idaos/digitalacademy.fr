@@ -719,3 +719,19 @@ svg {
     display: -ms-flexbox !important;
   }
 }
+/* Logo certifications */
+.logo-cert-datadock,
+.logo-cert-qualiopi {
+  margin: 1.5em .7em;
+}
+@media (max-width: 500px) {
+  .logo-cert-datadock,
+  .logo-cert-qualiopi {
+    width: 150px;
+    margin: .7em;
+  }
+}
+.logo-cert-datadock {
+  margin-top: 1em;
+  width: 200px;
+}
