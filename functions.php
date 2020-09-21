@@ -1534,7 +1534,9 @@ function kz_shortcode_opcoSlider() {
             array_push($opcos_arr, $opco);
         }
         foreach ($opcos_arr as &$that_opco) {
+            $out .= '<div class="opco" href="' . $that_ref['url'] . '">';
             $out .= $that_opco['thumb'];
+            $out .= '</div>';
         }
         $out .= '</div>';
         echo $out;

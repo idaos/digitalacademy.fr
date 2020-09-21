@@ -1,7 +1,7 @@
 //-----------------------------------------------------------//
 //------------------ Slick Opcos refs --------------------//
 //-----------------------------------------------------------//
-jQuery( document ).ready(function() {
+jQuery(window).on('load', function() {
     jQuery('#opcos .wrapper').slick({
         dots: false,
         infinite: true,
