@@ -24,7 +24,10 @@
   padding: 1em 0 0 0 !important;
   max-width: 100%;
 }
-#opcos img {
+#opcos .opco {
+  text-align: center;
+}
+#opcos .opco img {
   margin: auto;
   display: inline-block;
 }
