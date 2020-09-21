@@ -22,6 +22,7 @@
 #references .wrapper {
   padding: 1em 0 0 0 !important;
   max-width: 100%;
+  mix-blend-mode: multiply;
 }
 #references a {
   text-align: center;

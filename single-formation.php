@@ -381,21 +381,6 @@ function hasTestimonials(){
         return false;
     }
 }
-function hasInfoPlace(){
-    if ( get_field( 'info_lieu' ) ){
-        return true;
-    }else{
-        return false;
-    }
-}
-function getInfoPlace(){
-    if ( get_field( 'texte_lieu' ) ){
-        $out = get_field( 'texte_lieu' );
-    }else{
-        $out = "";
-    }
-    return $out;
-}
 function hasInfoDuration(){
     if ( get_field( 'info_duree' ) ){
         return true;
@@ -462,13 +447,6 @@ function getInfoIntra(){
         $out = "";
     }
     return $out;
-}
-function hasInfoOnline(){
-    if ( get_field( 'info_online' ) ){
-        return true;
-    }else{
-        return false;
-    }
 }
 function hasInfoElearning(){
     if ( get_field( 'info_e_learning' ) ){
@@ -557,10 +535,24 @@ $hasTestimonials = hasTestimonials();
                 </div>
                 <hr class="alignCenterLg">
                 <div id="course-info" class="row">
-                    <?php if( hasInfoPlace() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-cloud-people.jpg" alt="" class="multiply">
+                        <span>Présentiel ou distanciel</span>
+                    </div>
+                    <?php if( hasInfoIntra() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
+                        <span><?php echo getInfoIntra() ?></span>
+                    </div>
+                    <?php endif; ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-pin.jpg" alt="" class="multiply">
-                        <span><?php echo getInfoPlace() ?></span>
+                        <span>Paris, France ou International</span>
+                    </div>
+                    <?php if( hasInfoParticipants() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-peoples.jpg" alt="" class="multiply">
+                        <span><?php echo getInfoParticipants() ?></span>
                     </div>
                     <?php endif; ?>
                     <?php if( hasInfoDuration() ): ?>
@@ -569,16 +561,16 @@ $hasTestimonials = hasTestimonials();
                         <span><?php echo getInfoDuration() ?></span>
                     </div>
                     <?php endif; ?>
-                    <?php if( hasInfoParticipants() ): ?>
-                    <div class="col-sm-6 alignLeft">
-                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-peoples.jpg" alt="" class="multiply">
-                        <span><?php echo getInfoParticipants() ?></span>
-                    </div>
-                    <?php endif; ?>
                     <?php if( hasInfoPrice() ): ?>
                     <div class="col-sm-6 alignLeft">
                         <img src="<?php echo $styleUri; ?>/images/single-formation/ico-coins.jpg" alt="" class="multiply">
                         <span><?php echo getInfoPrice() ?></span>
+                    </div>
+                    <?php endif; ?>
+                    <?php if( hasInfoElearning() ): ?>
+                    <div class="col-sm-6 alignLeft">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-computer.png" alt="" class="multiply">
+                        <span>E-learning sur demande</span>
                     </div>
                     <?php endif; ?>
                     <?php if( hasInfoRef() ): ?>
@@ -589,24 +581,6 @@ $hasTestimonials = hasTestimonials();
                             $number = str_pad($post->ID, 4, '0', STR_PAD_LEFT);
                             echo 'Référence 2020' . $number; ?>
                         </span>
-                    </div>
-                    <?php endif; ?>
-                    <?php if( hasInfoIntra() ): ?>
-                    <div class="col-sm-6 alignLeft">
-                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
-                        <span><?php echo getInfoIntra() ?></span>
-                    </div>
-                    <?php endif; ?>
-                    <?php if( hasInfoOnline() ): ?>
-                    <div class="col-sm-6 alignLeft">
-                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-online.jpg" alt="" class="multiply">
-                        <span>100% en ligne avec le formateur</span>
-                    </div>
-                    <?php endif; ?>
-                    <?php if( hasInfoElearning() ): ?>
-                    <div class="col-sm-6 alignLeft">
-                        <img src="<?php echo $styleUri; ?>/images/single-formation/ico-computer.png" alt="" class="multiply">
-                        <span>E-learning sur demande</span>
                     </div>
                     <?php endif; ?>
                 </div>

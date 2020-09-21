@@ -120,6 +120,23 @@
             </div>
         </div>
     </section>
+    <section id="opcos">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <br><br>
+                    <span class="reverse">
+                        <h2>Les opérateurs de compétences partenaires</h2>
+                        <!-- <h3 style="margin-top: 2em;"></h3>-->
+                    </span>
+                    <hr>
+                    <?php echo do_shortcode( '[kz_opco_slider]' ); ?>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr style="width:100%;display: block;max-width: 100%;border-top: solid 1px #d0d0d0;padding: 0;margin: 0!important;box-sizing: inherit;">
     <section id="references">
         <div class="container">
             <div class="row">

@@ -44,8 +44,10 @@ function tp_enqueue_scripts() {
 
     wp_register_script( 'slick-courses', get_stylesheet_directory_uri() . '/js/slickCourses.js', array( 'slick' ), null, false );
     wp_register_script( 'slick-refs', get_stylesheet_directory_uri() . '/js/slickRefs.js', array( 'slick' ), null, false );
+    wp_register_script( 'slick-opcos', get_stylesheet_directory_uri() . '/js/slickOpcos.js', array( 'slick' ), null, false );
     wp_register_style( 'course-card', get_template_directory_uri() . '/css/course-card.css', null );
     wp_register_style( 'references-style', get_template_directory_uri() . '/css/references.css', array( 'main' ), null );
+    wp_register_style( 'opcos-style', get_template_directory_uri() . '/css/opcos.css', array( 'main' ), null );
 
 
     if ( is_tax( 'thematique' ) || is_page_template( 'tpl-nos-thematiques.php' ) ) {
@@ -1468,5 +1470,81 @@ class KzThema{
 }
 // -----------------------------------------------------------------------
 // -----------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------
+// FN: Register OPCO post type
+// -----------------------------------------------------------------------
+
+function opco_register_post_types() {
+    
+    // Custom Post Type OPCO
+    $labels = array(
+        'name' => 'OPCOs partenaires',
+        'all_items' => 'Toutes les OPCOs',  // affiché dans le sous menu
+        'singular_name' => 'OPCO',
+        'add_new_item' => 'Ajouter une OPCO',
+        'edit_item' => 'Modifier l\'OPCO',
+        'menu_name' => 'OPCOs'
+    );
+
+	$args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_in_rest' => true,
+        'has_archive' => true,
+        'supports' => array( 'title', 'editor','thumbnail' ),
+        'menu_position' => 4, 
+        'menu_icon' => 'dashicons-networking',
+	);
+
+	register_post_type( 'OPCO', $args );
+}
+add_action( 'init', 'opco_register_post_types' );
+
+
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------
+// FN: Display OPCO slider
+// -----------------------------------------------------------------------
+
+function kz_shortcode_opcoSlider() {
+
+    wp_enqueue_script( 'slick-opcos' );
+    wp_enqueue_style( 'opcos-style');
+
+    $args = array(
+        'post_type'      => 'OPCO',
+        'post_status'    => 'publish',
+        'posts_per_page' => -20
+    );
+    
+    $opcos = new WP_Query( $args );
+    $opcos_arr = array();
+    if ( $opcos -> have_posts() ) {
+        $out = '<div class="wrapper">';
+        while ( $opcos -> have_posts() ) {
+            $opcos -> the_post();
+            $opco = [
+                "thumb" => get_the_post_thumbnail( get_the_ID() ),
+            ];
+            array_push($opcos_arr, $opco);
+        }
+        foreach ($opcos_arr as &$that_opco) {
+            $out .= $that_opco['thumb'];
+        }
+        $out .= '</div>';
+        echo $out;
+    }
+}
+add_shortcode( 'kz_opco_slider', 'kz_shortcode_opcoSlider' );
+
+
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
 
 
