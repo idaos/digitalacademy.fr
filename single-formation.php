@@ -500,7 +500,7 @@ $hasTestimonials = hasTestimonials();
             <div id="course-imgs" class="col-lg-6 row">
                 <?php echo $courseImgHTML; ?>
                 <div class="multiply visibleLg">
-                    <h3 style="font-weight: inherit!important;">Notre certification :</h3>
+                    <h3 style="font-weight: inherit!important;">Nos certifications :</h3>
                     <hr>
                     <div class="row">
                         <div class="col-xs-6 alignRight">
