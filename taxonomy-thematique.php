@@ -214,7 +214,7 @@ $courses_count = count(json_decode($result[0])) ;
         }
         function checkIfCalendarDependanciesHaveBeenLoad(){
             setTimeout(function(){
-                if (window.jQuery) {  
+                if ((moment() != undefined )) {
                     loadCalendar();
                 }else{
                     checkIfCalendarDependanciesHaveBeenLoad();
@@ -222,6 +222,7 @@ $courses_count = count(json_decode($result[0])) ;
             }, 300);
         }
         function loadCalendar(){
+            
             jQuery('#calendar').fullCalendar({
                 header: {
                     right: 'today prev,next',
