@@ -255,7 +255,9 @@ $courses_count = count(json_decode($result[0])) ;
                             }
                         }
                     }
-                    echo rtrim( $events, ',' );
+                    $events = rtrim( $events, ',' );
+                    $events = rtrim( $events, ',' );
+                    echo $events;
                     ?>
                 ], // filter by thematique
                 eventRender: function eventRender( event, element, view ) {
