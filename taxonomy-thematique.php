@@ -233,7 +233,7 @@ $courses_count = count(json_decode($result[0])) ;
                 firstDay: 1,
                 editable: false,
                 eventLimit: true,
-                events: [
+                addEventSource: [
                     <?php
                     $events = '';
                     foreach( $thematique_infos as $formation_title => $formation_infos )
