@@ -67,6 +67,21 @@ add_action( 'wp_enqueue_scripts', 'tp_enqueue_scripts' );
 
 
 /**
+ * FullCalendarJS depandencies
+ */
+
+function enqueue_full_calendar(){
+
+    wp_enqueue_style( 'fullcalendar-css', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
+    wp_enqueue_style( 'calendar-style', get_stylesheet_directory_uri() . '/css/calendar.css', array( 'main' ), null );
+    wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'fullcalendar' ), null, false );
+    wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array('jquery'), null, true );
+    wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        
+    wp_enqueue_script( 'fullcalendar-render', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar-render.js', array( 'fullcalendar-fr' ), null, false );     
+}
+
+
+/**
  * Chargement des styles et scripts pour les pages   'Offre'
  */
 
@@ -133,11 +148,7 @@ function custom_scripts_and_styles_taxo_thema(){
         wp_enqueue_script( 'angular-sanitize', get_stylesheet_directory_uri() . '/js/angular-sanitize.min.js', null, null, false );
         wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
         wp_enqueue_script( 'angular-controller', get_stylesheet_directory_uri() . '/js/tpl-nos-formations.js', array( 'jquery', 'angular', 'angular-sanitize', 'angular-animate' ), null, false );
-        wp_enqueue_style( 'fullcalendar-css', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
-        wp_enqueue_style( 'calendar-style', get_stylesheet_directory_uri() . '/css/calendar.css', array( 'main' ), null );
-        wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'fullcalendar' ), null, false );
-        wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array('jquery'), null, true );
-        wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        
+        enqueue_full_calendar();      
         wp_enqueue_script( 'getCoursesByKeyword', get_stylesheet_directory_uri() . '/js/ajaxurl.js', array('jquery'), '1.0', true );
         wp_localize_script('getCoursesByKeyword', 'ajaxurl', admin_url( 'admin-ajax.php' ) );    
     }
@@ -303,14 +314,15 @@ function custom_scripts_and_styles_testimonial(){
         $template_name = false;
     }
     if( ((is_archive())&&(is_post_type_archive( 'temoignage' )))  //Check if we are viewing an archive page.
-        || ($template_name == 'tpl-satisfaction-clients.php') ){ // or satisfaction page
-            wp_enqueue_style( 'chart', get_template_directory_uri() . '/css/chart.css', array( 'main' ), null );
-            wp_enqueue_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.js', array( 'owl-carousel', 'accordeon', 'jquery' ), null, false );
-            wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array( 'main' ), null );
-            wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, false );
-            wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
+       || ($template_name == 'tpl-satisfaction-clients.php') ){ // or satisfaction page
+        wp_enqueue_style( 'chart', get_template_directory_uri() . '/css/chart.css', array( 'main' ), null );
+        wp_enqueue_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.js', array( 'owl-carousel', 'accordeon', 'jquery' ), null, false );
+        wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array( 'main' ), null );
+        wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
     }
 }
+
 
 
 /**
@@ -337,11 +349,7 @@ function custom_scripts_and_styles_courses(){
         wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
         wp_enqueue_script( 'angular-controller', get_stylesheet_directory_uri() . '/js/tpl-nos-formations.js', array( 'jquery', 'angular', 'angular-sanitize', 'angular-animate' ), null, false );
 
-        wp_enqueue_style( 'fullcalendar-css', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
-        wp_enqueue_style( 'calendar-style', get_stylesheet_directory_uri() . '/css/calendar.css', array( 'main' ), null );
-        wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'fullcalendar' ), null, false );
-        wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array('jquery'), null, true );
-        wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        
+        enqueue_full_calendar();
     }
     wp_enqueue_script( 'getCoursesByKeyword', get_stylesheet_directory_uri() . '/js/ajaxurl.js', array('jquery'), '1.0', true );
     wp_localize_script('getCoursesByKeyword', 'ajaxurl', admin_url( 'admin-ajax.php' ) );    
@@ -581,7 +589,7 @@ function digital_get_type_menu( $taxonomy = 'type' ) {
     $menu = '';
 
     if ( $types = get_terms( $taxonomy, array( 'parent' => 0 ) ) ) {
-        
+
         foreach ( $types as $type ) {
             $class = '';
             if ( $type->term_id == $parent_term_id ) {
@@ -611,7 +619,7 @@ function dg_liste_temoignages( $query ) {
         $template_name = false;
     }
     if (( $query->is_post_type_archive( 'temoignage' ) && $query->is_main_query() )
-    ||($template_name == 'tpl-satisfaction-clients.php'))
+        ||($template_name == 'tpl-satisfaction-clients.php'))
     {
         $query->set( 'posts_per_page', - 1 );
         $query->set( 'orderby', 'rand' );
@@ -1303,7 +1311,7 @@ function spinner_url($image_src, $form) {
 // if dropdown item is not selected --
 add_filter( 'gform_field_validation_11_1', 'custom_validation_home', 10, 4 );
 function custom_validation_home( $result, $value, $form, $field ) {
-    
+
     if ( $result['is_valid'] && $value[0] == "Sélectionnez..." ) {
         $result['is_valid'] = false;
         $result['message'] = 'Veuillez sélectionner un objet pour ce message.';
@@ -1315,7 +1323,7 @@ function custom_validation_home( $result, $value, $form, $field ) {
 // if user has not scrolled (see form.js), block send --
 add_filter( 'gform_field_validation_1_16', 'custom_validation_contact', 10, 4 );
 function custom_validation_contact( $result, $value, $form, $field ) {
- 
+
     if ( $value != 'humanDetected' ) {
         $result['is_valid'] = false;
         $result['message'] = 'Notre systeme anti SPAM vous considère comme un robot ! Si ce n\'est pas le cas, pourriez-vous nous envoyer un email directement à l\'adresse : contact@digitalacademy.fr ? Merci !';
@@ -1466,7 +1474,7 @@ class KzThema{
 // -----------------------------------------------------------------------
 
 function opco_register_post_types() {
-    
+
     // Custom Post Type OPCO
     $labels = array(
         'name' => 'OPCOs partenaires',
@@ -1477,7 +1485,7 @@ function opco_register_post_types() {
         'menu_name' => 'OPCOs'
     );
 
-	$args = array(
+    $args = array(
         'labels' => $labels,
         'public' => true,
         'show_in_rest' => true,
@@ -1485,9 +1493,9 @@ function opco_register_post_types() {
         'supports' => array( 'title', 'editor','thumbnail' ),
         'menu_position' => 4, 
         'menu_icon' => 'dashicons-networking',
-	);
+    );
 
-	register_post_type( 'OPCO', $args );
+    register_post_type( 'OPCO', $args );
 }
 add_action( 'init', 'opco_register_post_types' );
 
@@ -1510,7 +1518,7 @@ function kz_shortcode_opcoSlider() {
         'post_status'    => 'publish',
         'posts_per_page' => -20
     );
-    
+
     $opcos = new WP_Query( $args );
     $opcos_arr = array();
     if ( $opcos -> have_posts() ) {

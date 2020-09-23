@@ -1,6 +1,6 @@
 <?php
 // -----------------------------------------------------------------------
-// GET ALL "FORMATIONS"
+// GET ALL COURSES
 // -----------------------------------------------------------------------
 // get query string
 $search_query = isset($_GET['q']) ?  $_GET['q'] : null ;
@@ -9,10 +9,11 @@ $courses_count = count(json_decode($result[0])) ;
 $th = new KzThema();
 // -----------------------------------------------------------------------
 // -----------------------------------------------------------------------
+
 get_header();
 ?>
 <main class="content">
-    
+
     <div class="header">    
         <div class="container">
             <div class="row">
@@ -46,7 +47,7 @@ get_header();
                 <div class="slick-slide">
                     <!--
 <div class="clearfix">
-<h1 class="title-slider">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
+<h1 class="title-slider">Consultez notre catalogue de <?php //echo $courses_count; ?> formations au digital</h1>
 </div>
 -->
                     <div id="search">
@@ -120,7 +121,6 @@ get_header();
             <!--   ------------------ CALENDAR ------------------   -->
             <!--   ----------------------------------------------   -->
             <?php
-            $blocs = array();
             if ( $thematiques = get_terms( 'thematique' ) ) {
                 $i = 0;
                 $color = array(
@@ -133,17 +133,6 @@ get_header();
                 );
                 foreach ( $thematiques as $thematique ) {
                     $couleur = get_field( 'couleur', 'thematique_' . $thematique->term_id );
-                    $blocs[ $i ] = '<div class="container-theme theme-' . $couleur . ' clearfix">';
-                    $blocs[ $i ] .= '<div class="content-theme">';
-                    $blocs[ $i ] .= '<div class="wpb_wrapper">';
-                    $blocs[ $i ] .= '<div class="col-sm-3 text-center">';
-                    $blocs[ $i ] .= '<h3>' . $thematique->name . '</h3>';
-                    if ( $picto = get_field( 'picto', 'thematique_' . $thematique->term_id ) ) {
-                        $blocs[ $i ] .= '<img src="' . $picto . '" alt="" />';
-                    }
-                    $blocs[ $i ] .= '</div>';
-                    $blocs[ $i ] .= '<div class="col-sm-9 content-show">';
-                    $blocs[ $i ] .= '<p class="visible-xs">+</p>';
                     $formations = get_posts(
                         array(
                             'posts_per_page' => - 1,
@@ -168,15 +157,6 @@ get_header();
                         }
                     }
                     $formation_list = array_chunk( $formation_list, ceil( count( $formation_list ) / 2 ) );
-                    $blocs[ $i ] .= '<ul>';
-                    foreach ( $formation_list as $list ) {
-                        $blocs[ $i ] .= implode( "\n", $list );
-                    }
-                    $blocs[ $i ] .= '</ul>';
-                    $blocs[ $i ] .= '</div>';
-                    $blocs[ $i ] .= '</div>';
-                    $blocs[ $i ] .= '</div>';
-                    $blocs[ $i ] .= '</div>';
                     $i ++;
                 }
             }
@@ -195,93 +175,50 @@ get_header();
                     </div>
                 </div>
             </div>
-
-            <!--  load calendar-->
-            <script defer>
-                window.onload = function() {
-                    checkIfCalendarDependanciesHaveBeenLoad();
-                }
-                function checkIfCalendarDependanciesHaveBeenLoad(){
-                    setTimeout(function(){
-                        if (window.jQuery) {  
-                            loadCalendar();
-                        }else{
-                            checkIfCalendarDependanciesHaveBeenLoad();
+            <?php 
+            // -----------------------------------------------------------------------
+            // GET ALL CALENDAR EVENTS
+            // -----------------------------------------------------------------------
+            $events = '';
+            foreach( $thematique_infos as $formation_title => $formation_infos )
+            {
+                foreach( $formation_infos as $couleur => $arrayDates )
+                {
+                    foreach( $arrayDates as $dates )
+                    {
+                        foreach( $dates as $date )
+                        {
+                            $events .= '{';
+                            $events .= 'title:    "'. html_entity_decode ($date['titre']) .'",';
+                            $events .= 'start:    "'. $date['date'] .'",';
+                            $events .= 'end:      "'. date( 'Y-m-d', strtotime( $date['date'] . ' + '. $date['nombre_jours'] .' days' ) ) .'",';
+                            $events .= 'url:      "'. $date['url'] .'",';
+                            $events .= 'color:    "'. $couleur .'"';
+                            $events .= '},';
                         }
-                    }, 300);
+                    }
                 }
-                function loadCalendar(){
-                    jQuery('#calendar').fullCalendar({
-                        header: {
-                            right: 'today prev,next',
-                            center: '',
-                            left: 'title'
-                        },
-                        defaultDate: '<?php echo date( 'Y-m-d' ); ?>',
-                        firstDay: 1,
-                        editable: false,
-                        eventLimit: true,
-                        events: [
-                            <?php
-                            $events = '';
-                            foreach( $thematique_infos as $formation_title => $formation_infos )
-                            {
-                                foreach( $formation_infos as $couleur => $arrayDates )
-                                {
-                                    foreach( $arrayDates as $dates )
-                                    {
-                                        foreach( $dates as $date )
-                                        {
-                                            $events .= '{';
-                                            $events .= 'title:    "'. html_entity_decode ($date['titre']) .'",';
-                                            $events .= 'start:    "'. $date['date'] .'",';
-                                            $events .= 'end:      "'. date( 'Y-m-d', strtotime( $date['date'] . ' + '. $date['nombre_jours'] .' days' ) ) .'",';
-                                            $events .= 'url:      "'. $date['url'] .'",';
-                                            $events .= 'color:    "'. $couleur .'"';
-                                            $events .= '},';
-                                        }
-                                    }
-                                }
-                            }
-                            echo rtrim( $events, ',' );
-                            ?>
-                        ], // filter by thematique
-                        eventRender: function eventRender( event, element, view ) {
-                            //                            jQuery('[id^=thematique-checkbox-]').each(function( index ) {
-                            //                                if ( jQuery(this).is(":checked") ){
-                            //                                    jQuery('#selectedThema').html(jQuery( this ).next().text());
-                            //                                    return ['all', event.color].indexOf( jQuery(this).attr('value') ) >= 0
-                            //                                }
+            }
+            $events = rtrim( $events, ',' );
+            $events = rtrim( $events, ',' );
+            // -----------------------------------------------------------------------
+            // -----------------------------------------------------------------------
+            ?> 
 
-                            if (jQuery('#thematique-checkbox-orange').is(":checked")){
-                                jQuery('#selectedThema').html('Réseaux Sociaux');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-orange').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-gray').is(":checked")){
-                                jQuery('#selectedThema').html('Webmarketing');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-gray').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-blue-dark').is(":checked")){
-                                jQuery('#selectedThema').html('Contenus &amp; Site Web');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue-dark').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-yellow').is(":checked")){
-                                jQuery('#selectedThema').html('E-publicité &amp; Acquisition');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-yellow').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-green').is(":checked")){
-                                jQuery('#selectedThema').html('Ressources Humaines Web 2.0');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-green').attr('value') ) >= 0
-                            }
-                            else if (jQuery('#thematique-checkbox-blue').is(":checked")){
-                                jQuery('#selectedThema').html('E-réputation &amp; Relation Client Web');
-                                return ['all', event.color].indexOf( jQuery('#thematique-checkbox-blue').attr('value') ) >= 0
-                            }
-                            //                            });
-                        }
-                    });
-                }
-            </script>   
+            <!--   ----------------------------------------------   -->
+            <!--   -------------- CALENDAR POPULATE -------------   -->
+            <!--   ----------------------------------------------   -->
+            <!--   Var used in the calendar controller              -->
+            <!--   js/fullcalendar-render.js                        -->
+            <!--   ----------------------------------------------   -->
+            <script>
+                var eventsJson = [<?php echo $events; ?>];
+                setTimeout( function(){
+                    calendar.addEventSource(eventsJson);
+                    calendar.refetchEvents();
+                }, 1500);
+            </script>    
+
             <!--   ----------------------------------------------   -->
             <!--   ---------------- END CALENDAR ----------------   -->
             <!--   ----------------------------------------------   -->
