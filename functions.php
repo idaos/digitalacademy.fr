@@ -489,7 +489,7 @@ function digital_share_bouton( $link, $title ) {
 </div>
 
 <?php
-                                               }
+}
 function digital_get_thematiques_picto() {
     $pictos = false;
 
