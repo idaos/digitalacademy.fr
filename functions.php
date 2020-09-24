@@ -870,7 +870,7 @@ function kz_search($keywords, $thema_ID = false){
             if ( get_field( 'presentation', $formation->ID ) ){
                 $course_description = wp_trim_words( get_field( 'presentation', $formation->ID ), 20, '...' );
             }else{
-                $course_description = false;
+                $course_description = "";
             }
             // Course goals
             $course_goals = '';

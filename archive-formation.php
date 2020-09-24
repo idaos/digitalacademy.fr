@@ -216,7 +216,7 @@ get_header();
                 setTimeout( function(){
                     calendar.addEventSource(eventsJson);
                     calendar.refetchEvents();
-                }, 1500);
+                }, 3000);
             </script>    
 
             <!--   ----------------------------------------------   -->
