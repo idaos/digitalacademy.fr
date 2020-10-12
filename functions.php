@@ -228,6 +228,32 @@ function custom_scripts_and_styles_egate(){
         }
     }
 }
+
+/**
+ * Chargement des styles et scripts pour les pages   'default'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_default', 20 );
+//Load scripts (and styles)
+function custom_scripts_and_styles_default(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        if( isset($wp_query->post->ID) ){
+            $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        }else{
+            $template_name = false;
+        }
+        if($template_name == 'tpl-default.php'){
+            wp_enqueue_style( 'egate-style', get_template_directory_uri() . '/css/egate.css', null );
+            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
+            wp_dequeue_script( 'formsubmission' );
+            wp_dequeue_script( 'slick' );
+            wp_dequeue_style( 'slick' );
+        }
+    }
+}
 /**
  * Chargement des styles et scripts pour la page   'Home'
  */
