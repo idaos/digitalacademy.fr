@@ -60,7 +60,6 @@ if ( get_field( 'image' ) ){
 </div>    
 <main class="content">
     <div class="container" style="z-index:5">
-        <hr style="margin:0">
         <?php
         if ( have_posts() ) :
         while ( have_posts() ) : the_post();
