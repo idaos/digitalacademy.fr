@@ -14,23 +14,6 @@ if ( get_field( 'image' ) ){
 }
 ?>
 
-<!--
-<div class="header" <?php // echo $bg; ?>>    
-<div class="container" style="z-index:inherit">
-<div class="row">
-<div class="col-xs-12 alignCenter">
-<img id="speechelevator-xs">
-<img id="speechelevator-sm">
-<img id="speechelevator-md">
-<img id="speechelevator-lg">
-<a href="<?php // echo get_page_link(270); ?>"><div class="btn btn-red-alt-neg">Découvrir nos solutions</div></a>
-<a title="Bouton de contact" class="contact-btn" href="/contact/?utm_source=seo-page&utm_medium=seo-page&utm_campaign=egate" value="Prendre contact avec la Digital Academy"><div class="btn btn-red marginR">Contactez-nous</div></a>
-</div>
-</div>
-</div>
-</div>
--->
-
 <section id="heading">
     <div class="bloc-1" <?php echo $bg; ?>>
         <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -53,7 +36,7 @@ if ( get_field( 'image' ) ){
                     <img id="speechelevator-md" style="margin-top: 2.5em;">
                     <img id="speechelevator-lg">
                     <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red-alt-neg marginR">Découvrir nos solutions</div></a>
-                    <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy"><div class="btn btn-red">Contactez-nous</div></a>
+                    <a title="Bouton de contact" class="contact-btn" href="/contact/?utm_source=seo-page&utm_medium=seo-page&utm_campaign=egate" value="Prendre contact avec la Digital Academy"><div class="btn btn-red">Contactez-nous</div></a>
                 </div>
             </div>
         </div>
