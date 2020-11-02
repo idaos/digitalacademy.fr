@@ -361,15 +361,3 @@ function scrollToResults(){
     var searchHelperPos = searchHelper.getBoundingClientRect();
     window.scrollBy(0, searchHelperPos.top - menuHeight);
 }
-
-
-
-// -------------------------------------
-// ------ Calendar ---------------------
-// -------------------------------------
-// rerender calendar on thematique selection
-jQuery( document ).ready(function() {
-    jQuery('[id^=thematique-checkbox-]').on('change',function(){
-        jQuery('#calendar').fullCalendar('rerenderEvents');
-    });
-})

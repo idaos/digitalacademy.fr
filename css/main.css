@@ -444,7 +444,6 @@ body .content-theme h3{
 --------------------------------------------- */
 
 .container-slider{
-    min-height: 13em;
     display: flex;
     align-items: center;
 }

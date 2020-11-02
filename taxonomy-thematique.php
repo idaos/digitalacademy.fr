@@ -228,10 +228,6 @@ $courses_count = count(json_decode($result[0])) ;
     <!--   ----------------------------------------------   -->
     <script>
         var eventsJson = [<?php echo $events; ?>];
-        setTimeout( function(){
-            calendar.addEventSource(eventsJson);
-            calendar.refetchEvents();
-        }, 1500);
     </script>   
 
     <!--   ----------------------------------------------   -->

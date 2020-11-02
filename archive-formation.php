@@ -45,11 +45,6 @@ get_header();
 
             <div id="kz_heading" class="container-slider main-slider nos-formations slider-header" <?php //echo $bg; ?>>
                 <div class="slick-slide">
-                    <!--
-<div class="clearfix">
-<h1 class="title-slider">Consultez notre catalogue de <?php //echo $courses_count; ?> formations au digital</h1>
-</div>
--->
                     <div id="search">
                         <div class="container alignCenter">
                             <input ng-model="searchText" ng-init="searchText='<?php echo $search_query; ?>'" 
@@ -209,14 +204,10 @@ get_header();
             <!--   -------------- CALENDAR POPULATE -------------   -->
             <!--   ----------------------------------------------   -->
             <!--   Var used in the calendar controller              -->
-            <!--   js/fullcalendar-render.js                        -->
+            <!--   js/fullcalendar/fullcalendar-render.js           -->
             <!--   ----------------------------------------------   -->
             <script>
                 var eventsJson = [<?php echo $events; ?>];
-                setTimeout( function(){
-                    calendar.addEventSource(eventsJson);
-                    calendar.refetchEvents();
-                }, 3000);
             </script>    
 
             <!--   ----------------------------------------------   -->
