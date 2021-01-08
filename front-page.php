@@ -25,12 +25,16 @@
                             <h3>Faites vivre le digital dans votre entreprise</h3>
                         </span>
                         <hr>
-                        <p>L’offre de la DigitalAcademy met l’apprenant au centre.  C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
-                        <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red marginR">Découvrir nos solutions</div></a>
-                        <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy"><div class="btn btn-red-alt-neg">Contactez-nous</div></a>
-                        <br>
-                        <img width="180" class="logo-cert-qualiopi" src="<?php bloginfo('template_url'); ?>/images/qualiopi_wht.png" title="Logo Qualiopi blanc"/>
-                        <img width="180" class="logo-cert-datadock" src="<?php bloginfo('template_url'); ?>/images/datadock-logo.svg" title="Logo Datadock blanc"/>
+                        <p>L’offre de la DigitalAcademy met l’apprenant au centre. C’est sur cette conviction forte que nous co-construisons avec l’entreprise des solutions sur mesure pour répondre à ses besoins. Avec vous, nous imaginons des packages spécifiques tant dans les contenus que sur les formats, l’éventail des compétences des formateurs ou encore les ingénieries pédagogiques.</p>
+                        <a href="<?php echo get_page_link(270); ?>">
+                            <div class="btn btn-red marginR">Découvrir nos solutions</div>
+                        </a>
+                        <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Prendre contact avec la Digital Academy">
+                            <div class="btn btn-red-alt-neg">Contactez-nous</div>
+                        </a>
+                        <br><br>
+                        <img width="180" class="logo-cert-qualiopi" src="<?php bloginfo('template_url'); ?>/images/logoquadopi2021.png" title="Logo Qualiopi" />
+                        <img width="180" class="logo-cert-datadock" src="<?php bloginfo('template_url'); ?>/images/logodatadock.png" title="Logo Datadock blanc" />
                     </div>
                 </div>
             </div>
@@ -54,9 +58,13 @@
                         <h3>Numérisez vos formations dans nos studios</h3>
                     </span>
                     <hr>
-                    <p>Le Digital Learning intègre des technologies digitales dans les solutions de formation au service de la performance. Pour favoriser une montée en compétences rapide et continue des apprenants et prolonger le processus d’apprentissage, ces solutions de formation multi-plateformes (desktop, smartphones, tablettes…) sont les parfaits compléments d’un programme présentiel. La DigitalAcademy s’est entourée de partenaires experts dans ces applicatifs spécialisés dans la  distribution en ligne des contenus de formation.</p>
-                    <a title="Solutions de formation" href="<?php echo get_page_link(623); ?>"><div class="btn btn-blue marginR">Découvrir cette solution</div></a>
-                    <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Demander une démo digital learning"><div class="btn btn-blue-alt">Demander une démo</div></a>
+                    <p>Le Digital Learning intègre des technologies digitales dans les solutions de formation au service de la performance. Pour favoriser une montée en compétences rapide et continue des apprenants et prolonger le processus d’apprentissage, ces solutions de formation multi-plateformes (desktop, smartphones, tablettes…) sont les parfaits compléments d’un programme présentiel. La DigitalAcademy s’est entourée de partenaires experts dans ces applicatifs spécialisés dans la distribution en ligne des contenus de formation.</p>
+                    <a title="Solutions de formation" href="<?php echo get_page_link(623); ?>">
+                        <div class="btn btn-blue marginR">Découvrir cette solution</div>
+                    </a>
+                    <a title="Bouton de contact" class="contact-btn" href="#form-bottom" value="Demander une démo digital learning">
+                        <div class="btn btn-blue-alt">Demander une démo</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -83,8 +91,12 @@
                     </span>
                     <hr>
                     <p>Retrouvez en ligne notre catalogue de plus de 30 formations sur le digital, réparties dans les 6 thématiques suivantes : Réseaux Sociaux &amp; E-réputation, Stratégie de Marketing digital, Contenus Web, Webmarketing et E-publicité, Entreprise 2.0, Mobile &amp; E-commerce</p>
-                    <a title="Les formations DigitalAcademy" href="/formations/"><div class="btn btn-red marginR">Découvrir nos formations</div></a>
-                    <a title="Télécharger le catalogue en pdf" value="Demander notre catalogue" href="<?php echo get_page_link(213); ?>"><div class="btn btn-red-alt">Télécharger le Catalogue</div></a>
+                    <a title="Les formations DigitalAcademy" href="/formations/">
+                        <div class="btn btn-red marginR">Découvrir nos formations</div>
+                    </a>
+                    <a title="Télécharger le catalogue en pdf" value="Demander notre catalogue" href="<?php echo get_page_link(213); ?>">
+                        <div class="btn btn-red-alt">Télécharger le Catalogue</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -150,7 +162,9 @@
                     </span>
                     <hr>
                     <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
-                    <a title="Voir toutes nos références" href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
+                    <a title="Voir toutes nos références" href="/type-reference/intra-entreprise/">
+                        <div class="btn btn-red">Voir toutes nos références</div>
+                    </a>
                     <br><br><br><br><br>
                 </div>
             </div>
@@ -178,7 +192,7 @@
                 <div class="col-md-6 col-md-push-6">
                     <span class="reverse">
                         <h2>la Digital Academy <span class="noWrap">en 30 secondes</span></h2>
-                        <h3>Franck Perrier présente la Digital Academy</h3>
+                    <h3>Franck Perrier présente la Digital Academy</h3>
                     </span>
                     <hr>
                     <blockquote>
@@ -219,7 +233,8 @@
                         <h3>Ce que disent nos apprenants de la DigitalAcademy</h3>
                     </span>
                     <hr>
-                    <br><p>Retrouvez les points de vue des apprenants qui comentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
+                    <br>
+                    <p>Retrouvez les points de vue des apprenants qui comentent les formats, le contenu, la dynamique et les animations des formateurs DigitalAcademy sur une grande variété de thématiques.</p>
                 </div>
             </div>
             <div class="row row-same-height">
@@ -264,7 +279,9 @@
                 </div>
             </div>
         </div>
-        <a title="Voir tous nos temoignages" href="temoignage/"><div class="btn btn-red">Tous les témoignages</div></a>
+        <a title="Voir tous nos temoignages" href="temoignage/">
+            <div class="btn btn-red">Tous les témoignages</div>
+        </a>
     </section>
     <section id="contact"><span id="contact-anchor"></span>
         <div class="container">
@@ -278,7 +295,7 @@
                             <i>appel non surtaxé du lundi au vendredi de 9h30 à 19h</i>
                             <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
                             <i style="margin-top: 2em;">ou par e-mail</i>
-                            <a title="Nous envoyer un email" id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a> 
+                            <a title="Nous envoyer un email" id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a>
                         </div>
                     </div>
                 </div>
@@ -307,9 +324,4 @@ $page_newsletter = get_field( 'page_newsletter', 'option' );
 echo do_shortcode( '[cta texte="Restez informé sur nos formations digitales" url="' . $page_newsletter . '" texte_bouton="S’inscrire à la newsletter"]' );
 ?>
 
-<?php get_footer(); ?>
-
-
-
-
-
+    <?php get_footer(); ?>
