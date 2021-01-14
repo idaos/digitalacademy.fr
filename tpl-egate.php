@@ -31,10 +31,14 @@ if ( get_field( 'image' ) ){
                 <div class="col-lg-6">
                 </div>
                 <div class="col-lg-6">
-                    <img id="speechelevator-xs" style="margin-top: 2.5em;">
-                    <img id="speechelevator-sm" style="margin-top: 2.5em;">
-                    <img id="speechelevator-md" style="margin-top: 2.5em;">
-                    <img id="speechelevator-lg">
+                    <div id="pitch-elevator-title">
+                        <?php the_field( 'pitch_elevator_title' ); ?>
+                    </div>
+                    <hr>
+                    <div id="pitch-elevator-content">
+                        <?php the_field( 'pitch_elevator_content' ); ?>
+                    </div>
+
                     <a href="<?php echo get_page_link(270); ?>"><div class="btn btn-red-alt-neg marginR">Découvrir nos solutions</div></a>
                     <a title="Bouton de contact" class="contact-btn" href="/contact/?utm_source=seo-page&utm_medium=seo-page&utm_campaign=egate" value="Prendre contact avec la Digital Academy"><div class="btn btn-red">Contactez-nous</div></a>
                 </div>
