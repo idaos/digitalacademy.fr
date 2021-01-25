@@ -745,7 +745,7 @@ $hasTestimonials = hasTestimonials();
 
                 <?php foreach($sessions as $session): ?>
 
-                <div class="insert <?php if(!$session[" open "]): ?>session-closed<?php endif; ?>">
+                <div class="insert <?php if(!$session["open"]): ?>session-closed<?php endif; ?>">
                     <img src="<?php echo $styleUri; ?>/images/calendar-icon.svg" height=12 alt="">
                     <div class="wrapper">
                         <strong style="margin-bottom:.3em;"><?php echo $session["date"]; ?></strong>
@@ -754,7 +754,7 @@ $hasTestimonials = hasTestimonials();
                         <div class="closed">session fermée **</div>
                         <?php endif; ?>
                         <?php if( $session["open"]): ?>
-                        <a title="Bouton d'inscription" href="<?php echo $session[" formLink "]; ?>">
+                        <a title="Bouton d'inscription" href="<?php echo $session["formLink"]; ?>">
                             <div class="btn btn-xs btn-red">Inscription</div>
                         </a>
                         <?php endif; ?>
