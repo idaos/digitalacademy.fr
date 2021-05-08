@@ -15,6 +15,7 @@ if ( get_field( 'image' ) ){
 }else{
     $bg = 'style="background-image:url('.get_stylesheet_directory_uri().'/images/formation-au-digital.jpg);background-size: cover;background-position:center center"';
 }
+
 ?>
 
 <!-- Heading -->
@@ -41,7 +42,7 @@ if ( get_field( 'image' ) ){
                     <div class="col-lg-6">
                         <span class="reverse">   
                                 <h1><?php the_title(); ?></h1>
-                            <h3><?php if ( get_field( 'sous-titre_de_page' ) ) { the_field( 'sous-titre_de_page' ); } ?></h3>
+                            <h3><?php if ( get_sub_field( 'sous-titre_de_page' ) ) { the_sub_field( 'sous-titre_de_page' ); } ?></h3>
                         </span>
                         <hr>
                         <p><?php if ( get_sub_field( 'header_p' ) ) { the_sub_field( 'header_p' ); } ?></p>
@@ -56,7 +57,7 @@ if ( get_field( 'image' ) ){
                         <?php  if( have_rows('bouton_2') ): while( have_rows('bouton_2') ): the_row(); ?>
                             <?php  if (get_sub_field('bouton_2_activer') == 'Oui') { ?>
                                 <a class="contact-btn" href="<?php if ( the_sub_field( 'bouton_2_-_url' ) ) { the_sub_field( 'bouton_2_-_url' ); } ?>">
-                                    <div class="btn btn-red-alt-neg"><?php if ( the_sub_field( 'bouton_2_nom' ) ) { thethe_sub_field_field( 'bouton_2_nom' ); } ?></div>
+                                    <div class="btn btn-red-alt-neg"><?php if ( the_sub_field( 'bouton_2_nom' ) ) { the_sub_field( 'bouton_2_nom' ); } ?></div>
                                 </a>
                             <?php } ?>
                         <?php endwhile; endif; ?>
@@ -71,9 +72,157 @@ if ( get_field( 'image' ) ){
 
 
 
+<?php  if( have_rows('blocs_solution') ): while( have_rows('blocs_solution') ): the_row(); ?>
+
+    <?php  if( have_rows('bloc_image_a_gauche__texte_a_droite') ): while( have_rows('bloc_image_a_gauche__texte_a_droite') ): the_row(); ?>
+
+    <section class="offer_bloc">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#fff" points="0,0 100,0 100,100"/>
+        </svg>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-push-6 col-md-6 col-lg-6">
+                    <img src="<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>">
+                </div>
+                <div class="col-sm-6 col-sm-pull-6 col-md-6 col-lg-6">
+                    <span class="reverse">
+                        <h2><?php if ( get_sub_field( 'titre' ) ) { the_sub_field( 'titre' ); } ?></h2>
+                        <h3><?php if ( get_sub_field( 'sous_titre' ) ) { the_sub_field( 'sous_titre' ); } ?></h3>
+                    </span>
+                    <hr>
+                    <p><?php if ( the_sub_field( 'contenu' ) ) { the_sub_field( 'contenu' ); } ?></p>
+
+                    <?php  if( have_rows('bouton_1') ): while( have_rows('bouton_1') ): the_row(); ?>
+                        <a href="<?php if ( get_sub_field( 'url' ) ) { the_sub_field( 'url' ); } ?>">
+                            <div class="btn btn-blue marginR"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
+                        </a>
+                    <?php endwhile; endif; ?>
+                    <?php  if( have_rows('bouton_2') ): while( have_rows('bouton_2') ): the_row(); ?>
+                        <a class="contact-btn" href="<?php if ( get_sub_field( 'url' ) ) { the_sub_field( 'url' ); } ?>">
+                            <div class="btn btn-blue-alt"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
+                        </a>
+                    <?php endwhile; endif; ?>
+                    <?php  if( have_rows('bouton_3') ): while( have_rows('bouton_3') ): the_row(); ?>
+                        <a class="contact-btn" href="<?php if ( get_sub_field( 'url' ) ) { the_sub_field( 'url' ); } ?>">
+                            <div class="btn btn-blue-alt"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
+                        </a>
+                    <?php endwhile; endif; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Case -->
+    <?php  if( have_rows('business_case') ): while( have_rows('business_case') ): the_row(); ?>
+    <?php  if (get_sub_field('activer') == 'Oui'): ?>
+
+        <!--  Triangles -->
+        <section class="business-case" style="background-color: #4faeff;">
+            <svg class="svg-top business-case-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#4faeff" points="0,100 100,0 100,100"></polygon>
+            </svg>
+            <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
+                <polygon fill="#fff" points="100,100 100,0 0,100"/>
+            </svg>
+            <div style="filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));">
+                <div class="container w testimonial-wrapper" style="max-width: 1100px;">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a title="Les formations DigitalAcademy" href="/formations/">
+                                <h4><?php if ( get_sub_field( 'titre' ) ) { the_sub_field( 'titre' ); } ?></h4>
+                            </a>
+                            <hr>
+                            <p><b style="font-size:1.1em;"><?php if ( get_sub_field( 'sous-titre' ) ) { the_sub_field( 'sous-titre' ); } ?></b></p>
+                        </div>
+                    </div>
+                    <div class="row valign g">
+                        <?php if ( get_sub_field( 'image' ) ) { ?>
+                        <div class="col-md-4 alignRight">
+                            <img style="border-radius:7px;display:inline-block;margin:auto;position:relative;" src="<?php the_sub_field( 'image' );?>" alt="">
+                        </div>
+                        <div class="col-md-8 alignLeft">
+                        <?php }; ?>
+                            <p><?php if ( get_sub_field( 'contenu' ) ) { the_sub_field( 'contenu' ); } ?></p>
+                        <?php if ( get_sub_field( 'image' ) ) { ?>
+                        </div>
+                        <?php }; ?>
+                    </div>
+                    <div class="toggable">
+                        <div class="toggable-content">
+                            <div class="container w testimonial-wrapper margin0" style="clip-path:none;padding: 3em 3em 1em 3em;">
+                                <div class="row row-same-height">
+                                <?php  if( have_rows('temoignage') ): while( have_rows('temoignage') ): the_row(); ?>
+
+                                        <div class="col-md-4 x">
+                                            <div class="wrapper" style="height:100%!important">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                                    <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
+                                                </svg>
+                                                <?php if ( get_sub_field( 'nom__prenom' ) ) { ?><div class="name"><?php the_sub_field( 'nom__prenom' ); ?></div><?php } ?>
+                                                <?php if ( get_sub_field( 'entreprise' ) ) { ?><div class="company"><span class="noWrap"><?php the_sub_field( 'entreprise' ); ?></span></div><?php } ?>
+                                                <hr>
+                                                <?php if ( get_sub_field( 'temoignage' ) ) { ?><div class="testimonial"><?php the_sub_field( 'temoignage' ); ?></div><?php } ?>
+                                                <?php if ( get_sub_field( 'logo_de_lentreprise' ) ) { ?><img src="<?php the_sub_field( 'logo_de_lentreprise' ); ?>"><?php } ?>
+                                                <?php if ( get_sub_field( 'formation' ) ) { ?><div class="course"><?php the_sub_field( 'formation' ); ?></div><?php } ?>
+                                            </div>
+                                        </div>
+
+                                <?php endwhile; endif; ?>
+                                </div>
+
+                                <div class="row numerical-data" style="margin-top: 3em;">
+                                    <?php  if( have_rows('icones') ): while( have_rows('icones') ): the_row(); ?>
+                                    <div class="col-sm-6 col-md-3">
+                                        <?php if ( get_sub_field( 'image' ) ) { ?><img src="<?php the_sub_field( 'image' ); ?>"><?php } ?>
+                                        <?php if ( get_sub_field( 'texte' ) ) { ?><?php the_sub_field( 'texte' ); ?>"<?php }; ?>
+                                    </div>
+                                    <?php endwhile; endif; ?>
+                                </div>
+
+                                <?php if ( get_sub_field( 'paragraphe' ) ) { ?>
+                                    <p><?php the_sub_field( 'paragraphe' ); ?></p>
+                                <?php }; ?>
+                                <?php if ( get_sub_field( 'encadre' ) ) { ?>
+                                    <div class="row row-same-height">
+                                        <div class="encart">
+                                            <?php the_sub_field( 'encadre' ); ?>
+                                        </div>
+                                    </div>
+                                <?php }; ?>
+                            </div>
+                        </div>
+                        <div class="toggable-btn btn btn-sm btn-aqua-alt">En savoir +</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <?php endif; ?>
+    <?php endwhile; endif; ?>
+
+<!-- Left block end -->
+<?php endwhile; endif; ?> 
 
 
 
+
+    <!-- ..... bloc droit -->
+
+
+
+
+<!-- Blocks end -->
+<?php endwhile; endif; ?>
+
+
+
+
+
+
+
+<!-- Newsletter -->
 <?php
 $page_newsletter = get_field( 'page_newsletter', 'option' );
 echo do_shortcode( '[cta texte="Restez informé sur nos formations digitales" url="' . $page_newsletter . '" texte_bouton="S’inscrire à la newsletter"]' );
