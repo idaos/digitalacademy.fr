@@ -90,7 +90,7 @@
                         <h3>Faites vivre le digital dans votre entreprise</h3>
                     </span>
                     <hr>
-                    <p>Retrouvez en ligne notre catalogue de plus de 30 formations sur le digital, réparties dans les 6 thématiques suivantes : Réseaux Sociaux &amp; E-réputation, Stratégie de Marketing digital, Contenus Web, Webmarketing et E-publicité, Entreprise 2.0, Mobile &amp; E-commerce</p>
+                    <p>Retrouvez en ligne notre catalogue de plus de 40 formations sur le digital, réparties dans les 6 thématiques suivantes : Réseaux Sociaux &amp; E-réputation, Stratégie de Marketing digital, Contenus Web, Webmarketing et E-publicité, Entreprise 2.0, Mobile &amp; E-commerce</p>
                     <a title="Les formations DigitalAcademy" href="/formations/">
                         <div class="btn btn-red marginR">Découvrir nos formations</div>
                     </a>
@@ -119,7 +119,7 @@
                         <a title="Les formations DigitalAcademy" href="/formations/">
                             <h2>Nos formations digitales</h2>
                         </a>
-                        <h3>Un catalogue de plus de 30 formations digitales</h3>
+                        <h3>Un catalogue de plus de 40 formations digitales</h3>
                     </span>
                     <hr>
                     <form action="/formations/" method="get">
@@ -182,6 +182,7 @@
                 <div class="col-xs-12">
                     <h4>Organisme validé et référencé </h4>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/datadock-logo.svg" alt="">
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/qualiopi_wht.png" alt="">
                 </div>
             </div>
         </div>
