@@ -75,6 +75,29 @@ if ( get_field( 'image' ) ){
 <?php  if( have_rows('blocs_solution') ): while( have_rows('blocs_solution') ): the_row(); ?>
 
     <?php  if( have_rows('bloc_image_a_gauche__texte_a_droite') ): while( have_rows('bloc_image_a_gauche__texte_a_droite') ): the_row(); ?>
+    <?php if ( get_sub_field( 'couleur' ) ) {
+        
+        $color = get_sub_field( 'couleur' ); 
+        $color_hex = ltrim($color, '#'); 
+        $color_style = <<<EOF
+<style>
+    .btn-$color_hex {
+        background-color:$color!important;
+    }
+    .btn-$color_hex:hover {
+        filter: brightness(85%);
+    }
+    .btn-$color_hex-alt{
+        color:$color!important;
+        background: rgb(255 255 255)!important;
+        border: solid 1px $color!important;
+    }
+
+</style>
+EOF;
+    echo $color_style; 
+ } ?>
+
 
     <section class="offer_bloc">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -88,26 +111,32 @@ if ( get_field( 'image' ) ){
                 </div>
                 <div class="col-sm-6 col-sm-pull-6 col-md-6 col-lg-6">
                     <span class="reverse">
-                        <h2><?php if ( get_sub_field( 'titre' ) ) { the_sub_field( 'titre' ); } ?></h2>
+                        <h2 style="color:<?php echo $color; ?>;"><?php if ( get_sub_field( 'titre' ) ) { the_sub_field( 'titre' ); } ?></h2>
                         <h3><?php if ( get_sub_field( 'sous_titre' ) ) { the_sub_field( 'sous_titre' ); } ?></h3>
                     </span>
                     <hr>
                     <p><?php if ( the_sub_field( 'contenu' ) ) { the_sub_field( 'contenu' ); } ?></p>
 
                     <?php  if( have_rows('bouton_1') ): while( have_rows('bouton_1') ): the_row(); ?>
+                    <?php  if (get_sub_field('activer') == 'Oui'): ?>
                         <a href="<?php if ( get_sub_field( 'url' ) ) { the_sub_field( 'url' ); } ?>">
-                            <div class="btn btn-blue marginR"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
+                            <div class="btn btn-<?php echo $color_hex; ?> marginR"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
                         </a>
+                    <?php endif; ?>
                     <?php endwhile; endif; ?>
                     <?php  if( have_rows('bouton_2') ): while( have_rows('bouton_2') ): the_row(); ?>
+                    <?php  if (get_sub_field('activer') == 'Oui'): ?>
                         <a class="contact-btn" href="<?php if ( get_sub_field( 'url' ) ) { the_sub_field( 'url' ); } ?>">
-                            <div class="btn btn-blue-alt"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
+                            <div class="btn btn-<?php echo $color_hex; ?>-alt marginR"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
                         </a>
+                    <?php endif; ?>
                     <?php endwhile; endif; ?>
                     <?php  if( have_rows('bouton_3') ): while( have_rows('bouton_3') ): the_row(); ?>
+                    <?php  if (get_sub_field('activer') == 'Oui'): ?>
                         <a class="contact-btn" href="<?php if ( get_sub_field( 'url' ) ) { the_sub_field( 'url' ); } ?>">
-                            <div class="btn btn-blue-alt"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
+                            <div class="btn btn-<?php echo $color_hex; ?>-alt"><?php if ( get_sub_field( 'nom' ) ) { the_sub_field( 'nom' ); } ?></div>
                         </a>
+                    <?php endif; ?>
                     <?php endwhile; endif; ?>
                 </div>
             </div>
@@ -119,9 +148,9 @@ if ( get_field( 'image' ) ){
     <?php  if (get_sub_field('activer') == 'Oui'): ?>
 
         <!--  Triangles -->
-        <section class="business-case" style="background-color: #4faeff;">
+        <section class="business-case" style="background-color: <?php echo $color; ?>;">
             <svg class="svg-top business-case-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <polygon fill="#4faeff" points="0,100 100,0 100,100"></polygon>
+                <polygon fill="<?php echo $color; ?>" points="0,100 100,0 100,100"></polygon>
             </svg>
             <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
                 <polygon fill="#fff" points="100,100 100,0 0,100"/>
@@ -130,9 +159,7 @@ if ( get_field( 'image' ) ){
                 <div class="container w testimonial-wrapper" style="max-width: 1100px;">
                     <div class="row">
                         <div class="col-xs-12">
-                            <a title="Les formations DigitalAcademy" href="/formations/">
-                                <h4><?php if ( get_sub_field( 'titre' ) ) { the_sub_field( 'titre' ); } ?></h4>
-                            </a>
+                            <h4 style="color:<?php echo $color; ?>;"><?php if ( get_sub_field( 'titre' ) ) { the_sub_field( 'titre' ); } ?></h4>
                             <hr>
                             <p><b style="font-size:1.1em;"><?php if ( get_sub_field( 'sous-titre' ) ) { the_sub_field( 'sous-titre' ); } ?></b></p>
                         </div>
@@ -193,13 +220,59 @@ if ( get_field( 'image' ) ){
                                 <?php }; ?>
                             </div>
                         </div>
-                        <div class="toggable-btn btn btn-sm btn-aqua-alt">En savoir +</div>
+                        <div class="toggable-btn btn btn-sm btn-<?php echo $color_hex; ?>-alt">En savoir +</div>
                     </div>
                 </div>
             </div>
         </section>
 
     <?php endif; ?>
+    <?php endwhile; endif; ?>
+
+
+
+    <!-- Icones block -->
+    <?php  if( have_rows('bloc_dicones') ): while( have_rows('bloc_dicones') ): the_row(); ?>
+    <?php  if (get_sub_field('activer') == 'Oui') { ?>
+        <?php if ( get_sub_field( 'couleur' ) ) {
+        
+        $color = get_sub_field( 'couleur' ); 
+        $color_hex = ltrim($color, '#'); 
+        $color_style = <<<EOF
+<style>
+    .difference .elt > [class*='col-']:nth-child(2), .elt > [class*='col-']:nth-child(4), .elt > [class*='col-']:nth-child(5), .elt > [class*='col-']:nth-child(7){
+        background: $color;
+    } 
+    .difference .elt > [class*='col-']:nth-child(1):before, .elt > [class*='col-']:nth-child(3):before, .elt > [class*='col-']:nth-child(6):before, .elt > [class*='col-']:nth-child(8):before{
+        border: solid 2px $color;
+    } 
+</style>
+EOF;
+    echo $color_style; 
+ } ?>
+
+
+
+    <div class="difference">
+        <div class="container">
+            <?php if ( get_sub_field( 'titre' ) ) { ?>
+                <div class="row">
+                    <div class="col-12 alignCenter">
+                        <h2><?php the_sub_field( 'titre' ); ?></h2>
+                    </div>
+                </div>
+            <?php }; ?>
+            <div class="row elt">
+                <?php  if( have_rows('icones') ): while( have_rows('icones') ): the_row(); ?>
+                    <div class="col-sm-12 col-md-3">
+                        <img src="<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>">
+                        <br><span><?php if ( get_sub_field( 'texte' ) ) { the_sub_field( 'texte' ); } ?></span>
+                    </div>
+                <?php endwhile; endif; ?>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
     <?php endwhile; endif; ?>
 
 <!-- Left block end -->
