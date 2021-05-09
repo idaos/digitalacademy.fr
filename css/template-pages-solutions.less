@@ -169,10 +169,11 @@ svg {
 }
 
 .svg-bottom {
-    @height: 4vh;
-    bottom : 0;
-    left   : 0;
-    height : @height;
+    height: 12vw;
+    bottom: 0!important;
+    left: 0;
+    position: absolute;
+    width: 100%;
 }
 
 #heading {
@@ -232,8 +233,50 @@ svg {
     }
 }
 
-.offer_bloc {
+.offer_bloc:nth-child(1){
     z-index: 10;
+}
+
+.offer_bloc:nth-child(2){
+    z-index: 9;
+}
+
+.offer_bloc:nth-child(3){
+    z-index: 8;
+}
+
+.offer_bloc:nth-child(4){
+    z-index: 7;
+}
+
+.offer_bloc:nth-child(5){
+    z-index: 6;
+}
+
+.offer_bloc:nth-child(6){
+    z-index: 5;
+}
+
+.offer_bloc:nth-child(7){
+    z-index: 4;
+}
+
+.offer_bloc:nth-child(8){
+    z-index: 3;
+}
+
+.offer_bloc:nth-child(9){
+    z-index: 2;
+}
+
+.offer_bloc.odd-pad{
+    padding: 12em 0!important;
+    @media (max-width: 768px) {
+        padding: 7em 0!important;
+    }    
+}
+
+.offer_bloc {
     padding: 4em 0;
 
     svg {
@@ -254,31 +297,11 @@ svg {
     .container {
         z-index: 11;
     }
-}
-
-#offre-2,
-.offer {
-    background: #f1f1f1;
-    padding   : 19em 0;
-
-    svg {
-        height : 12vw;
-        top    : 0;
-        z-index: 8;
-    }
-
-    .svg-bottom {
-        bottom: 0;
-        top   : inherit;
-    }
-
-    img {
-        position: absolute;
-        right   : 0;
-        top     : -2em;
+    p > img{
+        display: inline-block;
+        position: relative;
     }
 }
-
 
 
 //---------------------------//
@@ -650,18 +673,6 @@ section {
     padding-bottom: 15em;
 }
 
-// Offer 0 - Intra
-section.offer-inter {
-    background: #fff !important;
-
-    h2 {
-        color: @red;
-    }
-
-    ul li:before {
-        color: @red;
-    }
-}
 
 section.offer-inter+.business-case {
     h4 {
@@ -688,85 +699,10 @@ section.offer-inter+.business-case {
     zoom: 81%;
 }
 
-// end - Offer 1 - Intra
-
-
-// Offer 2 - Intra
-section.offer-intra {
-    background: #fff !important;
-
-    h2 {
-        color: @aqua;
-    }
-
-    ul li:before {
-        color: @aqua;
-    }
-}
-
-section.offer-intra+.business-case {
-    background: @aqua;
-
-    h4 {
-        color: @aqua;
-    }
-}
-
-// end - Offer 1 - Intra
-
-// Offer 1 - Transfo
-section.offer-transfo {
-    background: #fff !important;
-
-    h2 {
-        color: @salmon;
-    }
-
-    ul li:before {
-        color: @salmon;
-    }
-}
-
-section.offer-transfo+.business-case {
-    background: @salmon  !important;
-
-    h4 {
-        color: @salmon;
-    }
-}
-
-// end - Offer 1 - Transfo
-
-// Offer 1 - Digital Learning
-section.offer-digital-learning {
-    background: #fff !important;
-
-    h2 {
-        color: @blue;
-    }
-
-    ul li:before {
-        color: @blue;
-    }
-}
-
-section.offer-digital-learning+.business-case {
-    background: @blue;
-
-    h4 {
-        color: @blue;
-    }
-}
-
-// end - Offer 1 - Digital Learning
 
 [id^="offer-"] img {
     float       : right;
     margin-right: 3em;
-}
-
-section.offer-digital-learning img {
-    max-width: inherit;
 }
 
 
@@ -809,10 +745,6 @@ html .business-case {
         padding  : 0 !important;
         margin   : 1em auto;
     }
-
-    //    .x{
-    //        filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));  
-    //    }
     .wrapper {
         border: solid 1px #e0e0e0;
         height: 100% !important;
@@ -831,7 +763,6 @@ html .business-case {
     }
 
     .encart {
-        //		max-width:900px;
         margin    : 1em 3em;
         padding   : .5em 2em;
         border    : solid 1px #c7c7c7;
@@ -1102,7 +1033,7 @@ html .testimonial-wrapper .row:first-child {
 /* ---------------------------------- */
 
 .difference {
-    padding   : 1em 0 4em 0;
+    padding   : 9.5em 0 4em 0;
     text-align: center;
 
     .row:nth-child(1)>[class*='col-']:nth-child(1) {
@@ -1192,5 +1123,62 @@ html .testimonial-wrapper .row:first-child {
                 content: none!important;
             }
         }
+    }
+}
+
+
+
+//--------------------------//
+//------ CONTACT FORM ------//
+//--------------------------//
+#contact {
+    background-color: #fff;
+    padding: 5em 0;
+    @media only screen and (max-width: 991px) {
+        padding: 0;
+    }
+    text-align: center;
+    hr {
+        width: 100%;
+        max-width: ~'calc(100% - 30px)';
+    }
+    #logo_dac {
+        margin: 3em 0;
+    }
+    #phone {
+        color: @color-dac;
+        font-weight: 900;
+        font-size: 1.3em;
+        line-height: 1.6em;
+    }
+    i {
+        text-transform: lowercase;
+        font-size: .9em;
+        font-weight: 400;
+        color: #8b8b8b;
+        padding-left: .5em;
+        margin-bottom: 1em;
+        display: block;
+    }
+    a {
+        display: block;
+        color: @color-dac;
+        text-decoration: none;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin: .5em 0;
+    }
+    #adresse-email {
+        margin-bottom: 3em;
+        @media only screen and (max-width: 991px) {
+            margin-bottom: 0;
+        }
+    }
+    b {
+        margin: .5em 0;
+        display: block;
+    }
+    [class^="col-"] {
+        margin: auto;
     }
 }

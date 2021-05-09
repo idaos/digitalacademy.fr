@@ -121,9 +121,11 @@ svg {
   height: 4vh;
 }
 .svg-bottom {
-  bottom: 0;
+  height: 12vw;
+  bottom: 0!important;
   left: 0;
-  height: 4vh;
+  position: absolute;
+  width: 100%;
 }
 #heading .bloc-1 {
   position: relative;
@@ -170,8 +172,42 @@ svg {
 #heading .bloc-1 hr {
   border-top-color: #fff !important;
 }
-.offer_bloc {
+.offer_bloc:nth-child(1) {
   z-index: 10;
+}
+.offer_bloc:nth-child(2) {
+  z-index: 9;
+}
+.offer_bloc:nth-child(3) {
+  z-index: 8;
+}
+.offer_bloc:nth-child(4) {
+  z-index: 7;
+}
+.offer_bloc:nth-child(5) {
+  z-index: 6;
+}
+.offer_bloc:nth-child(6) {
+  z-index: 5;
+}
+.offer_bloc:nth-child(7) {
+  z-index: 4;
+}
+.offer_bloc:nth-child(8) {
+  z-index: 3;
+}
+.offer_bloc:nth-child(9) {
+  z-index: 2;
+}
+.offer_bloc.odd-pad {
+  padding: 12em 0!important;
+}
+@media (max-width: 768px) {
+  .offer_bloc.odd-pad {
+    padding: 7em 0!important;
+  }
+}
+.offer_bloc {
   padding: 4em 0;
 }
 .offer_bloc svg {
@@ -189,27 +225,9 @@ svg {
 .offer_bloc .container {
   z-index: 11;
 }
-#offre-2,
-.offer {
-  background: #f1f1f1;
-  padding: 19em 0;
-}
-#offre-2 svg,
-.offer svg {
-  height: 12vw;
-  top: 0;
-  z-index: 8;
-}
-#offre-2 .svg-bottom,
-.offer .svg-bottom {
-  bottom: 0;
-  top: inherit;
-}
-#offre-2 img,
-.offer img {
-  position: absolute;
-  right: 0;
-  top: -2em;
+.offer_bloc p > img {
+  display: inline-block;
+  position: relative;
 }
 /* Responsive Stuff for PAGE */
 @media (min-width: 2000px) {
@@ -499,15 +517,6 @@ section ul li:before {
   padding-top: 2em;
   padding-bottom: 15em;
 }
-section.offer-inter {
-  background: #fff !important;
-}
-section.offer-inter h2 {
-  color: #bf3b2b;
-}
-section.offer-inter ul li:before {
-  color: #bf3b2b;
-}
 section.offer-inter + .business-case h4 {
   color: #bf3b2b;
 }
@@ -526,57 +535,9 @@ section.offer-inter + .business-case h4 {
   left: -99px !important;
   zoom: 81%;
 }
-section.offer-intra {
-  background: #fff !important;
-}
-section.offer-intra h2 {
-  color: #4faeff;
-}
-section.offer-intra ul li:before {
-  color: #4faeff;
-}
-section.offer-intra + .business-case {
-  background: #4faeff;
-}
-section.offer-intra + .business-case h4 {
-  color: #4faeff;
-}
-section.offer-transfo {
-  background: #fff !important;
-}
-section.offer-transfo h2 {
-  color: #E66343;
-}
-section.offer-transfo ul li:before {
-  color: #E66343;
-}
-section.offer-transfo + .business-case {
-  background: #E66343 !important;
-}
-section.offer-transfo + .business-case h4 {
-  color: #E66343;
-}
-section.offer-digital-learning {
-  background: #fff !important;
-}
-section.offer-digital-learning h2 {
-  color: #505a9b;
-}
-section.offer-digital-learning ul li:before {
-  color: #505a9b;
-}
-section.offer-digital-learning + .business-case {
-  background: #505a9b;
-}
-section.offer-digital-learning + .business-case h4 {
-  color: #505a9b;
-}
 [id^="offer-"] img {
   float: right;
   margin-right: 3em;
-}
-section.offer-digital-learning img {
-  max-width: inherit;
 }
 html .business-case {
   padding: 2em 0;
@@ -817,7 +778,7 @@ html .testimonial-wrapper .row:first-child {
 /* ---------------------------------- */
 /* ---------------------------------- */
 .difference {
-  padding: 1em 0 4em 0;
+  padding: 9.5em 0 4em 0;
   text-align: center;
 }
 .difference .row:nth-child(1) > [class*='col-']:nth-child(1) {
@@ -886,4 +847,59 @@ html .testimonial-wrapper .row:first-child {
   .difference .elt [class*='col-']:nth-child(n+1):before {
     content: none!important;
   }
+}
+#contact {
+  background-color: #fff;
+  padding: 5em 0;
+  text-align: center;
+}
+@media only screen and (max-width: 991px) {
+  #contact {
+    padding: 0;
+  }
+}
+#contact hr {
+  width: 100%;
+  max-width: calc(100% - 30px);
+}
+#contact #logo_dac {
+  margin: 3em 0;
+}
+#contact #phone {
+  color: #bf3b2b;
+  font-weight: 900;
+  font-size: 1.3em;
+  line-height: 1.6em;
+}
+#contact i {
+  text-transform: lowercase;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #8b8b8b;
+  padding-left: 0.5em;
+  margin-bottom: 1em;
+  display: block;
+}
+#contact a {
+  display: block;
+  color: #bf3b2b;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+#contact #adresse-email {
+  margin-bottom: 3em;
+}
+@media only screen and (max-width: 991px) {
+  #contact #adresse-email {
+    margin-bottom: 0;
+  }
+}
+#contact b {
+  margin: 0.5em 0;
+  display: block;
+}
+#contact [class^="col-"] {
+  margin: auto;
 }

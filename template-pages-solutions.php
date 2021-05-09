@@ -71,10 +71,14 @@ if ( get_field( 'image' ) ){
 <?php endwhile; endif; ?>
 
 
+<!-- Blocs solution -->
 
+<?php $blocks_count = -1; ?>;
 <?php  if( have_rows('blocs_solution') ): while( have_rows('blocs_solution') ): the_row(); ?>
 
+
     <?php  if( have_rows('bloc_image_a_gauche__texte_a_droite') ): while( have_rows('bloc_image_a_gauche__texte_a_droite') ): the_row(); ?>
+    <?php $blocks_count ++; ?>;
     <?php if ( get_sub_field( 'couleur' ) ) {
         
         $color = get_sub_field( 'couleur' ); 
@@ -99,22 +103,46 @@ EOF;
  } ?>
 
 
-    <section class="offer_bloc">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon fill="#fff" points="0,0 100,0 100,100"/>
-        </svg>
+
+    <section class="offer_bloc <?php if ($blocks_count % 2): ?>odd-pad<?php endif; ?>" style="<?php if ($blocks_count % 2): ?>background:#f1f1f1<?php endif; ?>;">
+        
+
+<?php
+
+echo '<script>';
+echo 'console.log("blocks count : ' . $blocks_count . '");';
+echo 'console.log("blocks count %2 : ' . $blocks_count % 2 . '");';
+echo '</script>';
+?>
+
+        <?php if (!$blocks_count % 2): ?>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index: 12;">
+                <polygon fill="#fff" points="0,0 100,0 100,100"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="bottom-triangle">
+                <polygon fill="<?php echo $color; ?>" points="0,0 100,20 0,100"></polygon>
+            </svg>
+        <?php endif; ?>
+        <?php if ($blocks_count % 2): ?>
+            <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#fff" points="0,100 100,0 100,100"/>
+                <polygon fill="<?php echo $color; ?>" points="20,80 100,0 100,100"/>
+            </svg>
+        <?php endif; ?>
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-sm-push-6 col-md-6 col-lg-6">
+                <div class="col-sm-6 col-sm<?php if (($blocks_count % 2) == 0): ?>-push<?php endif; ?>-6 col-md-6 col-lg-6">
                     <img src="<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>">
                 </div>
-                <div class="col-sm-6 col-sm-pull-6 col-md-6 col-lg-6">
+                <div class="col-sm-6 col-sm<?php if (($blocks_count % 2) == 0): ?>-pull<?php endif; ?>-6 col-md-6 col-lg-6">
                     <span class="reverse">
                         <h2 style="color:<?php echo $color; ?>;"><?php if ( get_sub_field( 'titre' ) ) { the_sub_field( 'titre' ); } ?></h2>
                         <h3><?php if ( get_sub_field( 'sous_titre' ) ) { the_sub_field( 'sous_titre' ); } ?></h3>
                     </span>
+                    <?php if ( get_sub_field( 'titre' ) ) { ?>
                     <hr>
+                    <?php }; ?>
                     <p><?php if ( the_sub_field( 'contenu' ) ) { the_sub_field( 'contenu' ); } ?></p>
 
                     <?php  if( have_rows('bouton_1') ): while( have_rows('bouton_1') ): the_row(); ?>
@@ -251,8 +279,6 @@ EOF;
     echo $color_style; 
  } ?>
 
-
-
     <div class="difference">
         <div class="container">
             <?php if ( get_sub_field( 'titre' ) ) { ?>
@@ -275,22 +301,64 @@ EOF;
     <?php } ?>
     <?php endwhile; endif; ?>
 
-<!-- Left block end -->
+    <!-- Free block -->
+    <?php if ( get_sub_field( 'bloc_libre' ) ) { ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <?php the_sub_field( 'bloc_libre' ); ?>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+
+
+<!-- block end -->
 <?php endwhile; endif; ?> 
-
-
-
-
-    <!-- ..... bloc droit -->
-
-
-
-
 <!-- Blocks end -->
 <?php endwhile; endif; ?>
 
 
 
+
+<!-- Contact form -->
+<?php  if( have_rows('formulaire_de_contact') ): while( have_rows('formulaire_de_contact') ): the_row(); ?>
+<?php  if (get_sub_field('activer') == 'Oui'): ?>
+    <section id="contact"><span id="contact-anchor"></span>
+        <div class="container">
+            <div class="row row-same-height">
+                <div class="col-md-5 col-lg-7 valign">
+                    <div class="container">
+                        <div class="row alignCenter">
+                            <span><img id="logo_dac" src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
+                            <b>Nos conseillers vous répondent au :</b>
+                            <span id="phone"><a title="Bouton d'appel téléphonique" href="tel:0977215321">09 77 21 53 21</a></span>
+                            <i>appel non surtaxé du lundi au vendredi de 9h30 à 19h</i>
+                            <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
+                            <i style="margin-top: 2em;">ou par e-mail</i>
+                            <a title="Nous envoyer un email" id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12"></div>
+                            <div class="container form-container">
+                                <div class="row">
+                                    <?php echo do_shortcode('[gravityform id="11" title="false" description="false" ajax="true"]'); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php endif; ?>
+<!-- Contact form end -->
+<?php endwhile; endif; ?>
 
 
 
