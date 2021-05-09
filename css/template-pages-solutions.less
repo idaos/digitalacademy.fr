@@ -169,11 +169,11 @@ svg {
 }
 
 .svg-bottom {
-    height: 12vw;
-    bottom: 0!important;
-    left: 0;
+    height  : 12vw;
+    bottom  : 0 !important;
+    left    : 0;
     position: absolute;
-    width: 100%;
+    width   : 100%;
 }
 
 #heading {
@@ -233,47 +233,48 @@ svg {
     }
 }
 
-.offer_bloc:nth-child(1){
+.offer_bloc:nth-child(1) {
     z-index: 10;
 }
 
-.offer_bloc:nth-child(2){
+.offer_bloc:nth-child(2) {
     z-index: 9;
 }
 
-.offer_bloc:nth-child(3){
+.offer_bloc:nth-child(3) {
     z-index: 8;
 }
 
-.offer_bloc:nth-child(4){
+.offer_bloc:nth-child(4) {
     z-index: 7;
 }
 
-.offer_bloc:nth-child(5){
+.offer_bloc:nth-child(5) {
     z-index: 6;
 }
 
-.offer_bloc:nth-child(6){
+.offer_bloc:nth-child(6) {
     z-index: 5;
 }
 
-.offer_bloc:nth-child(7){
+.offer_bloc:nth-child(7) {
     z-index: 4;
 }
 
-.offer_bloc:nth-child(8){
+.offer_bloc:nth-child(8) {
     z-index: 3;
 }
 
-.offer_bloc:nth-child(9){
+.offer_bloc:nth-child(9) {
     z-index: 2;
 }
 
-.offer_bloc.odd-pad{
-    padding: 12em 0!important;
+.offer_bloc.odd-pad {
+    padding: 12em 0 !important;
+
     @media (max-width: 768px) {
-        padding: 7em 0!important;
-    }    
+        padding: 7em 0 !important;
+    }
 }
 
 .offer_bloc {
@@ -288,6 +289,7 @@ svg {
         position      : absolute;
         mix-blend-mode: multiply;
         z-index       : 10;
+        max-width     : 512px;
     }
 
     h2 {
@@ -297,8 +299,9 @@ svg {
     .container {
         z-index: 11;
     }
-    p > img{
-        display: inline-block;
+
+    p>img {
+        display : inline-block;
         position: relative;
     }
 }
@@ -673,32 +676,18 @@ section {
     padding-bottom: 15em;
 }
 
-
-section.offer-inter+.business-case {
-    h4 {
-        color: @red;
-    }
+.offer_bloc.odd-pad+.business-case{
+    margin-top: 8em;
+    background:none!important;
 }
 
-#nos-formations {
-    padding-bottom: 2em !important;
+.offer_bloc.odd-pad+.business-case>svg {
+    display: none!important ;
 }
 
-#formations {
-    width : 90%;
-    margin: auto;
+.offer_bloc.odd-pad+.business-case>svg:nth-child(2) {
+    display: none!important ;
 }
-
-.slick-next {
-    right: -99px !important;
-    zoom : 81%;
-}
-
-.slick-prev {
-    left: -99px !important;
-    zoom: 81%;
-}
-
 
 [id^="offer-"] img {
     float       : right;
@@ -745,6 +734,7 @@ html .business-case {
         padding  : 0 !important;
         margin   : 1em auto;
     }
+
     .wrapper {
         border: solid 1px #e0e0e0;
         height: 100% !important;
@@ -1095,7 +1085,7 @@ html .testimonial-wrapper .row:first-child {
         [class*='col-']:nth-child(6),
         [class*='col-']:nth-child(7) {
             &:before {
-                content: none!important;
+                content: none !important;
             }
         }
 
@@ -1103,7 +1093,7 @@ html .testimonial-wrapper .row:first-child {
         [class*='col-']:nth-child(4),
         [class*='col-']:nth-child(5),
         [class*='col-']:nth-child(8) {
-            background: #fff!important;
+            background: #fff !important;
 
             &:before {
                 content : '';
@@ -1115,12 +1105,13 @@ html .testimonial-wrapper .row:first-child {
             }
         }
     }
+
     .difference .elt {
         [class*='col-']:nth-child(n+1) {
-            background: none!important;
+            background: none !important;
 
             &:before {
-                content: none!important;
+                content: none !important;
             }
         }
     }
@@ -1133,52 +1124,120 @@ html .testimonial-wrapper .row:first-child {
 //--------------------------//
 #contact {
     background-color: #fff;
-    padding: 5em 0;
+    padding         : 5em 0;
+
     @media only screen and (max-width: 991px) {
         padding: 0;
     }
+
     text-align: center;
+
     hr {
-        width: 100%;
+        width    : 100%;
         max-width: ~'calc(100% - 30px)';
     }
+
     #logo_dac {
         margin: 3em 0;
     }
+
     #phone {
-        color: @color-dac;
+        color      : @color-dac;
         font-weight: 900;
-        font-size: 1.3em;
+        font-size  : 1.3em;
         line-height: 1.6em;
     }
+
     i {
         text-transform: lowercase;
-        font-size: .9em;
-        font-weight: 400;
-        color: #8b8b8b;
-        padding-left: .5em;
-        margin-bottom: 1em;
-        display: block;
+        font-size     : .9em;
+        font-weight   : 400;
+        color         : #8b8b8b;
+        padding-left  : .5em;
+        margin-bottom : 1em;
+        display       : block;
     }
+
     a {
-        display: block;
-        color: @color-dac;
+        display        : block;
+        color          : @color-dac;
         text-decoration: none;
-        font-size: 1.3em;
-        font-weight: bold;
-        margin: .5em 0;
+        font-size      : 1.3em;
+        font-weight    : bold;
+        margin         : .5em 0;
     }
+
     #adresse-email {
         margin-bottom: 3em;
+
         @media only screen and (max-width: 991px) {
             margin-bottom: 0;
         }
     }
+
     b {
-        margin: .5em 0;
+        margin : .5em 0;
         display: block;
     }
+
     [class^="col-"] {
         margin: auto;
     }
+}
+
+
+// Satisfaction
+// -----------------------
+
+#satisfaction {
+    margin-top      : 2em;
+    text-align      : center;
+    padding         : 1em 0;
+    z-index         : 2;
+    background-color: #3cb878;
+
+    img,
+    h4 {
+        display: inline-block;
+    }
+
+    h4 {
+        color    : #fff;
+        font-size: 1.3em !important;
+    }
+
+    img {
+        width   : 40px;
+        height  : 40px;
+        position: relative;
+        top     : -.5em !important;
+        left    : -15px !important;
+    }
+
+    .svg-bottom {
+        bottom: -4vh !important;
+        height: 4vh !important;
+    }
+
+    .svg-top {
+        top   : -3vh !important;
+        left  : 0 !important;
+        height: 3vh !important;
+    }
+}
+
+@media(max-width:768px) {
+
+    #satisfaction {
+        img {
+            left   : 0 !important;
+            display: block;
+            margin : auto;
+        }
+    }
+}
+
+// Newsletter cta
+.full-width.full-width-contact.bg-orange{
+    margin-top: 3em;
 }

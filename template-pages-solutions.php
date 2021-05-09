@@ -73,7 +73,7 @@ if ( get_field( 'image' ) ){
 
 <!-- Blocs solution -->
 
-<?php $blocks_count = -1; ?>;
+<?php $blocks_count = -1; ?>
 <?php  if( have_rows('blocs_solution') ): while( have_rows('blocs_solution') ): the_row(); ?>
 
 
@@ -96,7 +96,9 @@ if ( get_field( 'image' ) ){
         background: rgb(255 255 255)!important;
         border: solid 1px $color!important;
     }
-
+    .offer_bloc-$color_hex ul li:before {
+        color: $color;
+    }
 </style>
 EOF;
     echo $color_style; 
@@ -104,18 +106,9 @@ EOF;
 
 
 
-    <section class="offer_bloc <?php if ($blocks_count % 2): ?>odd-pad<?php endif; ?>" style="<?php if ($blocks_count % 2): ?>background:#f1f1f1<?php endif; ?>;">
-        
+    <section class="offer_bloc offer_bloc-<?php echo $color_hex; ?> <?php if ($blocks_count % 2): ?>odd-pad<?php endif; ?>" style="<?php if ($blocks_count % 2): ?>background:#f1f1f1<?php endif; ?>;">
 
-<?php
-
-echo '<script>';
-echo 'console.log("blocks count : ' . $blocks_count . '");';
-echo 'console.log("blocks count %2 : ' . $blocks_count % 2 . '");';
-echo '</script>';
-?>
-
-        <?php if (!$blocks_count % 2): ?>
+        <?php if (($blocks_count % 2) == 0): ?>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index: 12;">
                 <polygon fill="#fff" points="0,0 100,0 100,100"/>
             </svg>
@@ -320,6 +313,28 @@ EOF;
 
 
 
+
+<!-- Satisfaction -->
+<?php  if( have_rows('satisfaction') ): the_row(); ?>
+<?php  if (get_sub_field('activer') == 'Oui'): ?>
+<section id="satisfaction">
+    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#2f905e" points="0,100 100,0 100,100"/>
+    </svg>
+    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="#60dd9c" points="0,0 0,100 100,0"/>
+    </svg>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/like-icon.svg" alt="">
+                <h4><?php if ( get_sub_field( 'texte' ) ) { the_sub_field( 'texte' ); } ?></h4>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+<?php endif; ?>
 
 <!-- Contact form -->
 <?php  if( have_rows('formulaire_de_contact') ): while( have_rows('formulaire_de_contact') ): the_row(); ?>
