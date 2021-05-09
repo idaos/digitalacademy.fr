@@ -99,8 +99,9 @@ if ( get_field( 'image' ) ){
     .offer_bloc-$color_hex ul li:before {
         color: $color;
     }
-    .question h4{
+    .free_block h4{
         color: $color;
+        font-size:1.3em;
     }
 </style>
 EOF;
