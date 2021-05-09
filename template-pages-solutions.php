@@ -18,7 +18,7 @@ if ( get_field( 'image' ) ){
 
 ?>
 
-<!-- Heading -->
+<?php // Heading ?> 
 
 
 <?php  if( have_rows('header') ): while( have_rows('header') ): the_row(); ?>
@@ -71,7 +71,7 @@ if ( get_field( 'image' ) ){
 <?php endwhile; endif; ?>
 
 
-<!-- Blocs solution -->
+<?php // Blocs solution ?> 
 
 <?php $blocks_count = -1; ?>
 <?php  if( have_rows('blocs_solution') ): while( have_rows('blocs_solution') ): the_row(); ?>
@@ -99,6 +99,9 @@ if ( get_field( 'image' ) ){
     .offer_bloc-$color_hex ul li:before {
         color: $color;
     }
+    .question h4{
+        color: $color;
+    }
 </style>
 EOF;
     echo $color_style; 
@@ -112,9 +115,12 @@ EOF;
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index: 12;">
                 <polygon fill="#fff" points="0,0 100,0 100,100"/>
             </svg>
+            <?php  if( have_rows('business_case') ): while( have_rows('business_case') ): the_row(); ?>
+            <?php  if (get_sub_field('activer') == 'Non'): ?>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="bottom-triangle">
                 <polygon fill="<?php echo $color; ?>" points="0,0 100,20 0,100"></polygon>
             </svg>
+            <?php endif; endwhile; endif; ?>
         <?php endif; ?>
         <?php if ($blocks_count % 2): ?>
             <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -164,11 +170,11 @@ EOF;
         </div>
     </section>
 
-    <!-- Business Case -->
+    <?php // Business Case ?> 
     <?php  if( have_rows('business_case') ): while( have_rows('business_case') ): the_row(); ?>
     <?php  if (get_sub_field('activer') == 'Oui'): ?>
 
-        <!--  Triangles -->
+        <?php //  Triangles ?> 
         <section class="business-case" style="background-color: <?php echo $color; ?>;">
             <svg class="svg-top business-case-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <polygon fill="<?php echo $color; ?>" points="0,100 100,0 100,100"></polygon>
@@ -252,7 +258,7 @@ EOF;
 
 
 
-    <!-- Icones block -->
+    <?php // Icones block ?> 
     <?php  if( have_rows('bloc_dicones') ): while( have_rows('bloc_dicones') ): the_row(); ?>
     <?php  if (get_sub_field('activer') == 'Oui') { ?>
         <?php if ( get_sub_field( 'couleur' ) ) {
@@ -294,27 +300,29 @@ EOF;
     <?php } ?>
     <?php endwhile; endif; ?>
 
-    <!-- Free block -->
+    <?php // Free block ?> 
     <?php if ( get_sub_field( 'bloc_libre' ) ) { ?>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <?php the_sub_field( 'bloc_libre' ); ?>
+        <div class="free_block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <?php the_sub_field( 'bloc_libre' ); ?>
+                    </div>
                 </div>
             </div>
         </div>
     <?php } ?>
 
 
-<!-- block end -->
+<?php // block end ?> 
 <?php endwhile; endif; ?> 
-<!-- Blocks end -->
+<?php // Blocks end ?> 
 <?php endwhile; endif; ?>
 
 
 
 
-<!-- Satisfaction -->
+<?php // Satisfaction ?> 
 <?php  if( have_rows('satisfaction') ): the_row(); ?>
 <?php  if (get_sub_field('activer') == 'Oui'): ?>
 <section id="satisfaction">
@@ -336,7 +344,7 @@ EOF;
 <?php endif; ?>
 <?php endif; ?>
 
-<!-- Contact form -->
+<?php // Contact form ?> 
 <?php  if( have_rows('formulaire_de_contact') ): while( have_rows('formulaire_de_contact') ): the_row(); ?>
 <?php  if (get_sub_field('activer') == 'Oui'): ?>
     <section id="contact"><span id="contact-anchor"></span>
@@ -372,13 +380,13 @@ EOF;
     </section>
 
 <?php endif; ?>
-<!-- Contact form end -->
+<?php // Contact form end ?> 
 <?php endwhile; endif; ?>
 
 
 
 
-<!-- Newsletter -->
+<?php // Newsletter ?> 
 <?php
 $page_newsletter = get_field( 'page_newsletter', 'option' );
 echo do_shortcode( '[cta texte="Restez informé sur nos formations digitales" url="' . $page_newsletter . '" texte_bouton="S’inscrire à la newsletter"]' );

@@ -307,7 +307,7 @@ function custom_scripts_and_styles_tpl_nos_solutions(){
         $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
         if($template_name == 'template-pages-solutions.php'){
             wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/js/home_script.js', array( 'jquery' ), null, false );
-            wp_enqueue_style( 'nos-solutions-style', get_template_directory_uri() . '/css/template-pages-solutions.css?v=29', null, null );
+            wp_enqueue_style( 'nos-solutions-style', get_template_directory_uri() . '/css/template-pages-solutions.css?v=40', null, null );
             wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
             wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
             wp_enqueue_style( 'accordeon', get_template_directory_uri() . '/css/accordeon.css', array( 'main' ), null );
