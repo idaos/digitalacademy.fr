@@ -1,14 +1,43 @@
-// register course pdf download event to Google Analyics
+// Tracking cookies conf
+//----------------------
 
-//jQuery(document).ready(function() {
-//
-//   jQuery( ".info-pdf" ).click(function() {
-//
-//     window.dataLayer = window.dataLayer || [];
-//     window.dataLayer.push({
-//
-//       event: "PDFdownloaded"
-//
-//     });
-//   });
-// });
+// On Load
+jQuery(document).ready(function () {
+
+	// Disable tracking by default
+	if( getCookie('CookieLawInfoConsent') == null ){
+		disableGoogleAnalytics();
+	}
+	// Disable tracking if user has opted out
+	else if( getCookie("cookielawinfo-checkbox-analytics") == "no" ){
+		disableGoogleAnalytics();
+	}
+	// Enable tracking if user has opted in
+	else if( getCookie("cookielawinfo-checkbox-analytics") == "yes" ){
+		enableGoogleAnalytics();
+	}
+});
+
+// On user set cookies, reload page
+jQuery("#cookie_action_close_header, #wt-cli-privacy-save-btn").click(function (event) {
+	history.go(0);
+});
+
+function disableGoogleAnalytics() {
+	window['ga-disable-UA-1188124-3'] = true;
+	console.log("tracking is disable");
+}
+function enableGoogleAnalytics() {
+	window['ga-disable-UA-1188124-3'] = false;
+	console.log("tracking is enable");
+}
+function getCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+	}
+	return null;
+}
