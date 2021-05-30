@@ -23,6 +23,21 @@ jQuery("#cookie_action_close_header, #wt-cli-privacy-save-btn").click(function (
 	history.go(0);
 });
 
+// Enable cookies on accept all
+jQuery("#cookie_action_close_header").click(function (event) {
+    setCookie('cookielawinfo-checkbox-analytics','yes',330)
+    setCookie('cookielawinfo-checkbox-functional','yes',330)
+    setCookie('cookielawinfo-checkbox-necessary','yes',330)
+    enableGoogleAnalytics();
+});
+// Disable cookies on reject all
+jQuery("#cookie_action_close_header_reject").click(function (event) {
+    setCookie('cookielawinfo-checkbox-analytics','no',330)
+    setCookie('cookielawinfo-checkbox-functional','no',330)
+    setCookie('cookielawinfo-checkbox-necessary','no',330)
+    enableGoogleAnalytics();
+});
+
 function disableGoogleAnalytics() {
 	window['ga-disable-UA-1188124-3'] = true;
 	console.log("tracking is disable");
