@@ -2468,3 +2468,38 @@ ul.picto img {
         display: none !important;
     }
 }
+
+/* Youtube player overlay for cookie management  */
+.iframe-wrapper{
+    position:relative;
+  }
+  .iframe-request-approval{
+    padding:2em;
+    position:absolute;
+    background:rgba(0,0,0,.85);
+    color:#fff;
+    text-align:center;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+  .iframe-request-approval a{
+    color:#83c9ff;
+  }
+  .iframe-request-approval p{
+      margin: auto!important;
+      margin-bottom: .5em!important;
+  }
+  .iframe-request-approval button{
+      margin: auto!important;
+      margin-top: .5em!important;
+      color: rgb(175 255 205)!important;
+      background: rgb(100 255 115 / 17%)!important;
+      border: solid 1px rgb(112 240 163)!important;
+      height:3.5em!important;
+  }
