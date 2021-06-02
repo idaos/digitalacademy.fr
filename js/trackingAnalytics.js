@@ -33,14 +33,15 @@ jQuery(document).ready(function () {
         })
 
     }
-    function acceptSocialCookies() {
-        // Remove overlays
-        jQuery('.iframe-request-approval').remove()
-        // Remember user choice for the next time
-        setCookie('cookielawinfo-checkbox-functional', 'yes', 365)
-    }
 
 });
+
+function acceptSocialCookies() {
+    // Remove overlays
+    jQuery('.iframe-request-approval').remove()
+    // Remember user choice for the next time
+    setCookie('cookielawinfo-checkbox-functional', 'yes', 365)
+}
 
 // On user set cookies, reload page
 jQuery("#cookie_action_close_header, #wt-cli-privacy-save-btn").click(function (event) {
