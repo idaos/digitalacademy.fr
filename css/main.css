@@ -2473,7 +2473,6 @@ ul.picto img {
 
 .iframe-request-approval{
     padding:2em;
-    position:absolute;
     background:rgba(0,0,0,.85);
     color:#fff;
     text-align:center;
@@ -2481,8 +2480,6 @@ ul.picto img {
     flex-wrap:wrap;
     align-items:center;
     justify-content:center;
-    top:0;
-    left:0;
     min-width:560px;
     min-height:315px;
 }
@@ -2492,6 +2489,7 @@ ul.picto img {
 .iframe-request-approval p{
     margin: auto!important;
     margin-bottom: .5em!important;
+    color:#e0e0e0!important;
 }
 .iframe-request-approval button{
     margin: auto!important;

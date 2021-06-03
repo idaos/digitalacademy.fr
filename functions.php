@@ -31,8 +31,8 @@ function tp_enqueue_scripts() {
     wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), null, false );
     wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.css', null );
     wp_enqueue_script( 'formsubmission', get_stylesheet_directory_uri() . '/landing-page-catalogue/res/formSubmission.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'trackingAnalytics', get_stylesheet_directory_uri() . '/js/trackingAnalytics.js?ver=2', array( 'jquery' ), null, false );
-    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css?ver=3', array( 'bootstrap-theme' ), null );
+    wp_enqueue_script( 'trackingAnalytics', get_stylesheet_directory_uri() . '/js/trackingAnalytics.js?ver=3', array( 'jquery' ), null, false );
+    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css?ver=5', array( 'bootstrap-theme' ), null );
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css?ver=2', null );
     wp_enqueue_style( 'bootstrap-theme', get_stylesheet_directory_uri() . '/css/bootstrap-theme.min.css', array( 'bootstrap' ), null );
     wp_enqueue_style( 'tp', get_stylesheet_directory_uri() . '/css/tp.css', array( 'main', 'js_composer_front' ), null );
@@ -265,7 +265,6 @@ function custom_scripts_and_styles_home(){
         if(is_front_page()){
             wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
             wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
-            wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/js/home_script.js', array( 'jquery', 'trackingAnalytics' ), null, false );
         }
     }
 }
@@ -284,7 +283,6 @@ function custom_scripts_and_styles_nos_solutions(){
         $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
         if($template_name == 'template-nos-solutions-de-formation.php'){
             wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
-            wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/js/home_script.js', array( 'jquery' ), null, false );
             wp_enqueue_style( 'nos-solutions-style', get_template_directory_uri() . '/css/nos-solutions.css', array( 'home-style' ), null );
             wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
             wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
@@ -306,7 +304,6 @@ function custom_scripts_and_styles_tpl_nos_solutions(){
         //Check which template is assigned to current page we are looking at
         $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
         if($template_name == 'template-pages-solutions.php'){
-            wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/js/home_script.js', array( 'jquery' ), null, false );
             wp_enqueue_style( 'nos-solutions-style', get_template_directory_uri() . '/css/template-pages-solutions.css?v=41', null, null );
             wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
             wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );

@@ -202,9 +202,7 @@
                     </blockquote>
                 </div>
                 <div class="col-md-6 col-md-pull-6" id="player-wrapper">
-                    <img onclick="playIframe()" id="youtube-cover" src="<?php echo get_stylesheet_directory_uri(); ?>/images/digitalacademy-en-30-secondes-youtube-cover.jpg" alt="">
-                    <img onclick="playIframe()" id="play-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/images/play-icon.svg" alt="">
-                    <div id="iframe-wrapper" style="display: none;"></div>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/FpPAwR5X9Yw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                
                 </div>
             </div>
         </div>
