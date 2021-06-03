@@ -3004,3 +3004,34 @@ if( function_exists('acf_add_local_field_group') ):
     ));
     
     endif;
+
+
+// Dont load youtube iframes until user accept cookies
+add_action('template_redirect', 'find_and_replace_youtube_embed', 99);
+function find_and_replace_youtube_embed()
+{
+    ob_start(function ($buffer) {
+        // Did they accept the GDPR cookie?
+        if ((!isset($_COOKIE['cookielawinfo-checkbox-functional'])) || 
+            ($_COOKIE['cookielawinfo-checkbox-functional'] == 'no'))  {
+                // Build "accept cookies" notice
+                $notice = <<<EOD
+                    <div class="iframe-request-approval">
+                        <p>
+                        Vous devez accepter les cookies relatifs aux réseaux sociaux pour lire cette vidéo. Pour plus d'informations, consultez notre 
+                            <a href="https://www.digitalacademy.fr/mentions-legales">
+                                Politique de confidentialité et de protection des données personnelles Digital Academy.
+                            </a>
+                        </p>
+                        <button onclick="acceptSocialCookies()" class="btn btn-red-alt-neg">
+                            Accepter
+                        </button>
+                    </div>
+EOD;
+                // Replace all youtube iframes with the notice
+                $buffer = preg_replace('/<iframe.+src="https?:\/\/(?:www.)?youtu\.?be(?:\.com)?.+<\/iframe>/i', $notice, $buffer);
+        }
+        return $buffer;
+    });
+}
+    

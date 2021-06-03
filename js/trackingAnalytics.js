@@ -16,31 +16,13 @@ jQuery(document).ready(function () {
     else if (getCookie("cookielawinfo-checkbox-analytics") == "yes") {
         enableGoogleAnalytics();
     }
-
-    // YOutube embed cookies managements
-    if (getCookie('cookielawinfo-checkbox-functional') != 'yes') {
-        // Foreach iframe
-        jQuery('iframe').each(function () {
-            // If iframe has a src attributes including the string 'youtube'
-            if (jQuery(this).attr('src').includes("youtube")) {
-                // Wrap element in a new div with a paragraph and a button / attach click event on the button
-                jQuery(this).wrap('<div class="iframe-wrapper"></div>')
-                jQ_iframeRequestApproval = jQuery('<div class="iframe-request-approval"/>')
-                    .append(jQuery('<p>Vous devez accepter les cookies relatifs aux réseaux sociaux pour lire cette vidéo. Pour plus d\'informations, consultez notre <a href="https://www.digitalacademy.fr/mentions-legales">Politique de confidentialité et de protection des données personnelles Digital Academy.</a></p>'))
-                    .append(jQuery('<button onclick="acceptSocialCookies()" class="btn btn-red-alt-neg">Accepter</button>'))
-                jQuery(this).before(jQ_iframeRequestApproval)
-            }
-        })
-
-    }
-
 });
 
 function acceptSocialCookies() {
-    // Remove overlays
-    jQuery('.iframe-request-approval').remove()
     // Remember user choice for the next time
     setCookie('cookielawinfo-checkbox-functional', 'yes', 365)
+    // reload page
+    history.go(0)
 }
 
 // On user set cookies, reload page
