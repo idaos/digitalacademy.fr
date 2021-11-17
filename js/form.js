@@ -1,5 +1,23 @@
 //-------------------------------------------
 //-------------------------------------------
+// Prevent Form submit if User has not scrolled (prevent bot form submit)
+//-------------------------------------------
+//-------------------------------------------
+userHasScrolled = false;
+window.onscroll = function (e){
+    userHasScrolled = true;
+    jQuery( "#input_1_16" ).val('humanDetected')
+}
+jQuery( "#gform_1" ).submit(function( event ) {
+    if(!userHasScrolled){
+        event.preventDefault();
+    }
+});
+
+
+
+//-------------------------------------------
+//-------------------------------------------
 //--------------- label anim ----------------
 //-------------------------------------------
 //-------------------------------------------
@@ -47,10 +65,11 @@ function hideValidationMessage(){
 //-------------------------------------------
 
 // display spinner after element
-gform.addFilter( 'gform_spinner_target_elem', function( $targetElem, formId ) {
-    return jQuery( '.gform_button' );
-} );
-
+jQuery(document).ready(function($) {
+  gform.addFilter( 'gform_spinner_target_elem', function( $targetElem, formId ) {
+      return jQuery( '.gform_button' );
+  });
+});
 
 //-------------------------------------------
 //-------------------------------------------
@@ -138,6 +157,7 @@ jQuery(document).bind('gform_post_render', function(){
 //-------------- custom select --------------
 //-------------------------------------------
 //-------------------------------------------
+
 function customSelect(){
 
     var x, i, j, selElmnt, a, b, c;
@@ -230,4 +250,5 @@ function customSelect(){
         });
         jQuery('select option[value="'+ selectedValue +'"]').attr('selected','selected'); // select option in the contact for
     }
+
 }   

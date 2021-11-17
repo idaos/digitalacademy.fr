@@ -1,0 +1,133 @@
+@red: rgb(191 59 43);
+
+// overwrites
+#heading .bloc-1 {
+    position: relative;
+    height: auto;
+    background-image: url('../img/bg-rs.jpg');
+    background-position: center;
+    background-size: cover;
+}
+#heading .bloc-1 p{
+    color: #000;
+}
+#heading .bloc-1 .svg-1, #heading .bloc-1 .svg-1-md {
+    opacity: .8;
+}
+
+#heading .bloc-1 h1, #heading .bloc-1 h2{
+    color: @red;
+}
+
+body .btn{
+    text-transform: initial;
+    border-radius: 0;
+}
+
+#heading .bloc-1 [class^='col-'] {
+    padding-bottom: 2em;
+    padding-left: 2em;
+}
+
+#opcos .col-xs-12,
+#references .col-xs-12{
+    max-width: 100%;
+}
+
+
+
+
+
+// 
+
+.flex-5{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+    >div{
+        width: 200px;
+        text-align: center;
+        font-size: .9em;
+        background:#fff;
+        margin:2em 1em;
+        position: relative;
+        border-radius: 1em;
+        padding: .5em;
+
+        img{
+            max-width: 100px;
+        }
+        *{
+            display: inline-block;
+        }
+        p{
+            display: block;
+        }
+    }
+}
+
+//
+
+#arrow-container{
+    div{
+        width: 100%;
+        text-align: center;
+        padding-bottom: .5em;
+        img{
+            display: inline-block;
+        }
+    }
+}
+
+//
+
+.flex-3{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        font-weight: bold;
+        padding:1.5em;
+    }
+    div{
+        padding:1em;
+        img{
+            width: 150px;
+        }
+    }
+}
+
+//
+
+#form-1-container{
+    background:#f6f6f6;
+    background-image: url('../img/chouette-dac.png');
+    background-repeat: no-repeat;
+    background-position:10%;
+    background-size: 20%;
+    h2{
+        display: block;
+        margin: auto!important;
+        padding: 2em 1em;
+        text-align: center;
+        max-width: 600px;
+        font-size: 1.4em;
+        color:rgb(122, 122, 122);
+        span{
+            color:@red;
+        }
+    }
+
+
+    .gform_wrapper {
+        max-width: 400px;
+        margin: auto;
+    }
+}

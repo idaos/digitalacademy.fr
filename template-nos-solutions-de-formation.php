@@ -15,7 +15,7 @@ get_header(); ?>
         <svg class="svg-1-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <polygon fill="#000" points="0,0 100,0 100,100 0,100"/>
         </svg>
-        <!-- Bottom Triangles -->
+        <!-- Bottom Triangles --> 
         <svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <polygon fill="#fff" points="0,100 100,0 100,100"/>
             <polygon fill="#bf3b2b" points="20,80 100,0 100,100"/>

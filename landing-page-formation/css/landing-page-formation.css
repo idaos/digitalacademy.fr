@@ -1,0 +1,106 @@
+#heading .bloc-1 {
+  position: relative;
+  height: auto;
+  background-image: url('../img/bg-rs.jpg');
+  background-position: center;
+  background-size: cover;
+}
+#heading .bloc-1 p {
+  color: #000;
+}
+#heading .bloc-1 .svg-1,
+#heading .bloc-1 .svg-1-md {
+  opacity: 0.8;
+}
+#heading .bloc-1 h1,
+#heading .bloc-1 h2 {
+  color: #bf3b2b;
+}
+body .btn {
+  text-transform: initial;
+  border-radius: 0;
+}
+#heading .bloc-1 [class^='col-'] {
+  padding-bottom: 2em;
+  padding-left: 2em;
+}
+#opcos .col-xs-12,
+#references .col-xs-12 {
+  max-width: 100%;
+}
+.flex-5 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.flex-5 > div {
+  width: 200px;
+  text-align: center;
+  font-size: 0.9em;
+  background: #fff;
+  margin: 2em 1em;
+  position: relative;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+.flex-5 > div img {
+  max-width: 100px;
+}
+.flex-5 > div * {
+  display: inline-block;
+}
+.flex-5 > div p {
+  display: block;
+}
+#arrow-container div {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+#arrow-container div img {
+  display: inline-block;
+}
+.flex-3 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.flex-3 p {
+  font-weight: bold;
+  padding: 1.5em;
+}
+.flex-3 div {
+  padding: 1em;
+}
+.flex-3 div img {
+  width: 150px;
+}
+#form-1-container {
+  background: #f6f6f6;
+  background-image: url('../img/chouette-dac.png');
+  background-repeat: no-repeat;
+  background-position: 10%;
+  background-size: 20%;
+}
+#form-1-container h2 {
+  display: block;
+  margin: auto!important;
+  padding: 2em 1em;
+  text-align: center;
+  max-width: 600px;
+  font-size: 1.4em;
+  color: #7a7a7a;
+}
+#form-1-container h2 span {
+  color: #bf3b2b;
+}
+#form-1-container .gform_wrapper {
+  max-width: 400px;
+  margin: auto;
+}
+/*# sourceMappingURL=./landing-page-formation.css.map */

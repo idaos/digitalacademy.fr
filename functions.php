@@ -31,8 +31,8 @@ function tp_enqueue_scripts() {
     wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), null, false );
     wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.css', null );
     wp_enqueue_script( 'formsubmission', get_stylesheet_directory_uri() . '/landing-page-catalogue/res/formSubmission.js', array( 'jquery' ), null, false );
-    wp_enqueue_script( 'trackingAnalytics', get_stylesheet_directory_uri() . '/js/trackingAnalytics.js', array( 'jquery' ), null, false );
-    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css?ver=2', array( 'bootstrap-theme' ), null );
+    wp_enqueue_script( 'trackingAnalytics', get_stylesheet_directory_uri() . '/js/trackingAnalytics.js?ver=3', array( 'jquery' ), null, false );
+    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css?ver=5', array( 'bootstrap-theme' ), null );
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css?ver=2', null );
     wp_enqueue_style( 'bootstrap-theme', get_stylesheet_directory_uri() . '/css/bootstrap-theme.min.css', array( 'bootstrap' ), null );
     wp_enqueue_style( 'tp', get_stylesheet_directory_uri() . '/css/tp.css', array( 'main', 'js_composer_front' ), null );
@@ -44,18 +44,11 @@ function tp_enqueue_scripts() {
 
     wp_register_script( 'slick-courses', get_stylesheet_directory_uri() . '/js/slickCourses.js', array( 'slick' ), null, false );
     wp_register_script( 'slick-refs', get_stylesheet_directory_uri() . '/js/slickRefs.js', array( 'slick' ), null, false );
+    wp_register_script( 'slick-opcos', get_stylesheet_directory_uri() . '/js/slickOpcos.js', array( 'slick' ), null, false );
     wp_register_style( 'course-card', get_template_directory_uri() . '/css/course-card.css', null );
     wp_register_style( 'references-style', get_template_directory_uri() . '/css/references.css', array( 'main' ), null );
+    wp_register_style( 'opcos-style', get_template_directory_uri() . '/css/opcos.css', array( 'main' ), null );
 
-
-    if ( is_tax( 'thematique' ) || is_page_template( 'tpl-nos-thematiques.php' ) ) {
-        wp_enqueue_style( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
-        wp_enqueue_style( 'fullcalendar-print', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.print.css', array( 'fullcalendar' ), null, 'print' );
-        wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );
-        wp_enqueue_style( 'calendar-style', get_stylesheet_directory_uri() . '/css/calendar.css', array( 'main' ), null );
-    }
     if(!is_front_page()){
         wp_enqueue_script( 'easyListSplitter', get_stylesheet_directory_uri() . '/js/jquery.easyListSplitter.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'isotope', get_stylesheet_directory_uri() . '/js/isotope.pkgd.min.js', array( 'jquery' ), null, false );
@@ -71,6 +64,21 @@ function tp_enqueue_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'tp_enqueue_scripts' );
+
+
+/**
+ * FullCalendarJS depandencies
+ */
+
+function enqueue_full_calendar(){
+
+    wp_enqueue_style( 'fullcalendar-css', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
+    wp_enqueue_style( 'calendar-style', get_stylesheet_directory_uri() . '/css/calendar.css', array( 'main' ), null );
+    wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'fullcalendar' ), null, false );
+    wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array('jquery'), null, true );
+    wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        
+    wp_enqueue_script( 'fullcalendar-render', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar-render.js', array( 'fullcalendar-fr' ), null, false );     
+}
 
 
 /**
@@ -140,12 +148,7 @@ function custom_scripts_and_styles_taxo_thema(){
         wp_enqueue_script( 'angular-sanitize', get_stylesheet_directory_uri() . '/js/angular-sanitize.min.js', null, null, false );
         wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
         wp_enqueue_script( 'angular-controller', get_stylesheet_directory_uri() . '/js/tpl-nos-formations.js', array( 'jquery', 'angular', 'angular-sanitize', 'angular-animate' ), null, false );
-        wp_enqueue_style( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
-        wp_enqueue_style( 'fullcalendar-print', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.print.css', array( 'fullcalendar' ), null, 'print' );
-        wp_enqueue_style( 'calendar-style', get_stylesheet_directory_uri() . '/css/calendar.css', array( 'main' ), null );
-        wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array( 'moment' ), null, false );
-        wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        
+        enqueue_full_calendar();      
         wp_enqueue_script( 'getCoursesByKeyword', get_stylesheet_directory_uri() . '/js/ajaxurl.js', array('jquery'), '1.0', true );
         wp_localize_script('getCoursesByKeyword', 'ajaxurl', admin_url( 'admin-ajax.php' ) );    
     }
@@ -216,10 +219,35 @@ function custom_scripts_and_styles_egate(){
         if($template_name == 'tpl-egate.php'){
             wp_enqueue_style( 'egate-style', get_template_directory_uri() . '/css/egate.css', null );
             wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
-            wp_enqueue_script( 'egate-script', get_stylesheet_directory_uri() . '/js/egate.js', array( 'jquery' ), null, false );
             wp_dequeue_script( 'formsubmission' );
             wp_dequeue_style( 'js_composer_front' ); //not working
             wp_dequeue_script( 'wpb_composer_front_js' ); //not working
+            wp_dequeue_script( 'slick' );
+            wp_dequeue_style( 'slick' );
+        }
+    }
+}
+
+/**
+ * Chargement des styles et scripts pour les pages   'default'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_default', 20 );
+//Load scripts (and styles)
+function custom_scripts_and_styles_default(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        if( isset($wp_query->post->ID) ){
+            $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        }else{
+            $template_name = false;
+        }
+        if(($template_name == 'tpl-default.php')||($template_name == 'tpl-cpf.php')){
+            wp_enqueue_style( 'egate-style', get_template_directory_uri() . '/css/egate.css', null );
+            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
+            wp_dequeue_script( 'formsubmission' );
             wp_dequeue_script( 'slick' );
             wp_dequeue_style( 'slick' );
         }
@@ -237,7 +265,6 @@ function custom_scripts_and_styles_home(){
         if(is_front_page()){
             wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
             wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
-            wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/js/home_script.js', array( 'jquery' ), null, false );
         }
     }
 }
@@ -256,8 +283,28 @@ function custom_scripts_and_styles_nos_solutions(){
         $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
         if($template_name == 'template-nos-solutions-de-formation.php'){
             wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
-            wp_enqueue_script( 'home-script', get_stylesheet_directory_uri() . '/js/home_script.js', array( 'jquery' ), null, false );
             wp_enqueue_style( 'nos-solutions-style', get_template_directory_uri() . '/css/nos-solutions.css', array( 'home-style' ), null );
+            wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
+            wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
+            wp_enqueue_style( 'accordeon', get_template_directory_uri() . '/css/accordeon.css', array( 'main' ), null );
+        }
+    }
+}
+
+/**
+ * Chargement des styles et scripts pour les pages 'Solutions'
+ */
+
+//Register hook to load scripts
+add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_tpl_nos_solutions');
+//Load scripts (and styles)
+function custom_scripts_and_styles_tpl_nos_solutions(){
+    if(is_page()){ //Check if we are viewing a page
+        global $wp_query;
+        //Check which template is assigned to current page we are looking at
+        $template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+        if($template_name == 'template-pages-solutions.php'){
+            wp_enqueue_style( 'nos-solutions-style', get_template_directory_uri() . '/css/template-pages-solutions.css?v=41', null, null );
             wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
             wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
             wp_enqueue_style( 'accordeon', get_template_directory_uri() . '/css/accordeon.css', array( 'main' ), null );
@@ -311,14 +358,15 @@ function custom_scripts_and_styles_testimonial(){
         $template_name = false;
     }
     if( ((is_archive())&&(is_post_type_archive( 'temoignage' )))  //Check if we are viewing an archive page.
-        || ($template_name == 'tpl-satisfaction-clients.php') ){ // or satisfaction page
-            wp_enqueue_style( 'chart', get_template_directory_uri() . '/css/chart.css', array( 'main' ), null );
-            wp_enqueue_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.js', array( 'owl-carousel', 'accordeon', 'jquery' ), null, false );
-            wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array( 'main' ), null );
-            wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, false );
-            wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
+       || ($template_name == 'tpl-satisfaction-clients.php') ){ // or satisfaction page
+        wp_enqueue_style( 'chart', get_template_directory_uri() . '/css/chart.css', array( 'main' ), null );
+        wp_enqueue_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.js', array( 'owl-carousel', 'accordeon', 'jquery' ), null, false );
+        wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array( 'main' ), null );
+        wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
     }
 }
+
 
 
 /**
@@ -345,12 +393,7 @@ function custom_scripts_and_styles_courses(){
         wp_enqueue_script( 'angular-animate', get_stylesheet_directory_uri() . '/js/angular-animate.min.js', null, null, false );
         wp_enqueue_script( 'angular-controller', get_stylesheet_directory_uri() . '/js/tpl-nos-formations.js', array( 'jquery', 'angular', 'angular-sanitize', 'angular-animate' ), null, false );
 
-        wp_enqueue_style( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.css', null, null, null );
-        wp_enqueue_style( 'fullcalendar-print', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.print.css', array( 'fullcalendar' ), null, 'print' );
-        wp_enqueue_style( 'calendar-style', get_stylesheet_directory_uri() . '/css/calendar.css', array( 'main' ), null );
-        wp_enqueue_script( 'moment', get_stylesheet_directory_uri() . '/js/fullcalendar/lib/moment.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar/fullcalendar.min.js', array( 'moment' ), null, false );
-        wp_enqueue_script( 'fullcalendar-fr', get_stylesheet_directory_uri() . '/js/fullcalendar/lang/fr.js', array( 'fullcalendar' ), null, false );        
+        enqueue_full_calendar();
     }
     wp_enqueue_script( 'getCoursesByKeyword', get_stylesheet_directory_uri() . '/js/ajaxurl.js', array('jquery'), '1.0', true );
     wp_localize_script('getCoursesByKeyword', 'ajaxurl', admin_url( 'admin-ajax.php' ) );    
@@ -490,7 +533,7 @@ function digital_share_bouton( $link, $title ) {
 </div>
 
 <?php
-                                               }
+}
 function digital_get_thematiques_picto() {
     $pictos = false;
 
@@ -590,7 +633,7 @@ function digital_get_type_menu( $taxonomy = 'type' ) {
     $menu = '';
 
     if ( $types = get_terms( $taxonomy, array( 'parent' => 0 ) ) ) {
-        
+
         foreach ( $types as $type ) {
             $class = '';
             if ( $type->term_id == $parent_term_id ) {
@@ -620,7 +663,7 @@ function dg_liste_temoignages( $query ) {
         $template_name = false;
     }
     if (( $query->is_post_type_archive( 'temoignage' ) && $query->is_main_query() )
-    ||($template_name == 'tpl-satisfaction-clients.php'))
+        ||($template_name == 'tpl-satisfaction-clients.php'))
     {
         $query->set( 'posts_per_page', - 1 );
         $query->set( 'orderby', 'rand' );
@@ -871,7 +914,7 @@ function kz_search($keywords, $thema_ID = false){
             if ( get_field( 'presentation', $formation->ID ) ){
                 $course_description = wp_trim_words( get_field( 'presentation', $formation->ID ), 20, '...' );
             }else{
-                $course_description = false;
+                $course_description = "";
             }
             // Course goals
             $course_goals = '';
@@ -1295,7 +1338,7 @@ function dequeue_gf_stylesheets() {
 add_action( 'gform_enqueue_scripts', 'enqueue_custom_form_script_and_style', 10, 2 );
 function enqueue_custom_form_script_and_style( $form, $is_ajax ) {
     if ( $is_ajax ) {
-        wp_enqueue_script( 'custom_form_script', get_stylesheet_directory_uri() . '/js/form.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'custom_form_script', get_stylesheet_directory_uri() . '/js/form.js?v3', array( 'jquery' ), null, '1.0.1');
         wp_enqueue_style( 'custom_form_style', get_template_directory_uri() . '/css/form.css', array(), null );
         wp_enqueue_script( 'button_anim', get_stylesheet_directory_uri() . '/js/button-anim.js', array( 'jquery' ), null, false );
         wp_enqueue_style( 'button_anim', get_template_directory_uri() . '/css/button-anim.css', array(), null );
@@ -1310,9 +1353,9 @@ function spinner_url($image_src, $form) {
 
 // Prevent bot to send form ----------
 // if dropdown item is not selected --
-add_filter( 'gform_field_validation_11_1', 'custom_validation', 10, 4 );
-function custom_validation( $result, $value, $form, $field ) {
-    
+add_filter( 'gform_field_validation_11_1', 'custom_validation_home', 10, 4 );
+function custom_validation_home( $result, $value, $form, $field ) {
+
     if ( $result['is_valid'] && $value[0] == "Sélectionnez..." ) {
         $result['is_valid'] = false;
         $result['message'] = 'Veuillez sélectionner un objet pour ce message.';
@@ -1320,6 +1363,17 @@ function custom_validation( $result, $value, $form, $field ) {
     return $result;
 }
 
+// Prevent bot to send form ----------
+// if user has not scrolled (see form.js), block send --
+add_filter( 'gform_field_validation_1_16', 'custom_validation_contact', 10, 4 );
+function custom_validation_contact( $result, $value, $form, $field ) {
+
+    if ( $value != 'humanDetected' ) {
+        $result['is_valid'] = false;
+        $result['message'] = 'Notre systeme anti SPAM vous considère comme un robot ! Si ce n\'est pas le cas, pourriez-vous nous envoyer un email directement à l\'adresse : contact@digitalacademy.fr ? Merci !';
+    }
+    return $result;
+}
 
 // -----------------------------------------------------------------------
 // FN: Preinscription form heading
@@ -1459,3 +1513,1558 @@ class KzThema{
 // -----------------------------------------------------------------------
 
 
+// -----------------------------------------------------------------------
+// FN: Register OPCO post type
+// -----------------------------------------------------------------------
+
+function opco_register_post_types() {
+
+    // Custom Post Type OPCO
+    $labels = array(
+        'name' => 'OPCOs partenaires',
+        'all_items' => 'Toutes les OPCOs',  // affiché dans le sous menu
+        'singular_name' => 'OPCO',
+        'add_new_item' => 'Ajouter une OPCO',
+        'edit_item' => 'Modifier l\'OPCO',
+        'menu_name' => 'OPCOs'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_in_rest' => true,
+        'has_archive' => true,
+        'supports' => array( 'title', 'editor','thumbnail' ),
+        'menu_position' => 4, 
+        'menu_icon' => 'dashicons-networking',
+    );
+
+    register_post_type( 'OPCO', $args );
+}
+add_action( 'init', 'opco_register_post_types' );
+
+
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------
+// FN: Display OPCO slider
+// -----------------------------------------------------------------------
+
+function kz_shortcode_opcoSlider() {
+
+    wp_enqueue_script( 'slick-opcos' );
+    wp_enqueue_style( 'opcos-style');
+
+    $args = array(
+        'post_type'      => 'OPCO',
+        'post_status'    => 'publish',
+        'posts_per_page' => -20
+    );
+
+    $opcos = new WP_Query( $args );
+    $opcos_arr = array();
+    if ( $opcos -> have_posts() ) {
+        $out = '<div class="wrapper">';
+        while ( $opcos -> have_posts() ) {
+            $opcos -> the_post();
+            $opco = [
+                "thumb" => get_the_post_thumbnail( get_the_ID() ),
+            ];
+            array_push($opcos_arr, $opco);
+        }
+        foreach ($opcos_arr as &$that_opco) {
+            $out .= '<div class="opco" href="' . $that_ref['url'] . '">';
+            $out .= $that_opco['thumb'];
+            $out .= '</div>';
+        }
+        $out .= '</div>';
+        echo $out;
+    }
+}
+add_shortcode( 'kz_opco_slider', 'kz_shortcode_opcoSlider' );
+
+
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+// -----------------------------------------------------------------------
+// ADMIN CSS
+// -----------------------------------------------------------------------
+
+add_action('admin_head', 'admin_custom_css');
+
+function admin_custom_css() {
+  echo '<style>
+    .inside > .acf-field[data-type="group"] > .acf-label,
+    .inside > .acf-field[data-type="repeater"] > .acf-label
+    {
+            font-size: 2em;
+    }
+  </style>';
+}
+
+
+
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+// -----------------------------------------------------------------------
+// DISPLAY ADMIN BAR
+// -----------------------------------------------------------------------
+
+function admin_bar(){
+
+    if(is_user_logged_in()){
+      add_filter( 'show_admin_bar', '__return_true' , 1000 );
+    }
+  }
+  add_action('init', 'admin_bar' );
+
+
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+
+// -----------------------------------------------------------------------
+// ACF fields 
+// -----------------------------------------------------------------------
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array(
+        'key' => 'group_6096591975aeb',
+        'title' => 'Pages Solutions',
+        'fields' => array(
+            array(
+                'key' => 'field_60965c9a1ceaa',
+                'label' => 'Header',
+                'name' => 'header',
+                'type' => 'group',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'layout' => 'row',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_6097ed62110d3',
+                        'label' => 'REGLAGES',
+                        'name' => '',
+                        'type' => 'accordion',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'open' => 0,
+                        'multi_expand' => 0,
+                        'endpoint' => 0,
+                    ),
+                    array(
+                        'key' => 'field_609659e5be414',
+                        'label' => 'Sous-titre',
+                        'name' => 'sous-titre_de_page',
+                        'type' => 'text',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => 'Faites vivre le digital dans votre entreprise',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
+                    ),
+                    array(
+                        'key' => 'field_609661cd0f63d',
+                        'label' => 'Paragraphe',
+                        'name' => 'header_p',
+                        'type' => 'wysiwyg',
+                        'instructions' => '',
+                        'required' => 1,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'tabs' => 'all',
+                        'toolbar' => 'full',
+                        'media_upload' => 1,
+                        'delay' => 0,
+                    ),
+                    array(
+                        'key' => 'field_60965e5bbec1d',
+                        'label' => 'Bouton 1',
+                        'name' => 'bouton_1',
+                        'type' => 'group',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'layout' => 'block',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_60965d48ac576',
+                                'label' => 'Activer',
+                                'name' => 'bouton_1_activer',
+                                'type' => 'radio',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'choices' => array(
+                                    'Oui' => 'Oui',
+                                    'Non' => 'Non',
+                                ),
+                                'allow_null' => 0,
+                                'other_choice' => 0,
+                                'default_value' => 'Non',
+                                'layout' => 'vertical',
+                                'return_format' => 'value',
+                                'save_other_choice' => 0,
+                            ),
+                            array(
+                                'key' => 'field_60965d7990dd1',
+                                'label' => 'Intitulé du bouton',
+                                'name' => 'bouton_1_nom',
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_60965d48ac576',
+                                            'operator' => '==',
+                                            'value' => 'Oui',
+                                        ),
+                                    ),
+                                ),
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => '',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                            ),
+                            array(
+                                'key' => 'field_60965ec8d08f9',
+                                'label' => 'URL',
+                                'name' => 'bouton_1_-_url',
+                                'type' => 'link',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_60965d48ac576',
+                                            'operator' => '==',
+                                            'value' => 'Oui',
+                                        ),
+                                    ),
+                                ),
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'return_format' => 'url',
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'field_60965fe004529',
+                        'label' => 'Bouton 2',
+                        'name' => 'bouton_2',
+                        'type' => 'group',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'layout' => 'block',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_60965fe00452a',
+                                'label' => 'Activer',
+                                'name' => 'bouton_2_activer',
+                                'type' => 'radio',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'choices' => array(
+                                    'Oui' => 'Oui',
+                                    'Non' => 'Non',
+                                ),
+                                'allow_null' => 0,
+                                'other_choice' => 0,
+                                'default_value' => 'Non',
+                                'layout' => 'vertical',
+                                'return_format' => 'value',
+                                'save_other_choice' => 0,
+                            ),
+                            array(
+                                'key' => 'field_60965fe00452b',
+                                'label' => 'Intitulé du bouton',
+                                'name' => 'bouton_2_nom',
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_60965fe00452a',
+                                            'operator' => '==',
+                                            'value' => 'Oui',
+                                        ),
+                                    ),
+                                ),
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => '',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                            ),
+                            array(
+                                'key' => 'field_60965fe00452c',
+                                'label' => 'URL',
+                                'name' => 'bouton_2_-_url',
+                                'type' => 'link',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_60965fe00452a',
+                                            'operator' => '==',
+                                            'value' => 'Oui',
+                                        ),
+                                    ),
+                                ),
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'return_format' => 'url',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_6096887b3d7bc',
+                'label' => 'Blocs Solution',
+                'name' => 'blocs_solution',
+                'type' => 'repeater',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'collapsed' => '',
+                'min' => 0,
+                'max' => 0,
+                'layout' => 'row',
+                'button_label' => '',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_609689803d7bd',
+                        'label' => 'Bloc Offre',
+                        'name' => 'bloc_image_a_gauche__texte_a_droite',
+                        'type' => 'group',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'layout' => 'block',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_609689ad3d7be',
+                                'label' => 'Titre',
+                                'name' => 'titre',
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => '',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                            ),
+                            array(
+                                'key' => 'field_609691fc4c30b',
+                                'label' => 'Image',
+                                'name' => 'image',
+                                'type' => 'image',
+                                'instructions' => 'Dimensions recommandées : 512 x 370 pixels',
+                                'required' => 1,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'return_format' => 'url',
+                                'preview_size' => 'thumbnail',
+                                'library' => 'all',
+                                'min_width' => '',
+                                'min_height' => '',
+                                'min_size' => '',
+                                'max_width' => '',
+                                'max_height' => '',
+                                'max_size' => '',
+                                'mime_types' => '',
+                            ),
+                            array(
+                                'key' => 'field_6097a92b109f7',
+                                'label' => 'REGLAGES',
+                                'name' => '',
+                                'type' => 'accordion',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'open' => 0,
+                                'multi_expand' => 0,
+                                'endpoint' => 0,
+                            ),
+                            array(
+                                'key' => 'field_6096bc5ed5334',
+                                'label' => 'Couleur principale',
+                                'name' => 'couleur',
+                                'type' => 'color_picker',
+                                'instructions' => '',
+                                'required' => 1,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '#bf3b2b',
+                            ),
+                            array(
+                                'key' => 'field_60968aa7e2023',
+                                'label' => 'Sur-Titre',
+                                'name' => 'sous_titre',
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => '',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                            ),
+                            array(
+                                'key' => 'field_609689b83d7bf',
+                                'label' => 'Contenu',
+                                'name' => 'contenu',
+                                'type' => 'wysiwyg',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'tabs' => 'all',
+                                'toolbar' => 'full',
+                                'media_upload' => 1,
+                                'delay' => 0,
+                            ),
+                            array(
+                                'key' => 'field_6096b8a57d078',
+                                'label' => 'BOUTONS',
+                                'name' => '',
+                                'type' => 'accordion',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'open' => 0,
+                                'multi_expand' => 0,
+                                'endpoint' => 0,
+                            ),
+                            array(
+                                'key' => 'field_609689c23d7c0',
+                                'label' => 'Bouton 1',
+                                'name' => 'bouton_1',
+                                'type' => 'group',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'layout' => 'row',
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'field_60968bbd0268d',
+                                        'label' => 'Activer',
+                                        'name' => 'activer',
+                                        'type' => 'radio',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'choices' => array(
+                                            'Oui' => 'Oui',
+                                            'Non' => 'Non',
+                                        ),
+                                        'allow_null' => 0,
+                                        'other_choice' => 0,
+                                        'default_value' => 'Non',
+                                        'layout' => 'vertical',
+                                        'return_format' => 'value',
+                                        'save_other_choice' => 0,
+                                    ),
+                                    array(
+                                        'key' => 'field_609689ef3d7c1',
+                                        'label' => 'Nom',
+                                        'name' => 'nom',
+                                        'type' => 'text',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_60968bbd0268d',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'placeholder' => '',
+                                        'prepend' => '',
+                                        'append' => '',
+                                        'maxlength' => '',
+                                    ),
+                                    array(
+                                        'key' => 'field_609689f83d7c2',
+                                        'label' => 'URL',
+                                        'name' => 'url',
+                                        'type' => 'link',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_60968bbd0268d',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'return_format' => 'url',
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_60968c1955b9a',
+                                'label' => 'Bouton 2',
+                                'name' => 'bouton_2',
+                                'type' => 'group',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'layout' => 'row',
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'field_60968c1955b9b',
+                                        'label' => 'Activer',
+                                        'name' => 'activer',
+                                        'type' => 'radio',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'choices' => array(
+                                            'Oui' => 'Oui',
+                                            'Non' => 'Non',
+                                        ),
+                                        'allow_null' => 0,
+                                        'other_choice' => 0,
+                                        'default_value' => 'Non',
+                                        'layout' => 'vertical',
+                                        'return_format' => 'value',
+                                        'save_other_choice' => 0,
+                                    ),
+                                    array(
+                                        'key' => 'field_60968c1955b9c',
+                                        'label' => 'Nom',
+                                        'name' => 'nom',
+                                        'type' => 'text',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_60968c1955b9b',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'placeholder' => '',
+                                        'prepend' => '',
+                                        'append' => '',
+                                        'maxlength' => '',
+                                    ),
+                                    array(
+                                        'key' => 'field_60968c1955b9d',
+                                        'label' => 'URL',
+                                        'name' => 'url',
+                                        'type' => 'link',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_60968c1955b9b',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'return_format' => 'url',
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_609691a819014',
+                                'label' => 'Bouton 3',
+                                'name' => 'bouton_3',
+                                'type' => 'group',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'layout' => 'row',
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'field_609691a819015',
+                                        'label' => 'Activer',
+                                        'name' => 'activer',
+                                        'type' => 'radio',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'choices' => array(
+                                            'Oui' => 'Oui',
+                                            'Non' => 'Non',
+                                        ),
+                                        'allow_null' => 0,
+                                        'other_choice' => 0,
+                                        'save_other_choice' => 0,
+                                        'default_value' => 'Non',
+                                        'layout' => 'vertical',
+                                        'return_format' => 'value',
+                                    ),
+                                    array(
+                                        'key' => 'field_609691a819016',
+                                        'label' => 'Nom',
+                                        'name' => 'nom',
+                                        'type' => 'text',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_609691a819015',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'placeholder' => '',
+                                        'prepend' => '',
+                                        'append' => '',
+                                        'maxlength' => '',
+                                    ),
+                                    array(
+                                        'key' => 'field_609691a819017',
+                                        'label' => 'URL',
+                                        'name' => 'url',
+                                        'type' => 'link',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_609691a819015',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'return_format' => 'url',
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_60979dd9aaa4c',
+                                'label' => 'BUSINESS CASE',
+                                'name' => '',
+                                'type' => 'accordion',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'open' => 0,
+                                'multi_expand' => 0,
+                                'endpoint' => 0,
+                            ),
+                            array(
+                                'key' => 'field_6097bd38cbeb8',
+                                'label' => 'Business Case',
+                                'name' => 'business_case',
+                                'type' => 'group',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'layout' => 'block',
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'field_6097bd38cbeb9',
+                                        'label' => 'Activer',
+                                        'name' => 'activer',
+                                        'type' => 'radio',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'choices' => array(
+                                            'Oui' => 'Oui',
+                                            'Non' => 'Non',
+                                        ),
+                                        'allow_null' => 0,
+                                        'other_choice' => 0,
+                                        'save_other_choice' => 0,
+                                        'default_value' => 'Non',
+                                        'layout' => 'vertical',
+                                        'return_format' => 'value',
+                                    ),
+                                    array(
+                                        'key' => 'field_6097bd38cbeba',
+                                        'label' => 'Titre',
+                                        'name' => 'titre',
+                                        'type' => 'text',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => 'Business Case & Témoignages',
+                                        'placeholder' => '',
+                                        'prepend' => '',
+                                        'append' => '',
+                                        'maxlength' => '',
+                                    ),
+                                    array(
+                                        'key' => 'field_6097bd38cbebb',
+                                        'label' => 'Sous-Titre',
+                                        'name' => 'sous-titre',
+                                        'type' => 'text',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'placeholder' => '',
+                                        'prepend' => '',
+                                        'append' => '',
+                                        'maxlength' => '',
+                                    ),
+                                    array(
+                                        'key' => 'field_6097bd38cbebc',
+                                        'label' => 'Image',
+                                        'name' => 'image',
+                                        'type' => 'image',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'return_format' => 'url',
+                                        'preview_size' => 'medium',
+                                        'library' => 'all',
+                                        'min_width' => '',
+                                        'min_height' => '',
+                                        'min_size' => '',
+                                        'max_width' => '',
+                                        'max_height' => '',
+                                        'max_size' => '',
+                                        'mime_types' => '',
+                                    ),
+                                    array(
+                                        'key' => 'field_6097bd38cbebd',
+                                        'label' => 'Contenu texte',
+                                        'name' => 'contenu',
+                                        'type' => 'wysiwyg',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_6097bd38cbeb9',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'tabs' => 'all',
+                                        'toolbar' => 'full',
+                                        'media_upload' => 0,
+                                        'delay' => 0,
+                                    ),
+                                    array(
+                                        'key' => 'field_6097bd38cbebe',
+                                        'label' => 'Témoignages',
+                                        'name' => 'temoignage',
+                                        'type' => 'repeater',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'collapsed' => '',
+                                        'min' => 0,
+                                        'max' => 0,
+                                        'layout' => 'table',
+                                        'button_label' => '',
+                                        'sub_fields' => array(
+                                            array(
+                                                'key' => 'field_6097bd38cbebf',
+                                                'label' => 'Titre',
+                                                'name' => 'nom__prenom',
+                                                'type' => 'text',
+                                                'instructions' => '',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'default_value' => '',
+                                                'placeholder' => '',
+                                                'prepend' => '',
+                                                'append' => '',
+                                                'maxlength' => '',
+                                            ),
+                                            array(
+                                                'key' => 'field_6097bd38cbec0',
+                                                'label' => 'Sous-Titre',
+                                                'name' => 'entreprise',
+                                                'type' => 'text',
+                                                'instructions' => '',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'default_value' => '',
+                                                'placeholder' => '',
+                                                'prepend' => '',
+                                                'append' => '',
+                                                'maxlength' => '',
+                                            ),
+                                            array(
+                                                'key' => 'field_6097bd38cbec1',
+                                                'label' => 'Contenu',
+                                                'name' => 'temoignage',
+                                                'type' => 'wysiwyg',
+                                                'instructions' => '',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'default_value' => '',
+                                                'tabs' => 'all',
+                                                'toolbar' => 'full',
+                                                'media_upload' => 1,
+                                                'delay' => 0,
+                                            ),
+                                            array(
+                                                'key' => 'field_6097bd38cbec2',
+                                                'label' => 'Sous-Contenu',
+                                                'name' => 'formation',
+                                                'type' => 'text',
+                                                'instructions' => '',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'default_value' => '',
+                                                'placeholder' => '',
+                                                'prepend' => '',
+                                                'append' => '',
+                                                'maxlength' => '',
+                                            ),
+                                            array(
+                                                'key' => 'field_6097bd38cbec3',
+                                                'label' => 'Logo',
+                                                'name' => 'logo_de_lentreprise',
+                                                'type' => 'image',
+                                                'instructions' => 'Dimensions recommandées : 70 x 70 px',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'return_format' => 'url',
+                                                'preview_size' => 'thumbnail',
+                                                'library' => 'all',
+                                                'min_width' => '',
+                                                'min_height' => '',
+                                                'min_size' => '',
+                                                'max_width' => '',
+                                                'max_height' => '',
+                                                'max_size' => '',
+                                                'mime_types' => '',
+                                            ),
+                                        ),
+                                    ),
+                                    array(
+                                        'key' => 'field_6097bd38cbec4',
+                                        'label' => 'Icones',
+                                        'name' => 'icones',
+                                        'type' => 'repeater',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'collapsed' => '',
+                                        'min' => 4,
+                                        'max' => 4,
+                                        'layout' => 'table',
+                                        'button_label' => '',
+                                        'sub_fields' => array(
+                                            array(
+                                                'key' => 'field_6097bd38cbec5',
+                                                'label' => 'Image',
+                                                'name' => 'image',
+                                                'type' => 'image',
+                                                'instructions' => '',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'return_format' => 'url',
+                                                'preview_size' => 'thumbnail',
+                                                'library' => 'all',
+                                                'min_width' => '',
+                                                'min_height' => '',
+                                                'min_size' => '',
+                                                'max_width' => '',
+                                                'max_height' => '',
+                                                'max_size' => '',
+                                                'mime_types' => '',
+                                            ),
+                                            array(
+                                                'key' => 'field_6097bd38cbec6',
+                                                'label' => 'Texte',
+                                                'name' => 'texte',
+                                                'type' => 'text',
+                                                'instructions' => '',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'default_value' => '',
+                                                'placeholder' => '',
+                                                'prepend' => '',
+                                                'append' => '',
+                                                'maxlength' => '',
+                                            ),
+                                        ),
+                                    ),
+                                    array(
+                                        'key' => 'field_6097bd38cbec7',
+                                        'label' => 'Paragraphe',
+                                        'name' => 'paragraphe',
+                                        'type' => 'wysiwyg',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'tabs' => 'all',
+                                        'toolbar' => 'full',
+                                        'media_upload' => 1,
+                                        'delay' => 0,
+                                    ),
+                                    array(
+                                        'key' => 'field_6097bd38cbec8',
+                                        'label' => 'Encadré',
+                                        'name' => 'encadre',
+                                        'type' => 'wysiwyg',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'tabs' => 'all',
+                                        'toolbar' => 'full',
+                                        'media_upload' => 1,
+                                        'delay' => 0,
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_60979dfef5148',
+                                'label' => 'BLOCS SUPPLEMENTAIRES',
+                                'name' => '',
+                                'type' => 'accordion',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'open' => 0,
+                                'multi_expand' => 0,
+                                'endpoint' => 0,
+                            ),
+                            array(
+                                'key' => 'field_6096c5171f5b2',
+                                'label' => 'Bloc "Ce qui nous différencie"',
+                                'name' => 'bloc_dicones',
+                                'type' => 'group',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'layout' => 'block',
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'field_6096c55b1f5b3',
+                                        'label' => 'Activer',
+                                        'name' => 'activer',
+                                        'type' => 'radio',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'choices' => array(
+                                            'Oui' => 'Oui',
+                                            'Non' => 'Non',
+                                        ),
+                                        'allow_null' => 0,
+                                        'other_choice' => 0,
+                                        'default_value' => 'Non',
+                                        'layout' => 'vertical',
+                                        'return_format' => 'value',
+                                        'save_other_choice' => 0,
+                                    ),
+                                    array(
+                                        'key' => 'field_6096cbf64d788',
+                                        'label' => 'Couleur',
+                                        'name' => 'couleur',
+                                        'type' => 'color_picker',
+                                        'instructions' => '',
+                                        'required' => 1,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '#eff0f6',
+                                    ),
+                                    array(
+                                        'key' => 'field_6096c663ca8c6',
+                                        'label' => 'Titre',
+                                        'name' => 'titre',
+                                        'type' => 'text',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_6096c55b1f5b3',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => 'Ce qui nous différencie',
+                                        'placeholder' => '',
+                                        'prepend' => '',
+                                        'append' => '',
+                                        'maxlength' => '',
+                                    ),
+                                    array(
+                                        'key' => 'field_6096c4818cf57',
+                                        'label' => 'Icones',
+                                        'name' => 'icones',
+                                        'type' => 'repeater',
+                                        'instructions' => '',
+                                        'required' => 0,
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_6096c55b1f5b3',
+                                                    'operator' => '==',
+                                                    'value' => 'Oui',
+                                                ),
+                                            ),
+                                        ),
+                                        'wrapper' => array(
+                                            'width' => '',
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'collapsed' => '',
+                                        'min' => 0,
+                                        'max' => 0,
+                                        'layout' => 'table',
+                                        'button_label' => '',
+                                        'sub_fields' => array(
+                                            array(
+                                                'key' => 'field_6096c4818cf58',
+                                                'label' => 'Image',
+                                                'name' => 'image',
+                                                'type' => 'image',
+                                                'instructions' => '80 x 80 pixels',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'return_format' => 'url',
+                                                'preview_size' => 'thumbnail',
+                                                'library' => 'all',
+                                                'min_width' => 80,
+                                                'min_height' => 80,
+                                                'min_size' => '',
+                                                'max_width' => 80,
+                                                'max_height' => 80,
+                                                'max_size' => '',
+                                                'mime_types' => '',
+                                            ),
+                                            array(
+                                                'key' => 'field_6096c4818cf59',
+                                                'label' => 'Texte',
+                                                'name' => 'texte',
+                                                'type' => 'text',
+                                                'instructions' => '',
+                                                'required' => 0,
+                                                'conditional_logic' => 0,
+                                                'wrapper' => array(
+                                                    'width' => '',
+                                                    'class' => '',
+                                                    'id' => '',
+                                                ),
+                                                'default_value' => '',
+                                                'placeholder' => '',
+                                                'prepend' => '',
+                                                'append' => '',
+                                                'maxlength' => '',
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_6096cf8cd1189',
+                                'label' => 'Bloc libre',
+                                'name' => 'bloc_libre',
+                                'type' => 'wysiwyg',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'tabs' => 'all',
+                                'toolbar' => 'full',
+                                'media_upload' => 1,
+                                'delay' => 0,
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_6097eb944b2ed',
+                'label' => 'Bandeau Satisfaction',
+                'name' => 'satisfaction',
+                'type' => 'group',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'layout' => 'block',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_6097eb944b2ee',
+                        'label' => 'Activer',
+                        'name' => 'activer',
+                        'type' => 'radio',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => array(
+                            'Oui' => 'Oui',
+                            'Non' => 'Non',
+                        ),
+                        'allow_null' => 0,
+                        'other_choice' => 0,
+                        'default_value' => 'Non',
+                        'layout' => 'vertical',
+                        'return_format' => 'value',
+                        'save_other_choice' => 0,
+                    ),
+                    array(
+                        'key' => 'field_6097ebaa4b2ef',
+                        'label' => 'Texte',
+                        'name' => 'texte',
+                        'type' => 'text',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '93% de nos stagiaires Inter Entreprises satisfaits en 2020',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_6097b1bf4048a',
+                'label' => 'Formulaire de contact',
+                'name' => 'formulaire_de_contact',
+                'type' => 'group',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'layout' => 'block',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_6097b20268e65',
+                        'label' => 'Activer',
+                        'name' => 'activer',
+                        'type' => 'radio',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => array(
+                            'Oui' => 'Oui',
+                            'Non' => 'Non',
+                        ),
+                        'allow_null' => 0,
+                        'other_choice' => 0,
+                        'default_value' => 'Non',
+                        'layout' => 'vertical',
+                        'return_format' => 'value',
+                        'save_other_choice' => 0,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-pages-solutions.php',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'acf_after_title',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => array(
+            0 => 'the_content',
+        ),
+        'active' => true,
+        'description' => '',
+    ));
+    
+    endif;
+
+
+// Dont load youtube iframes until user accept cookies
+add_action('template_redirect', 'find_and_replace_youtube_embed', 99);
+function find_and_replace_youtube_embed()
+{
+    ob_start(function ($buffer) {
+        // Did they accept the GDPR cookie?
+        if ((!isset($_COOKIE['cookielawinfo-checkbox-functional'])) || 
+            ($_COOKIE['cookielawinfo-checkbox-functional'] == 'no'))  {
+                // Build "accept cookies" notice
+                $notice = <<<EOD
+                    <div class="iframe-request-approval">
+                        <p>
+                        Vous devez accepter les cookies relatifs aux réseaux sociaux pour lire cette vidéo. Pour plus d'informations, consultez notre 
+                            <a href="https://www.digitalacademy.fr/mentions-legales">
+                                Politique de confidentialité et de protection des données personnelles Digital Academy.
+                            </a>
+                        </p>
+                        <button onclick="acceptSocialCookies()" class="btn btn-red-alt-neg">
+                            Accepter
+                        </button>
+                    </div>
+EOD;
+                // Replace all youtube iframes with the notice
+                $buffer = preg_replace('/<iframe.+src="https?:\/\/(?:www.)?youtu\.?be(?:\.com)?.+<\/iframe>/i', $notice, $buffer);
+        }
+        return $buffer;
+    });
+}
+
+// Fonction pour modifier l'adresse email de l'expéditeur
+function wpm_email_from( $original_email_address ) {
+
+    return 'formationsCPF@digitalacademy.fr';
+
+}
+add_filter( 'wp_mail_from', 'wpm_email_from' );
+ 
+
+// Fonction pour changer le nom de l'expéditeur de l'email
+function wpm_expediteur( $original_email_from ) {
+
+    return 'Digital Academy';
+
+}
+add_filter( 'wp_mail_from_name', 'wpm_expediteur' );
+    
+
+// add_filter( 'gform_force_hooks_js_output', '__return_true' );
+// add_filter('gform_init_scripts_footer', '__return_true');

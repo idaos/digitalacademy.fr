@@ -28,15 +28,6 @@ $courses_count = count(json_decode($result[0])) ;
     <div class="container">
         <div class="row">
             <div class="col-xs-12 alignCenter">
-                <!--
-<?php //if ( $pictos = digital_get_thematiques_picto() ): ?>
-<ul class="clearfix hidden-xs" style="padding:0 1em">
-<?php //foreach ( $pictos as $picto ): ?>
-<li><img src="<?php //echo $picto; ?>" alt=""/></li>
-<?php //endforeach; ?>
-</ul>
-<?php //endif; ?>
--->
                 <h1 class="title-slider" style="color: #fff!important;"><?php the_title(); ?></h1>
                 <hr style="display:block">
             </div>
@@ -128,7 +119,6 @@ $courses_count = count(json_decode($result[0])) ;
     <!--   ------------------ CALENDAR ------------------   -->
     <!--   ----------------------------------------------   -->
     <?php
-    $blocs = array();
     if ( $thematiques = get_terms( 'thematique' ) ) {
         $i = 0;
         $color = array(
@@ -141,17 +131,6 @@ $courses_count = count(json_decode($result[0])) ;
         );
         foreach ( $thematiques as $thematique ) {
             $couleur = get_field( 'couleur', 'thematique_' . $thematique->term_id );
-            $blocs[ $i ] = '<div class="container-theme theme-' . $couleur . ' clearfix">';
-            $blocs[ $i ] .= '<div class="content-theme">';
-            $blocs[ $i ] .= '<div class="wpb_wrapper">';
-            $blocs[ $i ] .= '<div class="col-sm-3 text-center">';
-            $blocs[ $i ] .= '<h3>' . $thematique->name . '</h3>';
-            if ( $picto = get_field( 'picto', 'thematique_' . $thematique->term_id ) ) {
-                $blocs[ $i ] .= '<img src="' . $picto . '" alt="" />';
-            }
-            $blocs[ $i ] .= '</div>';
-            $blocs[ $i ] .= '<div class="col-sm-9 content-show">';
-            $blocs[ $i ] .= '<p class="visible-xs">+</p>';
             $formations = get_posts(
                 array(
                     'posts_per_page' => - 1,
@@ -176,18 +155,37 @@ $courses_count = count(json_decode($result[0])) ;
                 }
             }
             $formation_list = array_chunk( $formation_list, ceil( count( $formation_list ) / 2 ) );
-            $blocs[ $i ] .= '<ul>';
-            foreach ( $formation_list as $list ) {
-                $blocs[ $i ] .= implode( "\n", $list );
-            }
-            $blocs[ $i ] .= '</ul>';
-            $blocs[ $i ] .= '</div>';
-            $blocs[ $i ] .= '</div>';
-            $blocs[ $i ] .= '</div>';
-            $blocs[ $i ] .= '</div>';
             $i ++;
         }
     }
+
+    // -----------------------------------------------------------------------
+    // GET ALL CALENDAR EVENTS
+    // -----------------------------------------------------------------------
+    $events = '';
+    foreach( $thematique_infos as $formation_title => $formation_infos )
+    {
+        foreach( $formation_infos as $couleur => $arrayDates )
+        {
+            foreach( $arrayDates as $dates )
+            {
+                foreach( $dates as $date )
+                {
+                    $events .= '{';
+                    $events .= 'title:    "'. html_entity_decode ($date['titre']) .'",';
+                    $events .= 'start:    "'. $date['date'] .'",';
+                    $events .= 'end:      "'. date( 'Y-m-d', strtotime( $date['date'] . ' + '. $date['nombre_jours'] .' days' ) ) .'",';
+                    $events .= 'url:      "'. $date['url'] .'",';
+                    $events .= 'color:    "'. $couleur .'"';
+                    $events .= '},';
+                }
+            }
+        }
+    }
+    $events = rtrim( $events, ',' );
+    // -----------------------------------------------------------------------
+    // -----------------------------------------------------------------------
+
     ?>
     <div class="container" style="margin-top:3em;">
         <div class="wrapper">
@@ -204,87 +202,23 @@ $courses_count = count(json_decode($result[0])) ;
         </div>
     </div>
 
-    <!--  load calendar-->
-    <script defer>
-        window.onload = function() {
-            checkIfCalendarDependanciesHaveBeenLoad();
-        }
-        function checkIfCalendarDependanciesHaveBeenLoad(){
-            setTimeout(function(){
-                if (window.jQuery) {  
-                    loadCalendar();
-                }else{
-                    checkIfCalendarDependanciesHaveBeenLoad();
-                }
-            }, 300);
-        }
-        function loadCalendar(){
-            jQuery('#calendar').fullCalendar({
-                header: {
-                    right: 'today prev,next',
-                    center: '',
-                    left: 'title'
-                },
-                defaultDate: '<?php echo date( 'Y-m-d' ); ?>',
-                firstDay: 1,
-                editable: false,
-                eventLimit: true,
-                events: [
-                    <?php
-                    $events = '';
-                    foreach( $thematique_infos as $formation_title => $formation_infos )
-                    {
-                        foreach( $formation_infos as $couleur => $arrayDates )
-                        {
-                            foreach( $arrayDates as $dates )
-                            {
-                                foreach( $dates as $date )
-                                {
-                                    $events .= '{';
-                                    $events .= 'title:    "'. html_entity_decode ($date['titre']) .'",';
-                                    $events .= 'start:    "'. $date['date'] .'",';
-                                    $events .= 'end:      "'. date( 'Y-m-d', strtotime( $date['date'] . ' + '. $date['nombre_jours'] .' days' ) ) .'",';
-                                    $events .= 'url:      "'. $date['url'] .'",';
-                                    $events .= 'color:    "'. $couleur .'"';
-                                    $events .= '},';
-                                }
-                            }
-                        }
-                    }
-                    echo rtrim( $events, ',' );
-                    ?>
-                ], // filter by thematique
-                eventRender: function eventRender( event, element, view ) {
-                    if ("<?php echo $th->getColor(); ?>" == "orange"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-1').attr('value') ) >= 0
-                    }
-                    else if ("<?php echo $th->getColor(); ?>" == "gray"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-2').attr('value') ) >= 0
-                    }
-                    else if ("<?php echo $th->getColor(); ?>" == "blue"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-3').attr('value') ) >= 0
-                    }
-                    else if ("<?php echo $th->getColor(); ?>" == "yellow"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-4').attr('value') ) >= 0
-                    }
-                    else if ("<?php echo $th->getColor(); ?>" == "green"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-5').attr('value') ) >= 0
-                    }
-                    else if ("<?php echo $th->getColor(); ?>" == "blue-dark"){
-                        return ['all', event.color].indexOf( jQuery('#thematique-checkbox-6').attr('value') ) >= 0
-                    }
-                }
-            });
-        }
+    <!--   ----------------------------------------------   -->
+    <!--   -------------- CALENDAR POPULATE -------------   -->
+    <!--   ----------------------------------------------   -->
+    <!--   Var used in the calendar controller              -->
+    <!--   js/fullcalendar-render.js                        -->
+    <!--   ----------------------------------------------   -->
+    <script>
+        var eventsJson = [<?php echo $events; ?>];
+        setTimeout( function(){
+            calendar.addEventSource(eventsJson);
+            calendar.refetchEvents();
+        }, 1500);
     </script>   
-
-
-
 
     <!--   ----------------------------------------------   -->
     <!--   ---------------- END CALENDAR ----------------   -->
     <!--   ----------------------------------------------   -->
-
 
     <!--   ----------------------------------------------   -->
     <!--   -------------- ANGULAR POPULATE --------------   -->
