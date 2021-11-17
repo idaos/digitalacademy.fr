@@ -82,7 +82,7 @@
 
                         </a>
 
-                        <i>Appel non surtaxé. Du lundi au vendredi de 9h30 à 18h</i>
+                        <i>Appel non surtaxé. Du lundi au vendredi de 9h30 à 13h et de 14h à 18h</i>
 
                         <img id="qualiopi-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/qualiopi.svg" alt="Logo qualiopi processus certifié">
 			<img id="qualiopi-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/datadock.png" alt="Logo datadock processus certifié">
