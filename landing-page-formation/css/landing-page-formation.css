@@ -32,6 +32,25 @@ h2 {
   width: 100%;
   text-align: center;
 }
+@media (max-width: 1200px) {
+  .col-md-12 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .bloc-1 [class^='col-']:last-child {
+    padding: 3em ​1em 0em 1em !important;
+  }
+}
+@media (max-width: 1500px) {
+  body .slick-next,
+  body #opcos .slick-next {
+    right: 30px !important;
+  }
+  body .slick-prev,
+  body #opcos .slick-prev {
+    left: 30px !important;
+  }
+}
 .flex-5 {
   display: flex;
   flex-direction: row;
@@ -59,6 +78,25 @@ h2 {
 .flex-5 > div p {
   display: block;
 }
+@media (max-width: 1200px) {
+  .flex-5 {
+    display: block;
+    text-align: center;
+  }
+  .flex-5 > div {
+    display: inline-block;
+    width: 30%;
+  }
+}
+@media (max-width: 768px) {
+  .flex-5 > div {
+    display: inline-block;
+    width: 80%;
+  }
+}
+#arrow-container {
+  cursor: pointer;
+}
 #arrow-container div {
   width: 100%;
   text-align: center;
@@ -66,6 +104,13 @@ h2 {
 }
 #arrow-container div img {
   display: inline-block;
+}
+#arrow-container img {
+  transition: all 0.2s ease;
+  transform: translateY(0);
+}
+#arrow-container:hover img {
+  transform: translateY(10px);
 }
 .flex-3 {
   display: flex;
@@ -84,12 +129,21 @@ h2 {
 .flex-3 div img {
   width: 150px;
 }
+@media (max-width: 1200px) {
+  .flex-3 {
+    flex-direction: column;
+    text-align: center;
+  }
+  .flex-3 p {
+    margin-bottom: 0;
+  }
+}
 #form-1-container {
   background: #f6f6f6;
   background-image: url('../img/chouette-dac.png');
   background-repeat: no-repeat;
   background-position: 10%;
-  background-size: 20%;
+  background-size: 15%;
   padding-bottom: 3em;
 }
 #form-1-container h2 {
@@ -171,6 +225,11 @@ h2 {
   transform-origin: bottom right;
   z-index: 0;
 }
+@media (max-width: 1200px) {
+  #a-qui-s-adresse-cette-formation h3 {
+    margin-top: 5em;
+  }
+}
 #jeremy-notre-formateur {
   background: #bf3b2b;
   margin-bottom: 5em;
@@ -201,6 +260,21 @@ h2 {
 #jeremy-notre-formateur [class^="col-"]:nth-child(2) {
   padding: 0 4em;
 }
+@media (max-width: 560px) {
+  #jeremy-notre-formateur {
+    background: #fff;
+    padding: 0;
+  }
+  #jeremy-notre-formateur img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 170px;
+  }
+  #jeremy-notre-formateur [class^="col-"]:nth-child(2) {
+    background: #bf3b2b;
+  }
+}
 #presentation h3 {
   color: #bf3b2b !important;
   font-weight: bold !important;
@@ -228,7 +302,7 @@ h2 {
 .gform_fields textarea {
   padding: 1em;
   margin-bottom: 1em;
-  width: 100%;
+  width: 100% !important;
   border: solid 1px #eee;
 }
 .gform_fields input::placeholder,
@@ -284,5 +358,10 @@ h2 {
 }
 #form-1-container .form-wrapper .gform_footer input[type="submit"] {
   margin-bottom: 1em !important;
+}
+.gform_confirmation_message {
+  padding: 2em;
+  text-align: center;
+  font-size: 1.2em;
 }
 /*# sourceMappingURL=./landing-page-formation.css.map */

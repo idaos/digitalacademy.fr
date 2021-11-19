@@ -81,16 +81,16 @@ Template Name: Landing Page - Formation pub FB & Insta
                 </svg>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-md-12 col-lg-6">
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-md-12 col-lg-6">
                             <span class="reverse">
                                 <a href="<?php echo get_page_link(270); ?>">
                                     <h1>Formation publicité Facebook&nbsp;et&nbsp;Instagram</h1>
                                 </a>
                             </span>
                             <p>Vous souhaitez, booster la visibilité de vos offres, accroître votre notoriété, aiguisez votre image de marque, promouvoir du contenu, développer vos communautés et augmenter vos engagements ? Le duo gagnant, c'est Facebook et Instagram, qui opèrent de la même régie. À l'issue de notre formation, vous saurez comment créer une publicité optimale sur Facebook et Instagram.</p>
-                            <a href="https://www.digitalacademy.fr/formations/">
+                            <a href="https://www.digitalacademy.fr/formations/publicite-facebook-instagram-performer/">
                                 <div class="btn btn-red marginR">Découvrez la formation</div>
                             </a>
                             <br><br>
@@ -345,7 +345,9 @@ Template Name: Landing Page - Formation pub FB & Insta
 
     <script>
         jQuery('#arrow-container').click(function() {
-            console.log('click')
+            jQuery('html,body').animate({
+                scrollTop: jQuery("#presentation").offset().top - 50
+            });
         })
     </script>
 </body>

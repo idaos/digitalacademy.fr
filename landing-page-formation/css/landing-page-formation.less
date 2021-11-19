@@ -44,7 +44,31 @@ h2 {
 }
 
 
+@media (max-width: 1200px) {
+    .col-md-12 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
 
+    .bloc-1 [class^='col-']:last-child {
+        padding: 3em ​1em 0em 1em !important;
+    }
+}
+
+
+@media (max-width: 1500px) {
+
+    body,
+    body #opcos {
+        .slick-next {
+            right: 30px !important;
+        }
+
+        .slick-prev {
+            left: 30px !important;
+        }
+    }
+}
 
 // 
 
@@ -55,6 +79,7 @@ h2 {
     align-items: center;
     justify-content: center;
     z-index: 1;
+
 
     >div {
         width: 200px;
@@ -78,6 +103,25 @@ h2 {
             display: block;
         }
     }
+
+
+
+    @media (max-width: 1200px) {
+        display: block;
+        text-align: center;
+
+        >div {
+            display: inline-block;
+            width: 30%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        >div {
+            display: inline-block;
+            width: 80%;
+        }
+    }
 }
 
 //
@@ -90,6 +134,19 @@ h2 {
 
         img {
             display: inline-block;
+        }
+    }
+
+    cursor: pointer;
+
+    img {
+        transition: all .2s ease;
+        transform: translateY(0);
+    }
+
+    &:hover {
+        img {
+            transform: translateY(10px);
         }
     }
 }
@@ -115,6 +172,15 @@ h2 {
             width: 150px;
         }
     }
+
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        text-align: center;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
 }
 
 //
@@ -124,9 +190,9 @@ h2 {
     background-image: url('../img/chouette-dac.png');
     background-repeat: no-repeat;
     background-position: 10%;
-    background-size: 20%;
+    background-size: 15%;
     padding-bottom: 3em;
-    
+
     h2 {
         display: block;
         margin: auto !important;
@@ -229,6 +295,12 @@ h2 {
         }
 
     }
+
+    @media (max-width: 1200px) {
+        h3 {
+            margin-top: 5em;
+        }
+    }
 }
 
 
@@ -270,6 +342,24 @@ h2 {
 
     [class^="col-"]:nth-child(2) {
         padding: 0 4em;
+    }
+
+
+    @media (max-width: 560px) {
+
+        background: #fff;
+        padding: 0;
+
+        img {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 170px;
+        }
+
+        [class^="col-"]:nth-child(2) {
+            background: @red;
+        }
     }
 }
 
@@ -314,7 +404,7 @@ h2 {
     textarea {
         padding: 1em;
         margin-bottom: 1em;
-        width: 100%;
+        width: 100% !important;
         border: solid 1px #eee;
 
         &::placeholder {
@@ -373,13 +463,21 @@ h2 {
     background: rgb(255 255 255);
     max-width: 400px;
     margin: 0 auto 2em auto;
-    .gform_wrapper{
+
+    .gform_wrapper {
         margin: 0;
         padding: 1em 2em;
         width: 100%;
     }
+
     .gform_footer input[type="submit"] {
         margin-bottom: 1em !important;
     }
-    
+
+}
+
+.gform_confirmation_message {
+    padding: 2em;
+    text-align: center;
+    font-size: 1.2em
 }

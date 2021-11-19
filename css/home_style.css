@@ -603,7 +603,7 @@ svg {
     padding-bottom: 5.2em !important;
   }
   #heading .bloc-1 [class^='col-'] {
-    padding: 2em 1em 4em 1em !important;
+    padding: 3em 1em 0em 1em !important;
   }
 }
 .slick-track {
