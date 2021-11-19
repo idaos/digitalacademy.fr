@@ -115,7 +115,7 @@ Template Name: Landing Page - Formation pub FB & Insta
                         <p>3 à 12 personnes</p>
                     </div>
                     <div>
-                        <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/rating.png" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/rating.jpg" alt="">
                         <p>Avis clients</p>
                     </div>
                 </div>
@@ -148,7 +148,9 @@ Template Name: Landing Page - Formation pub FB & Insta
                     SUR FACEBOOK ET INSTAGRAM,<br>
                     <span>DÉCOUVREZ NOTRE FORMATION !</span>
                 </h2>
-                <?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
+                <div class="form-wrapper">
+                    <?php echo do_shortcode('[gravityform id="14" title="false" description="false" ajax="true"]'); ?>
+                </div>
             </div>
 
         </section>
@@ -168,15 +170,102 @@ Template Name: Landing Page - Formation pub FB & Insta
             </div>
         </section>
 
-        <section class="testimonial-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <span class="reverse">
-                            <h2>Ils nous ont fait confiance</h2>
-                        </span>
+        <section id="presentation" class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-1"></div>
+                <div class="col-xs-12 col-sm-5 txt">
+                    <h3>Publicité Facebook et Instagram :<br> Boostez votre business</h3>
+
+                    <p>Comment faire le bon choix d’audience et de format de publicité&nbsp;?
+                        Comment budgéter une campagne&nbsp;? Comment analyser les
+                        résultats de vos campagnes de publicité&nbsp;? Comment établir une
+                        stratégie publicitaire axée sur les résultats&nbsp;?</p>
+
+                    <p>La publicité sur Facebook et Instagram apparaît comme une
+                        solution simple pour gagner en notoriété, impacter
+                        favorablement son image de marque, augmenter le trafic sur sa
+                        page et encore promouvoir son offre de produits et services.</p>
+
+                    <p>Cette formation sera composée d’explications et de nombreux
+                        cas pratiques. Ainsi, ces deux jours vous permettront
+                        d’appréhender le gestionnaire de publicités Facebook
+                        (plateforme pour créer des campagnes), cibler vos publicités,
+                        choisir le format d’annonce (liens, annonce multiproduits,
+                        carrousel, photo, vidéo ads), budgéter votre campagne et
+                        analyser les résultats de vos campagnes de publicité.</p>
+                </div>
+                <div class="col-xs-12 col-sm-5 form-wrapper">
+                    <div class="content">
+                        <h3>Pré-inscription - Publicité Facebook et Instagram&nbsp;: de la stratégie aux résultats</h3>
+                        <?php echo do_shortcode('[gravityform id="13" title="false" description="false" ajax="true"]'); ?>
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-1"></div>
+            </div>
+        </section>
+
+        <section id="jeremy-notre-formateur" class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/jeremy.png" alt="">
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+                        <div class="h2">Jeremy</div>
+                        <div class="h1">Notre formateur</div>
+                        <p>« Qui de mieux qu’un ancien salarié de chez Facebook pour vous former à la publicité Facebook et Instagram ? Jeremy a travaillé pendant 2&nbsp;ans chez Facebook à Londres et à former plus de 10&nbsp;000&nbsp;personnes parmi les plus grandes agences et entreprises dans le monde »</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="a-qui-s-adresse-cette-formation" class="container">
+            <h2>À qui s'adresse cette formation ?</h2>
+            <div class="flex-5">
+                <div>
+                    <p><span>Responsable marketing</span> <br>et chargé de communication</p>
+                </div>
+                <div>
+                    <p><span>Community manager</span> <br>Social media manager</p>
+                </div>
+                <div>
+                    <p><span>Responsable acquisition</span> <br>Growth / Trafic manager</p>
+                </div>
+                <div>
+                    <p><span>Chef de projet</span> web</p>
+                </div>
+                <div>
+                    <p><span>Agence digitale</span> <br>et de communication</p>
+                </div>
+            </div>
+            <div class="row">
+                <div id="calendly" class="col-xs-12 col-sm-6">
+                    <div class="content">
+                        <!-- Calendly -->
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 pl-sm-6">
+                    <h3>Besoin d'aide pour vous lancer dans la publicité Facebook et Instagram ?</h3>
+                    <p>Différentes modalités pédagogiques sont disponibles :</p>
+                    <ul>
+                        <li>Présentiel</li>
+                        <li>Distanciel</li>
+                        <li>E-learning</li>
+                        <li>Blended Learning</li>
+                        <li>Sur-mesure</li>
+                        <li>Inter</li>
+                        <li>Intra</li>
+                    </ul>
+                    <p><span>Des questions ?</span> Echangez avec notre responsable formation</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-wrapper">
+            <div class="container">
+                <h2>Ils nous ont fait confiance</h2>
+                <br><br>
                 <div class="row row-same-height">
                     <div class="col-sm-6 col-md-4">
                         <div class="wrapper">
@@ -226,13 +315,8 @@ Template Name: Landing Page - Formation pub FB & Insta
                 <div class="row">
                     <div class="col-xs-12">
                         <br><br>
-                        <span class="reverse">
-                            <a title="Voir toutes nos références" href="/type-reference/intra-entreprise/">
-                                <h2>Nos références clients en formation</h2>
-                            </a>
-                            <h3 style="margin-top: 2em;">Depuis 10 ans, la Digital Academy forme aux métiers du web</h3>
-                        </span>
-                        <hr>
+                        <h2>Nos références clients en formation</h2>
+                        <br><br>
                         <?php echo do_shortcode('[kz_ref_slider]'); ?>
                         <br><br><br><br><br>
                     </div>
@@ -259,7 +343,11 @@ Template Name: Landing Page - Formation pub FB & Insta
     <script src="<?php echo get_template_directory_uri(); ?>/js/slickRefs.js"></script>
 
 
-
+    <script>
+        jQuery('#arrow-container').click(function() {
+            console.log('click')
+        })
+    </script>
 </body>
 
 

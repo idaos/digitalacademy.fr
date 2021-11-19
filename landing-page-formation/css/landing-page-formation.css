@@ -28,6 +28,10 @@ body .btn {
 #references .col-xs-12 {
   max-width: 100%;
 }
+h2 {
+  width: 100%;
+  text-align: center;
+}
 .flex-5 {
   display: flex;
   flex-direction: row;
@@ -86,10 +90,11 @@ body .btn {
   background-repeat: no-repeat;
   background-position: 10%;
   background-size: 20%;
+  padding-bottom: 3em;
 }
 #form-1-container h2 {
   display: block;
-  margin: auto!important;
+  margin: auto !important;
   padding: 2em 1em;
   text-align: center;
   max-width: 600px;
@@ -102,5 +107,182 @@ body .btn {
 #form-1-container .gform_wrapper {
   max-width: 400px;
   margin: auto;
+}
+#a-qui-s-adresse-cette-formation h2,
+#a-qui-s-adresse-cette-formation h3,
+#a-qui-s-adresse-cette-formation p > span {
+  color: #3d00cc !important;
+}
+#a-qui-s-adresse-cette-formation p {
+  font-weight: bold;
+}
+#a-qui-s-adresse-cette-formation h3 {
+  font-weight: bold !important;
+  font-style: initial !important;
+  font-size: 1.2em !important;
+}
+#a-qui-s-adresse-cette-formation [class^=flex-] > div {
+  box-shadow: 0px 2px 3px #dddddd;
+  border-radius: 0.3em;
+  flex: 1;
+  align-self: stretch;
+}
+#a-qui-s-adresse-cette-formation ul {
+  padding: 0;
+}
+#a-qui-s-adresse-cette-formation li {
+  list-style: none;
+  text-transform: uppercase;
+}
+#a-qui-s-adresse-cette-formation li::before {
+  content: '►';
+  margin-right: 0.5em;
+  color: #3d00cc;
+  font-size: 1.2em;
+}
+#a-qui-s-adresse-cette-formation .row {
+  padding: 3.5em 1em 7em 1em;
+}
+#a-qui-s-adresse-cette-formation #calendly {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  padding: 0;
+}
+#a-qui-s-adresse-cette-formation #calendly .content {
+  background: #eee;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+#a-qui-s-adresse-cette-formation #calendly:before {
+  content: '';
+  background-color: #3d00cc;
+  position: absolute;
+  width: 400%;
+  min-height: 400%;
+  bottom: 0;
+  right: 0;
+  transform: skew(72deg, -8deg);
+  transform-origin: bottom right;
+  z-index: 0;
+}
+#jeremy-notre-formateur {
+  background: #bf3b2b;
+  margin-bottom: 5em;
+}
+#jeremy-notre-formateur * {
+  color: #fff;
+}
+#jeremy-notre-formateur .h2,
+#jeremy-notre-formateur .h1 {
+  font-size: 1.7em;
+  display: block;
+}
+#jeremy-notre-formateur .h1 {
+  font-weight: bold;
+}
+#jeremy-notre-formateur .h2 {
+  margin-top: 1em;
+}
+#jeremy-notre-formateur p {
+  margin-bottom: 2em;
+}
+#jeremy-notre-formateur img {
+  max-width: 220px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+#jeremy-notre-formateur [class^="col-"]:nth-child(2) {
+  padding: 0 4em;
+}
+#presentation h3 {
+  color: #bf3b2b !important;
+  font-weight: bold !important;
+  font-style: initial !important;
+  font-size: 1.2em !important;
+}
+#presentation .txt {
+  padding: 2em;
+}
+@media screen and (min-width: 992px) {
+  .pl-sm-6 {
+    padding-left: 3em;
+  }
+}
+.gform_fields {
+  padding: 0;
+}
+.gform_fields li {
+  list-style: none;
+}
+.gform_fields label {
+  display: none;
+}
+.gform_fields input,
+.gform_fields textarea {
+  padding: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+  border: solid 1px #eee;
+}
+.gform_fields input::placeholder,
+.gform_fields textarea::placeholder {
+  color: #757575;
+}
+.gform_fields .gform_validation_container {
+  display: none;
+}
+.gform_footer input[type="submit"] {
+  width: 100% !important;
+  margin: 0 !important;
+  margin-top: -1em !important;
+  margin-bottom: 2em !important;
+  text-transform: initial !important;
+}
+.form-wrapper {
+  margin-bottom: 5em;
+  position: relative;
+  padding: 0;
+  box-shadow: 1px 1px 6px #d9d9d9;
+}
+#presentation .form-wrapper .content {
+  padding: 1em 3em;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+#presentation .form-wrapper:before {
+  content: '';
+  background-color: #bf3b2b;
+  position: absolute;
+  width: 400%;
+  min-height: 400%;
+  bottom: 0;
+  left: 0;
+  transform: skew(-67deg, 4deg);
+  transform-origin: bottom left;
+  z-index: 0;
+}
+#form-1-container .form-wrapper {
+  background: #ffffff;
+  max-width: 400px;
+  margin: 0 auto 2em auto;
+}
+#form-1-container .form-wrapper .gform_wrapper {
+  margin: 0;
+  padding: 1em 2em;
+  width: 100%;
+}
+#form-1-container .form-wrapper .gform_footer input[type="submit"] {
+  margin-bottom: 1em !important;
 }
 /*# sourceMappingURL=./landing-page-formation.css.map */
