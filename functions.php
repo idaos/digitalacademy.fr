@@ -3064,6 +3064,7 @@ function wpm_expediteur( $original_email_from ) {
 
 }
 add_filter( 'wp_mail_from_name', 'wpm_expediteur' );
+
     
 
 // add_filter( 'gform_force_hooks_js_output', '__return_true' );
