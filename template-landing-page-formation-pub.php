@@ -241,7 +241,7 @@ Template Name: Landing Page - Formation pub FB & Insta
                 <div id="calendly" class="col-xs-12 col-sm-6">
                     <div class="content">
                         <!-- Début de widget en ligne Calendly -->
-                        <div class="calendly-inline-widget" data-url="https://calendly.com/benjamin-ferrier-digitalacademy/formation-publicite-facebook-et-instagram" style="min-width:320px;height:630px;"></div>
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/benjamin-ferrier-digitalacademy/15min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:630px;"></div>
                         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                         <!-- Fin de widget en ligne Calendly -->
                     </div>
@@ -261,6 +261,12 @@ Template Name: Landing Page - Formation pub FB & Insta
                     <p><span>Des questions ?</span> Echangez avec notre responsable formation</p>
                 </div>
             </div>
+        </section>
+
+        <section id="cta-section" class="container-fluid">
+            <a title="Prochaines dates de formation" class="contact-btn" href="/formations/publicite-facebook-instagram-performer/#cta-col" target="_blank">
+                <div class="btn btn-red-alt-neg">Découvrez nos prochaines dates</div>
+            </a>
         </section>
 
         <section class="testimonial-wrapper">
@@ -325,6 +331,34 @@ Template Name: Landing Page - Formation pub FB & Insta
             </div>
         </section>
 
+        <section id="faq" class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <br><br>
+                        <h2>Questions fréquentes sur la formation</h2>
+                        <br>
+                        <div class="faq">
+                            <ul class="active">
+                                <li>
+                                    <h3>1. Pourquoi est-il important de faire de la publicité Facebook et Instagram ?</h3>
+                                    <p>Avec près de 3 milliards d’utilisateurs actif mensuels, la régie publicitaire Facebook Ads devient de plus en plus prisé voir incontournable dans la stratégie de communication d’une entreprise : à la fois de part la portée potentielle qu’elle offre (qui inclus aussi les utilisateurs d’Instagram), mais aussi des résultats qu’une entreprise peut obtenir en fonction de ses objectifs commerciaux.</p>
+                                </li>
+                                <li>
+                                    <h3>2. Quels sont les bénéfices de la formation pour les apprenants ?</h3>
+                                    <p> Cette formation a pour objectif d’être pratique et actionnable. Nous adapterons nos exemples et cas pratiques en fonction de vos besoins avec une approche aussi bien pratique que théorique. Repartez avec des campagnes prêtes à être lancé en seulement 2 jours de formation. Notre formateur est un ancien salarié de Facebook qui a géré plusieurs millions d’€ de budget publicitaire pour des clients de différents secteurs et accompagnés plus de 10 000 personnes dans la création de leur campagne.</p>
+                                </li>
+                                <li>
+                                    <h3>3. Quelles sont les modalités de la formation ?</h3>
+                                    <p>Notre formation Publicité Facebook et Instagram est disponible en plusieurs formats : présentiel, distanciel, e-learning, blended learning. Pour des formations en intra, nous pouvons également personnaliser la formation selon vos objectifs et problématiques.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
 
@@ -345,6 +379,9 @@ Template Name: Landing Page - Formation pub FB & Insta
 
 
     <script>
+        // Click & scroll
+        // --------
+
         jQuery('.scroll-to-form').click(function() {
             jQuery('html,body').animate({
                 scrollTop: jQuery("#subscribe-form").offset().top - 50
@@ -355,6 +392,23 @@ Template Name: Landing Page - Formation pub FB & Insta
                 scrollTop: jQuery("#form-1-container").offset().top
             });
         })
+
+        // Faq accordeon
+        // --------
+
+        // reveal
+        $('.faq h3').on('click', function() {
+            if (!$(this).next().hasClass('active')) {
+                $(this).next().slideDown("fast");
+            } else {
+                $(this).next().slideUp("fast");
+            }
+            $(this).toggleClass("active");
+            $(this).next().toggleClass("active");
+        });
+
+        // open first elt on load
+        $(".faq li:first-child h3").first().click();
     </script>
 </body>
 

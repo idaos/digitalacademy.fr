@@ -422,6 +422,7 @@ h2 {
         margin-bottom: 1em;
         width: 100% !important;
         border: solid 1px #eee;
+        max-height: 100px;
 
         &::placeholder {
             color: rgb(117, 117, 117);
@@ -468,7 +469,7 @@ h2 {
         min-height: 400%;
         bottom: 0;
         left: 0;
-        transform: skew(-67deg, 4deg);
+        transform: skew(-75deg, 2deg);
         transform-origin: bottom left;
         z-index: 0;
     }
@@ -496,4 +497,127 @@ h2 {
     padding: 2em;
     text-align: center;
     font-size: 1.2em
+}
+
+
+//  FAQ
+
+#faq {
+
+    background: #eee;
+    padding-bottom: 5em;
+    width: 100%;
+
+    .faq ul {
+        display: none;
+
+        li {
+            box-shadow: 0px 2px 3px #dddddd;
+        }
+    }
+
+    .faq ul.active {
+        display: inherit;
+    }
+
+    ul,
+    li,
+    .col-xs-12 {
+        list-style: none;
+        width: 100% !important;
+    }
+
+    .faq>ul>li {
+        background: #fff;
+        margin: 0 0 1em 0;
+        padding: 0 0 .1em 0;
+
+        h3 {
+            font-weight: bold !important;
+            padding: .8em 1em;
+            user-select: none;
+            cursor: pointer;
+            color: #000;
+            margin: 0;
+            font-size: 1.3em !important;
+            font-style: initial !important;
+            position: relative;
+
+            @media (max-width: 992px) {
+                padding: .8em 2.2em .8em .8em;
+            }
+        }
+
+        h3:not(.active) {
+            &:after {
+                transition: all .2s ease;
+                content: "";
+                right: .4em;
+                top: .5em;
+                font-size: 2em;
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 15px solid rgb(191 59 43);
+                transform: rotate(-90deg);
+            }
+
+            &:hover {
+                background: darken(#f3f3f4, 5%);
+            }
+
+            transition: all .1s ease;
+        }
+    }
+
+    .faq h3.active {
+
+        &:after {
+            transition: all .2s ease;
+            content: "";
+            right: .4em;
+            top: .5em;
+            font-size: 2em;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid @red;
+            transform: rotate(0deg);
+        }
+    }
+
+    h3+p {
+        padding-left: 1.5em;
+        padding-bottom: .2em;
+        border-left: solid 5px @red;
+        margin-left: 1.5em;
+        margin-bottom: 1.5em;
+        display: none;
+    }
+
+    .faq>ul {
+        padding-left: 0;
+        padding-top: 1em;
+
+        @media (max-width: 992px) {
+            padding: 0;
+        }
+    }
+}
+
+//
+
+#cta-section {
+    background: @red;
+    display: flex;
+    justify-content: center;
+    padding: 1.5em 1em;
+
+    .btn {
+        font-size: 1.5em;
+    }
 }
