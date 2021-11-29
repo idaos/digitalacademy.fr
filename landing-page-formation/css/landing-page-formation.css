@@ -457,6 +457,7 @@ h2 {
 #faq h3 + p {
   padding-left: 1.5em;
   padding-bottom: 0.2em;
+  padding-right: 1em;
   border-left: solid 5px #bf3b2b;
   margin-left: 1.5em;
   margin-bottom: 1.5em;
