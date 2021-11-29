@@ -32,6 +32,15 @@ h2 {
   width: 100%;
   text-align: center;
 }
+#opcos img {
+  max-width: 140px;
+}
+.separator {
+  width: 100%;
+  max-width: initial !important;
+  border-color: #c1c1c1;
+  margin-bottom: 2em !important;
+}
 @media (max-width: 1200px) {
   .col-md-12 {
     flex: 0 0 100% !important;
@@ -68,6 +77,7 @@ h2 {
   position: relative;
   border-radius: 1em;
   padding: 0.5em;
+  flex: 1;
 }
 .flex-5 > div img {
   max-width: 100px;
@@ -93,6 +103,10 @@ h2 {
     display: inline-block;
     width: 80%;
   }
+}
+.mw1200 {
+  max-width: 1200px;
+  margin: auto;
 }
 #arrow-container {
   cursor: pointer;

@@ -85,19 +85,15 @@ Template Name: Landing Page - Formation pub FB & Insta
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <span class="reverse">
-                                <a href="<?php echo get_page_link(270); ?>">
-                                    <h1>Formation publicité Facebook&nbsp;et&nbsp;Instagram</h1>
-                                </a>
+                                <h1>Formation publicité Facebook&nbsp;et&nbsp;Instagram</h1>
                             </span>
                             <p>Vous souhaitez, booster la visibilité de vos offres, accroître votre notoriété, aiguisez votre image de marque, promouvoir du contenu, développer vos communautés et augmenter vos engagements ? Le duo gagnant, c'est Facebook et Instagram, qui opèrent de la même régie. À l'issue de notre formation, vous saurez comment créer une publicité optimale sur Facebook et Instagram.</p>
-                            <a href="https://www.digitalacademy.fr/formations/publicite-facebook-instagram-performer/">
-                                <div class="btn btn-red marginR">Découvrez la formation</div>
-                            </a>
+                            <div class="btn btn-red marginR scroll-to-form">Découvrez la formation</div>
                             <br><br>
                         </div>
                     </div>
                 </div>
-                <div class="flex-5">
+                <div class="flex-5 mw1200">
                     <div>
                         <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/time.png" alt="">
                         <p>14 heures soit 2 journées</p>
@@ -170,6 +166,8 @@ Template Name: Landing Page - Formation pub FB & Insta
             </div>
         </section>
 
+        <hr class="separator">
+
         <section id="presentation" class="container">
             <div class="row">
 
@@ -195,7 +193,7 @@ Template Name: Landing Page - Formation pub FB & Insta
                         carrousel, photo, vidéo ads), budgéter votre campagne et
                         analyser les résultats de vos campagnes de publicité.</p>
                 </div>
-                <div class="col-xs-12 col-sm-5 form-wrapper">
+                <div id="subscribe-form" class="col-xs-12 col-sm-5 form-wrapper">
                     <div class="content">
                         <h3>Pré-inscription - Publicité Facebook et Instagram&nbsp;: de la stratégie aux résultats</h3>
                         <?php echo do_shortcode('[gravityform id="13" title="false" description="false" ajax="true"]'); ?>
@@ -242,7 +240,10 @@ Template Name: Landing Page - Formation pub FB & Insta
             <div class="row">
                 <div id="calendly" class="col-xs-12 col-sm-6">
                     <div class="content">
-                        <!-- Calendly -->
+                        <!-- Début de widget en ligne Calendly -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/benjamin-ferrier-digitalacademy/formation-publicite-facebook-et-instagram" style="min-width:320px;height:630px;"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        <!-- Fin de widget en ligne Calendly -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 pl-sm-6">
@@ -272,12 +273,12 @@ Template Name: Landing Page - Formation pub FB & Insta
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                                 <polygon fill="#fff" points="0,0 100,100 0,100" />
                             </svg>
-                            <div class="name">Thomas S.</div>
-                            <div class="company">Microsoft</div>
+                            <div class="name">Andréa.F</div>
+                            <div class="course">Social Media & Content Specialist</div>
+                            <div class="company">Liligo</div>
                             <hr>
-                            <div class="testimonial">Excellente formation sur le marketing mobile, intervenant de qualité, bon mix entre présentation et exemples concrets.</div>
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/microsoft-logo.jpg" alt="">
-                            <div class="course">Formation "Développer une stratégie marketing mobile"</div>
+                            <div class="testimonial">Intervenant très pédagogue, j'ai apprécié le contenu et le format de cette formation Facebook Ads qui m'ont beaucoup appris. Y'a plus qu'à !</div>
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/liligo-logo.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
@@ -285,12 +286,12 @@ Template Name: Landing Page - Formation pub FB & Insta
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                                 <polygon fill="#fff" points="0,0 100,100 0,100" />
                             </svg>
-                            <div class="name">Sonia S.</div>
-                            <div class="company">Barclays France</div>
+                            <div class="name">Charlotte.D</div>
+                            <div class="course">Directrice Marketing Digital</div>
+                            <div class="company">Agatha</div>
                             <hr>
-                            <div class="testimonial">Formation vivante et enrichissante, qui m’a permis d’apporter une vraie valeur ajoutée sur mon profil utilisateur sur les plateformes Linkedin, avec un rebond pour actionner la prospection.</div>
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/barclays-logo.jpg" alt="">
-                            <div class="course">Formation "Booster sa prospection commerciale avec LinkedIn"</div>
+                            <div class="testimonial">Une formation qui répond totalement à mes besoins. J'en ressors avec une bonne compréhension aussi bien stratégique qu'opérationnelle. Le formateur est très agréable et très clair dans ses explications.</div>
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/agatha-logo.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-4 hidden-sm">
@@ -298,12 +299,12 @@ Template Name: Landing Page - Formation pub FB & Insta
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                                 <polygon fill="#fff" points="0,0 100,100 0,100" />
                             </svg>
-                            <div class="name">Frédéric B.</div>
-                            <div class="company">Sciences Po</div>
+                            <div class="name">Julie.G</div>
+                            <div class="course">Brand & Communication Manager</div>
+                            <div class="company">UFF</div>
                             <hr>
-                            <div class="testimonial">Clés et best practices pour poser les bases de sa stratégie digitale multicanale.</div>
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-sciences-po.jpg" alt="">
-                            <div class="course">Formation "Construire la stratégie multi, cross et omni canal de son entreprise"</div>
+                            <div class="testimonial">La formation traite à la fois la partie théorique liée aux fonctionnalités et une mise en pratique immédiate dans l’outil. Elle permet de mieux comprendre le fonctionnement d'une campagne, de sa création jusqu'à son optimisation et l'analyse des résultats.</div>
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/uff-logo.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -344,9 +345,14 @@ Template Name: Landing Page - Formation pub FB & Insta
 
 
     <script>
+        jQuery('.scroll-to-form').click(function() {
+            jQuery('html,body').animate({
+                scrollTop: jQuery("#subscribe-form").offset().top - 50
+            });
+        })
         jQuery('#arrow-container').click(function() {
             jQuery('html,body').animate({
-                scrollTop: jQuery("#presentation").offset().top - 50
+                scrollTop: jQuery("#form-1-container").offset().top
             });
         })
     </script>
