@@ -35,6 +35,10 @@ h2 {
 #opcos img {
   max-width: 140px;
 }
+ul li {
+    line-height: 1.5em;
+    color: #555555;
+}
 .separator {
   width: 100%;
   max-width: initial !important;
@@ -179,7 +183,7 @@ h2 {
 #a-qui-s-adresse-cette-formation h2,
 #a-qui-s-adresse-cette-formation h3,
 #a-qui-s-adresse-cette-formation p > span {
-  color: #3d00cc !important;
+  color: #555555 !important;
 }
 #a-qui-s-adresse-cette-formation p {
   font-weight: bold;

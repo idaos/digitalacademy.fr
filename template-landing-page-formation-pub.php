@@ -87,7 +87,7 @@ Template Name: Landing Page - Formation pub FB & Insta
                             <span class="reverse">
                                 <h1>Formation publicité Facebook&nbsp;et&nbsp;Instagram</h1>
                             </span>
-                            <p>Vous souhaitez, booster la visibilité de vos offres, accroître votre notoriété, aiguisez votre image de marque, promouvoir du contenu, développer vos communautés et augmenter vos engagements ? Le duo gagnant, c'est Facebook et Instagram, qui opèrent de la même régie. À l'issue de notre formation, vous saurez comment créer une publicité optimale sur Facebook et Instagram.</p>
+                            <p>Vous souhaitez, booster la visibilité de vos offres, accroître votre notoriété, aiguiser votre image de marque, promouvoir du contenu, développer vos communautés et augmenter vos engagements ? Le duo gagnant, c'est Facebook et Instagram, qui opèrent de la même régie. À l'issue de notre formation, vous saurez comment créer une publicité optimale sur Facebook et Instagram.</p>
                             <div class="btn btn-red marginR scroll-to-form">Découvrez la formation</div>
                             <br><br>
                         </div>
@@ -175,23 +175,11 @@ Template Name: Landing Page - Formation pub FB & Insta
                 <div class="col-xs-12 col-sm-5 txt">
                     <h3>Publicité Facebook et Instagram :<br> Boostez votre business</h3>
 
-                    <p>Comment faire le bon choix d’audience et de format de publicité&nbsp;?
-                        Comment budgéter une campagne&nbsp;? Comment analyser les
-                        résultats de vos campagnes de publicité&nbsp;? Comment établir une
-                        stratégie publicitaire axée sur les résultats&nbsp;?</p>
+                    <p>Comment faire le bon choix d’audience et de format<br>de publicité ? Comment budgéter une campagne ? <br>Comment analyser les résultats de vos campagnes de publicité ? Comment établir une stratégie publicitaire axée sur les <br>résultats ?</p>
 
-                    <p>La publicité sur Facebook et Instagram apparaît comme une
-                        solution simple pour gagner en notoriété, impacter
-                        favorablement son image de marque, augmenter le trafic sur sa
-                        page et encore promouvoir son offre de produits et services.</p>
+                    <p>La publicité sur Facebook et Instagram apparaît comme une solution simple pour gagner en notoriété, impacter favorablement son image de marque, augmenter le trafic sur sa page et encore promouvoir son offre de produits et services.</p>
 
-                    <p>Cette formation sera composée d’explications et de nombreux
-                        cas pratiques. Ainsi, ces deux jours vous permettront
-                        d’appréhender le gestionnaire de publicités Facebook
-                        (plateforme pour créer des campagnes), cibler vos publicités,
-                        choisir le format d’annonce (liens, annonce multiproduits,
-                        carrousel, photo, vidéo ads), budgéter votre campagne et
-                        analyser les résultats de vos campagnes de publicité.</p>
+                    <p>À la fin de cette formation, vous apprendrez à :<ul style="padding-left:0px"><li>Maîtriser les interfaces de gestionnaire de publicité</li><li>Acquérir des savoir-faire opérationnels sur les outils de ces plateformes</li><li>Créer des campagnes publicitaires efficaces de A à Z</li><li>Répartir le budget de vos campagnes entre acquisition et retargeting</li><li>Analyser les résultats de vos campagnes</li></ul></p>
                 </div>
                 <div id="subscribe-form" class="col-xs-12 col-sm-5 form-wrapper">
                     <div class="content">
@@ -222,19 +210,19 @@ Template Name: Landing Page - Formation pub FB & Insta
             <h2>À qui s'adresse cette formation ?</h2>
             <div class="flex-5">
                 <div>
-                    <p><span>Responsable marketing</span> <br>et chargé de communication</p>
+                    <p><span>Responsables et chefs</span> <br>de projet marketing</p>
                 </div>
                 <div>
-                    <p><span>Community manager</span> <br>Social media manager</p>
+                    <p><span>Community managers et</span> <br>Responsables communication</p>
                 </div>
                 <div>
                     <p><span>Responsable acquisition</span> <br>Growth / Trafic manager</p>
                 </div>
                 <div>
-                    <p><span>Chef de projet</span> web</p>
+                    <p><span>Auto-entreupreneurs,</span>dirigeants TPE/PME, consultants</p>
                 </div>
                 <div>
-                    <p><span>Agence digitale</span> <br>et de communication</p>
+                    <p><span>Agences digitales</span> <br>et de communication</p>
                 </div>
             </div>
             <div class="row">
@@ -258,7 +246,7 @@ Template Name: Landing Page - Formation pub FB & Insta
                         <li>Inter</li>
                         <li>Intra</li>
                     </ul>
-                    <p><span>Des questions ?</span> Echangez avec notre responsable formation</p>
+                    <p><span>Des questions ?</span> Echangez avec notre responsable formation.</p>
                 </div>
             </div>
         </section>
@@ -342,7 +330,7 @@ Template Name: Landing Page - Formation pub FB & Insta
                             <ul class="active">
                                 <li>
                                     <h3>1. Pourquoi est-il important de faire de la publicité Facebook et Instagram ?</h3>
-                                    <p>Avec près de 3 milliards d’utilisateurs actif mensuels, la régie publicitaire Facebook Ads devient de plus en plus prisé voir incontournable dans la stratégie de communication d’une entreprise : à la fois de part la portée potentielle qu’elle offre (qui inclus aussi les utilisateurs d’Instagram), mais aussi des résultats qu’une entreprise peut obtenir en fonction de ses objectifs commerciaux.</p>
+                                    <p>Avec près de 3 milliards d’utilisateurs actif mensuels, la régie publicitaire Facebook Ads devient de plus en plus prisée voire incontournable dans la stratégie de communication d’une entreprise : à la fois de part la portée potentielle qu’elle offre (qui inclut aussi les utilisateurs d’Instagram), mais aussi des résultats qu’une entreprise peut obtenir en fonction de ses objectifs commerciaux.</p>
                                 </li>
                                 <li>
                                     <h3>2. Quels sont les bénéfices de la formation pour les apprenants ?</h3>
