@@ -1614,11 +1614,20 @@ function admin_custom_css() {
 // DISPLAY ADMIN BAR
 // -----------------------------------------------------------------------
 
-function admin_bar(){
+function display_user_roles(){
+    $user_id = get_current_user_id();
+    $user_info = get_userdata( $user_id );
+    $user_roles = implode(', ', $user_info->roles);
+    return $user_roles;
+}
 
+function admin_bar(){
     if(is_user_logged_in()){
-      add_filter( 'show_admin_bar', '__return_true' , 1000 );
-    }
+        $r = display_user_roles();
+        if( $r != 'subscriber'){
+                add_filter( 'show_admin_bar', '__return_true' , 1000 );
+            }
+        }
   }
   add_action('init', 'admin_bar' );
 
