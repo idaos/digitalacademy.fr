@@ -182,7 +182,7 @@
                 <div class="col-xs-12">
                     <h4>Organisme validé et référencé </h4>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/datadock-logo.svg" alt="">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/qualiopi_wht.png" alt="">
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logoqualiopi2022.png" alt="">
                 </div>
             </div>
         </div>
@@ -218,7 +218,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/like-icon.svg" alt="">
-                    <h4>93% de nos stagiaires Inter Entreprises satisfaits en 2020</h4>
+                    <h4>93% de nos stagiaires Inter Entreprises satisfaits en 2021</h4>
                 </div>
             </div>
         </div>
@@ -291,7 +291,7 @@
                             <span><img id="logo_dac" src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
                             <b>Nos conseillers vous répondent au :</b>
                             <span id="phone"><a title="Bouton d'appel téléphonique" href="tel:0977215321">09 77 21 53 21</a></span>
-                            <i>appel non surtaxé du lundi au vendredi de 9h30 à 19h</i>
+                            <i>Appel non surtaxé. Du lundi au vendredi de 9h30 à 18h</i>
                             <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
                             <i style="margin-top: 2em;">ou par e-mail</i>
                             <a title="Nous envoyer un email" id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a>

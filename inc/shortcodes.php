@@ -176,6 +176,20 @@ add_shortcode( 'cta', 'digitalacademy_shortcode_callToAction' );
 //
 //add_shortcode( 'formations_slider', 'digitalacademy_shortcode_formationsSlider' );
 
+function str_word_count_utf8_arr($str) {
+    return preg_split('~[^\p{L}\p{N}\'\-\.\,\?\!\:\;]+~u',$str);
+}
+
+function nMots($txt, $nb_mots=4 ){
+    
+    $mots = array_chunk(str_word_count_utf8_arr($txt, 1), $nb_mots);
+    
+    if ($mots['0']){
+        $nmots = implode($mots['0'], ' ');
+    }
+    
+    return $nmots;
+}
 
 /**
  * Shortcode slider des top formations
@@ -221,8 +235,13 @@ function digitalacademy_shortcode_topFormationsListe( $atts ) {
 
 		while ( $formations->have_posts() ) {
 			$formations->the_post();
+			
+			$title = str_replace('&#039;', '\'', $title);
+			$title = htmlspecialchars(get_the_title());
 
-			$out .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+			$title = 'Formation ' . nMots($title) . ' (...)';
+
+			$out .= '<li><a href="' . get_permalink() . '">' . $title . '</a></li>';
 		}
 		$out .= '</ul>';
 

@@ -8,6 +8,15 @@ Template Name: Landing Page - Formation pub FB & Insta
 <html lang="fr">
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1188124-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1188124-3');
+</script>
     <title>Formation publicité Facebook et Instagram - DigitalAcademy</title>
     <meta name="robots" content="noindex,follow" />
     <!-- HTML5 Meta -->
@@ -41,7 +50,7 @@ Template Name: Landing Page - Formation pub FB & Insta
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/landing-page-formation/css/landing-page-formation.css">
 
     <!-- Google Tag Manager -->
-    <!-- <script>
+    <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -56,12 +65,22 @@ Template Name: Landing Page - Formation pub FB & Insta
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5Z789B3');
-    </script> -->
+
+    </script>
+
+<!-- Facebook Pixel Code -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1043125059570375');fbq('track', 'PageView');
+</script>
+
+<noscript><img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=1043125059570375&ev=PageView&noscript=1"/></noscript>
+<!-- End Facebook Pixel Code -->
+<meta name="facebook-domain-verification" content="xglfmk289uxvq4zgin3q6glz0b6uq7" />
 </head>
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z789B3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z789B3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
 
@@ -96,23 +115,23 @@ Template Name: Landing Page - Formation pub FB & Insta
                 <div class="flex-5 mw1200">
                     <div>
                         <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/time.png" alt="">
-                        <p>14 heures soit 2 journées</p>
+                        <p><b>14 heures<br>soit 2 journées</b></p>
                     </div>
                     <div>
                         <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/map.png" alt="">
-                        <p>Paris, France</p>
+                        <p><b>Paris, France<br>en distanciel</b></p>
                     </div>
                     <div>
                         <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/price.png" alt="">
-                        <p>À partir de 980€ HT/pers/jour</p>
+                        <p><b>1960€ HT/pers<br>pour 2 jours</b></p>
                     </div>
                     <div>
                         <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/members.png" alt="">
-                        <p>3 à 12 personnes</p>
+                        <p><b>3 à 12<br>personnes</b></p>
                     </div>
                     <div>
                         <img src="<?php echo get_template_directory_uri(); ?>/landing-page-formation/img/rating.jpg" alt="">
-                        <p>Avis clients</p>
+                        <p><b>Avis<br>clients</b></p>
                     </div>
                 </div>
             </div>
@@ -125,7 +144,7 @@ Template Name: Landing Page - Formation pub FB & Insta
 
             <div style="background:#e4e4e4;" class="container-fluid">
                 <div class="flex-3">
-                    <p>Depuis 10 ans, Digital Academy forme aux métiers du web.
+                    <p>Depuis 12 ans, Digital Academy forme aux métiers du web.
                         <br>Notre organisme est certifié et référencé :
                     </p>
                     <div>
@@ -137,38 +156,25 @@ Template Name: Landing Page - Formation pub FB & Insta
                 </div>
             </div>
 
-            <div id="form-1-container" class="container-fluid">
-
-                <h2>
-                    POUR DEVENIR UN EXPERT DE LA PUBLICITÉ<br>
-                    SUR FACEBOOK ET INSTAGRAM,<br>
-                    <span>DÉCOUVREZ NOTRE FORMATION !</span>
-                </h2>
-                <div class="form-wrapper">
-                    <?php echo do_shortcode('[gravityform id="14" title="false" description="false" ajax="true"]'); ?>
-                </div>
-            </div>
+           
 
         </section>
-
-        <section id="opcos">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <br>
-                        <span class="reverse">
-                            <h2>FINANCER SA FORMATION GRÂCE À SON OPCO</h2>
-                        </span>
-                        <?php echo do_shortcode('[kz_opco_slider]'); ?>
-                        <br>
-                    </div>
-                </div>
-            </div>
+<section id="cta-section" class="container-fluid">
+            <a title="Prochaines dates de formation" class="contact-btn" href="#presentation">
+		<h2 class="white">Nos prochaines sessions de formation en 2022</h2>
+		<div class="btn btn-red-alt-neg-dates">5/6 Avril</div>
+		<div class="btn btn-red-alt-neg-dates">4/5 Mai</div>
+		<div class="btn btn-red-alt-neg-dates">1/2 Juin</div>
+		<div class="btn btn-red-alt-neg-dates">29/30 Juin</div>
+		<div class="btn btn-red-alt-neg-dates">7/8 Septembre</div>
+	    </a>
         </section>
-
-        <hr class="separator">
-
-        <section id="presentation" class="container">
+  <section id="cta-section" class="container-fluid">
+	<a title="Inscription" class="contact-btn" href="#presentation">
+		<div class="btn btn-red-alt-neg">S'inscrire</div>
+</a>
+        </section>
+<section id="presentation" class="container">
             <div class="row">
 
                 <div class="col-xs-12 col-sm-1"></div>
@@ -191,6 +197,37 @@ Template Name: Landing Page - Formation pub FB & Insta
             </div>
         </section>
 
+        <section id="opcos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <br>
+                        <span class="reverse">
+                            <h2>FINANCER SA FORMATION GRÂCE À SON OPCO</h2>
+                        </span>
+                        <?php echo do_shortcode('[kz_opco_slider]'); ?>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+
+
+        <!-- <hr class="separator"> -->
+
+        
+ <div id="form-1-container" class="container-fluid">
+
+                <h2>
+                    POUR DEVENIR UN EXPERT DE LA PUBLICITÉ<br>
+                    SUR FACEBOOK ET INSTAGRAM,<br>
+                    <span>DÉCOUVREZ NOTRE FORMATION !</span>
+                </h2>
+                <div class="form-wrapper">
+                    <?php echo do_shortcode('[gravityform id="14" title="false" description="false" ajax="true"]'); ?>
+                </div>
+            </div>
         <section id="jeremy-notre-formateur" class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -235,7 +272,7 @@ Template Name: Landing Page - Formation pub FB & Insta
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 pl-sm-6">
-                    <h3>Besoin d'aide pour vous lancer dans la publicité Facebook et Instagram ?</h3>
+                    <h3>Choisissez un jour pour échanger avec notre<br>responsable formation sur le programme.</h3>
                     <p>Différentes modalités pédagogiques sont disponibles :</p>
                     <ul>
                         <li>Présentiel</li>
@@ -246,16 +283,11 @@ Template Name: Landing Page - Formation pub FB & Insta
                         <li>Inter</li>
                         <li>Intra</li>
                     </ul>
-                    <p><span>Des questions ?</span> Echangez avec notre responsable formation.</p>
                 </div>
             </div>
         </section>
-
-        <section id="cta-section" class="container-fluid">
-            <a title="Prochaines dates de formation" class="contact-btn" href="/formations/publicite-facebook-instagram-performer/#cta-col" target="_blank">
-                <div class="btn btn-red-alt-neg">Découvrez nos prochaines dates</div>
-            </a>
-        </section>
+<br><br><br><br>
+      
 
         <section class="testimonial-wrapper">
             <div class="container">
@@ -365,7 +397,11 @@ Template Name: Landing Page - Formation pub FB & Insta
     <script src="<?php echo get_template_directory_uri(); ?>/js/slickOpcos.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/slickRefs.js"></script>
 
-
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+  location = 'https://www.digitalacademy.fr/formation-pub-facebook-instagram-digitalacademy-merci/';
+}, false );
+</script>
     <script>
         // Click & scroll
         // --------

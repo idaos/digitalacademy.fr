@@ -33,7 +33,7 @@ get_header(); ?>
                 <div class="col-xs-12">
                     <h2 style="width:100%;text-align:center;font-style:inherit;margin-top:4em;">Satisfaction de nos apprenants</h2>
                     <hr> 
-                    <div id="chart-wrp"></div>
+                    <div id="chart-wrp">
                 </div>
             </div>
         </div>

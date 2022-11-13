@@ -32,6 +32,16 @@ h2 {
   width: 100%;
   text-align: center;
 }
+
+h2.white {
+color: #ffffff;
+}
+
+h3 {
+  width: 100%;
+  text-align: center;
+  color:#555555 !important;
+}
 #opcos img {
   max-width: 140px;
 }
@@ -75,7 +85,7 @@ ul li {
 .flex-5 > div {
   width: 200px;
   text-align: center;
-  font-size: 0.9em;
+  font-size: 1.2em;
   background: #fff;
   margin: 2em 1em;
   position: relative;
@@ -176,6 +186,7 @@ ul li {
 #form-1-container h2 span {
   color: #bf3b2b;
 }
+
 #form-1-container .gform_wrapper {
   max-width: 400px;
   margin: auto;
@@ -183,7 +194,7 @@ ul li {
 #a-qui-s-adresse-cette-formation h2,
 #a-qui-s-adresse-cette-formation h3,
 #a-qui-s-adresse-cette-formation p > span {
-  color: #555555 !important;
+  
 }
 #a-qui-s-adresse-cette-formation p {
   font-weight: bold;
@@ -192,6 +203,7 @@ ul li {
   font-weight: bold !important;
   font-style: initial !important;
   font-size: 1.2em !important;
+  color: #3d00cc; !important;
 }
 #a-qui-s-adresse-cette-formation [class^=flex-] > div {
   box-shadow: 0px 2px 3px #dddddd;
@@ -481,6 +493,12 @@ ul li {
   display: flex;
   justify-content: center;
   padding: 1.5em 1em;
+}
+#cta-section-inscription {
+  background: #bf3b2b;
+  display: flex;
+  justify-content: center;
+  padding: 0em 0em;
 }
 #cta-section .btn {
   font-size: 1.5em;

@@ -1,97 +1,17 @@
 var chart_data = {
-	"2019": [
+
+	"2021": [
+
 		{ 
-			"value": "96", 
-			"course": "Inbound Marketing" 
-		},{ 
-			"value": "96", 
-			"course": "Maîtriser les fondamentaux des médias sociaux" 
-		},{ 
-			"value": "100", 
-			"course": "RP 2.0 : Relation presse, blogueurs, Twitter" 
-		},{ 
-			"value": "100", 
-			"course": "RH 2.0 : recruter sur les réseaux sociaux" 
-		},{ 
-			"value": "98", 
-			"course": "Inbound Marketing" 
-		},{ 
-			"value": "86", 
-			"course": "Gérer la relation client et intéragir sur les médias sociaux" 
-		},{ 
-			"value": "97", 
-			"course": "Panorama des réseaux sociaux" 
-		},{ 
-			"value": "80", 
-			"course": "Panorama des réseaux sociaux" 
-		},{ 
-			"value": "80", 
-			"course": "Web social" 
-		},{ 
-			"value": "100", 
-			"course": "Web social : LinkedIn" 
-		},{ 
-			"value": "95", 
-			"course": "Panorama des réseaux sociaux" 
-		},{ 
-			"value": "95", 
-			"course": "Inbound Marketing" 
-		},{ 
-			"value": "80", 
-			"course": "Booster son marketing et sa prospection sur LinkedIn" 
-		},{ 
-			"value": "100", 
-			"course": "LinkedIn Perfectionnement" 
-		},{ 
-			"value": "98", 
-			"course": "Communiquer par l'image : Picture Marketing" 
-		},{ 
-			"value": "97", 
-			"course": "Email marketing" 
-		},{ 
-			"value": "89", 
-			"course": "Choisir et piloter ses prestataires web" 
+
+			"value": "93", 
+
+			"course": "" 
+
 		}
+
 	],
-	"2018": [
-		{ 
-			"value": "95", 
-			"course": "Maîtriser les fondamentaux de LinkedIn" 
-		},{ 
-			"value": "100", 
-			"course": "Maîtriser les fondamentaux de Twitter" 
-		},{ 
-			"value": "100", 
-			"course": "RP 2.0 : Relation presse, blogueurs, Twitter" 
-		},{ 
-			"value": "98", 
-			"course": "Maîtriser les fondamentaux de Twitter" 
-		},{ 
-			"value": "100", 
-			"course": "RP 2.0 : Relation presse, blogueurs, Twitter" 
-		},{ 
-			"value": "85", 
-			"course": "Maîtrise le Display" 
-		},{ 
-			"value": "92", 
-			"course": "RH 2.0" 
-		},{ 
-			"value": "82", 
-			"course": "RP 2.0 : Relation presse, blogueurs, Twitter" 
-		},{ 
-			"value": "84",
-			"course": "Publicité Facebook et Instagram : de la stratégie aux résultats" 
-		},{ 
-			"value": "88", 
-			"course": "RH 2.0" 
-		},{ 
-			"value": "90", 
-			"course": "Formation Réseaux Sociaux" 
-		},{ 
-			"value": "90", 
-			"course": "Les réseaux sociaux au service de la..." 
-		}
-	]
+
 }
 
 
@@ -104,7 +24,7 @@ Object.keys(chart_data).forEach(function(key, idx, arr) {
 	var toggle_content = createElementWithClass("div", "toggable-content");
 	var chart_year = createElementWithClass("div", "year");
 	var chart_year_val = createElementWithClass("h3", "value");
-	chart_year_val.innerHTML = 'Taux de satisfaction de nos apprenants en ' + key;
+	chart_year_val.innerHTML = "Taux de satisfaction de nos apprenants en 2021<br><div class='average-93' style='display: block;margin-bottom: 1rem;margin-top: 2rem;height: 91px;width: 91px;line-height: 91px;'>0%</div><span>Taux d'abandon de nos apprenants en 2021</span>";
 	var chart_items = createElementWithClass("div", "items");
 	var average_count = 0;
 
@@ -145,7 +65,7 @@ Object.keys(chart_data).forEach(function(key, idx, arr) {
 	heading.appendChild(hr);
 
 	toggle_content.appendChild(heading);
-	toggle_content.appendChild(chart_items);
+	// toggle_content.appendChild(chart_items);
 	chart_year.classList.add("toggable");
 	chart_year.appendChild(toggle_arrow);
 	chart_year.appendChild(toggle_content);

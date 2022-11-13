@@ -40,11 +40,11 @@
 
 <div class="footer-bottom">
     <div class="container text-center">
-        <p>La DigitalAcademy est une marque déposée, propriété de la société IDAOS, et enregistrée au titre de la formation professionnelle auprès de la DIRECCTE <span class='no-wrap'>n°11 92 17377 92 </span>
-        <p>Cet enregistrement ne vaut pas agrément de l’Etat.</p>
+        <p>La DigitalAcademy est une marque déposée, propriété de la société DigitalAcademy/IDAOS.	<p>La DigitalAcademy est enregistrée au titre de la formation professionnelle auprès de la DIRECCTE <span class='no-wrap'>n°11 92 17377 92 </span>
+        <p>Cet enregistrement ne vaut pas agrément de l’Etat.</p>		<p>Notre règlement intérieur est accessible <a href="https://www.digitalacademy.fr/wp-content/uploads/2022/05/reglement-interieur-digitalacademy-idaos.pdf"><span>ici</span></a>
         <span style="margin-top:.8em; display:block;color:#fff!important;">La DigitalAcademy est référencée Datadock. La certification Qualiopi nous a été délivrée au titre de nos actions de formation.</span><br>
-        <img style="margin: 0px 11px;" src="<?php bloginfo('template_url'); ?>/images/datadock_wht.png" title="Logo Datadock blanc"/>
-        <img style="margin: 0px 11px;" src="<?php bloginfo('template_url'); ?>/images/qualiopi_wht.png" title="Logo Qualiopi blanc"/>
+        <img style="margin: 0px 11px; max-width: 15%;" src="<?php bloginfo('template_url'); ?>/images/datadock-logo.svg" title="Logo Datadock blanc"/>
+        <img style="margin: 0px 11px; max-width: 10%;" src="<?php bloginfo('template_url'); ?>/images/logoqualiopi2022.png" title="Logo Qualiopi"/>
     <span style="margin-top:.8em; display:block;color:#fff; font-style:italic;font-weight:100;">* Donnez vie à l'apprentissage numérique</span>
     <div>
         <span class="copyright">Copyright DigitalAcademy <?php echo date('Y'); ?></span> <?php echo wp_nav_menu(array('theme_location' => 'bottom', 'container' => false,)); ?>

@@ -507,7 +507,7 @@ $hasTestimonials = hasTestimonials();
                                 <img src="<?php echo $styleUri; ?>/images/single-formation/datadock-bw.jpg" alt="">
                             </div>
                             <div class="col-xs-6 alignLeft">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi.jpg" alt="">
+                                <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi2022.png" style="max-width:75%; alt="">
                             </div>
                         </div>
                         <div class="rating">
@@ -516,8 +516,8 @@ $hasTestimonials = hasTestimonials();
                             <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/star-half.png" alt="">
-                            <span>4.7/5</span>
-                            <i>Satisfaction de nos apprenants en 2020</i>
+                            <span>4.75/5</span>
+                            <i>Satisfaction de nos apprenants en 2021</i>
                         </div>
                     </div>
                 </div>
@@ -592,7 +592,7 @@ $hasTestimonials = hasTestimonials();
                             </div>
 
                             <div class="logocertificationmobile">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi.jpg" alt="">
+                                <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi2022.png" style="max-width:50%"; alt="">
                             </div>
                             <div class="rating">
                                 <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
@@ -600,9 +600,9 @@ $hasTestimonials = hasTestimonials();
                                 <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
                                 <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
                                 <img src="<?php echo $styleUri; ?>/images/single-formation/star-half.png" alt="">
-                                <span>4.7/5</span>
+                                <span>4.75/5</span>
                                 <br>
-                                <i style="font-size: .9em;margin-top: .6em!important;display: inline-block">Satisfaction de nos apprenants <span class="noWrap">en 2020</span></i>
+                                <i style="font-size: .9em;margin-top: .6em!important;display: inline-block">Satisfaction de nos apprenants <span class="noWrap">en 2021</span></i>
                             </div>
                         </div>
                     </div>
@@ -705,7 +705,7 @@ $hasTestimonials = hasTestimonials();
                             </div>
                         </div>
                         <div class="accordeon-item">
-                            <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">Quelles sont les modalités pédagogiques employées ?</div>
+                            <div class="accordeon-item-title bgc-<?php echo $colorTxt; ?>">Quelles sont les modalités d'évaluation ?</div>
                             <div class="accordeon-item-content" style="display:none;">
                                 <?php echo $evaluation; ?>
                             </div>
@@ -866,7 +866,7 @@ $hasTestimonials = hasTestimonials();
                     <br><br>
                     <span class="reverse">
                     <h2>Nos formations digitales</h2>
-                    <h3>Un catalogue de plus de 30 formations digitales</h3>
+                    <h3>Un catalogue de plus de 40 formations digitales</h3>
                 </span>
                     <p>Les participants à cette formation ont également consulté les formations suivantes :</p>
                     <hr>

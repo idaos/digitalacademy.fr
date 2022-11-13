@@ -6,15 +6,15 @@ jQuery(document).ready(function () {
 
     // Disable tracking by default
     if (getCookie('CookieLawInfoConsent') == null) {
-        disableGoogleAnalytics();
+        //disableGoogleAnalytics();
     }
     // Disable tracking if user has opted out
     else if (getCookie("cookielawinfo-checkbox-analytics") == "no") {
-        disableGoogleAnalytics();
+        //disableGoogleAnalytics();
     }
     // Enable tracking if user has opted in
     else if (getCookie("cookielawinfo-checkbox-analytics") == "yes") {
-        enableGoogleAnalytics();
+        //enableGoogleAnalytics();
     }
 });
 

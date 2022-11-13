@@ -359,8 +359,8 @@ function custom_scripts_and_styles_testimonial(){
     }
     if( ((is_archive())&&(is_post_type_archive( 'temoignage' )))  //Check if we are viewing an archive page.
        || ($template_name == 'tpl-satisfaction-clients.php') ){ // or satisfaction page
-        wp_enqueue_style( 'chart', get_template_directory_uri() . '/css/chart.css', array( 'main' ), null );
-        wp_enqueue_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.js', array( 'owl-carousel', 'accordeon', 'jquery' ), null, false );
+        wp_enqueue_style( 'chart', get_template_directory_uri() . '/css/chart.css?v=2', array( 'main' ), null );
+        wp_enqueue_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.js?v=2', array( 'owl-carousel', 'accordeon', 'jquery' ), null, false );
         wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array( 'main' ), null );
         wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );
@@ -1622,12 +1622,12 @@ function display_user_roles(){
 }
 
 function admin_bar(){
+
+    if(display_user_roles() != 'subscriber')
+
     if(is_user_logged_in()){
-        $r = display_user_roles();
-        if( $r != 'subscriber'){
-                add_filter( 'show_admin_bar', '__return_true' , 1000 );
-            }
-        }
+      add_filter( 'show_admin_bar', '__return_true' , 1000 );
+    }
   }
   add_action('init', 'admin_bar' );
 
@@ -2954,7 +2954,7 @@ if( function_exists('acf_add_local_field_group') ):
                             'class' => '',
                             'id' => '',
                         ),
-                        'default_value' => '93% de nos stagiaires Inter Entreprises satisfaits en 2020',
+                        'default_value' => '93% de nos stagiaires Inter Entreprises satisfaits en 2021',
                         'placeholder' => '',
                         'prepend' => '',
                         'append' => '',
@@ -3060,7 +3060,7 @@ EOD;
 // Fonction pour modifier l'adresse email de l'expéditeur
 function wpm_email_from( $original_email_address ) {
 
-    return 'formationsCPF@digitalacademy.fr';
+    return 'contact@digitalacademy.fr';
 
 }
 add_filter( 'wp_mail_from', 'wpm_email_from' );

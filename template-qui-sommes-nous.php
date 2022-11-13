@@ -73,23 +73,68 @@ if( has_post_thumbnail() ) {
         </div>
     </div>
     <div class="row row-same-height team">
-        <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
-            <div class="wrapper"><img src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/Franck_Perrier.jpg" alt="" /></div>
+        <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">	<center>
+            <div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/franck.png" alt="" /></div>		
             <p class="name"><strong>Franck Perrier</strong></p>
-            <p class="fonction">Directeur Général / Fondateur de la DigitalAcademy</p>
-            <p>Fondateur de la DigitalAcademy, Franck Perrier est un expert de la numérisation des entreprises, de ses impacts sur les business modèles et les organisations.</p>
-            <p>A la tête de cet institut de formation, Franck Perrier anime des équipes de formateurs et consultants pour accompagner les clients dans la résolution de leurs enjeux de transformation digitale.</p>
-            <p>Franck continue de concevoir et d’animer de nombreux programmes sur mesure pour des équipes dirigeantes. Parallèlement, Il intervient en tant que conférencier.</p>
-            <p>Diplômé de Northeastern University, de l’IFAM, Franck Perrier a exercé des fonctions de directeur général au sein d’entreprises de la nouvelle économie et a fondé l’agence digitale IDAOS.</p>
+            <p class="fonction">Directeur Conseil / Fondateur de la DigitalAcademy</p>	</center>
         </div>
-        <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
-            <div class="wrapper"><img src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/Valérie_Vecchioni.jpg" alt="" /></div>
-            <p class="name"><strong>Valérie Vecchioni</strong></p>
-            <p class="fonction">Directrice de la pédagogie</p>
-            <p>Valérie Vecchioni est une experte des relations publiques et de l’influence digitale à travers l’usage des réseaux sociaux.</p>
-            <p>Au sein de la DigitalAcademy, Valérie analyse et développe des recommandations de formation pour les directions opérationnelles et les directions de la formation. Elle conçoit des ingénieries pédagogiques,  écrit, coordonne et anime de nombreux programmes.</p>
-            <p>Valérie Vecchioni est diplômée de  l’Institut d’Etudes Politiques de Paris, Service Public et de l’Université de Paris IV Sorbonne (DESS en Communication politique et sociale).</p>
-        </div>
+       <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
+		<center> <div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/hannah.png" alt="" /></div>
+		<p class="name"><strong>Hannah</strong></p>
+		<p class="fonction">Developpeur LMS</p>	</center>
+		</div><div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
+		<center>            <div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/luis.png" alt="" /></div>		 
+		<p class="name"><strong>Luis</strong></p>        
+		<p class="fonction">Responsable pédagogie & e-learning</p>	</center>   
+		</div>        <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">	
+		<center>            <div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/benjamin.png" alt="" /></div>		
+		<p class="name"><strong>Benjamin Ferrier</strong></p>      
+		<p class="fonction">Chef de projet formation & Ingénierie pédagogique</p>	
+		</center>        </div>  
+		<div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">	<center>        
+		<div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/charles.png" alt="" /></div>		
+		<p class="name"><strong>Charles</strong></p>            <p class="fonction">Chef de projet formation</p>	
+		</center>        </div><div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
+		<center>      
+		<div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/adrien.png" alt="" /></div>		   
+		<p class="name"><strong>Adrien</strong></p>   
+		<p class="fonction">Graphiste designer</p>
+		</center>    
+		</div>      
+		<div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
+		<center>       
+		<div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/camille.png" alt="" /></div>		
+		<p class="name"><strong>Camille</strong></p>      
+		<p class="fonction">Production e-learning</p>
+		</center>    
+		</div>     
+		<div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">	
+		<center>       
+		<div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/jasmine.png" alt="" /></div>		
+		<p class="name"><strong>Jasmine</strong></p>      
+		<p class="fonction">Consultante Social Media</p>	
+		</center>     
+		</div><div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
+		<center>       
+		<div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/lucas.png" alt="" /></div>		  
+		<p class="name"><strong>Lucas</strong></p>     
+		<p class="fonction">Developpeur web / Webmaster</p>	</center>    
+		</div>   
+		<div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">	
+		<center>        
+		<div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/constant.png" alt="" /></div>	
+		<p class="name"><strong>Constant</strong></p>    
+        <p class="fonction">Chef de projet web</p>
+		</center>   
+		</div>    
+		<div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">	
+		<center>      
+		<div class="wrapper"><img src="https://digitalacademy.fr/wp-content/uploads/2022/01/alban.png" alt="" /></div>		
+		<p class="name"><strong>Alban</strong></p>       
+		<p class="fonction">Production vidéo</p>	
+		</center>   
+		</div><div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">    
+		</div>
 <!--
         <div class="col-sm-6 col-md-3">
             <div class="wrapper"><img src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/Bertrand_Anne.jpg" alt="" /></div>
@@ -101,14 +146,6 @@ if( has_post_thumbnail() ) {
             <p>Bertrand Anne est diplômé de l’Ecole Supérieure de Commerce de Chambéry avec une spécialité en WebMarketing et de l’Ecole Multimédia de Paris.</p>
         </div>
 -->
-        <div class="col-md-4" style="max-width:408px;margin:auto;margin-top:0;margin-bottom:2em;">
-            <div class="wrapper"><img class="wp-image-3714" src="https://www.digitalacademy.fr/wp-content/uploads/2020/02/Benjamin_Ferrier.jpg" alt="" /></div>
-            <p class="name"><strong>Benjamin Ferrier</strong></p>
-            <p class="fonction">Chef de projet formation / Ingénierie pédagogique</p>
-            <p>Benjamin Ferrier a travaillé pendant 5 ans auprès de différents organismes de formation et a développé une forte expertise en terme de d’ingénierie pédagogique et de gestion de projet de formation.</p>
-            <p>Au sein de la DigitalAcademy, Benjamin coordonne l'ensemble des projets et des programmes de formation inter-entreprises, intra - entreprise et Digital Learning. Il accompagne nos clients dans la mise en place de leurs projet de formation, en leur proposant les solutions les plus adaptées aussi bien en terme de conception, de pédagogie, de financement, d'organisation, d'outils etc.</p>
-            <p>Benjamin est issu d’une formation en Sciences Humaines &amp; Sociales, spécialisé dans les sciences de l'Éducation à L’Université Paris V René Descartes.</p>
-        </div>
     </div>
 </div>
 <?php get_footer(); ?>

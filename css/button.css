@@ -113,7 +113,7 @@ body .btn-red a {
 body .btn-red-alt {
   color: #bf3b2b;
   background: #fff;
-  border: solid 1px #bf3b2b;
+  border: solid 0px #bf3b2b;
 }
 body .btn-red-alt:after {
   background: #df7d71;
@@ -125,7 +125,11 @@ body .btn-red-alt:hover {
 body .btn-red-alt-neg {
   color: #fff;
   background: none;
-  border: solid 1px #fff;
+border: solid 1px #fff;
+}
+body .btn-red-alt-neg-dates {
+  color: #fff;
+  background: none;
 }
 body .btn-red-alt-neg:after {
   background: #df7d71;
@@ -133,7 +137,6 @@ body .btn-red-alt-neg:after {
 body .btn-red-alt-neg:hover {
   color: #ff8475;
   background: rgba(191, 59, 43, 0.17);
-  border: solid 1px #ff8475;
 }
 body .btn-red.btn-arr-down:before {
   position: absolute;

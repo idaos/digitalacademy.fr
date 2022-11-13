@@ -20,6 +20,24 @@
 
         <?php wp_head(); ?>
 
+        <!-- MailChimp Integration -->
+
+        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c104d075d46cdfdefd57dc032/421906e8677db194e1145a6a0.js");</script>
+<!-- Facebook Pixel Code -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1043125059570375');fbq('track', 'PageView');
+</script>
+
+<noscript><img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=1043125059570375&ev=PageView&noscript=1"/></noscript>
+<!-- End Facebook Pixel Code -->
+<meta name="facebook-domain-verification" content="xglfmk289uxvq4zgin3q6glz0b6uq7" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body <?php body_class(); ?>>
+
         <!-- Google Tag Manager -->
 
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -33,14 +51,6 @@
                                     })(window,document,'script','dataLayer','GTM-5Z789B3');
 
         </script>
-
-        <!-- MailChimp Integration -->
-
-        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c104d075d46cdfdefd57dc032/421906e8677db194e1145a6a0.js");</script>
-
-    </head>
-
-    <body <?php body_class(); ?>>
 
         <!-- Google Tag Manager (noscript) -->
 
@@ -82,9 +92,9 @@
 
                         </a>
 
-                        <i>Appel non surtaxé. Du lundi au vendredi de 9h30 à 13h et de 14h à 18h</i>
+                        <i>Appel non surtaxé. Du lundi au vendredi de 9h30 à 18h</i>
 
-                        <img id="qualiopi-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/qualiopi.svg" alt="Logo qualiopi processus certifié">
+                        <img id="qualiopi-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logoqualiopi2022.png" alt="Logo qualiopi processus certifié">
 			<img id="qualiopi-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/datadock.png" alt="Logo datadock processus certifié">
 
                         <div class="to-right">
