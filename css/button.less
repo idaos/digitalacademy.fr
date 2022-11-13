@@ -7,14 +7,15 @@ body{
     #calendar button,
     .navigation li a,
     .vc_btn3.vc_btn3-color-grey.vc_btn3-style-modern,
-    .container-menu-filtre ul li a{
+    .container-menu-filtre ul li a,
+    .wp-block-button__link{
 
         .btn-md; // default size
         background: #bf3b2b; font-size: 16px; color: #fff; // default style
         display:inline-block;
         position:relative;
         text-decoration:none;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         box-sizing: border-box;
         font-weight: bold;
         border: none;
@@ -37,6 +38,7 @@ body{
             margin: .4em 0; 
         }
     }
+    
     .btn-xs{
         padding: .7em;
         font-size: .8em;
@@ -323,4 +325,12 @@ body .navigation li a
 // carrousel arrows
 .slick-arrow:hover{
     background-color: darken(#bf3b2b, 10%);
+}
+
+
+
+.wp-block-button{
+    .wp-block-button__link{
+        margin: 0!important;
+    }
 }

@@ -1,4 +1,8 @@
 <?php
+
+add_theme_support('align-wide');
+require get_template_directory() . '/functions/blocks.php';
+
 /**
  * Chargement de shortcodes
  */

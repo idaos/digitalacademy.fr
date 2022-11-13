@@ -65,6 +65,18 @@ h3 {
     text-align: center;
 }
 
+.br-1{
+    border-radius: .5rem;
+}
+
+.br-2{
+    border-radius: 1rem;
+}
+
+.br-3{
+    border-radius: 1.5rem;
+}
+
 
 /* Recrutment
 --------------------------------------------- */
