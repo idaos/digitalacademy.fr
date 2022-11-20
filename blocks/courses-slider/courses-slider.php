@@ -59,6 +59,7 @@ $args = array(
 
 $formations = get_posts($args);
 
+if(!function_exists('getNextSession')){
 function getNextSession($sessions)
 {
     if (!isset($sessions) || count($sessions) === 0) return '';
@@ -76,91 +77,86 @@ function getNextSession($sessions)
     }
     if (is_string($date_buffer)) {
         $date = DateTimeImmutable::createFromFormat('Y-m-d', $date_buffer);
-        return '<span>PROCHAINE SESSION :<br>' . $date->format('d/m/Y') . '</span>';
+        return '<span class="next-session btn btn-red-alt btn-xs">PROCHAINE SESSION : ' . $date->format('d/m/Y') . '</span>';
     } else {
         return '';
     }
 }
+}
 
 ?>
 
-<div class="swiper courses-swiper">
-    <div class="swiper-wrapper">
-        <?php foreach ($formations as $formation) :
-            $acf_fields = get_fields($formation->ID);
-        ?>
-            <div class="swiper-slide ">
-                <div class="card">
-                    <!-- Image -->
-                    <?php if (get_field('visuel_presentation', $formation->ID)) : ?>
-                        <a href="<?php echo get_the_permalink($formation->ID); ?>">
+
+<?php if (is_admin()) : ?>
+
+    <div class="gutenberg-placeholder">
+        <h3>Slider des formations</h3>
+    </div>
+
+<?php else : ?>
+
+
+    <div class="swiper courses-swiper">
+        <div class="swiper-wrapper">
+            <?php foreach ($formations as $formation) :
+                $acf_fields = get_fields($formation->ID);
+            ?>
+                <a class="swiper-slide " href="<?php echo get_the_permalink($formation->ID); ?>">
+                    <div class="card">
+                        <!-- Image -->
+                        <?php if (get_field('visuel_presentation', $formation->ID)) : ?>
                             <img src="<?php the_field('visuel_presentation', $formation->ID); ?>" alt="">
-                        </a>
-                    <?php endif; ?>
-                    <div class="txt-content">
-                        <!-- Title -->
-                        <a href="<?php echo get_the_permalink($formation->ID); ?>">
-                            <h4><?php echo $formation->post_title; ?></h4>
-                        </a>
+                        <?php endif; ?>
+                        <div>
 
+                            <!-- Title -->
+                            <h4 class="px-2"><?php echo $formation->post_title; ?></h4>
 
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-xs-6 p-0">
+                            <div class="tags px-2">
+                                <!-- Tag top formation -->
+                                <div>
                                     <?php if (get_field('tag_nouvelle_formation', $formation->ID)) {
                                         echo "<div class='nouvelle_formation btn btn-red btn-xs'>nouvelle_formation</div>" ?><?php } ?>
-                                    <?php if (get_field('tag_top_formation', $formation->ID)) {
+                                    <?php if ((get_field('tag_top_formation', $formation->ID)) || get_field('top_formation', $formation->ID)) {
                                         echo "<div class='top_formation btn btn-red btn-xs'>Top formation</div>" ?><?php }; ?>
                                 </div>
-                                <div class="col-xs-6 p-0">
+                                <!-- Prochaine session -->
+                                <div>
                                     <?php echo getNextSession($acf_fields['sessions']); ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-xs-4 fs-xs">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-clock.jpg" alt="" class="multiply ico">
+                            <div class="px-2 bb-r">
+                                <div class="fs-xs">
+                                    <div class="ico"></div>
                                     <span><?php echo $acf_fields['texte_duree']; ?></span>
                                 </div>
-                                <div class="col-xs-4 fs-xs">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-coins.jpg" alt="" class="multiply ico">
+                                <div class="fs-xs">
+                                    <div class="ico"></div>
                                     <span><?php echo $acf_fields['texte_tarif']; ?></span>
                                 </div>
-                                <div class="col-xs-4 fs-xs">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/single-formation/ico-pin.jpg" alt="" class="multiply ico">
-                                    <span>Présentiel ou distanciel (Visio)</span>
+                                <div class="fs-xs">
+                                    <div class="ico"></div>
+                                    <span>présentiel ou distanciel</span>
                                 </div>
                             </div>
+
+                            <!-- Objectifs -->
+                            <?php
+                            $course_goals = '';
+                            if (get_field('intro_objectifs', $formation->ID))
+                                $course_goals .= get_field('intro_objectifs', $formation->ID);
+                            if (get_field('objectifs_1', $formation->ID))
+                                $course_goals .= get_field('objectifs_1', $formation->ID);
+                            if (get_field('objectifs_2', $formation->ID))
+                                $course_goals .= get_field('objectifs_2', $formation->ID);
+                            $course_goals = goalsClearTags($course_goals); ?>
+                            <div class="goals px-2"><?php echo $course_goals; ?></div>
                         </div>
-
-                        <?php // Course goals
-                        $course_goals = '';
-                        if (get_field('intro_objectifs', $formation->ID))
-                            $course_goals .= get_field('intro_objectifs', $formation->ID);
-                        if (get_field('objectifs_1', $formation->ID))
-                            $course_goals .= get_field('objectifs_1', $formation->ID);
-                        if (get_field('objectifs_2', $formation->ID))
-                            $course_goals .= get_field('objectifs_2', $formation->ID);
-                        $course_goals = goalsClearTags($course_goals); ?>
-                        <div class="goals"><?php echo $course_goals; ?></div>
                     </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
-<div class="swiper-pagination container py-4"></div>
+    <div class="swiper-pagination container py-4"></div>
 
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-
-        var swiper = new Swiper(".courses-swiper", {
-            slidesPerView: 3,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true
-            },
-        });
-    })
-</script>
+<?php endif; ?>

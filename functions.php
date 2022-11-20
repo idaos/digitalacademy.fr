@@ -372,6 +372,18 @@ function custom_scripts_and_styles_testimonial(){
 }
 
 
+/**
+ * Chargement des styles et scripts pour l'editeur Gutenberg
+ */
+
+
+add_theme_support( 'editor-styles' );
+function wp_theme_add_editor_styles() {
+    add_editor_style( 'css/editor.css' );
+}
+add_action( 'admin_init', 'wp_theme_add_editor_styles' );
+
+
 
 /**
  * Chargement des styles et scripts pour la page 'Nos formations'

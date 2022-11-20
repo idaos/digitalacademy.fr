@@ -69,6 +69,7 @@ function nvp_register_blocks()
                 'jsx'             => true,
             ],
             'enqueue_style' => get_template_directory_uri() . '/blocks/courses-slider/courses-slider.css',
+            'enqueue_script'    => get_template_directory_uri() . '/blocks/courses-slider/courses-slider.js',
         ));
     }
 }
