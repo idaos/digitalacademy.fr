@@ -1,33 +1,41 @@
-
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <?php if (is_active_sidebar('footer-1')) {
-    dynamic_sidebar('footer-1');
-} ?>
+            <div class="col-sm-6">
+                <div class="widget-title ttl">Vous avez une question ?</div>
+                <div class="f">
+                    <div>
+                        <div class="wp-block-button aligncenter is-style-outline btn-phone"><a class="wp-block-button__link wp-element-button" href="tel:0977235321">09 77 23 53 21</a></div>
+                    </div>
+                    <div>
+                        <div class="wp-block-button aligncenter is-style-outline btn-mail"><a class="wp-block-button__link wp-element-button" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a></div>
+                    </div>
+                </div>
+                <small>Appel non surtaxé. Du lundi au vendredi de 9h30 à 18h</small>
+
             </div>
-            <div class="col-sm-4 hidden-xs">
-                <?php if (is_active_sidebar('footer-2')) {
-    dynamic_sidebar('footer-2');
-} ?>
-            </div>
-            <div class="col-sm-4">
-                <div class="widget-title">Une question ? être rappelé ?</div>
-                <p class="infos"><a href="<?php echo get_field('page_contact', 'option'); ?>" class="mail">Par mail</a> OU <a href="tel:<?php echo get_field('telephone', 'option'); ?>" class="tel"><?php echo get_field('telephone', 'option'); ?></a></p>
-                <div class="widget-title">Nous suivre</div>
+            <div class="col-sm-6">
+
+                <div class="widget-title ttl">Suivez-nous !</div>
                 <div class="clearfix social">
-                    <a rel="noopener" title="Page Facebook" href="https://www.facebook.com/LaDigitalAcademy" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-fb.png" alt="" /></a>
-                    <a rel="noopener" title="Page Twitter" href="https://twitter.com/digital_ac" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-twitter.png" alt="" /></a>
-                    <a rel="noopener" title="Page LinkedIn" href="https://www.linkedin.com/company/digital-academy" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-linkedin.png" alt="" /></a>
-                    <a rel="noopener" title="Chaine Youtube" href="https://www.youtube.com/channel/UCRRym8ZzrDiyAvVbpjaO1_A" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-youtube.png" alt="" /></a>
+                    <a rel="noopener" title="Page Facebook" href="https://www.facebook.com/LaDigitalAcademy" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/social/fb.svg" alt="" /></a>
+                    <a rel="noopener" title="Page Twitter" href="https://twitter.com/digital_ac" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/social/t.svg" alt="" /></a>
+                    <a rel="noopener" title="Page LinkedIn" href="https://www.linkedin.com/company/digital-academy" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/social/li.svg" alt="" /></a>
+                    <a rel="noopener" title="Chaine Youtube" href="https://www.youtube.com/channel/UCRRym8ZzrDiyAvVbpjaO1_A" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/social/y.svg" alt="" /></a>
                 </div>
-                <div class="widget-title">Nous trouver</div>
-                <div class="footer__map" style="width: 315px; overflow: hidden; height: 200px;">
-                    <img src="<?php bloginfo('template_url'); ?>/images/map.svg" alt="map" width="400" height="300">
-                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2419457270594!2d2.3408148156748942!3d48.87266407928891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3ef369b3f7%3A0xa41e3c92e19a86c!2s17+Rue+du+Faubourg+Montmartre%2C+75009+Paris!5e0!3m2!1sfr!2sfr!4v1547222906549" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>-->
-                </div>
-                <div class="widget-title" style="text-transform:none">DigitalAcademy</div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <?php if (is_active_sidebar('footer-1')) {
+                    dynamic_sidebar('footer-1');
+                } ?>
+            </div>
+            <div class="col-sm-6">
+                <?php if (is_active_sidebar('footer-2')) {
+                    dynamic_sidebar('footer-2');
+                } ?>
                 <p class="adresse">
                     17 rue du Faubourg Montmartre<br>
                     75009 Paris<br>
@@ -36,24 +44,34 @@
             </div>
         </div>
     </div>
+    </div>
 </footer><!-- Footer end -->
 
 <div class="footer-bottom">
-    <div class="container text-center">
-        <p>La DigitalAcademy est une marque déposée, propriété de la société DigitalAcademy/IDAOS.	<p>La DigitalAcademy est enregistrée au titre de la formation professionnelle auprès de la DIRECCTE <span class='no-wrap'>n°11 92 17377 92 </span>
-        <p>Cet enregistrement ne vaut pas agrément de l’Etat.</p>		<p>Notre règlement intérieur est accessible <a href="https://www.digitalacademy.fr/wp-content/uploads/2022/05/reglement-interieur-digitalacademy-idaos.pdf"><span>ici</span></a>
-        <span style="margin-top:.8em; display:block;color:#fff!important;">La DigitalAcademy est référencée Datadock. La certification Qualiopi nous a été délivrée au titre de nos actions de formation.</span><br>
-        <img style="margin: 0px 11px; max-width: 15%;" src="<?php bloginfo('template_url'); ?>/images/datadock-logo.svg" title="Logo Datadock blanc"/>
-        <img style="margin: 0px 11px; max-width: 10%;" src="<?php bloginfo('template_url'); ?>/images/logoqualiopi2022.png" title="Logo Qualiopi"/>
-    <span style="margin-top:.8em; display:block;color:#fff; font-style:italic;font-weight:100;">* Donnez vie à l'apprentissage numérique</span>
-    <div>
-        <span class="copyright">Copyright DigitalAcademy <?php echo date('Y'); ?></span> <?php echo wp_nav_menu(array('theme_location' => 'bottom', 'container' => false,)); ?>
+    <div class="container">
+
+        <div class="col-sm-9">
+
+            <span style="margin-top:.8em; display:block;color:#fff;font-weight:bold; font-style:italic;margin-bottom:1rem">* Donnez vie à l'apprentissage numérique</span>
+            <p>La DigitalAcademy est une marque déposée, propriété de la société DigitalAcademy/IDAOS.</p>
+            <p>La DigitalAcademy est enregistrée au titre de la formation professionnelle auprès de la DIRECCTE <span class='no-wrap'>n°11 92 17377 92 </span></p>
+            <p>Cet enregistrement ne vaut pas agrément de l’Etat. Notre règlement intérieur est accessible <a href="https://www.digitalacademy.fr/wp-content/uploads/2022/05/reglement-interieur-digitalacademy-idaos.pdf"><span>ici</span></a></p>
+            <p>La DigitalAcademy est référencée Datadock. La certification Qualiopi nous a été délivrée au titre de nos actions de formation.</p>
+            <div>
+                <span class="copyright">Copyright DigitalAcademy <?php echo date('Y'); ?></span> <?php echo wp_nav_menu(array('theme_location' => 'bottom', 'container' => false,)); ?>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <img style="margin: 20px auto 0 auto; max-width: 200px;display:block" src="<?php bloginfo('template_url'); ?>/images/datadock-logo.svg" title="Logo Datadock blanc" />
+            <img style="margin: 20px auto 0 auto; max-width: 150px;display:block" src="<?php bloginfo('template_url'); ?>/images/logoqualiopi2022.png" title="Logo Qualiopi" />
+        </div>
     </div>
-</div>
 </div>
 
 </div>
 
 <?php wp_footer(); ?>
 </body>
+
 </html>

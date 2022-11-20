@@ -141,7 +141,6 @@ function nvp_register_blocks()
                 'jsx'             => true,
             ],
             'enqueue_style' => get_template_directory_uri() . '/blocks/contact-form/contact-form.css',
-            'enqueue_script'    => get_template_directory_uri() . '/blocks/contact-form/contact-form.js',
         ));
         acf_register_block_type(array(
             'name'                => 'callback-form',

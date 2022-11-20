@@ -81,8 +81,14 @@ h3 {
     box-shadow: 0 2px 5px #d1d1d1;
 }
 
-.h-100{
-    height: 100%!important;
+@media only screen and (min-width: 780px) {
+    .bs-lg {
+        box-shadow: 0 2px 5px #d1d1d1;
+    }
+}
+
+.h-100 {
+    height: 100% !important;
 }
 
 body .mt-0 {
@@ -126,6 +132,10 @@ body .pb-7 {
     position: absolute;
 }
 
+.mw-70 {
+    max-width: 90px;
+}
+
 .mw-700 {
     max-width: 700px;
 }
@@ -144,13 +154,34 @@ body .pb-7 {
     width: 100%;
 }
 
-hr.wp-block-separator{
-    padding: 0!important;
-    width: 245px!important;
-    max-width: 245px!important;
-    margin-bottom: 3rem!important;
+hr.wp-block-separator {
+    padding: 0 !important;
+    width: 245px !important;
+    max-width: 245px !important;
+    margin-bottom: 3rem !important;
     height: 0;
-    background: none!important;
+    background: none !important;
+}
+
+@media only screen and (max-width: 780px) {
+    .hl .wp-block-columns {
+        gap: 0;
+    }
+
+    .hl .wp-block-columns p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+@media only screen and (max-width: 780px) {
+    .wp-block-column.bs.p-1.br-3.pr.pb-7 .is-layout-flex {
+        gap: 0;
+    }
+
+    .wp-block-column.bs.p-1.br-3.pr.pb-7 figure {
+        margin: 0 !important;
+    }
 }
 
 /* Recrutment
@@ -1218,16 +1249,42 @@ body .container-business-case h3 {
 /* Footer
 --------------------------------------------- */
 
+.ttl {
+    text-transform: initial !important;
+}
+
 .footer {
     padding: 35px 0 30px 0;
-    background: #808080;
+    background: #f7f7f7;
     z-index: 11;
     position: relative;
 }
 
+.footer .f {
+    padding-bottom: 2rem;
+    gap: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .footer .f {
+        flex-direction: column;
+    }
+}
+
+.footer .btn-phone {
+    max-width: 183px;
+}
+
+.footer small {
+    margin-top: -1rem;
+    margin-bottom: 3rem;    
+    display: block;
+}
+
 body .widget-title,
 body .footer h4 {
-    color: #fff;
+    color: #bf3b2b;
+    font-weight: bolder;
     font-size: 1.125em;
     text-transform: uppercase;
     margin: 0 0 15px 0;
@@ -1239,10 +1296,6 @@ body .footer h4 {
 
 .footer img {
     margin-bottom: 15px;
-}
-
-.footer .row {
-    display: table;
 }
 
 .footer .col-sm-4 {
@@ -1257,18 +1310,30 @@ body .footer h4 {
 }
 
 .footer ul {
-    padding-left: 18px;
+    padding-left: 0;
     color: #fff;
     margin-bottom: 20px;
 }
 
 .footer ul li {
     margin-bottom: 15px;
+    list-style: none;
+}
+
+.footer .social a {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.footer .social a img {
+    width: 100%;
+    height: 100%;
 }
 
 .footer a,
 .footer p {
-    color: #fff !important;
+    color: #666666 !important;
 }
 
 .footer .mail {
@@ -1301,7 +1366,7 @@ body .footer h4 {
 
 .footer .social a {
     display: inline-block;
-    margin: 10px 20px 25px 0;
+    margin: 10px 10px 25px 0;
 }
 
 .footer .social img {
@@ -1310,14 +1375,17 @@ body .footer h4 {
 }
 
 .footer-bottom {
-    background: #373636;
+    background: #bf3b2b;
     padding: 35px 0;
+}
+
+.footer-bottom p {
+    margin-bottom: 1rem !important;
 }
 
 .footer-bottom p,
 .footer-bottom .copyright {
     color: #fff;
-    text-align: center;
     margin: 0;
     font-weight: 300;
 }

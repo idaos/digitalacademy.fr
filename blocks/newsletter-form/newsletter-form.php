@@ -17,6 +17,7 @@
 <?php else : ?>
 
     <div id="newsletter-form">
+        <div class="heading">Inscrivez-vous à nos newsletters !</div>
         <?php echo do_shortcode('[gravityform id="3" title="false" description="false" ajax="true"]'); ?>
     </div>
 

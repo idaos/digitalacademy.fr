@@ -171,7 +171,9 @@ function customSelect(){
         /* For each element, create a new DIV that will act as the selected item: */
         a = document.createElement("DIV");
         a.setAttribute("class", "select-selected");
+        if(a.innerHTML)
         a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        else return
         x[i].appendChild(a);
         /* For each element, create a new DIV that will contain the option list: */
         b = document.createElement("DIV");
