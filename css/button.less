@@ -289,7 +289,7 @@ body {
 #kz_header {
     .btn {
         margin: .8em 0 !important;
-        padding: 1em;
+        padding: 1rem 1.5rem;
     }
 
     #dl-catalogue-btn {
@@ -408,7 +408,8 @@ body {
 
 .btn-phone {
     width: auto !important;
-    &:hover{
+
+    &:hover {
         filter: brightness(1.1);
     }
 
@@ -434,7 +435,8 @@ body {
 
 .btn-mail {
     width: auto !important;
-    &:hover{
+
+    &:hover {
         filter: brightness(1.1);
     }
 
@@ -447,6 +449,32 @@ body {
     a:before {
         content: '';
         background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path fill='rgb(191 59 43)' d='M7 40q-1.2 0-2.1-.9Q4 38.2 4 37V11q0-1.2.9-2.1Q5.8 8 7 8h34q1.2 0 2.1.9.9.9.9 2.1v26q0 1.2-.9 2.1-.9.9-2.1.9Zm17-15.1 17-11.15V11L24 21.9 7 11v2.75Z'/></svg>");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 2rem;
+        height: 2rem;
+        margin-right: .5rem;
+        display: inline-block;
+
+    }
+}
+
+.btn-dl {
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+
+    border-radius: 2rem!important;
+    display: flex!important;
+    align-items: center;
+    letter-spacing: 0!important;
+    align-items: center;
+
+    &:before {
+        content: '';
+        background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path fill='rgb(255 255 255)' d='M11 40q-1.2 0-2.1-.9Q8 38.2 8 37v-7.15h3V37h26v-7.15h3V37q0 1.2-.9 2.1-.9.9-2.1.9Zm13-7.65-9.65-9.65 2.15-2.15 6 6V8h3v18.55l6-6 2.15 2.15Z'/></svg>");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

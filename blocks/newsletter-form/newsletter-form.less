@@ -130,11 +130,41 @@ html body #newsletter-form {
         }
     }
 
-    .validation_error{
-        display: none!important;
+    .validation_error {
+        display: none !important;
     }
 
     .gfield_description {
         color: #fff;
+    }
+}
+
+html body {
+
+    @media only screen and (max-width: 1200px) {
+        #newsletter-form {
+            grid-template-columns: 1fr;
+            gap: 1rem 0;
+
+            #gform_wrapper_3 form {
+                grid-template-columns: 1fr;
+                gap: 1rem 0;
+            }
+
+            #gform_wrapper_3 form .gform_fields {
+                grid-template-columns: 1fr;
+                gap: 1rem 0;
+            }
+
+            input[type=text],
+            input[type=email] {
+                width: 100%;
+                max-width: 100% !important;
+            }
+
+            .heading {
+                margin-bottom: 1rem;
+            }
+        }
     }
 }

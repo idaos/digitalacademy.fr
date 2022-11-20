@@ -42,6 +42,7 @@
 
     .main-menu #menu {
         display: none;
+        margin-left: 1rem !important;
     }
 
     #tm:checked+#menu {
@@ -293,9 +294,9 @@
     #kz-menu-wrapper {
         background: rgba(256, 256, 256, .7);
 
-        >.container:after {
-            content: '';
-        }
+        // >.container:after {
+        //     content: '';
+        // }
 
         #social-icons {
             display: inherit;
@@ -374,6 +375,8 @@
 
             #toggle-menu {
                 border: none;
+                transform: rotate(-5deg);
+                background: none;
             }
         }
 
@@ -416,12 +419,118 @@
     transform-origin: 50% 38%;
 }
 
+
+#kz_header+.container {
+
+    @media(max-width:1200px) {
+
+        >.container,
+        #logo {
+            display: none;
+        }
+
+        #toggle-menu {
+            z-index: 9;
+        }
+    }
+}
+
+.menu-grid {
+
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+
+    @media(max-width:1200px) {
+        position: relative;
+        visibility: visible;
+        pointer-events: initial;
+    }
+
+    width: 100vw;
+    padding: 1rem 2rem;
+
+    @media(max-width:1200px) {
+        display: grid;
+        align-items: center;
+        justify-content: space-between;
+        grid-template-columns: 50px 90px 1fr;
+        gap: 0 1rem;
+    }
+
+    >a {
+        padding: 0 !important;
+    }
+
+    #logo-mobile,
+    #btn-tel-mobile {
+        display: none;
+    }
+
+    #toggle-menu {
+        margin-left: -1.5em;
+        margin-top: -.5em;
+
+        @media(max-width:768px) {
+            margin-left: -2.5em;
+
+        }
+    }
+
+    #logo-mobile {
+        width: 100%;
+    }
+
+    #btn-tel-mobile {
+        display: flex !important;
+        justify-content: flex-end;
+    }
+
+    #btn-tel-mobile a {
+        padding: .7rem 1.3rem !important;
+        display: flex;
+    }
+
+    @media(max-width:1200px) {
+
+        #logo-mobile,
+        #btn-tel-mobile {
+            display: initial;
+        }
+
+        #menu::after {
+            content: none !important;
+        }
+    }
+}
+
+
 // pre header
 #kz_header {
     background: #eee;
     //    padding: 1em 0;
     text-transform: none;
     width: 100%;
+
+    >.container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::before,
+        &::after {
+            content: none;
+        }
+
+        @media(max-width:1200px) {
+            display: none;
+        }
+    }
+
+    #dl-catalogue-btn {
+        display: flex;
+        align-items: center;
+    }
 
     .btn-gray,
     i {
@@ -457,96 +566,36 @@
 }
 
 #qualiopi-logo {
-    max-height: 43px;
-    width: 327px;
 
-    @media(max-width:1250px) {
-        display: none;
-    }
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 50px !important;
+    margin: 1rem 0 !important;
+    // max-height: 43px;
+    // width: 327px;
 
-    @media(max-width:1200px) {
-        display: inherit;
-        position: absolute;
-        width: 132px;
-        right: 108px;
-        top: 6px;
-    }
+    // @media(max-width:1250px) {
+    //     display: none;
+    // }
 
-    @media(max-width:440px) {
-        display: none;
-    }
+    // @media(max-width:1200px) {
+    //     display: inherit;
+    //     position: absolute;
+    //     width: 132px;
+    //     right: 108px;
+    //     top: 6px;
+    // }
+
+    // @media(max-width:440px) {
+    //     display: none;
+    // }
 }
 
-#qualiopi-logo {
-    max-height: 43px;
-    width: 327px;
 
-    @media(max-width:1250px) {
-        display: none;
-    }
-
-    @media(max-width:1200px) {
-        display: inherit;
-        position: absolute;
-        width: 132px;
-        right: 108px;
-        top: 6px;
-    }
-
-    @media(max-width:440px) {
-        display: none;
-    }
-}
-
-#qualiopi-logo {
-    max-height: 43px;
-    width: 327px;
-
-    @media(max-width:1250px) {
-        display: none;
-    }
-
-    @media(max-width:1200px) {
-        display: inherit;
-        position: absolute;
-        width: 132px;
-        right: 108px;
-        top: 6px;
-    }
-
-    @media(max-width:440px) {
-        display: none;
-    }
-}
-
-#datadock-logo {
-    max-height: 23px;
-    width: 102px;
-
-    @media(max-width:1250px) {
-        display: none;
-    }
-
-    @media(max-width:1200px) {
-        display: inherit;
-        position: absolute;
-        width: 132px;
-        right: 108px;
-        top: 6px;
-    }
-
-    @media(max-width:440px) {
-        display: none;
-    }
-}
 
 @media(max-width:1200px) {
     #kz_header {
         i {
-            display: none;
-        }
-
-        #dl-catalogue-btn {
             display: none;
         }
 
@@ -599,31 +648,31 @@
         }
     }
 
-    .main-menu:after {
-        position: absolute;
-        background-color: #fff;
-        top: 0;
-        content: ' ';
-        width: 200px;
-        height: 100%;
-    }
+    // .main-menu:after {
+    //     position: absolute;
+    //     background-color: #fff;
+    //     top: 0;
+    //     content: ' ';
+    //     width: 200px;
+    //     height: 100%;
+    // }
 
     #menu {
         border-top: solid 1px #e8e8e8;
     }
 
     .main-menu a {
-        border-left: solid 2px #eee;
+        // border-left: solid 2px #eee;
     }
 }
 
 @media(max-width:768px) {
     .main-menu {
         position: absolute !important;
-        right: 1em !important;
         top: 0;
         width: 100%;
         padding-left: 1em;
+
     }
 
     .sub-menu {
@@ -632,8 +681,9 @@
 }
 
 #datadock_subheader {
-    background: #1f7efb;
-    color: #fff;
+    background: #5bf8da !important;
+    color: #2d455e !important;
+    font-weight: bold;
     padding: 1.3em .5em .9em .5em;
     font-size: 14px;
 
@@ -658,7 +708,11 @@
     }
 
     #txt {
-        padding-right: 2em;
+        padding-right: 1rem;
+
+        @media only screen and (min-width: 767px) {
+            padding-left: 1rem;
+        }
     }
 
     .container {

@@ -1265,14 +1265,18 @@ body .container-business-case h3 {
     gap: 1rem;
 }
 
+
+.footer .btn-phone {
+    max-width: 183px;
+}
+
 @media only screen and (max-width: 767px) {
     .footer .f {
         flex-direction: column;
     }
-}
-
-.footer .btn-phone {
-    max-width: 183px;
+    .footer .btn-phone {
+        max-width: 100%;
+    }
 }
 
 .footer small {
@@ -2705,24 +2709,24 @@ form textarea::placeholder {
 .site-container {
     top: 0;
     width: 100%;
-    padding-top: 8.2em;
+    padding-top: 10em;
 }
 
 @media(max-width:1500px) {
     .site-container {
-        padding-top: 8.2em;
+        padding-top: 10.2em;
     }
 }
 
 @media(max-width:1200px) {
     .site-container {
-        padding-top: 7.9em;
+        padding-top: 5.9em;
     }
 }
 
 @media(max-width:768px) {
     .site-container {
-        padding-top: 7.9em
+        padding-top: 7.9em;
     }
 }
 
