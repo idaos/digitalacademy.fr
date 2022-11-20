@@ -101,7 +101,7 @@ function getNextSession($sessions)
             <?php foreach ($formations as $formation) :
                 $acf_fields = get_fields($formation->ID);
             ?>
-                <a class="swiper-slide " href="<?php echo get_the_permalink($formation->ID); ?>">
+                <a class="swiper-slide" href="<?php echo get_the_permalink($formation->ID); ?>">
                     <div class="card">
                         <!-- Image -->
                         <?php if (get_field('visuel_presentation', $formation->ID)) : ?>
@@ -157,6 +157,6 @@ function getNextSession($sessions)
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="swiper-pagination container py-4"></div>
+    <div class="swiper-pagination swiper-pagination-courses container py-4"></div>
 
 <?php endif; ?>

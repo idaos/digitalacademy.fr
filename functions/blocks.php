@@ -71,6 +71,113 @@ function nvp_register_blocks()
             'enqueue_style' => get_template_directory_uri() . '/blocks/courses-slider/courses-slider.css',
             'enqueue_script'    => get_template_directory_uri() . '/blocks/courses-slider/courses-slider.js',
         ));
+        acf_register_block_type(array(
+            'name'                => 'clients-slider',
+            'title'               => __('DAC - Slider des réferences clients'),
+            'description'         => __(''),
+            'render_template'     => 'blocks/clients-slider/clients-slider.php',
+            'category'            => 'formatting',
+            'icon'                => 'admin-comments',
+            'keywords'            => array('dac', 'slider', 'clients', 'réferences', 'references', 'carousel'),
+            'mode'            => 'preview',
+            'supports'        => [
+                'align'            => false,
+                'anchor'        => true,
+                'customClassName'    => true,
+                'jsx'             => true,
+            ],
+            'enqueue_style' => get_template_directory_uri() . '/blocks/clients-slider/clients-slider.css',
+            'enqueue_script'    => get_template_directory_uri() . '/blocks/clients-slider/clients-slider.js',
+        ));
+        acf_register_block_type(array(
+            'name'                => 'opco-slider',
+            'title'               => __('DAC - Slider des OPCOs partenaires'),
+            'description'         => __(''),
+            'render_template'     => 'blocks/opco-slider/opco-slider.php',
+            'category'            => 'formatting',
+            'icon'                => 'admin-comments',
+            'keywords'            => array('dac', 'slider', 'opco', 'carousel'),
+            'mode'            => 'preview',
+            'supports'        => [
+                'align'            => false,
+                'anchor'        => true,
+                'customClassName'    => true,
+                'jsx'             => true,
+            ],
+            'enqueue_style' => get_template_directory_uri() . '/blocks/opco-slider/opco-slider.css',
+            'enqueue_script'    => get_template_directory_uri() . '/blocks/opco-slider/opco-slider.js',
+        ));
+        acf_register_block_type(array(
+            'name'                => 'blog-slider',
+            'title'               => __('DAC - Slider des articles de blog'),
+            'description'         => __(''),
+            'render_template'     => 'blocks/blog-slider/blog-slider.php',
+            'category'            => 'formatting',
+            'icon'                => 'admin-comments',
+            'keywords'            => array('dac', 'slider', 'blog', 'carousel', 'articles'),
+            'mode'            => 'preview',
+            'supports'        => [
+                'align'            => false,
+                'anchor'        => true,
+                'customClassName'    => true,
+                'jsx'             => true,
+            ],
+            'enqueue_style' => get_template_directory_uri() . '/blocks/blog-slider/blog-slider.css',
+            'enqueue_script'    => get_template_directory_uri() . '/blocks/blog-slider/blog-slider.js',
+        ));
+        acf_register_block_type(array(
+            'name'                => 'contact-form',
+            'title'               => __('DAC - Formulaire de contact'),
+            'description'         => __(''),
+            'render_template'     => 'blocks/contact-form/contact-form.php',
+            'category'            => 'formatting',
+            'icon'                => 'admin-comments',
+            'keywords'            => array('dac', 'contact', 'formulaire', 'articles'),
+            'mode'            => 'preview',
+            'supports'        => [
+                'align'            => false,
+                'anchor'        => true,
+                'customClassName'    => true,
+                'jsx'             => true,
+            ],
+            'enqueue_style' => get_template_directory_uri() . '/blocks/contact-form/contact-form.css',
+            'enqueue_script'    => get_template_directory_uri() . '/blocks/contact-form/contact-form.js',
+        ));
+        acf_register_block_type(array(
+            'name'                => 'callback-form',
+            'title'               => __('DAC - Formulaire de rappel téléphonique'),
+            'description'         => __(''),
+            'render_template'     => 'blocks/callback-form/callback-form.php',
+            'category'            => 'formatting',
+            'icon'                => 'admin-comments',
+            'keywords'            => array('dac', 'Téléphone', 'formulaire', 'rappele'),
+            'mode'            => 'preview',
+            'supports'        => [
+                'align'            => false,
+                'anchor'        => true,
+                'customClassName'    => true,
+                'jsx'             => true,
+            ],
+            'enqueue_style' => get_template_directory_uri() . '/blocks/callback-form/callback-form.css',
+            'enqueue_script'    => get_template_directory_uri() . '/blocks/callback-form/callback-form.js',
+        ));
+        acf_register_block_type(array(
+            'name'                => 'newsletter-form',
+            'title'               => __('DAC - Formulaire d\'insription à la newsletter'),
+            'description'         => __(''),
+            'render_template'     => 'blocks/newsletter-form/newsletter-form.php',
+            'category'            => 'formatting',
+            'icon'                => 'admin-comments',
+            'keywords'            => array('dac', 'Newsletter', 'formulaire'),
+            'mode'            => 'preview',
+            'supports'        => [
+                'align'            => false,
+                'anchor'        => true,
+                'customClassName'    => true,
+                'jsx'             => true,
+            ],
+            'enqueue_style' => get_template_directory_uri() . '/blocks/newsletter-form/newsletter-form.css',
+        ));
     }
 }
 

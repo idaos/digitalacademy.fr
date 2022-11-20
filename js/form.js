@@ -80,11 +80,6 @@ jQuery(document).ready(function($) {
 jQuery(document).bind('gform_post_render', function(){
 
     jQuery( '.ginput_container_multiselect' ).parents('.gfield').children('label').hide(); // hide select label
-
-    heading = '<span id="form-heading" class="reverse"><h2>Contactez-nous </h2><h3>Vous souhaitez en savoir plus sur nos offres de formation ?</h3></span><hr><br><br>';
-    if( jQuery('#form-heading').length == 0 ){
-        jQuery('#gform_wrapper_11 form, #gform_wrapper_1 form, #gform_wrapper_9 form').prepend(heading);
-    } 
     jQuery('.gform_ajax_spinner').hide();
 
     hideValidationMessage();
