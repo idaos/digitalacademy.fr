@@ -42,7 +42,7 @@
 
     .main-menu #menu {
         display: none;
-        margin-left: 1rem !important;
+        margin-left: 3rem !important;
     }
 
     #tm:checked+#menu {
@@ -67,9 +67,14 @@
     }
 
     .main-menu .sub-menu {
-        background-color: #eee;
-        border-width: 1px 1px 0;
+        background-color: #fff;
+        border-width:  0;
         margin: 0 1em;
+
+        a{
+            color:#bf3b2b;
+            text-decoration: underline;
+        }
     }
 
     .main-menu .sub-menu li:last-child {
@@ -81,7 +86,7 @@
     .main-menu a {
         position: relative;
         display: block;
-        color: #000;
+        color: #5B5B5B;
     }
 
     .main-menu,
@@ -154,7 +159,7 @@
 
         .main-menu li {
             float: left;
-            border-width: 0 1px 0 0;
+            border-width: 0;
         }
 
         .main-menu .sub-menu li {
@@ -215,7 +220,11 @@
     Arial,
     Helvetica,
     sans-serif;
-    font-size:.9em;
+
+    i {
+        font-size: .9em !important;
+    }
+
     border-bottom: solid 1px #eee;
 
     a {
@@ -512,6 +521,10 @@
     text-transform: none;
     width: 100%;
 
+    * {
+        font-size: 14px !important;
+    }
+
     >.container {
         display: flex;
         justify-content: space-between;
@@ -734,4 +747,24 @@
         height: 1em;
         line-height: 0.6em;
     }
+}
+
+@media only screen and (min-width: 1200px) {
+    #kz_header+.container {
+
+        display: flex;
+    }
+
+    .main-menu {
+        width: 100%;
+    }
+
+    #menu {
+        display: flex !important;
+        justify-content: space-between;
+    }
+}
+
+#kz_header #txt{
+    font-size: 13px !important;
 }

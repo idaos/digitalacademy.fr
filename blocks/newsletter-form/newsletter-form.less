@@ -37,7 +37,8 @@ html body #newsletter-form {
 
         .gform_fields {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 2rem;
             align-items: center;
 
             input[type=text],
@@ -104,7 +105,7 @@ html body #newsletter-form {
                 }
 
                 input[type="checkbox"]:checked {
-                    background: #fff;
+                    background: rgb(128, 128, 128);
                     margin: 0px;
                     position: relative;
 
@@ -167,4 +168,10 @@ html body {
             }
         }
     }
+}
+
+#gform_confirmation_message_3 {
+    color: #fff;
+    text-align: center;
+    font-weight: bolder;
 }

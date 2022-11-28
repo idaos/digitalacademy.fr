@@ -40,7 +40,7 @@ a.swiper-slide:hover {
 
             display: grid;
             grid-template-columns: 25px 1fr;
-            font-size: .8em;
+            font-size: .7em;
             padding: 0;
             color: #bf3b2b;
 
@@ -87,6 +87,7 @@ a.swiper-slide:hover {
 
     .goals {
         margin-bottom: 1.5rem;
+        font-size: .85em;
         color: #000;
     }
 
@@ -99,6 +100,7 @@ a.swiper-slide:hover {
         padding-left: 19px;
         margin-top: 10px;
         font-size: .93em !important;
+        line-height: 1.5;
 
         &:before {
             content: '';
@@ -141,8 +143,17 @@ a.swiper-slide:hover {
 
     .swiper-slide {
         background: #fff;
-        padding: 1rem;
         height: initial !important;
+        
+        padding: 1rem;
+        @media only screen and (max-width: 780px) {
+            padding: 0;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            border: 3px solid #bf3b2b;
+            border-radius: 1.5rem;
+        }
 
         display: -webkit-box;
         display: -ms-flexbox;

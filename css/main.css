@@ -20,7 +20,7 @@ html body {
     font-size: 16px;
     line-height: normal;
     font-weight: normal;
-    color: #373636;
+    color: #5B5B5B;
     font-family: Lato, Arial, Helvetica, sans-serif;
     background: #fff;
     overflow-x: hidden;
@@ -140,6 +140,25 @@ body .pb-7 {
     max-width: 700px;
 }
 
+.lh-15 {
+    line-height: 1.5;
+}
+
+@media only screen and (max-width: 780px) {
+    .hide-mobile {
+        display: none;
+    }
+}
+
+body .py-4 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.hidden_label .gfield_label {
+    display: none !important;
+}
+
 .has-text-color a {
     color: #5f5f5f;
     text-decoration: underline;
@@ -183,6 +202,54 @@ hr.wp-block-separator {
         margin: 0 !important;
     }
 }
+
+.home-heading {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media only screen and (max-width: 780px) {
+
+    .home-heading {
+        padding: 0 !important;
+    }
+
+    .home-heading h1 {
+        margin: 3rem 1rem 0 1rem;
+    }
+
+    .home-heading .wp-block-cover__inner-container,
+    .home-heading .wp-block-cover__inner-container>div {
+        padding: 0 !important;
+    }
+
+
+    .home-heading .br-3 {
+        border-radius: 0;
+        padding: .75rem 1.5rem 2rem 1.5rem !important;
+    }
+
+
+    .home-heading .search-form .search-txt {
+        max-width: initial;
+        width: 100%;
+    }
+
+    .home-heading .search-form {
+        padding: 0;
+    }
+
+    .home-heading a {
+        text-decoration: underline;
+        font-size: 13px;
+    }
+
+
+    .wp-block-buttons {
+        justify-content: center;
+    }
+}
+
 
 /* Recrutment
 --------------------------------------------- */
@@ -1274,15 +1341,23 @@ body .container-business-case h3 {
     .footer .f {
         flex-direction: column;
     }
+
     .footer .btn-phone {
         max-width: 100%;
     }
 }
 
 .footer small {
-    margin-top: -1rem;
-    margin-bottom: 3rem;    
+    margin-top: 1rem;
+    margin-bottom: 3rem;
     display: block;
+    text-align: center;
+}
+
+@media screen and (min-width:1200px) {
+    .footer small {
+        max-width: 200px;
+    }
 }
 
 body .widget-title,
@@ -1324,6 +1399,12 @@ body .footer h4 {
     list-style: none;
 }
 
+.footer .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .footer .social a {
     width: 50px;
     height: 50px;
@@ -1333,6 +1414,27 @@ body .footer h4 {
 .footer .social a img {
     width: 100%;
     height: 100%;
+}
+
+#dac-sign {
+    font-weight: bold;
+    color: #BF3B2B;
+    display: flex;
+    gap: .5rem;
+    margin-top: 3rem;
+    font-weight: bolder;
+    font-size: 1.125em;
+}
+
+#dac-sign::before {
+    content: '';
+    background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path fill='%23BF3B2B' d='M24 23.5q1.45 0 2.475-1.025Q27.5 21.45 27.5 20q0-1.45-1.025-2.475Q25.45 16.5 24 16.5q-1.45 0-2.475 1.025Q20.5 18.55 20.5 20q0 1.45 1.025 2.475Q22.55 23.5 24 23.5Zm0 16.55q6.65-6.05 9.825-10.975Q37 24.15 37 20.4q0-5.9-3.775-9.65T24 7q-5.45 0-9.225 3.75Q11 14.5 11 20.4q0 3.75 3.25 8.675Q17.5 34 24 40.05ZM24 44q-8.05-6.85-12.025-12.725Q8 25.4 8 20.4q0-7.5 4.825-11.95Q17.65 4 24 4q6.35 0 11.175 4.45Q40 12.9 40 20.4q0 5-3.975 10.875T24 44Zm0-23.6Z'/></svg>");
+    width: 2rem;
+    height: 2rem;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
 }
 
 .footer a,
@@ -1421,6 +1523,54 @@ body .footer h4 {
 .footer-bottom a {
     color: #fff;
     font-size: 1em;
+}
+
+.footer .btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width:1200px) {
+    .footer .btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer .btns a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:1200px) {
+
+    #contact-fixed {
+
+        display: grid !important;
+        align-items: center;
+        grid-template-columns: 100px minmax(0, 90px) 1fr;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+        color: #fff;
+        font-size: 13px;
+        background-color: #bf3b2b;
+        position: fixed;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        padding: 1rem 0.5rem;
+    }
+
+    #contact-fixed a {
+        border: none;
+        white-space: nowrap;
+        font-size: 13px;
+
+    }
 }
 
 

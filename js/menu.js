@@ -19,3 +19,18 @@ jQuery(document).ready(function() {
         } 
     });
 });
+
+
+//-----------------------------------------------------------//
+//----------------- Nav : Highlight parent item  ------------------//
+//-----------------------------------------------------------//
+
+document.querySelectorAll('#menu a').forEach(el => {
+    if(window.location.href.includes(el.href)){
+        var parentID = el.getAttribute('data-parent-id')
+        document.querySelectorAll('[data-parent-id='+ parentID +']:not(.sub-menu a)').forEach(els => {
+            els.style.color = '#bf3b2b'
+            els.style.fontWeight = 'bold'
+        })
+    }
+})

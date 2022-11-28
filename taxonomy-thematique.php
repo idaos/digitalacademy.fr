@@ -79,7 +79,7 @@ $courses_count = count(json_decode($result[0])) ;
                     <div id="search">
                         <div class="container alignCenter">
                             <input ng-model="searchText" ng-init="searchText='<?php echo $search_query; ?>'" 
-                                   placeholder="Rechercher une formation..." autofocus class="search-txt">
+                                   placeholder="Rechercher une formation..."  class="search-txt">
                             <div class="btn btn-red search-btn" ng-click="getCoursesFromQuery()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13"><g stroke-width="2" stroke="#fff" fill="none"><path d="M11.29 11.71l-4-4"/><circle cx="5" cy="5" r="4"/></g></svg>
                             </div>

@@ -160,7 +160,7 @@
                         <!-- Tel btn mobile -->
                         <div id="btn-tel-mobile">
                             <div class="wp-block-button aligncenter is-style-outline btn-phone">
-                                <a class="wp-block-button__link wp-element-button" href="tel:0977235321">
+                                <a class="wp-block-button__link wp-element-button" href="tel:0977235321" style="white-space: nowrap;">
                                     09 77 23 53 21
                                 </a>
                             </div>

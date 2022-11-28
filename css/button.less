@@ -23,7 +23,7 @@ body {
         border: none;
         transition-property: background, filter, -webkit-filter, -moz-filter, -ms-filter, -o-filter, color;
         transition-duration: .2s;
-        border-radius: 4px;
+        border-radius: 2.5rem;
         letter-spacing: 1px;
         height: inherit;
         white-space: normal;
@@ -400,7 +400,6 @@ body {
 
 .is-style-outline a {
     color: #bf3b2b !important;
-    border-color: rgb(79, 79, 79) !important;
     border-width: 1px !important;
     border-radius: 2rem;
     background: #fff !important;
@@ -408,6 +407,11 @@ body {
 
 .btn-phone {
     width: auto !important;
+
+    &,
+    a {
+        border-color: #5B5B5B !important;
+    }
 
     &:hover {
         filter: brightness(1.1);
@@ -435,6 +439,11 @@ body {
 
 .btn-mail {
     width: auto !important;
+
+    &,
+    a {
+        border-color: #5B5B5B !important;
+    }
 
     &:hover {
         filter: brightness(1.1);
@@ -466,11 +475,16 @@ body {
         filter: brightness(1.1);
     }
 
-    border-radius: 2rem!important;
-    display: flex!important;
+    border-radius: 2rem !important;
+    display: flex !important;
     align-items: center;
-    letter-spacing: 0!important;
+    letter-spacing: 0 !important;
     align-items: center;
+
+    &,
+    a {
+        border-color: #5B5B5B !important;
+    }
 
     &:before {
         content: '';
@@ -483,5 +497,30 @@ body {
         margin-right: .5rem;
         display: inline-block;
 
+    }
+}
+
+
+body .wp-block-button.is-style-outline>.wp-block-button__link {
+    padding: 1em;
+    border-radius: 3rem;
+}
+
+body .wp-block-button.is-style-outline>.wp-block-button__link .is-style-outline {
+    border-color: #bf3b2b;
+}
+
+.search-btn{
+    border-radius: 1rem!important;
+}
+
+.search-form{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .search-txt,
+    .search-btn{
+        height: 50px!important;
     }
 }

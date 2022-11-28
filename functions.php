@@ -257,21 +257,21 @@ function custom_scripts_and_styles_default(){
         }
     }
 }
-/**
- * Chargement des styles et scripts pour la page   'Home'
- */
+// /**
+//  * Chargement des styles et scripts pour la page   'Home'
+//  */
 
-//Register hook to load scripts
-add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_home');
-//Load scripts (and styles)
-function custom_scripts_and_styles_home(){
-    if(is_page()){ 
-        if(is_front_page()){
-            wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
-            wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
-        }
-    }
-}
+// //Register hook to load scripts
+// add_action('wp_enqueue_scripts', 'custom_scripts_and_styles_home');
+// //Load scripts (and styles)
+// function custom_scripts_and_styles_home(){
+//     if(is_page()){ 
+//         if(is_front_page()){
+//             wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home_style.css', array( 'main' ), null );
+//             wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
+//         }
+//     }
+// }
 
 /**
  * Chargement des styles et scripts pour la page   'Nos solutions de formation'
@@ -445,6 +445,20 @@ function getCurrentPageURL(){
     $url.= $_SERVER['REQUEST_URI'];    
     return $url;  
 }*/
+
+if (!function_exists('console_dump')) {
+    function console_dump($data)
+    {
+        if ($_SERVER['SERVER_NAME'] === 'localhost') {
+            $buffer = json_encode($data);
+            $buffer = str_replace('>', '__', $buffer);
+            $buffer = str_replace('<', '__', $buffer);
+            $buffer = str_replace(["\r\n", "\r", "\n"], '', $buffer);
+            echo '<script>console.log("! PHP object dump", ' . $buffer . ');</script>';
+        }
+    }
+}
+
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
@@ -770,16 +784,20 @@ function wrap_gform_cdata_close( $content = '' ) {
 // -----------------------------------------------------------------------
 
 class KZ_Walker_Digital_Top_Menu extends Walker_Nav_Menu {
+    public $parent_nav_item = 0;
+
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         global $wp_query;
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+        $this->parent_nav_item = get_post_meta( $item->menu_item_parent, '_menu_item_object_id', true );
 
         $output .= '<li>';
         $attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
         $attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
         $attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
         $attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
-
+        $attributes .=  $depth == 0 ? ' data-parent-id="sm'. $item->ID . '"' : ' data-parent-id="sm'. $this->parent_nav_item . '"';
 
         $item_output = $args->before;
         $item_output .= '<a' . $attributes . '>';
@@ -796,10 +814,9 @@ class KZ_Walker_Digital_Top_Menu extends Walker_Nav_Menu {
                 )
             )
         ) ) : false;
-        $item_output .= ! empty( $submenus ) ? ( 0 == $depth ? '<span class="drop-icon">-</span><label title="Toggle Drop-down" class="drop-icon" for="sm'. $item->ID .'">+</label></a><input type="checkbox" id="sm'. $item->ID .'">' : '' ) : '</a>';
 
+        $item_output .= ! empty( $submenus ) ? ( 0 == $depth ? '<span class="drop-icon">-</span><label title="Toggle Drop-down" class="drop-icon" for="sm'. $item->ID . '">+</label></a><input type="checkbox" id="sm'. $item->ID .'">' : '' ) : '</a>';
         $item_output .= $args->after;
-
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 }
