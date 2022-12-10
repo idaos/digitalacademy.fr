@@ -13,6 +13,20 @@ $th = new KzThema();
 
 get_header();
 ?>
+
+<script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var filterNav = document.querySelector('.xs-container-menu-filtre, .courses-category-wrapper')
+        if (filterNav)
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                filterNav.classList.add('fix')
+            } else {
+                filterNav.classList.remove('fix')
+            }
+        })
+})
+</script>
 <main class="content archive">
 
     <div class="header">    
@@ -45,9 +59,9 @@ get_header();
                             </div>
                         </div>
                     </div>
-                    <div id="thematiques-input" class="alignCenter">
+                    <div id="thematiques-input" class="container alignCenter">
                         <span>ou filtrer par thématique :</span>
-                        <div class="row alignCenter">
+                        <div class="row alignCenter courses-category-wrapper">
                             <div ng-repeat="(key, thema) in thema track by $index">
                                 <input ng-show="thema.name.length > 1" type="checkbox" value="{{thema.colorhex}}" ng-model="thema.enabled" ng-click="onCheckboxEvent($event, $index); searchText = '';" id="thematique-checkbox-{{thema.color}}" name="thematique-checkbox-{{thema.color}}">
                                 <label ng-show="thema.name.length > 1" for="thematique-checkbox-{{thema.color}}" class="button btn btn-lg" ng-bind-html="thema.name | unsafe"></label>
@@ -165,7 +179,7 @@ get_header();
             ?>
             <div class="container" style="margin-top:3em;">
                 <div class="wrapper">
-                    <h2 class="hidden-xs">Calendrier des formations 
+                    <h2 class="calendar-title hidden-xs">Calendrier des formations 
                         <span 
                               id="selectedThema" 
                               ng-show="enableThemaFilter"
@@ -238,18 +252,4 @@ get_header();
         </div>
     </div>
 </main><!-- Main end -->
-<section id="references">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <br>
-                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
-                <hr>
-                <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
-                <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
-                <br><br><br><br><br>
-            </div>
-        </div>
-    </div>
-</section>
 <?php get_footer(); ?>

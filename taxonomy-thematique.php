@@ -19,6 +19,22 @@ $courses_count = count(json_decode($result[0])) ;
     // Pass var to js
     var response_themas = <?php echo $result[1]; ?>;
     var page_color = "<?php $th->getColorHex() ?>";
+
+    // Pass var to js
+    var response_themas = <?php echo $result[1]; ?>;
+
+    window.addEventListener('DOMContentLoaded', () => {
+
+        var filterNav = document.querySelector('.xs-container-menu-filtre, .courses-category-wrapper')
+        if (filterNav)
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                filterNav.classList.add('fix')
+            } else {
+                filterNav.classList.remove('fix')
+            }
+        })
+    })
 </script>
 
 <style>
@@ -47,7 +63,7 @@ $courses_count = count(json_decode($result[0])) ;
 
 <div class="content ">
     <!-- Nav -->
-    <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
+    <div class="container content xs-container-menu-filtre" style="height:initial;background:none;margin-bottom:1.5rem">
         <div class="container-menu-filtre hidden-xs">
             <div class="container" style="padding: 0;">
                 <?php echo digital_get_thematiques_menu( $thematique_ID ); ?>
@@ -221,7 +237,7 @@ $courses_count = count(json_decode($result[0])) ;
 
     <div class="container" style="margin-top:3em;">
         <div class="wrapper">
-            <h2 class="hidden-xs">Calendrier des formations <?php echo $th->getName(); ?>
+            <h2 class="calendar-title hidden-xs">Calendrier des formations <?php echo $th->getName(); ?>
                 <span 
                       id="selectedThema" 
                       ng-show="enableThemaFilter"
@@ -274,78 +290,5 @@ $courses_count = count(json_decode($result[0])) ;
 </div>
 
 
-<section id="references">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <br><br><br>
-                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
-                <hr>
-                <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
-                <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
-                <br><br><br>
-            </div>
-        </div>
-    </div>
-</section>
-
-<?php 
-// get the current category
-$slug = $th->slug;
-query_posts( array(
-    'category_name'  => $slug,
-    'posts_per_page' => -1
-) );
-?>
-
-<?php
-if ( have_posts() ) :
-?>
-<section class="articles">
-    <div class="container">
-        <div class="wrapper">
-            <div class="row clearfix p5000">
-                <div class="col-xs-12 container-blog">
-                    <h2>Derniers articles au sujet des formations <?php echo strtolower($th->name); ?></h2>
-                    <hr style="margin-bottom: 2em;">
-                    <div class="row display-flex clearfix">
-
-                        <?php
-                        $i = 0;
-                        while ( have_posts() && $i < 9) : the_post(); $i++;
-                        ?>
-                        <div class="col-sm-6 col-md-4" style="margin-bottom:2em;">
-                            <div class="thewrapper container-border">
-                                <a href="<?php the_permalink(); ?>" rel="nofollow">											
-                                    <?php if ( has_post_thumbnail() ): ?>												
-                                    <?php $post_thumbnail_id = get_post_thumbnail_id( $post ); ?>	
-                                    <?php $post_thumbnail_url = wp_get_attachment_image_url( $post_thumbnail_id, 'post-thumbnails' ); ?>	
-                                    <div class="blog-thumb-wrapper" style="background-image:url(<?php echo $post_thumbnail_url ?>) ;"></div>	
-                                    <?php else : ?>												
-                                    <div class="blog-thumb-wrapper" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/blog-thumb-placeholder.jpg) ;"></div>	
-                                    <?php endif; ?>   
-                                </a>
-                                <div class="content-white">
-                                    <h4 class="title">
-                                        <a href="<?php the_permalink(); ?>" rel="bookmark">
-                                            <?php the_title(); ?>
-                                        </a>
-                                    </h4>
-                                    <p class="header-infos">Publié le <?php echo get_the_date(); ?></p>
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red absolute100" rel="nofollow">
-                                        Lire l'article
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endwhile; ?>
-
-                    </div>
-                </div>
-            </div>      
-        </div>
-    </div>
-</section>
-<?php endif; ?>
 
 <?php get_footer(); ?>

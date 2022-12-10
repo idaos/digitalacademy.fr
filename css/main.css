@@ -206,7 +206,7 @@ hr.wp-block-separator {
 .home-heading {
     font-size: 14px;
     line-height: 1.6;
-    margin-top: 0!important;
+    margin-top: 0 !important;
 }
 
 @media only screen and (max-width: 780px) {
@@ -921,6 +921,26 @@ hr.none:before {
     color: #fff;
 }
 
+/* Calendar */
+
+.calendar-title {
+    color: #bd3c30;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.fc-toolbar-title {
+    text-transform: capitalize;
+    font-size: 2rem !important;
+}
+
+.fc-toolbar-chunk {
+    transform: scale(.8);
+}
+
+.fc-header-toolbar {
+    margin-bottom: 0!important;
+}
 
 /* Menu filtre
 --------------------------------------------- */
@@ -935,7 +955,7 @@ hr.none:before {
 
 .container-menu-filtre li,
 .container-menu-filtre {
-    /*    padding: 1em;*/
+    /* padding: 1em; */
     margin-bottom: 0 !important;
 }
 
@@ -959,6 +979,7 @@ hr.none:before {
     margin: 0;
     text-align: center;
     width: 100%;
+    background: #fff;
 }
 
 .container-menu-filtre ul li {
@@ -978,27 +999,48 @@ hr.none:before {
     text-decoration: none;
 }
 
-.archive .container-menu-filtre ul {
+.xs-container-menu-filtre.fix {
+    position: fixed;
+    top: 200px;
+    z-index: 9999999999;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.archive .container-menu-filtre ul,
+.courses-category-wrapper {
+    flex-wrap: nowrap !important;
     display: flex;
     align-items: center;
     border-radius: 4rem;
     border: solid 1px #c03c2b;
     padding: 0;
-    margin-bottom: 3rem !important;
-    margin-top: 1.5rem !important;
+    margin-bottom: 0rem !important;
+    margin-top: 0rem !important;
     overflow: hidden;
 }
 
-.archive .container-menu-filtre ul li a:hover {
+.archive .container-menu-filtre ul li a:hover,
+.courses-category-wrapper label:hover {
     background: #c03c2b !important;
     filter: brightness(1.1);
+    color: #fff !important;
 }
 
-.archive .container-menu-filtre ul li {
+#thematiques-input .courses-category-wrapper label {
+    padding: 1rem .5rem !important;
+    margin: 0 !important;
+    font-size: 1.3rem;
+    white-space: initial;
+}
+
+.archive .container-menu-filtre ul li,
+.courses-category-wrapper>div {
     margin: 0;
 }
 
-.archive .container-menu-filtre ul li a {
+.archive .container-menu-filtre ul li a,
+.courses-category-wrapper label {
     font-size: 1.3rem;
     background: none !important;
     color: #c03c2b !important;
