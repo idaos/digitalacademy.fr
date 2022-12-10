@@ -2,6 +2,10 @@
 /*
 Template Name: Pages Solutions
 */
+
+wp_enqueue_style( 'gutenberg-style', get_template_directory_uri() . '/css/gutenberg-style.css?v=2', array( 'main' ), null );
+wp_enqueue_style( 'contact-form', get_template_directory_uri() . '/blocks/contact-form/contact-form.css', array( 'main' ), null );
+wp_enqueue_style( 'callback-form', get_template_directory_uri() . '/blocks/callback-form/callback-form.css', array( 'main' ), null );
 get_header(); 
 
 
@@ -38,7 +42,6 @@ if ( get_field( 'image' ) ){
                                     <h1><?php the_title(); ?></h1>
                                 <h3><?php if ( get_sub_field( 'sous-titre_de_page' ) ) { the_sub_field( 'sous-titre_de_page' ); } ?></h3>
                             </span>
-                            <hr>
                             <p><?php if ( get_sub_field( 'header_p' ) ) { the_sub_field( 'header_p' ); } ?></p>
 
                             <?php  if( have_rows('bouton_1') ): while( have_rows('bouton_1') ): the_row(); ?>
@@ -51,7 +54,7 @@ if ( get_field( 'image' ) ){
                             <?php  if( have_rows('bouton_2') ): while( have_rows('bouton_2') ): the_row(); ?>
                                 <?php  if (get_sub_field('bouton_2_activer') == 'Oui') { ?>
                                     <a class="contact-btn" href="<?php if ( the_sub_field( 'bouton_2_-_url' ) ) { the_sub_field( 'bouton_2_-_url' ); } ?>">
-                                        <div class="btn btn-bf3b2b-alt"><?php if ( the_sub_field( 'bouton_2_nom' ) ) { the_sub_field( 'bouton_2_nom' ); } ?></div>
+                                        <div class="btn btn-bd3c30-alt"><?php if ( the_sub_field( 'bouton_2_nom' ) ) { the_sub_field( 'bouton_2_nom' ); } ?></div>
                                     </a>
                                 <?php } ?>
                             <?php endwhile; endif; ?>
@@ -128,7 +131,6 @@ EOF;
                         <h3><?php if ( get_sub_field( 'sous_titre' ) ) { the_sub_field( 'sous_titre' ); } ?></h3>
                     </span>
                     <?php if ( get_sub_field( 'titre' ) ) { ?>
-                    <hr>
                     <?php }; ?>
                     <p><?php if ( the_sub_field( 'contenu' ) ) { the_sub_field( 'contenu' ); } ?></p>
 
@@ -175,7 +177,6 @@ EOF;
                     <div class="row">
                         <div class="col-xs-12">
                             <h4 style="color:<?php echo $color; ?>;"><?php if ( get_sub_field( 'titre' ) ) { the_sub_field( 'titre' ); } ?></h4>
-                            <hr>
                             <p><b style="font-size:1.1em;"><?php if ( get_sub_field( 'sous-titre' ) ) { the_sub_field( 'sous-titre' ); } ?></b></p>
                         </div>
                     </div>
@@ -325,54 +326,72 @@ EOF;
     </div>
 </section>
 <?php endif; ?>
-<?php endif; ?>
+<?php endif; 
 
-<?php // Contact form ?> 
+
+
+
+
+
+?>
+<?php // Contact section ?> 
 <?php  if( have_rows('formulaire_de_contact') ): while( have_rows('formulaire_de_contact') ): the_row(); ?>
 <?php  if (get_sub_field('activer') == 'Oui'): ?>
-    <section id="contact"><span id="contact-anchor"></span>
-        <div class="container">
-            <div class="row row-same-height">
-                <div class="col-md-5 col-lg-7 valign">
-                    <div class="container">
-                        <div class="row alignCenter">
-                            <span><img id="logo_dac" src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
-                            <b>Nos conseillers vous répondent au :</b>
-                            <span id="phone"><a title="Bouton d'appel téléphonique" href="tel:0977215321">09 77 21 53 21</a></span>
-                            <i>appel non surtaxé du lundi au vendredi de 9h30 à 19h</i>
-                            <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
-                            <i style="margin-top: 2em;">ou par e-mail</i>
-                            <a title="Nous envoyer un email" id="adresse-email" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-7 col-lg-5 valign" id="form-bottom" action="#">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12"></div>
-                            <div class="container form-container">
-                                <div class="row">
-                                    <?php echo do_shortcode('[gravityform id="11" title="false" description="false" ajax="true"]'); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="is-layout-constrained wp-block-group alignwide br-3 has-background" style="background-color:#f7f7f7"><div class="wp-block-group__inner-container">
+<div class="is-layout-flex wp-container-41 wp-block-columns">
+<div class="is-layout-flow wp-block-column">
+<div style="height:35px" aria-hidden="true" class="wp-block-spacer"></div>
+<p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Besoin d’échanger ?</strong></p>
+<section id="contact"><span id="contact-anchor"></span>
+        <div d="form-bottom">
+            <div class="container form-container">
+                <div id="contact-form" class="row">
+                    <?php echo do_shortcode('[gravityform id="11" title="false" description="false" ajax="true"]'); ?>
                 </div>
             </div>
         </div>
     </section>
-
+<p class="has-text-color has-small-font-size" style="color:#454040">Conformément à la loi « Informatique et Libertés » N° 78-17 du 6 Janvier 1978, vous bénéficiez d’un droit d’accès, de rectification et de suppression des données transmises par le biais de ce formulaire</p>
+<p class="has-text-color has-small-font-size" style="color:#454040">*Champs obligatoires</p>
+<div style="height:41px" aria-hidden="true" class="wp-block-spacer"></div>
+</div>
+<div class="is-layout-flow wp-block-column">
+<div style="height:38px" aria-hidden="true" class="wp-block-spacer"></div>
+<p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Vous souhaitez être rappelé(e) ?</strong></p>
+<div id="callback-form">
+        <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
+    </div>
+<div style="height:38px" aria-hidden="true" class="wp-block-spacer"></div>
+<p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Vous souhaitez nous contacter directement ?</strong></p>
+<div class="is-layout-flex wp-block-buttons">
+<div class="wp-block-button aligncenter is-style-outline btn-phone"><a class="wp-block-button__link wp-element-button" href="tel:0977235321">09 77 23 53 21</a></div>
+</div>
+<p class="has-text-align-center">Appel non surtaxé.<br>Du lundi au vendredi de 9h30 à 18h</p>
+<div style="height:13px" aria-hidden="true" class="wp-block-spacer"></div>
+<div class="is-layout-flex wp-block-buttons">
+<div class="wp-block-button aligncenter is-style-outline btn-mail"><a class="wp-block-button__link wp-element-button" href="mailto:contact@digitalacademy.fr">contact@digitalacademy.fr</a></div>
+</div>
+</div>
+</div>
+</div></div>
 <?php endif; ?>
-<?php // Contact form end ?> 
-<?php endwhile; endif; ?>
+<?php endwhile; endif; 
 
 
 
 
-<?php // Newsletter ?> 
-<?php
-$page_newsletter = get_field( 'page_newsletter', 'option' );
-echo do_shortcode( '[cta texte="Restez informé sur nos formations digitales" url="' . $page_newsletter . '" texte_bouton="S’inscrire à la newsletter"]' );
+
+
 ?>
+<?php // Newsletter ?> 
+<div class="is-layout-constrained wp-block-group alignwide br-3">
+    <div class="wp-block-group__inner-container">
+        <div class="is-layout-flex wp-container-42 wp-block-columns" style="display: block; margin:auto">
+            <?php
+            echo do_shortcode( '[newsletter-form]' );
+            ?>
+        </div>
+    </div>
+</div>
 
 <?php get_footer(); ?>

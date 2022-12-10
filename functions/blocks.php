@@ -180,3 +180,30 @@ function nvp_register_blocks()
     }
 }
 
+
+
+
+/**
+ * Newsletter subscribe form block shortcode renderer
+ */
+
+ function get_newsletter_subscribe_form()
+ {
+     $nl_block = array(
+         'blockName' => "acf/newsletter-form",
+         'attrs' => array(
+             "id" => "block_62a8703a78d139",
+             "name" => "acf/newsletter-form",
+             "data" => [],
+             "align" => "full",
+             "mode" => "preview"
+         ),
+         'blockName' => "acf/newsletter-form",
+         'innerBlocks' => [],
+         'innerHTML' => "",
+         'innerContent' => [],
+     );
+     return render_block($nl_block);
+ }
+ 
+ add_shortcode('newsletter-form', 'get_newsletter_subscribe_form');
