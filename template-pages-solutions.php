@@ -114,25 +114,8 @@ EOF;
 
 
 
-    <section class="offer_bloc offer_bloc-<?php echo $color_hex; ?> <?php if ($blocks_count % 2): ?>odd-pad<?php endif; ?>" style="<?php if ($blocks_count % 2): ?>background:#f1f1f1<?php endif; ?>;">
+    <section class="offer_bloc offer_bloc-<?php echo $color_hex; ?>">
 
-        <?php if (($blocks_count % 2) == 0): ?>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index: 12;">
-                <polygon fill="#fff" points="0,0 100,0 100,100"/>
-            </svg>
-            <?php  if( have_rows('business_case') ): while( have_rows('business_case') ): the_row(); ?>
-            <?php  if (get_sub_field('activer') == 'Non'): ?>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="bottom-triangle">
-                <polygon fill="<?php echo $color; ?>" points="0,0 100,20 0,100"></polygon>
-            </svg>
-            <?php endif; endwhile; endif; ?>
-        <?php endif; ?>
-        <?php if ($blocks_count % 2): ?>
-            <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <polygon fill="#fff" points="0,100 100,0 100,100"/>
-                <polygon fill="<?php echo $color; ?>" points="20,80 100,0 100,100"/>
-            </svg>
-        <?php endif; ?>
 
         <div class="container">
             <div class="row">
@@ -331,12 +314,7 @@ EOF;
 <?php  if( have_rows('satisfaction') ): the_row(); ?>
 <?php  if (get_sub_field('activer') == 'Oui'): ?>
 <section id="satisfaction">
-    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#2f905e" points="0,100 100,0 100,100"/>
-    </svg>
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#60dd9c" points="0,0 0,100 100,0"/>
-    </svg>
+
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
