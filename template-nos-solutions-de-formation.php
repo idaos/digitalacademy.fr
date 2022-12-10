@@ -332,7 +332,7 @@ get_header(); ?>
 <section id="offer-digital-learning" class="offer offer-digital-learning">
     <!-- Bottom Triangles -->
     <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#505a9b" points="0,100 100,0 100,100"/>
+        <polygon fill="#bd3c30" points="0,100 100,0 100,100"/>
     </svg>
     <!-- Content -->
     <div class="container">
