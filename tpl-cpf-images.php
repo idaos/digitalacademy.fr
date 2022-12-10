@@ -21,19 +21,7 @@ if ( get_field( 'image' ) ){
        <img src='https://recette.digitalacademy.fr/wp-content/uploads/2021/12/20211208-bandeau-filtre.jpg' >
     </div>
 </section>
-
-
-<div class="svg-wrapper-bottom" style="">
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:4">
-        <polygon fill="#eee" points="0,0 0,100 40,40"></polygon>
-    </svg>
-    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:3">
-        <polygon fill="#3d00cc" points="0,0 100,20 100,100"></polygon>
-    </svg>
-    <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:2">
-        <polygon fill="#fff" points="0,0 100,100 0,100"></polygon>
-    </svg>
-</div>    
+ 
 <main class="content">
     <div class="container" style="z-index:5">
         <?php

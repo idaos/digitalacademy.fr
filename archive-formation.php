@@ -13,14 +13,14 @@ $th = new KzThema();
 
 get_header();
 ?>
-<main class="content">
+<main class="content archive">
 
     <div class="header">    
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 alignCenter">
                     <div class="clearfix">
-                        <h1 class="title-slider" style="color:#fff!important;">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
+                        <h1 class="title-slider">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
                         <hr>
                     </div>
                 </div>

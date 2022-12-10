@@ -45,7 +45,7 @@ $courses_count = count(json_decode($result[0])) ;
 
 
 
-<div class="content">
+<div class="content ">
     <!-- Nav -->
     <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
         <div class="container-menu-filtre hidden-xs">
@@ -55,20 +55,20 @@ $courses_count = count(json_decode($result[0])) ;
         </div>
     </div>
 
-<!-- Heading -->
-<div class="header">    
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 alignCenter">
-                <div>
-                    <img src="<?php echo $th->getImage(); ?>" alt="">
-                    <h1 class="title-slider" style="color:<?php echo $th->getColorHex(); ?>!important"><?php echo $th->getName(); ?></h1>
+    <!-- Heading -->
+    <div class="header">    
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 alignCenter">
+                    <div>
+                        <img src="<?php echo $th->getImage(); ?>" alt="">
+                        <h1 class="title-slider" style="color:<?php echo $th->getColorHex(); ?>!important"><?php echo $th->getName(); ?></h1>
+                    </div>
+                    <p><?php echo $th->getDescription(); ?></p>
                 </div>
-                <p><?php echo $th->getDescription(); ?></p>
             </div>
         </div>
     </div>
-</div>
 
     <div ng-app="courseFilteringApp" id="nos-formations">
         <div ng-controller="courseFilteringController as courses">

@@ -11,18 +11,7 @@
 		</div>
 	</div>
 </div>
-<div class="svg-wrapper-bottom">
-	<svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-		<polygon fill="#eee" points="0,0 0,100 40,40"></polygon>
-	</svg>
-	<svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-		<polygon fill="#bf3b2b" points="0,0 100,20 100,100"></polygon>
-	</svg>
-	<svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-		<polygon fill="#fff" points="0,0 100,100 0,100"></polygon>
-	</svg>
-</div>    
-<div class="content" style="margin-top:-4vw;">
+<div class="content">
 	<div class="container">
 		<div class="wrapper">
 			<div class="row">

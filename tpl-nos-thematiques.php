@@ -25,25 +25,28 @@ $courses_count = count(json_decode($result[0])) ;
     var response_themas = <?php echo $result[1]; ?>;
 </script>
 
-<!-- Heading -->
-<div class="header">    
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 alignCenter">
-                <h1 class="title-slider" style="color: #fff!important;"><?php the_title(); ?></h1>
-                <hr style="display:block">
+
+<div class="content archive">
+    <!-- Nav -->
+    <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
+        <div class="container-menu-filtre hidden-xs">
+            <div class="container" style="padding: 0;">
+                <?php echo digital_get_thematiques_menu( $thematique_ID ); ?>
             </div>
         </div>
     </div>
-</div>
 
-
-<div class="content">
-
-    <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
-        <div class="container-menu-filtre hidden-xs">
-            <div class="container">
-                <?php echo digital_get_thematiques_menu( $thematique_ID ); ?>
+    <!-- Heading -->
+    <div class="header">    
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 alignCenter">
+                    <div>
+                        <img src="<?php echo $th->getImage(); ?>" alt="">
+                        <h1 class="title-slider">Toutes nos formations :</h1>
+                    </div>
+                    <p><?php echo $th->getDescription(); ?></p>
+                </div>
             </div>
         </div>
     </div>

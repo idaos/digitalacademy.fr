@@ -206,6 +206,7 @@ hr.wp-block-separator {
 .home-heading {
     font-size: 14px;
     line-height: 1.6;
+    margin-top: 0!important;
 }
 
 @media only screen and (max-width: 780px) {
@@ -2995,6 +2996,7 @@ ul.picto img {
     border: solid 1px rgb(112 240 163) !important;
     height: 3.5em !important;
 }
+
 
 
 body {
