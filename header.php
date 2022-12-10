@@ -181,7 +181,7 @@
             <?php
             global $wp_query;
             $template_name = get_post_meta($wp_query->post->ID, '_wp_page_template', true);
-            if ($template_name != 'template-nos-solutions-de-formation.php') :; ?>
+            if (($template_name != 'template-nos-solutions-de-formation.php')&&($template_name != 'template-pages-solutions.php')) :; ?>
                     <div class="breadcrumb">
                         <div class="container">
                             <?php if (function_exists('yoast_breadcrumb')) {  yoast_breadcrumb(); } ?>
