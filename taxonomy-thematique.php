@@ -22,6 +22,9 @@ $courses_count = count(json_decode($result[0])) ;
 </script>
 
 <style>
+    .breadcrumb{
+        position: relative;
+    }
     .header:after {
         background-color: <?php echo $th->getColorHex(); ?>;
     }
@@ -36,19 +39,9 @@ $courses_count = count(json_decode($result[0])) ;
     }
 </style>
 
-<!-- Heading -->
-<div class="header">    
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 alignCenter">
-                <img src="<?php echo $th->getImage(); ?>" alt="">
-                <h3 class style="margin-top:2em;color:<?php echo $th->getColorHex(); ?>!important">Nos formations sur la thématique :</h3>
-                <h1 class="title-slider" style="color:<?php echo $th->getColorHex(); ?>!important"><?php echo $th->getName(); ?></h1>
-                <hr style="display:block">
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
 
 
 
@@ -56,11 +49,27 @@ $courses_count = count(json_decode($result[0])) ;
     <!-- Nav -->
     <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
         <div class="container-menu-filtre hidden-xs">
-            <div class="container">
+            <div class="container" style="padding: 0;">
                 <?php echo digital_get_thematiques_menu( $thematique_ID ); ?>
             </div>
         </div>
     </div>
+
+<!-- Heading -->
+<div class="header">    
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 alignCenter">
+                <div>
+                    <img src="<?php echo $th->getImage(); ?>" alt="">
+                    <h1 class="title-slider" style="color:<?php echo $th->getColorHex(); ?>!important"><?php echo $th->getName(); ?></h1>
+                </div>
+                <p><?php echo $th->getDescription(); ?></p>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div ng-app="courseFilteringApp" id="nos-formations">
         <div ng-controller="courseFilteringController as courses">
 

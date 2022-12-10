@@ -45,6 +45,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<?php if(is_user_logged_in()) : ?>
+    <style>
+        #kz-menu-wrapper {
+            top: 32px;
+        }
+
+        @media(max-width:782px) {
+            #kz-menu-wrapper {
+                top: 0px;
+            }
+            #wpadminbar {
+                display: none;
+            }
+        }
+    </style>
+<?php endif ; ?>
+
 </head>
 
 <body <?php body_class(); ?>>

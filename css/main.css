@@ -965,6 +965,11 @@ hr.none:before {
     margin: 5px;
 }
 
+.container-menu-filtre ul li span {
+    color: #c03c2b;
+    padding: 0 1rem 0 1.5rem;
+}
+
 .container-menu-filtre ul li.current-menu-item a,
 .container-menu-filtre ul li:hover a {
     background: #c03c2b;
@@ -972,8 +977,38 @@ hr.none:before {
     text-decoration: none;
 }
 
+.archive .container-menu-filtre ul {
+    display: flex;
+    align-items: center;
+    border-radius: 4rem;
+    border: solid 1px #c03c2b;
+    padding: 0;
+    margin-bottom: 3rem !important;
+    margin-top: 1.5rem !important;
+    overflow: hidden;
+}
+
+.archive .container-menu-filtre ul li a:hover {
+    background: #c03c2b !important;
+    filter: brightness(1.1);
+}
+
+.archive .container-menu-filtre ul li {
+    margin: 0;
+}
+
 .archive .container-menu-filtre ul li a {
-    border: 1px solid #E3E3E3;
+    font-size: 1.3rem;
+    background: none !important;
+    color: #c03c2b !important;
+    border-radius: 0;
+    border: none !important;
+    margin: 0 !important;
+}
+
+.archive .container-menu-filtre ul li.current-menu-item a {
+    background: #c03c2b !important;
+    color: #fff !important;
 }
 
 .archive .container-menu-filtre ul li a:hover,
@@ -2859,27 +2894,7 @@ form textarea::placeholder {
 .site-container {
     top: 0;
     width: 100%;
-    padding-top: 11em;
 }
-
-@media(max-width:1500px) {
-    .site-container {
-        padding-top: 10.2em;
-    }
-}
-
-@media(max-width:1200px) {
-    .site-container {
-        padding-top: 5.9em;
-    }
-}
-
-@media(max-width:768px) {
-    .site-container {
-        padding-top: 7.9em;
-    }
-}
-
 
 /* Nos thematiques */
 
@@ -2979,4 +2994,22 @@ ul.picto img {
     background: rgb(100 255 115 / 17%) !important;
     border: solid 1px rgb(112 240 163) !important;
     height: 3.5em !important;
+}
+
+
+body {
+    margin-top: 155px;
+}
+
+@media(max-width:1200px) {
+    body {
+        margin-top: 80px;
+    }
+}
+
+
+@media(max-width:768px) {
+    body {
+        margin-top: 33px;
+    }
 }

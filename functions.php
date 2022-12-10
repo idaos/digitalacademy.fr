@@ -588,12 +588,12 @@ function digital_get_thematiques_menu( $term_id = false, $first = false ) {
     $menu = '<ul>';
 
     if ( $current_page == $page_nos_formations ) {
-        $menu .= '<li class="' . ( empty( $current_thematique ) ? "current-menu-item" : "" ) . '"><a href="' . $page_nos_formations . '">Toutes les formations</a></li>';
+        $menu .= '<li class="' . ( empty( $current_thematique ) ? "current-menu-item" : "" ) . '"><span>Thématiques&nbsp;:</span></li>';
     } else {
         if ( $first ) {
-            $menu .= '<li class="current-menu-item"><a href="' . get_field( 'page_thematiques', 'option' ) . '">Toutes les formations</a></li>';
+            $menu .= '<li class="current-menu-item"><span>Thématiques&nbsp;:</span></li>';
         } else {
-            $menu .= '<li><a href="' . get_field( 'page_thematiques', 'option' ) . '">Toutes les formations</a></li>';
+            $menu .= '<li><span>Thématiques&nbsp;:</span></li>';
         }
     }
 
@@ -1443,6 +1443,7 @@ function kz_get_thema_data() {
         foreach ( $thematiques as $thematique ) {
             $th = array();
             $th["id"] = $thematique->term_id;
+            $th["description"] = $thematique->description;
             $th["name"] = $thematique->name;
             $th["slug"] = $thematique->slug;
             $th["color"] = get_field('couleur', $thematique);
@@ -1465,6 +1466,7 @@ class KzThema{
         $this->colorhex = $this->getColorHex();
         $this->image = $this->getImage();
         $this->url = $this->getUrl();
+        $this->description = $this->getDescription();
     }
     function getColor()
     {
@@ -1480,6 +1482,15 @@ class KzThema{
         foreach( $this->themas as $key => $th ){
             if($th['id'] == $this->id){
                 return $th['name'];
+            }
+        }
+        return false;
+    }
+    function getDescription()
+    {
+        foreach( $this->themas as $key => $th ){
+            if($th['id'] == $this->id){
+                return $th['description'];
             }
         }
         return false;
