@@ -178,14 +178,16 @@
     <div class="site-container clearfix">
         <!-- BreadCrumbs -->
         <?php if (!is_front_page()) : ?>
-            <div class="breadcrumb-wrapper">
-                <div class="breadcrumb">
-                    <div class="container">
-                        <?php if (function_exists('yoast_breadcrumb')) {
-                            yoast_breadcrumb();
-                        } ?>
-                        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+            <?php
+            global $wp_query;
+            $template_name = get_post_meta($wp_query->post->ID, '_wp_page_template', true);
+            if ($template_name != 'template-nos-solutions-de-formation.php') :; ?>
+                    <div class="breadcrumb">
+                        <div class="container">
+                            <?php if (function_exists('yoast_breadcrumb')) {  yoast_breadcrumb(); } ?>
+                            <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
         <?php endif; ?>
