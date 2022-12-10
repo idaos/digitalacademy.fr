@@ -83,10 +83,10 @@ if ( get_field( 'image' ) ){
 
     <?php  if( have_rows('bloc_image_a_gauche__texte_a_droite') ): while( have_rows('bloc_image_a_gauche__texte_a_droite') ): the_row(); ?>
     <?php $blocks_count ++; ?>
-    <?php if ( get_sub_field( 'couleur' ) ) {
+    <?php 
         
-        $color = get_sub_field( 'couleur' ); 
-        $color_hex = ltrim($color, '#'); 
+        $color = '#bd3c30'; 
+        $color_hex = 'bd3c30'; 
         $color_style = <<<EOF
 <style>
     .btn-$color_hex {
@@ -110,7 +110,7 @@ if ( get_field( 'image' ) ){
 </style>
 EOF;
     echo $color_style; 
- } ?>
+ ?>
 
 
 
@@ -266,10 +266,10 @@ EOF;
     <?php // Icones block ?> 
     <?php  if( have_rows('bloc_dicones') ): while( have_rows('bloc_dicones') ): the_row(); ?>
     <?php  if (get_sub_field('activer') == 'Oui') { ?>
-        <?php if ( get_sub_field( 'couleur' ) ) {
+        <?php 
         
-        $color = get_sub_field( 'couleur' ); 
-        $color_hex = ltrim($color, '#'); 
+        $color = '#bd3c30'; 
+        $color_hex = 'bd3c30'; 
         $color_style = <<<EOF
 <style>
     .difference .elt > [class*='col-']:nth-child(2), .elt > [class*='col-']:nth-child(4), .elt > [class*='col-']:nth-child(5), .elt > [class*='col-']:nth-child(7){
@@ -281,7 +281,7 @@ EOF;
 </style>
 EOF;
     echo $color_style; 
- } ?>
+ ?>
 
     <div class="difference">
         <div class="container">
