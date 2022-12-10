@@ -488,13 +488,6 @@ $hasTestimonials = hasTestimonials();
 
     <!-- Heading -->
     <section id="heading">
-        <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#f7f7f7" points="47,0 100,0 100,100 42,90"></polygon>
-    </svg>
-        <svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#fff" points="-20,80 100,0 100,100"></polygon>
-        <polygon fill="<?php echo $colorHex; ?>" points="-20,80 100,0 100,100"></polygon>
-    </svg>
         <div class="container">
             <div class="row">
                 <div id="course-imgs" class="col-lg-6 row">
@@ -851,15 +844,6 @@ $hasTestimonials = hasTestimonials();
     </div>
     <?php if($th_set){ ?>
     <section id="slider-formations" class="container-wp" style="background:#fff!important;">
-        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#eee" points="0,0 100,0 100,100"></polygon>
-    </svg>
-        <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="<?php echo $colorHex; ?>" points="0,0 100,20 0,100"></polygon>
-    </svg>
-        <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#fff" points="0,0 100,0 100,100 0,100"></polygon>
-    </svg>
         <div id="null" class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -917,9 +901,6 @@ $hasTestimonials = hasTestimonials();
                         <?php foreach ( $testimonials as $testimonial ): ?>
                         <div class="col-sm-6 col-md-4">
                             <div class="wrapper">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <polygon fill="#fff" points="0,0 100,100 0,100"/>
-                            </svg>
                                 <div class="name">
                                     <?php echo $testimonial['name']; ?>
                                 </div>

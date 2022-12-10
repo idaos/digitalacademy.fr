@@ -89,15 +89,6 @@ s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.faceb
         <!-- Heading -->
         <section id="heading">
             <div class="bloc-1">
-                <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <polygon fill="#fff" points="50,0 100,0 100,100 40,100" />
-                </svg>
-                <svg class="svg-1-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <polygon fill="#fff" points="0,0 100,0 100,100 0,100" />
-                </svg>
-                <svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <polygon fill="#bf3b2b" points="0,100 100,0 100,100" />
-                </svg>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-lg-6">

@@ -44,7 +44,7 @@ Object.keys(chart_data).forEach(function(key, idx, arr) {
 		item_course.innerHTML = "Formation : " + chart_data[key][i]["course"];
 
 		var item = createElementWithClass("div", "item");
-		var triangle = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="#fff" points="0,0 100,100 0,100"></polygon></svg>';
+		var triangle = '';
 		item.innerHTML = triangle;
 		item.appendChild(item_value);
 		item.appendChild(item_course);

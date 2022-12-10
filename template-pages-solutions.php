@@ -166,12 +166,6 @@ EOF;
 
         <?php //  Triangles ?> 
         <section class="business-case" style="background-color: <?php echo $color; ?>;">
-            <svg class="svg-top business-case-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <polygon fill="<?php echo $color; ?>" points="0,100 100,0 100,100"></polygon>
-            </svg>
-            <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
-                <polygon fill="#fff" points="100,100 100,0 0,100"/>
-            </svg>
             <div style="filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));">
                 <div class="container w testimonial-wrapper" style="max-width: 1100px;">
                     <div class="row">
@@ -200,9 +194,6 @@ EOF;
 
                                         <div class="col-md-4 x">
                                             <div class="wrapper" style="height:100%!important">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                                    <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                                </svg>
                                                 <?php if ( get_sub_field( 'nom__prenom' ) ) { ?><div class="name"><?php the_sub_field( 'nom__prenom' ); ?></div><?php } ?>
                                                 <?php if ( get_sub_field( 'entreprise' ) ) { ?><div class="company"><span class="noWrap"><?php the_sub_field( 'entreprise' ); ?></span></div><?php } ?>
                                                 <hr>

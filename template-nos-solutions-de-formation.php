@@ -7,19 +7,6 @@ get_header(); ?>
 <!-- Heading -->
 <section id="heading">
     <div class="bloc-1" style="background-position: center;background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/nos-solutions.jpg')">
-        <!-- Background overlay -->
-        <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon fill="#000" points="0,0 100,0 100,100 0,100"/>
-        </svg>
-        <!-- Background overlay mobile -->
-        <svg class="svg-1-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon fill="#000" points="0,0 100,0 100,100 0,100"/>
-        </svg>
-        <!-- Bottom Triangles --> 
-        <svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon fill="#fff" points="0,100 100,0 100,100"/>
-            <polygon fill="#bf3b2b" points="20,80 100,0 100,100"/>
-        </svg>
         <!-- Content -->
         <div class="container">
             <div class="row">
@@ -45,10 +32,6 @@ get_header(); ?>
 <!-- Offer Intra -->
 <div id="offre-intra"></div><!-- Offset Anchor -->
 <section id="offer-intra" class="offer offer-intra">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#4faeff" points="0,100 100,0 100,100"/>
-    </svg>
     <!-- Content -->
     <div class="container">
         <div class="row valign">
@@ -79,10 +62,6 @@ get_header(); ?>
 
 <!-- Offer Intra - Business Cases -->
 <section class="business-case">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
-        <polygon fill="#fff" points="100,100 100,0 0,100"/>
-    </svg>
     <div style="filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));">
         <div class="container w testimonial-wrapper" style="max-width: 1100px;">
             <div class="row">
@@ -108,9 +87,6 @@ get_header(); ?>
                         <div class="row row-same-height">
                             <div class="col-md-4 x">
                                 <div class="wrapper" style="height:100%!important">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Caroline T.</div>
                                     <div class="company"><span class="noWrap">Système U</span></div>
                                     <hr>
@@ -121,9 +97,6 @@ get_header(); ?>
                             </div>
                             <div class="col-md-4 x">
                                 <div class="wrapper" style="height:100%!important">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Guillaume L.</div>
                                     <div class="company"><span class="noWrap">Système U</span></div>
                                     <hr>
@@ -134,9 +107,6 @@ get_header(); ?>
                             </div>
                             <div class="col-md-4 x">
                                 <div class="wrapper" style="height:100%!important">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Jennifer S.</div>
                                     <div class="company"><span class="noWrap">Système U</span></div>
                                     <hr>
@@ -189,10 +159,6 @@ get_header(); ?>
 <!-- Offer Inter -->
 <div id="offre-inter"></div><!-- Offset Anchor -->
 <section id="offer-inter" class="offer offer-inter">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#f5f5f5" points="0,100 100,0 100,100"/>
-    </svg>
     <!-- Content -->
     <div class="container">
         <div class="row valign">
@@ -224,10 +190,6 @@ get_header(); ?>
 
 <!-- Offer Inter - BC -->
 <section class="business-case" style="background:#f5f5f5">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
-        <polygon fill="#fff" points="100,100 100,0 0,100"/>
-    </svg>
     <div style="filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));">
         <div class="container w testimonial-wrapper" style="max-width: 1100px;">
             <div class="row">
@@ -247,9 +209,6 @@ get_header(); ?>
                         <div class="row row-same-height">
                             <div class="col-md-4">
                                 <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Thomas S.</div>
                                     <div class="company">Microsoft</div>
                                     <hr>
@@ -260,9 +219,6 @@ get_header(); ?>
                             </div>
                             <div class="col-md-4">
                                 <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Sonia S.</div>
                                     <div class="company">Barclays France</div>
                                     <hr>
@@ -273,9 +229,6 @@ get_header(); ?>
                             </div>
                             <div class="col-md-4">
                                 <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Frédéric B.</div>
                                     <div class="company">Sciences Po</div>
                                     <hr>
@@ -330,10 +283,6 @@ get_header(); ?>
 <!-- Digital Learning -->
 <div id="offre-digital-learning"></div><!-- Offset Anchor -->
 <section id="offer-digital-learning" class="offer offer-digital-learning">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#bd3c30" points="0,100 100,0 100,100"/>
-    </svg>
     <!-- Content -->
     <div class="container">
         <div class="row valign">
@@ -367,10 +316,6 @@ get_header(); ?>
 
 <!-- Offer Digital Learning - Business Cases -->
 <section class="business-case">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
-        <polygon fill="#fff" points="100,100 100,0 0,100"/>
-    </svg>
     <div style="filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));">
         <div class="container w testimonial-wrapper" style="max-width: 1100px;">
             <div class="row">
@@ -390,9 +335,6 @@ get_header(); ?>
                         <div class="row row-same-height">
                             <div class="col-md-4 x">
                                 <div class="wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Pôle Emploi</div>
                                     <hr>
                                     <div class="testimonial x">
@@ -405,9 +347,6 @@ get_header(); ?>
                             </div>
                             <div class="col-md-4 x">
                                 <div class="wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">CCI ARA</div>
                                     <hr>
                                     <div class="testimonial x">
@@ -421,9 +360,6 @@ get_header(); ?>
                             </div>
                             <div class="col-md-4 x">
                                 <div class="wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">GrDF</div>
                                     <hr>
                                     <div class="testimonial x">
@@ -481,10 +417,6 @@ get_header(); ?>
 <!-- Transfo digital -->
 <div id="offre-transfo"></div><!-- Offset Anchor -->
 <section id="offer-transfo" class="offer offer-transfo">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#E66343" points="0,100 100,0 100,100"/>
-    </svg>
     <!-- Content -->
     <div class="container">
         <div class="row">
@@ -519,10 +451,6 @@ get_header(); ?>
 
 <!-- Offer Tansfo - Business Cases -->
 <section id="top-formations" class="business-case">
-    <!-- Bottom Triangles -->
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:12vw;bottom:0;z-index:0;">
-        <polygon fill="#fff" points="100,100 100,0 0,100"/>
-    </svg>
     <div style="filter: drop-shadow(-1px 6px 10px rgba(0, 0, 0, 0.2));">
         <div class="container w testimonial-wrapper" style="max-width: 1100px;">
             <div class="row">
@@ -548,9 +476,6 @@ get_header(); ?>
                         <div class="row row-same-height">
                             <div class="col-md-4">
                                 <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Jérôme G.</div>
                                     <div class="company">Plurial Novilia</div>
                                     <hr>
@@ -561,9 +486,6 @@ get_header(); ?>
                             </div>
                             <div class="col-md-4">
                                 <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Annie C.</div>
                                     <div class="company">Plurial Novilia</div>
                                     <hr>
@@ -574,9 +496,6 @@ get_header(); ?>
                             </div>
                             <div class="col-md-4">
                                 <div class="wrapper" style="height: 100%!important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"/>
-                                    </svg>
                                     <div class="name">Michel F.</div>
                                     <div class="company">Plurial Novilia</div>
                                     <hr>
@@ -650,12 +569,6 @@ get_header(); ?>
     </div>
 </section>
 <section id="satisfaction">
-    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#2f905e" points="0,100 100,0 100,100"/>
-    </svg>
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#60dd9c" points="0,0 0,100 100,0"/>
-    </svg>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">

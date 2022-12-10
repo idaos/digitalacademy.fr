@@ -89,15 +89,6 @@ s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.faceb
         <!-- Heading -->
         <section id="heading">
             <div class="bloc-1">
-                <svg class="svg-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <polygon fill="#fff" points="50,0 100,0 100,100 40,100" />
-                </svg>
-                <svg class="svg-1-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <polygon fill="#fff" points="0,0 100,0 100,100 0,100" />
-                </svg>
-                <svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <polygon fill="#bf3b2b" points="0,100 100,0 100,100" />
-                </svg>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-lg-6">
@@ -296,9 +287,6 @@ s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.faceb
                 <div class="row row-same-height">
                     <div class="col-sm-6 col-md-4">
                         <div class="wrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <polygon fill="#fff" points="0,0 100,100 0,100" />
-                            </svg>
                             <div class="name">Andréa.F</div>
                             <div class="course">Social Media & Content Specialist</div>
                             <div class="company">Liligo</div>
@@ -309,9 +297,6 @@ s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.faceb
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="wrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <polygon fill="#fff" points="0,0 100,100 0,100" />
-                            </svg>
                             <div class="name">Charlotte.D</div>
                             <div class="course">Directrice Marketing Digital</div>
                             <div class="company">Agatha</div>
@@ -322,9 +307,6 @@ s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.faceb
                     </div>
                     <div class="col-md-4 hidden-sm">
                         <div class="wrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <polygon fill="#fff" points="0,0 100,100 0,100" />
-                            </svg>
                             <div class="name">Julie.G</div>
                             <div class="course">Brand & Communication Manager</div>
                             <div class="company">UFF</div>
