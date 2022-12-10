@@ -14,19 +14,6 @@ $th = new KzThema();
 get_header();
 ?>
 
-<script>
-        window.addEventListener('DOMContentLoaded', () => {
-        var filterNav = document.querySelector('.xs-container-menu-filtre, .courses-category-wrapper')
-        if (filterNav)
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                filterNav.classList.add('fix')
-            } else {
-                filterNav.classList.remove('fix')
-            }
-        })
-})
-</script>
 <main class="content archive">
 
     <div class="header">    
@@ -59,14 +46,14 @@ get_header();
                             </div>
                         </div>
                     </div>
-                    <div id="thematiques-input" class="container alignCenter">
-                        <span>ou filtrer par thématique :</span>
-                        <div class="row alignCenter courses-category-wrapper">
-                            <div ng-repeat="(key, thema) in thema track by $index">
-                                <input ng-show="thema.name.length > 1" type="checkbox" value="{{thema.colorhex}}" ng-model="thema.enabled" ng-click="onCheckboxEvent($event, $index); searchText = '';" id="thematique-checkbox-{{thema.color}}" name="thematique-checkbox-{{thema.color}}">
-                                <label ng-show="thema.name.length > 1" for="thematique-checkbox-{{thema.color}}" class="button btn btn-lg" ng-bind-html="thema.name | unsafe"></label>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div id="thematiques-input" class="container alignCenter">
+                <span>ou filtrer par thématique :</span>
+                <div class="row alignCenter courses-category-wrapper">
+                    <div ng-repeat="(key, thema) in thema track by $index">
+                        <input ng-show="thema.name.length > 1" type="checkbox" value="{{thema.colorhex}}" ng-model="thema.enabled" ng-click="onCheckboxEvent($event, $index); searchText = '';" id="thematique-checkbox-{{thema.color}}" name="thematique-checkbox-{{thema.color}}">
+                        <label ng-show="thema.name.length > 1" for="thematique-checkbox-{{thema.color}}" class="button btn btn-lg" ng-bind-html="thema.name | unsafe"></label>
                     </div>
                 </div>
             </div>

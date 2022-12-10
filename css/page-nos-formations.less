@@ -509,11 +509,13 @@ input::placeholder{
     color:#cccccc;
 }
 #search input{
-    border: solid 1px #eee;
+    border: solid 1px rgb(135, 135, 135);
     height:3em;
     padding-left: .8em;
     width: calc(100% - 20%);
     max-width: 100%;
+    border-top-left-radius: 3rem!important;
+    border-bottom-left-radius: 3rem!important;
 }
 #thematiques-input{
     padding: 1em;
@@ -619,6 +621,7 @@ input::placeholder{
 #search-helper{
     max-height: 3em;
     height: auto;
+    margin-bottom: 2rem;
     background: #8f8f8f;
     color: #fff;
 }
@@ -725,15 +728,6 @@ select{
     background-size: cover;
     background-position:center;
     background: #eee;
-    &:after{
-        content: '';
-        width: 100%;
-        position: absolute;
-        height: 8px;
-        border-bottom: solid 8px #e4e4e4;
-        left: 0;
-        bottom: 0;
-    }
 }
 .slick-slide{
     padding: 0 !important;

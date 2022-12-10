@@ -939,7 +939,7 @@ hr.none:before {
 }
 
 .fc-header-toolbar {
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
 }
 
 /* Menu filtre
@@ -999,12 +999,22 @@ hr.none:before {
     text-decoration: none;
 }
 
+#thematiques-input.fix,
 .xs-container-menu-filtre.fix {
     position: fixed;
     top: 200px;
     z-index: 9999999999;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) !important;
+    width: 100%;
+}
+
+#thematiques-input {
+    transition: none!important;
+}
+
+.courses-category-wrapper{
+    background: #fff;
 }
 
 .archive .container-menu-filtre ul,
@@ -1032,6 +1042,15 @@ hr.none:before {
     margin: 0 !important;
     font-size: 1.3rem;
     white-space: initial;
+    border: none!important;
+    outline: none!important;
+    border-radius: 0;
+}
+
+@media screen and (max-width:1200px) {
+    #thematiques-input{
+        display: none!important;
+    }
 }
 
 .archive .container-menu-filtre ul li,

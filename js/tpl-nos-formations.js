@@ -366,3 +366,15 @@ function scrollToResults(){
     var searchHelperPos = searchHelper.getBoundingClientRect();
     window.scrollBy(0, searchHelperPos.top - menuHeight);
 }
+
+
+
+    var filterNav = document.querySelector('.xs-container-menu-filtre, #thematiques-input')
+    if (filterNav)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            filterNav.classList.add('fix')
+        } else {
+            filterNav.classList.remove('fix')
+        }
+    })
