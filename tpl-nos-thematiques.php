@@ -2,6 +2,8 @@
 /**
  *   Template Name: Nos thématiques
  */
+
+wp_enqueue_style( 'courses-slider', get_template_directory_uri() . '/blocks/courses-slider/courses-slider.css', array( 'main' ), null );
 ?>
 <?php get_header(); ?>
 <?php $thematique_ID = get_queried_object_id(); 
@@ -35,20 +37,8 @@ $courses_count = count(json_decode($result[0])) ;
     </div>
 </div>
 
-<div class="svg-wrapper-bottom">
-    <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#fff" points="0,0 0,100 40,40"></polygon>
-    </svg>
-    <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#bf3b2b" points="0,0 100,20 100,100"></polygon>
-    </svg>
-    <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="#f5f5f5" points="0,0 100,100 0,100"></polygon>
-    </svg>
-</div>    
 
-
-<div class="content" style="background-color: #f5f5f5;">
+<div class="content">
 
     <div class="container content xs-container-menu-filtre" style="height:initial;background:none;">
         <div class="container-menu-filtre hidden-xs">
@@ -77,31 +67,54 @@ $courses_count = count(json_decode($result[0])) ;
                         </div>
                     </div>
                     <div class="container">
-
                         <div class="row">
-                            <div course-id="{{course.id}}" 
-                                 ng-cloak on-finish-render="ngRepeatFinished"
-                                 ng-repeat="course in courses.course | filterThema: thema.slug:this" 
-                                 class="col-md-6 col-xl-4 animated-item" 
-                                 >
-                                <div class="wrapper">
-                                    <a ng-href="{{course.link}}">   
-                                        <img ng-src="{{course.image}}" alt="">
-                                    </a>
-                                    <div>
-                                        <a ng-href="{{course.link}}">
-                                            <h4 ng-bind-html="course.title | level_hl"></h4>
-                                        </a>  
-                                        <div class="nouvelle_formation" ng-show="course.new != false"></div>
-                                        <div class="top_formation" ng-show="course.top != false"></div>
 
-                                        <div class="goals" ng-bind-html="course.goals | highlight:searchText"></div>
+
+
+                            <a  class="swiper-slide col-md-6 col-xl-4 animated-item mb-4" 
+                                ng-href="{{course.link}}"
+                                course-id="{{course.id}}" 
+                                ng-cloak on-finish-render="ngRepeatFinished"
+                                ng-repeat="course in courses.course | filterThema: thema.slug:this" 
+                                        >
+                                <div class="card">
+                                    <img ng-src="{{course.image}}" alt="">
+                                    <div>
+                                        <h4 class="px-2" ng-bind-html="course.title | level_hl"></h4>
+
+                                        <div class="tags px-2">
+                                            <div>
+                                                <div ng-show="course.new != false" class='nouvelle_formation btn btn-red btn-xs'>Nouvelle formation</div>
+                                                <div ng-show="course.top != false" class='top_formation btn btn-red btn-xs'>Top formation</div>
+                                                <div ng-bind-html="course.next_session"></div>
+                                            </div>
+                                        </div>
+                                        <div class="px-2 bb-r">
+                                            <div class="fs-xs">
+                                                <div class="ico"></div>
+                                                <span ng-bind-html="course.duree">  </span>
+                                            </div>
+                                            <div class="fs-xs">
+                                                <div class="ico"></div>
+                                                <span ng-bind-html="course.tarif">  </span>
+                                            </div>
+                                            <div class="fs-xs">
+                                                <div class="ico"></div>
+                                                <span>présentiel ou distanciel</span>
+                                            </div>
+                                        </div>
+                                        <div class="goals px-2" ng-bind-html="course.goals | highlight:searchText"></div>
                                     </div>
-                                    <a class="en-savoir-plus" ng-href="{{course.link}}">
-                                        <div class="btn btn-red btn-sm btn_c_{{thema.color}}" ng-class="selectBtnClass()">En savoir plus</div>
-                                    </a>
                                 </div>
-                            </div>
+                            </a>
+
+
+
+
+
+
+
+                            
                             <i aria-hidden="true" class="col-md-6 col-xl-4"></i>
                             <i aria-hidden="true" class="col-md-6 col-xl-4"></i>
                         </div>

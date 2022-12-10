@@ -1,4 +1,5 @@
 <?php
+wp_enqueue_style( 'courses-slider', get_template_directory_uri() . '/blocks/courses-slider/courses-slider.css', array( 'main' ), null );
 // -----------------------------------------------------------------------
 // GET ALL COURSES
 // -----------------------------------------------------------------------
@@ -26,17 +27,6 @@ get_header();
             </div>
         </div>
     </div>
-    <div class="svg-wrapper-bottom" style="">
-        <svg class="svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:4">
-            <polygon fill="#fff" points="0,0 0,100 40,40"></polygon>
-        </svg>
-        <svg class="svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:3">
-            <polygon fill="#bf3b2b" points="0,0 100,20 100,100"></polygon>
-        </svg>
-        <svg class="svg-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="z-index:inherit">
-            <polygon fill="#eee" points="0,0 100,100 0,100"></polygon>
-        </svg>
-    </div>    
 
 
     <div ng-app="courseFilteringApp" id="nos-formations">
@@ -77,30 +67,47 @@ get_header();
             <div id="formations">
                 <div class="container">
                     <div class="row">
-                        <div course-id="{{course.id}}" 
-                             ng-cloak on-finish-render="ngRepeatFinished"
-                             ng-repeat="course in courses.course | searchFor: searchText | searchThema: thema:this | databaseQuery: this as filtered" 
-                             class="col-md-6 col-xl-4 animated-item" 
-                             >
-                            <div class="wrapper">
-                                <!-- Image -->  
-                                <a href="{{course.link}}">   
-                                    <img ng-src="{{course.image}}" alt="">
-                                </a>
-                                <div>
-                                    <a href="{{course.link}}">
-                                        <h4 ng-bind-html="course.title | level_hl | highlight: searchText"></h4>
-                                    </a>  
-                                    <div class="nouvelle_formation" ng-show="course.new != false"></div>
-                                    <div class="top_formation" ng-show="course.top != false"></div>
 
-                                    <div class="goals" ng-bind-html="course.goals | highlight:searchText"></div>
+                    
+                    <a  class="swiper-slide col-md-6 col-xl-4 animated-item mb-4" 
+                        ng-href="{{course.link}}"
+                        course-id="{{course.id}}" 
+                        ng-cloak on-finish-render="ngRepeatFinished"
+                        ng-repeat="course in courses.course | searchFor: searchText | searchThema: thema:this | databaseQuery: this as filtered" 
+                                >
+                        <div class="card">
+                            <img ng-src="{{course.image}}" alt="">
+                            <div>
+                                <h4 class="px-2" ng-bind-html="course.title | level_hl | highlight: searchText"></h4>
+
+                                <div class="tags px-2">
+                                    <div>
+                                        <div ng-show="course.new != false" class='nouvelle_formation btn btn-red btn-xs'>Nouvelle formation</div>
+                                        <div ng-show="course.top != false" class='top_formation btn btn-red btn-xs'>Top formation</div>
+                                        <div ng-bind-html="course.next_session"></div>
+                                    </div>
                                 </div>
-                                <a class="en-savoir-plus" href="{{course.link}}">
-                                    <div class="btn btn-sm" ng-class="selectBtnClass()">En savoir plus</div>
-                                </a>
+                                <div class="px-2 bb-r">
+                                    <div class="fs-xs">
+                                        <div class="ico"></div>
+                                        <span ng-bind-html="course.duree">  </span>
+                                    </div>
+                                    <div class="fs-xs">
+                                        <div class="ico"></div>
+                                        <span ng-bind-html="course.tarif">  </span>
+                                    </div>
+                                    <div class="fs-xs">
+                                        <div class="ico"></div>
+                                        <span>présentiel ou distanciel</span>
+                                    </div>
+                                </div>
+                                <div class="goals px-2" ng-bind-html="course.goals | highlight:searchText"></div>
                             </div>
                         </div>
+                    </a>
+
+
+
                         <div ng-cloak ng-show="seekingDB" class="col-md-6 col-xl-4">
                             <div class="wrapper course_placeholer"></div>
                         </div>

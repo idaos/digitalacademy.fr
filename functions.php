@@ -971,7 +971,13 @@ function kz_search($keywords, $thema_ID = false){
                 }
                 $j=+1;    
             }
+
+            
+
             $arr[] = [ 
+                'course_duree' => get_field( 'texte_duree', $formation->ID ), 
+                'course_tarif' => get_field( 'texte_tarif', $formation->ID ), 
+                'course_next_session' => getNextSession(get_field( 'sessions', $formation->ID )),
                 'course_id' => $formation->ID, 
                 'course_link' => $course_link, 
                 'course_image' => $course_image, 
@@ -3115,3 +3121,29 @@ add_filter( 'wp_mail_from_name', 'wpm_expediteur' );
 
 // add_filter( 'gform_force_hooks_js_output', '__return_true' );
 // add_filter('gform_init_scripts_footer', '__return_true');
+
+
+if(!function_exists('getNextSession')){
+    function getNextSession($sessions)
+    {
+        if (!isset($sessions) || count($sessions) === 0) return '';
+        $now = new DateTime("now");
+        $date_buffer = $now;
+        $ts_buffer = $now->getTimestamp();
+        foreach ($sessions as $session) {
+            $date = DateTimeImmutable::createFromFormat('Y-m-d', $session['date_session']);
+            if ($date < $now) continue; // ignor past events
+            $ts_interval = $date->getTimestamp() - $now->getTimestamp();
+            if ($ts_interval < $ts_buffer) {
+                $ts_buffer = $ts_interval;
+                $date_buffer = $session['date_session'];
+            }
+        }
+        if (is_string($date_buffer)) {
+            $date = DateTimeImmutable::createFromFormat('Y-m-d', $date_buffer);
+            return '<span class="next-session btn btn-red-alt btn-xs">PROCHAINE SESSION : ' . $date->format('d/m/Y') . '</span>';
+        } else {
+            return '';
+        }
+    }
+}

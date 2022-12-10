@@ -59,30 +59,7 @@ $args = array(
 
 $formations = get_posts($args);
 
-if(!function_exists('getNextSession')){
-function getNextSession($sessions)
-{
-    if (!isset($sessions) || count($sessions) === 0) return '';
-    $now = new DateTime("now");
-    $date_buffer = $now;
-    $ts_buffer = $now->getTimestamp();
-    foreach ($sessions as $session) {
-        $date = DateTimeImmutable::createFromFormat('Y-m-d', $session['date_session']);
-        if ($date < $now) continue; // ignor past events
-        $ts_interval = $date->getTimestamp() - $now->getTimestamp();
-        if ($ts_interval < $ts_buffer) {
-            $ts_buffer = $ts_interval;
-            $date_buffer = $session['date_session'];
-        }
-    }
-    if (is_string($date_buffer)) {
-        $date = DateTimeImmutable::createFromFormat('Y-m-d', $date_buffer);
-        return '<span class="next-session btn btn-red-alt btn-xs">PROCHAINE SESSION : ' . $date->format('d/m/Y') . '</span>';
-    } else {
-        return '';
-    }
-}
-}
+
 
 ?>
 
@@ -116,7 +93,7 @@ function getNextSession($sessions)
                                 <!-- Tag top formation -->
                                 <div>
                                     <?php if (get_field('tag_nouvelle_formation', $formation->ID)) {
-                                        echo "<div class='nouvelle_formation btn btn-red btn-xs'>nouvelle_formation</div>" ?><?php } ?>
+                                        echo "<div class='nouvelle_formation btn btn-red btn-xs'>Nouvelle formation</div>" ?><?php } ?>
                                     <?php if ((get_field('tag_top_formation', $formation->ID)) || get_field('top_formation', $formation->ID)) {
                                         echo "<div class='top_formation btn btn-red btn-xs'>Top formation</div>" ?><?php }; ?>
                                 </div>

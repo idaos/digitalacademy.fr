@@ -55,6 +55,9 @@ angular.module('courseFilteringApp', ['ngSanitize','ngAnimate'])
         var thisElt = {
             id:                   element.course_id, 
             link:                 element.course_link, 
+            duree:                element.course_duree, 
+            next_session:         element.course_next_session, 
+            tarif:                element.course_tarif, 
             image:                element.course_image, 
             new:                  element.course_new, 
             top:                  element.course_top, 
@@ -345,11 +348,13 @@ filterLabels.forEach(function(button) {
     })
 });
 // scroll on search button clicked
+if(document.querySelector("#search .btn"))
 document.querySelector("#search .btn").onclick = function(event){
     scrollToResults();
 }
 // scroll on enter key press
 var txtbox = document.querySelector("#search input");
+if(txtbox)
 txtbox.onkeydown = function(e) {
     if (e.key == "Enter") {
         scrollToResults();
