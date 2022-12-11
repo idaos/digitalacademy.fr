@@ -457,8 +457,8 @@ function hasInfoElearning(){
 }
 
 
-$colorTxt = $th->getColor(); 
-$colorHex = $th->getColorHex(); 
+$colorTxt = 'bf3b2b' ;
+$colorHex = '#bf3b2b' ;
 $thName = $th->getName(); 
 $thImg = $th->getImage();
 $thName = $th->getName();
@@ -486,170 +486,118 @@ $hasTestimonials = hasTestimonials();
 
     <?php echo $obsoleteHTML; ?>
 
-    <!-- Heading -->
-    <section id="heading">
-        <div class="container">
-            <div class="row">
-                <div id="course-imgs" class="col-lg-6 row">
-                    <?php echo $courseImgHTML; ?>
-                    <div class="multiply visibleLg">
-                        <h3 style="font-weight: inherit!important;">Nos certifications :</h3>
-                        <hr>
-                        <div class="row">
-                            <div class="col-xs-6 alignRight">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/datadock-bw.jpg" alt="">
-                            </div>
-                            <div class="col-xs-6 alignLeft">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi2022.png" style="max-width:75%; alt="">
-                            </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="thematic-name">
+                <?php echo $thName; ?>
+            </div>
+            <h1>
+                <?php echo $title; ?>
+            </h1>
+            <div id="heading-grid">
+                <div>
+                    <div><!-- col 1 -->
+                        <div>
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-pin.jpg" alt="" class="multiply">
+                            <span>Présentiel ou distanciel</span>
                         </div>
-                        <div class="rating">
+                        <?php if( hasInfoDuration() ): ?>
+                        <div>
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-clock.jpg" alt="" class="multiply">
+                            <span><?php echo getInfoDuration() ?></span>
+                        </div>
+                        <?php endif; ?>
+                        <?php if( hasInfoParticipants() ): ?>
+                        <div>
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-peoples.jpg" alt="" class="multiply">
+                            <span><?php echo getInfoParticipants() ?></span>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    <div><!-- col 2 -->
+                        <?php if( hasInfoIntra() ): ?>
+                        <div>
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
+                            <span><?php echo getInfoIntra() ?></span>
+                        </div>
+                        <?php endif; ?>
+                        <?php if( hasInfoPrice() ): ?>
+                        <div>
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-coins.jpg" alt="" class="multiply">
+                            <span><?php echo getInfoPrice() ?></span>
+                        </div>
+                        <?php endif; ?>
+                        <?php if( hasInfoRef() ): ?>
+                        <div>
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-arrow.jpg" alt="" class="multiply">
+                            <span><?php
+                            global $post;
+                            $number = str_pad($post->ID, 4, '0', STR_PAD_LEFT);
+                            echo 'Référence 2020' . $number; ?>
+                            </span>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    <div>
+                        <div style="margin-top: .5rem;">
+                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-handicap.jpg" alt="" class="multiply">
+                            <span>Public en situation de handicap, nous contacter au <a href="tel:0977215321">09 77 21 53 21</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div><!-- col 3 -->
+                    <div>
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/datadock-bw.jpg" alt="">
+                        <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi2022.png" style="max-width:75%; alt="">
+                    </div>
+                    <div class="rating">
+                        <i>Satisfaction de nos apprenants en 2021</i>
+                        <div>
                             <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/star-half.png" alt="">
                             <span>4.75/5</span>
-                            <i>Satisfaction de nos apprenants en 2021</i>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 alignCenterLg alignLeftSm">
-                    <a id="thematic-info" href="#">
-                    <img src="<?php echo $styleUri; ?>/images/single-formation/ico-thematic-<?php echo $colorTxt; ?>.jpg" alt="" class="multiply">
-                    <span class="c-<?php echo $colorTxt; ?>">Thématique : "<?php echo $thName; ?>"</span>
-                </a>
-                    <div id="course-title">
-                        <h1>
-                            <b>Formation 
-                            <?php echo $title; ?>
-                        </b>
-                        </h1>
-                    </div>
-                    <hr class="alignCenterLg">
-                    <div id="course-info" class="row">
-                        <div class="col-sm-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-cloud-people.jpg" alt="" class="multiply">
-                            <span>Présentiel ou distanciel</span>
-                        </div>
-                        <?php if( hasInfoIntra() ): ?>
-                        <div class="col-sm-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-building.jpg" alt="" class="multiply">
-                            <span><?php echo getInfoIntra() ?></span>
-                        </div>
-                        <?php endif; ?>
-                        <div class="col-sm-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-pin.jpg" alt="" class="multiply">
-                            <span>Paris, France ou International</span>
-                        </div>
-                        <?php if( hasInfoParticipants() ): ?>
-                        <div class="col-sm-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-peoples.jpg" alt="" class="multiply">
-                            <span><?php echo getInfoParticipants() ?></span>
-                        </div>
-                        <?php endif; ?>
-                        <?php if( hasInfoDuration() ): ?>
-                        <div class="col-sm-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-clock.jpg" alt="" class="multiply">
-                            <span><?php echo getInfoDuration() ?></span>
-                        </div>
-                        <?php endif; ?>
-                        <?php if( hasInfoPrice() ): ?>
-                        <div class="col-sm-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-coins.jpg" alt="" class="multiply">
-                            <span><?php echo getInfoPrice() ?></span>
-                        </div>
-                        <?php endif; ?>
-                        <?php if( hasInfoElearning() ): ?>
-                        <div class="col-sm-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-computer.png" alt="" class="multiply">
-                            <span>E-learning sur demande</span>
-                        </div>
-                        <?php endif; ?>
-                        <?php if( hasInfoRef() ): ?>
-                        <div class="col-sm-6 alignLeft">
-                            <img src="<?php echo $styleUri; ?>/images/single-formation/ico-arrow.jpg" alt="" class="multiply">
-                            <span><?php
-                            global $post;
-                            $number = str_pad($post->ID, 4, '0', STR_PAD_LEFT);
-                            echo 'Référence 2020' . $number; ?>
-                        </span>
-                        </div>
-                        <?php endif; ?>
-                    </div>
-                    <hr class="hiddenLg alignCenterLg">
-                    <div class="multiply hiddenLg alignCenterLg">
-                        <div class="row" style="padding-top: 1em" class="alignCenterLg">
-                            <div class="logocertificationmobile">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/datadock-bw.jpg" alt="">
-                            </div>
-
-                            <div class="logocertificationmobile">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/qualiopi2022.png" style="max-width:50%"; alt="">
-                            </div>
-                            <div class="rating">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/star-full.png" alt="">
-                                <img src="<?php echo $styleUri; ?>/images/single-formation/star-half.png" alt="">
-                                <span>4.75/5</span>
-                                <br>
-                                <i style="font-size: .9em;margin-top: .6em!important;display: inline-block">Satisfaction de nos apprenants <span class="noWrap">en 2021</span></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="btn-wrapper" class="alignCenterLg">
-                        <a href="<?php echo $pdfUrl; ?>" target="_blank">
-                            <div class="btn btn-sm btn-red-alt marginR">Télécharger la fiche en PDF</div>
-                        </a>
-                        <a title="Bouton de contact" href="">
-                            <div class="btn btn-sm btn-red">Parler avec un conseiller</div>
+                <div><!-- col 4 -->
+                    <div class="h3">Notre expertise</div>
+                    <p><?php echo $trainer; ?></p>
+                </div>
+                <div><!-- col 5 -->
+                    <div class="wp-block-button aligncenter is-style-outline btn-phone">
+                        <a class="wp-block-button__link wp-element-button" href="tel:0977235321">
+                            Parler à un conseiller
                         </a>
                     </div>
+                    <a href="<?php echo $pdfUrl; ?>" id="dl-catalogue-btn">
+                        <div class="btn-dl btn btn-red">
+                            Télécharger la fiche
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- end / Heading -->
+    </div>
+</div>
+
+
     <!-- Content -->
-    <div class="container" style="margin-top:1em;">
+    <div class="container">
         <div class="row row-same-height reverseLg">
             <div id="content" class="col-lg-8">
 
                 <div id="goals">
                     <h2 class="c-<?php echo $colorTxt; ?>">Objectifs</h2>
-                    <i><?php echo $title; ?></i>
                     <hr>
                     <ul>
                         <?php echo $goals; ?>
                     </ul>
-                </div>
-
-                <div class="insert-alt-wrapper-b row sameHeight">
-                    <div class="col-sm-4 col-lg-6">
-                        <div class="insert-alt">
-                            <img width="100" height="100" src="<?php echo $styleUri; ?>/images/formateur-expert-avatar.svg">
-                            <div class="wrapper">
-                                <strong>Formateur</strong>
-                                <p>
-                                    <?php echo $trainer; ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-6">
-                        <div class="insert-alt">
-                            <img width="100" height="100" src="<?php echo $styleUri; ?>/images/handicap.svg">
-                            <div class="wrapper">
-                                <strong>Accessibilité</strong>
-                                <p><i>Public en situation de handicap, <span class="noWrap">nous contacter au :</span></i></p>
-                                <a title="Bouton de contact" href="tel:0977215321">
-                                    <div class="btn btn-xs btn-red-alt">09 77 21 53 21</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div id="program">
@@ -661,7 +609,6 @@ $hasTestimonials = hasTestimonials();
 
                     </style>
                     <h2 class="c-<?php echo $colorTxt; ?>">Programme</h2>
-                    <i><?php echo $title; ?></i>
                     <hr>
                     <?php if(( in_array ( 'sur-mesure', $enabled_tabs ) )&&( count($enabled_tabs) == 1 )): ?>
                     <p style="margin-bottom: 1.5em;">Veuillez trouver un exemple de programme qui a déjà été réalisé par le passé. Nous adaptons votre programme selon votre besoin.</p>
@@ -671,7 +618,6 @@ $hasTestimonials = hasTestimonials();
 
                 <div id="presentation">
                     <h2 class="c-<?php echo $colorTxt; ?>">Présentation</h2>
-                    <i><?php echo $title; ?></i>
                     <hr>
                     <?php echo $presentationThema; ?>
                     <?php echo $presentation; ?>
@@ -706,21 +652,6 @@ $hasTestimonials = hasTestimonials();
                     </div>
                 </div>
 
-                <div class="insert-alt-wrapper-b row sameHeight">
-                    <div class="insert-alt col-sm-4 col-lg-12">
-                        <img width="100" height="100" src="<?php echo $styleUri; ?>/images/single-formation/ico-sm-phone.jpg">
-                        <div class="wrapper">
-                            <strong>Vous avez des questions sur <span class="noWrap">cette formation ?</span></strong>
-                            <br>
-                            <p>Nos conseillers vous répondent au :</p>
-                            <a id="call-link" href="tel:0977215321">09 77 21 53 21</a>
-                            <i class="lightItalic">appel non surtaxé du lundi au vendredi de 9h30 à 18h</i>
-                            <i>ou par email</i>
-                            <p><a id="mail-link" href="">contact@digitalacademy.fr</a></p>
-                        </div>
-                    </div>
-                </div>
-
                 <hr style="margin-bottom: 0!important;opacity:.5">
                 <div id="version">
                     <?php echo $version; ?>
@@ -728,11 +659,10 @@ $hasTestimonials = hasTestimonials();
             </div>
             <div id="cta-col" class="col-lg-4">
 
-                <!-- Course has sessions -->
+                <!-- Course has sessions -->    
                 <?php if($hasSession): ?>
 
                 <h2 class="c-<?php echo $colorTxt; ?>">Prochaines Dates <span class="c-color-dac">*</span></h2>
-                <i><?php echo $title; ?></i>
                 <hr>
                 <i>Si cette formation vous intéresse mais que les dates ne vous conviennent pas, n’hésitez pas à nous contacter.</i>
 
