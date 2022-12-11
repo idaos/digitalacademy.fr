@@ -170,8 +170,8 @@ function custom_scripts_and_styles_singleFormation(){
 
         wp_enqueue_style( 'formation-style', get_template_directory_uri() . '/css/single-formation.css', array( 'main' ), null );
         wp_enqueue_style( 'testimonial', get_template_directory_uri() . '/css/testimonial.css', array( 'main' ), null );
-        wp_enqueue_script( 'toggable-tabs', get_stylesheet_directory_uri() . '/js/bootstrap-toggable-tabs.js', array( 'moment' ), null, false );
-        wp_enqueue_script( 'toggable-tabs-init', get_stylesheet_directory_uri() . '/js/bootstrap-toggable-tabs-kz-init.js', array( 'toggable-tabs' ), null, false );
+        // wp_enqueue_script( 'toggable-tabs', get_stylesheet_directory_uri() . '/js/bootstrap-toggable-tabs.js', array( 'moment' ), null, false );
+        // wp_enqueue_script( 'toggable-tabs-init', get_stylesheet_directory_uri() . '/js/bootstrap-toggable-tabs-kz-init.js', array( 'toggable-tabs' ), null, false );
         wp_enqueue_style( 'custom_form_style', get_template_directory_uri() . '/css/form.css', array(), null );
         wp_enqueue_script( 'single-formation', get_stylesheet_directory_uri() . '/js/single-formation.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'accordeon', get_stylesheet_directory_uri() . '/js/accordeon.js', array( 'jquery' ), null, false );

@@ -1002,7 +1002,7 @@ hr.none:before {
 #thematiques-input.fix,
 .xs-container-menu-filtre.fix {
     position: fixed;
-    top: 200px;
+    top: 259px;
     z-index: 9999999999;
     left: 50%;
     transform: translateX(-50%) !important;
@@ -3061,7 +3061,7 @@ ul.picto img {
 
 
 body {
-    margin-top: 155px;
+    margin-top: 208px;
 }
 
 @media(max-width:1200px) {
@@ -3073,6 +3073,6 @@ body {
 
 @media(max-width:768px) {
     body {
-        margin-top: 33px;
+        margin-top: 86px;
     }
 }

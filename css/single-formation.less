@@ -580,8 +580,6 @@ h1 {
     }
 
     hr {
-        min-width: 100%;
-        margin: 1em 0 !important;
         border-top: 1px solid #bababa;
     }
 }
@@ -950,7 +948,7 @@ html body #cta-col .content-wp {
 
 .thematic-name {
     font-weight: bold;
-    margin-top: 1rem;
+    margin-top: 3rem;
     margin-bottom: .5rem;
 }
 
@@ -1090,5 +1088,78 @@ hr {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+}
+
+
+.col-item {
+    background: #fff;
+    border-radius: 3rem;
+    border: solid 2px #BF3B2B;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    padding-bottom: 2rem;
+
+    .col-header {
+        background-color: #BF3B2B;
+        color: #fff;
+        padding: 1.5rem;
+        font-size: 1.3em;
+    }
+
+    .h3,
+    p {
+        max-width: calc(100% - 2rem);
+        margin: auto;
+    }
+
+    p{
+        margin: 1rem auto;
+    }
+
+    hr{
+        min-width: initial!important;
+        max-width: 100px!important;
+        margin: 2rem auto 0 auto!important;
+        display: block;
+    }
+
+    .h3 {
+        color: #BF3B2B;
+        font-size: 1.2em;
+        margin-top: 1.5rem;
+    }
+
+    a{
+        margin: 0!important;
+        letter-spacing: 0;
+        display: inline-flex;
+        align-items: center;
+        
+        &.btn-contact,
+        &.btn-document{
+            &:before {
+                content: '';
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 2rem;
+                height: 2rem;
+                margin-right: .5rem;
+                display: inline-block;
+            }
+        }
+        &.btn-contact:before{
+            background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path fill='rgb(255 255 255)' d='M7 40q-1.2 0-2.1-.9Q4 38.2 4 37V11q0-1.2.9-2.1Q5.8 8 7 8h34q1.2 0 2.1.9.9.9.9 2.1v26q0 1.2-.9 2.1-.9.9-2.1.9Zm17-15.1 17-11.15V11L24 21.9 7 11v2.75Z'/></svg>");
+        }
+        &.btn-document:before{
+            width: 1.8rem;
+            height: 1.8rem;
+            background-image: url("data:image/svg+xml; utf8, <svg version='1.1' id='Calque_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 30 30' style='enable-background:new 0 0 30 30;' xml:space='preserve'><style type='text/css'>.st0{fill:%23FFFFFF;}</style><g><path fill='rgb(255 255 255)' class='st0' d='M18.2,0.6c0,0.1,0,0.2,0,0.3c0,1.9,0,3.7,0,5.6c0,1.1,0.7,1.9,1.9,1.9c1.9,0,3.8,0,5.6,0c0.1,0,0.2,0,0.3,0c0,0.1,0,0.2,0,0.3c0,6.7,0,13.4,0,20c0,0.1,0,0.2,0,0.3c0,0.3-0.2,0.5-0.5,0.6c-0.2,0-0.3,0-0.5,0c-6.7,0-13.3,0-20,0c-0.2,0-0.3,0-0.5,0c-0.3,0-0.5-0.2-0.6-0.6c0-0.1,0-0.2,0-0.3c0-9,0-18.1,0-27.1c0-0.8,0.2-0.9,0.9-0.9c4.4,0,8.7,0,13.1,0C18.1,0.6,18.1,0.6,18.2,0.6z'/><path class='st0' d='M19.4,3.9c0-0.9,0-1.7,0-2.6c0-0.3,0.1-0.5,0.4-0.6c0.3-0.1,0.5,0,0.7,0.2c1.8,1.8,3.5,3.5,5.3,5.3c0.1,0.1,0.2,0.2,0.2,0.4c0.1,0.4-0.2,0.7-0.6,0.7c-1.8,0-3.6,0-5.4,0c-0.4,0-0.6-0.2-0.6-0.6C19.4,5.6,19.4,4.7,19.4,3.9z'/></g></svg>");
+        }
+
     }
 }
