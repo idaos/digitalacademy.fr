@@ -3061,7 +3061,7 @@ ul.picto img {
 
 
 body {
-    margin-top: 208px;
+    margin-top: 153px;
 }
 
 @media(max-width:1200px) {
@@ -3073,6 +3073,24 @@ body {
 
 @media(max-width:768px) {
     body {
-        margin-top: 86px;
+        margin-top: 79px;
+    }
+}
+
+
+body[offset] {
+    margin-top: 207px;
+}
+
+@media(max-width:1200px) {
+    body[offset] {
+        margin-top: 142px;
+    }
+}
+
+
+@media(max-width:768px) {
+    body[offset] {
+        margin-top: 137px;
     }
 }

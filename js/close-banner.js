@@ -3,11 +3,14 @@ jQuery( document ).ready(function() {
     jQuery("#cross_sub_header").click(function() {
         setCookie("bannerClosed", "true", "1");
         jQuery("#datadock_subheader").slideUp('fast');
+        document.body.removeAttribute('offset')
     }); 
     if( getCookie("bannerClosed") == null ){
         jQuery("#datadock_subheader").show();
+        document.body.setAttribute('offset', true)
     }else{
         jQuery("#datadock_subheader").hide();
+        document.body.removeAttribute('offset')
     }
 });
 

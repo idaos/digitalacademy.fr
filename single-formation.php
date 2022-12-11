@@ -744,45 +744,6 @@ $hasTestimonials = hasTestimonials();
             </div>
         </div>
     </div>
-    <?php if($th_set){ ?>
-    <section id="slider-formations" class="container-wp" style="background:#fff!important;">
-        <div id="null" class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <br><br>
-                    <span class="reverse">
-                    <h2>Nos formations digitales</h2>
-                    <h3>Un catalogue de plus de 40 formations digitales</h3>
-                </span>
-                    <p>Les participants à cette formation ont également consulté les formations suivantes :</p>
-                    <hr>
-                    <?php echo do_shortcode( '[kz_courses_slider nb=-1 taxo="thematique"]' ); ?>
-                    <a href="/formations/">
-                        <div class="btn btn-red">Découvrir toutes nos formations</div>
-                    </a>
-                    <br><br><br>
-                </div>
-            </div>
-        </div>
-    </section>
-    <?php } ?>
-    <section id="references" class="container-wp">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <br>
-                    <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>
-                    <hr>
-                    <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
-                    <a href="/type-reference/intra-entreprise/">
-                        <div class="btn btn-red">Voir toutes nos références</div>
-                    </a>
-                    <br><br><br>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     <!-- Témoignages -->
     <?php if ( $hasTestimonials ): ?>
