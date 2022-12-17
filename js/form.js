@@ -123,6 +123,7 @@ jQuery(document).bind('gform_post_render', function(){
                 }
             };
 
+            if(document.querySelector('.date-input')){
             var dp = TinyDatePicker('.date-input', {
                 lang: {
                     days: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
@@ -143,6 +144,7 @@ jQuery(document).bind('gform_post_render', function(){
             dp.on('close', function () {
                 return insertSelectedDateIntoDOM(dp.state.selectedDate);
             });
+            }
         }
     }
 });

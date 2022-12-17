@@ -189,7 +189,7 @@ function nvp_register_blocks()
 
  function get_newsletter_subscribe_form()
  {
-     $nl_block = array(
+     $_block = array(
          'blockName' => "acf/newsletter-form",
          'attrs' => array(
              "id" => "block_62a8703a78d139",
@@ -203,7 +203,33 @@ function nvp_register_blocks()
          'innerHTML' => "",
          'innerContent' => [],
      );
-     return render_block($nl_block);
+     return render_block($_block);
  }
  
  add_shortcode('newsletter-form', 'get_newsletter_subscribe_form');
+
+
+/**
+ * Opco slider block shortcode renderer
+ */
+
+ function get_opco_slider()
+ {
+     $block = array(
+         'blockName' => "acf/opco-slider",
+         'attrs' => array(
+             "id" => "block_62a8958a78d139",
+             "name" => "acf/opco-slider",
+             "data" => [],
+             "align" => "full",
+             "mode" => "preview"
+         ),
+         'blockName' => "acf/opco-slider",
+         'innerBlocks' => [],
+         'innerHTML' => "",
+         'innerContent' => [],
+     );
+     return render_block($block);
+ }
+ 
+ add_shortcode('opco-slider', 'get_opco_slider');

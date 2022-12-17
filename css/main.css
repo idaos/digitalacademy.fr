@@ -1002,7 +1002,7 @@ hr.none:before {
 #thematiques-input.fix,
 .xs-container-menu-filtre.fix {
     position: fixed;
-    top: 259px;
+    top: 177px;
     z-index: 9999999999;
     left: 50%;
     transform: translateX(-50%) !important;
