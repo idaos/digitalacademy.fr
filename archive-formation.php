@@ -21,7 +21,7 @@ get_header();
             <div class="row">
                 <div class="col-xs-12 alignCenter">
                     <div class="clearfix">
-                        <h1 class="title-slider">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
+                        <h1 class="title-slider c-red">Consultez notre catalogue de <?php echo $courses_count; ?> formations au digital</h1>
                         <hr>
                     </div>
                 </div>

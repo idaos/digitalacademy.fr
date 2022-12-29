@@ -1010,10 +1010,10 @@ hr.none:before {
 }
 
 #thematiques-input {
-    transition: none!important;
+    transition: none !important;
 }
 
-.courses-category-wrapper{
+.courses-category-wrapper {
     background: #fff;
 }
 
@@ -1042,14 +1042,38 @@ hr.none:before {
     margin: 0 !important;
     font-size: 1.3rem;
     white-space: initial;
-    border: none!important;
-    outline: none!important;
+    border: none !important;
+    outline: none !important;
     border-radius: 0;
 }
 
 @media screen and (max-width:1200px) {
-    #thematiques-input{
-        display: none!important;
+    #thematiques-input {
+        overflow-x: scroll !important;
+    }
+
+    #thematiques-input span {
+        display: none !important;
+    }
+
+    #thematiques-input label, .container-menu-filtre li a {
+        white-space: nowrap !important;
+    }
+
+    #thematiques-input .courses-category-wrapper, .container-menu-filtre ul {
+        width: fit-content;
+        border-radius: 0!important;
+        border-left: none;
+        border-right: none;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .xs-container-menu-filtre{
+        padding: 0!important;        overflow-x: scroll !important;
+    }
+    .container-menu-filtre li>span {
+        display: none;
     }
 }
 
@@ -1371,7 +1395,7 @@ body .container-business-case h3 {
 .navigation li.active a,
 .navigation li.disabled {
     background-color: #BF3B2B;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     cursor: pointer;
     padding: 12px;
     padding: 0.75rem;
@@ -2505,7 +2529,7 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     }
 
     .container-menu-filtre {
-        display: none;
+        /* display: none; */
     }
 
     .xs-container-menu-filtre .sticky-wrapper {
@@ -3094,3 +3118,7 @@ body[offset] {
         margin-top: 137px;
     }
 }
+
+    body.archive.category .main-slider{
+        background: #fff;
+    }

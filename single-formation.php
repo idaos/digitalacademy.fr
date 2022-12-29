@@ -534,7 +534,7 @@ $hasTestimonials = hasTestimonials();
                         </div>
                         <?php endif; ?>
                         <?php if( hasInfoRef() ): ?>
-                        <div>
+                        <div class="accordeon-xs">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/ico-arrow.jpg" alt="" class="multiply">
                             <span><?php
                             global $post;
@@ -545,11 +545,13 @@ $hasTestimonials = hasTestimonials();
                         <?php endif; ?>
                     </div>
                     <div>
-                        <div style="margin-top: .5rem;">
+                        <div class="accordeon-xs" style="margin-top: .5rem;">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/ico-handicap.jpg" alt="" class="multiply">
                             <span>Public en situation de handicap, nous contacter au <a href="tel:0977215321">09 77 21 53 21</a></span>
                         </div>
                     </div>
+                    <div class="btn btn-xs accordeon-xs-toggler more">Voir plus</div>
+                    <div class="btn btn-xs accordeon-xs-toggler less" style="display: none!important">Voir moins</div>
                 </div>
 
                 <div><!-- col 3 -->
@@ -570,8 +572,10 @@ $hasTestimonials = hasTestimonials();
                     </div>
                 </div>
                 <div><!-- col 4 -->
-                    <div class="h3">Notre expertise</div>
-                    <p><?php echo $trainer; ?></p>
+                    <div>
+                        <div class="h3">Notre expertise</div>
+                        <p><?php echo $trainer; ?></p>
+                    </div>
                 </div>
                 <div><!-- col 5 -->
                     <div class="wp-block-button aligncenter is-style-outline btn-phone">
@@ -749,14 +753,13 @@ $hasTestimonials = hasTestimonials();
         </div>
     </div>
 
-
     <?php // Contact section ?> 
 <div class="is-layout-constrained wp-block-group alignwide br-3 has-background" style="background-color:#f7f7f7"><div class="wp-block-group__inner-container">
 <div class="is-layout-flex wp-container-41 wp-block-columns">
 <div class="is-layout-flow wp-block-column">
 <div style="height:35px" aria-hidden="true" class="wp-block-spacer"></div>
 <p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Contactez-nous pour la formation</strong></p>
-<section id="contact"><span id="contact-anchor"></span>
+<section id="contact"><span id="contact-anchor" style="margin-top: -258px!important;position: absolute;display: block;"></span>
         <div d="form-bottom">
             <div class="container form-container">
                 <div id="contact-form" class="row">
@@ -767,10 +770,10 @@ $hasTestimonials = hasTestimonials();
     </section>
 <p class="has-text-color has-small-font-size" style="color:#454040">Conformément à la loi « Informatique et Libertés » N° 78-17 du 6 Janvier 1978, vous bénéficiez d’un droit d’accès, de rectification et de suppression des données transmises par le biais de ce formulaire</p>
 <p class="has-text-color has-small-font-size" style="color:#454040">*Champs obligatoires</p>
-<div style="height:41px" aria-hidden="true" class="wp-block-spacer"></div>
+<div style="height:41px" aria-hidden="true" class="wp-block-spacer hidden-xs"></div>
 </div>
 <div class="is-layout-flow wp-block-column">
-<div style="height:38px" aria-hidden="true" class="wp-block-spacer"></div>
+<div style="height:38px" aria-hidden="true" class="wp-block-spacer hidden-xs"></div>
 <p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Vous souhaitez être rappelé(e) ?</strong></p>
 <div id="callback-form">
         <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>

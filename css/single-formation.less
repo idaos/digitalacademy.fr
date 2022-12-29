@@ -527,7 +527,6 @@ h1 {
 .rating {
     @media screen and (max-width: 768px) {
         padding-top: 1em;
-        margin-bottom: 1em;
     }
 }
 
@@ -541,7 +540,7 @@ h1 {
 // Content global
 #content {
     padding-right: 2.5em;
-    padding-bottom: 5em;
+    padding-bottom: 1em;
 
     >div {
         margin: .8em 0; //        height: 100%;
@@ -636,6 +635,10 @@ h1 {
         margin-bottom: 0.4em;
         margin: 0 0 4px 9px;
         text-indent: -24px;
+
+        @media screen and (min-width: 768px) {
+            font-size: 14px !important;
+        }
 
         &:after {
             content: none;
@@ -798,7 +801,27 @@ h1 {
     padding-left: 1em;
     margin-top: 1em;
     z-index: 0;
-    background: #eeeeee;
+
+    .h3 {
+        margin-top: 2rem !important;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+
+    >* {
+        width: 100%;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        display: flex;
+        align-items: flex-end;
+
+        >* {
+            max-width: 287px;
+        }
+    }
 
     hr {
         min-width: 100%;
@@ -833,8 +856,12 @@ h1 {
         border: none;
         padding-left: 1em;
         padding-right: 1em;
-        padding-top: 3em;
-        padding-bottom: 3em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+
+        >div {
+            margin: 0 0 1rem 0;
+        }
 
         &:before,
         &:after {
@@ -932,7 +959,7 @@ html body #cta-col .content-wp {
     color: #BF3B2B;
     border: 1px solid #5B5B5B;
     border-radius: 4rem !important;
-
+    justify-content: center;
 
     &::before {
         background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path fill='%23BF3B2B' d='M11 40q-1.2 0-2.1-.9Q8 38.2 8 37v-7.15h3V37h26v-7.15h3V37q0 1.2-.9 2.1-.9.9-2.1.9Zm13-7.65-9.65-9.65 2.15-2.15 6 6V8h3v18.55l6-6 2.15 2.15Z'/></svg>");
@@ -942,6 +969,7 @@ html body #cta-col .content-wp {
 #heading-grid .btn-phone a {
     background: #BF3B2B !important;
     color: #fff !important;
+    justify-content: center;
 
     &::before {
         background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg'  height='48' width='48'><path fill='%23FFF' d='M39.75 42q-6.1 0-12.125-3T16.8 31.2Q12 26.4 9 20.375 6 14.35 6 8.25q0-.95.65-1.6Q7.3 6 8.25 6h7q.7 0 1.225.475.525.475.675 1.275l1.35 6.3q.1.7-.025 1.275t-.525.975l-5 5.05q2.8 4.65 6.275 8.1Q22.7 32.9 27.1 35.3l4.75-4.9q.5-.55 1.15-.775.65-.225 1.3-.075l5.95 1.3q.75.15 1.25.75T42 33v6.75q0 .95-.65 1.6-.65.65-1.6.65Z'/></svg>");
@@ -966,8 +994,8 @@ h2 {
     color: #BF3B2B;
 }
 
-body .swiper-pagination-opcos{
-    padding-top: 0!important;
+body .swiper-pagination-opcos {
+    padding-top: 0 !important;
 }
 
 .h3 {
@@ -975,7 +1003,7 @@ body .swiper-pagination-opcos{
     font-size: 1.4em;
     text-align: center;
     font-weight: bold;
-    margin-top: 5.5rem!important;
+    margin-top: 5.5rem !important;
     margin-bottom: 0;
 }
 
@@ -984,7 +1012,7 @@ hr {
 }
 
 #heading-grid {
-    font-size: .9em;
+    font-size: .8em;
     border: solid 2px #BF3B2B;
     border-radius: 3rem;
     padding: 1rem;
@@ -993,9 +1021,38 @@ hr {
     align-items: center;
     gap: 1.5rem;
 
+    .rating i {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+
+    .wp-block-button__link,
+    .btn {
+        font-size: 1em !important;
+    }
+
+    >div {
+        border-right: solid 1px #BF3B2B;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .h3 {
+            margin: .8rem auto !important;
+        }
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+
     @media screen and (max-width:1000px) and (min-width:700px) {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         align-items: center;
+
+
 
         >div:nth-child(1) {
             grid-column: 1/ span 4;
@@ -1020,6 +1077,12 @@ hr {
 
     @media screen and (max-width:700px) {
         grid-template-columns: 1fr;
+    }
+
+    @media screen and (max-width:1000px) {
+        >div {
+            border-right: none;
+        }
     }
 
     >div:nth-child(1) {
@@ -1062,9 +1125,10 @@ hr {
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: space-between;
 
             img {
-                width: 50% !important;
+                width: 40% !important;
                 display: inline-block;
             }
         }
@@ -1095,14 +1159,17 @@ hr {
         p {
             line-height: 1.5;
             margin: 0;
+            text-align: center;
+            padding-right: 1rem;
         }
     }
 
     >div:nth-child(4) {
-
+        padding: 1em 0;
+        gap: 1em;
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1rem;
+        align-items: center;
     }
 }
 
@@ -1131,14 +1198,14 @@ hr {
         margin: auto;
     }
 
-    p{
+    p {
         margin: 1rem auto;
     }
 
-    hr{
-        min-width: initial!important;
-        max-width: 100px!important;
-        margin: 2rem auto 0 auto!important;
+    hr {
+        min-width: initial !important;
+        max-width: 100px !important;
+        margin: 2rem auto 0 auto !important;
         display: block;
     }
 
@@ -1148,14 +1215,14 @@ hr {
         margin-top: 1.5rem;
     }
 
-    a{
-        margin: 0!important;
+    a {
+        margin: 0 !important;
         letter-spacing: 0;
         display: inline-flex;
         align-items: center;
-        
+
         &.btn-contact,
-        &.btn-document{
+        &.btn-document {
             &:before {
                 content: '';
                 background-size: contain;
@@ -1167,14 +1234,34 @@ hr {
                 display: inline-block;
             }
         }
-        &.btn-contact:before{
+
+        &.btn-contact:before {
             background-image: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path fill='rgb(255 255 255)' d='M7 40q-1.2 0-2.1-.9Q4 38.2 4 37V11q0-1.2.9-2.1Q5.8 8 7 8h34q1.2 0 2.1.9.9.9.9 2.1v26q0 1.2-.9 2.1-.9.9-2.1.9Zm17-15.1 17-11.15V11L24 21.9 7 11v2.75Z'/></svg>");
         }
-        &.btn-document:before{
+
+        &.btn-document:before {
             width: 1.8rem;
             height: 1.8rem;
             background-image: url("data:image/svg+xml; utf8, <svg version='1.1' id='Calque_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 30 30' style='enable-background:new 0 0 30 30;' xml:space='preserve'><style type='text/css'>.st0{fill:%23FFFFFF;}</style><g><path fill='rgb(255 255 255)' class='st0' d='M18.2,0.6c0,0.1,0,0.2,0,0.3c0,1.9,0,3.7,0,5.6c0,1.1,0.7,1.9,1.9,1.9c1.9,0,3.8,0,5.6,0c0.1,0,0.2,0,0.3,0c0,0.1,0,0.2,0,0.3c0,6.7,0,13.4,0,20c0,0.1,0,0.2,0,0.3c0,0.3-0.2,0.5-0.5,0.6c-0.2,0-0.3,0-0.5,0c-6.7,0-13.3,0-20,0c-0.2,0-0.3,0-0.5,0c-0.3,0-0.5-0.2-0.6-0.6c0-0.1,0-0.2,0-0.3c0-9,0-18.1,0-27.1c0-0.8,0.2-0.9,0.9-0.9c4.4,0,8.7,0,13.1,0C18.1,0.6,18.1,0.6,18.2,0.6z'/><path class='st0' d='M19.4,3.9c0-0.9,0-1.7,0-2.6c0-0.3,0.1-0.5,0.4-0.6c0.3-0.1,0.5,0,0.7,0.2c1.8,1.8,3.5,3.5,5.3,5.3c0.1,0.1,0.2,0.2,0.2,0.4c0.1,0.4-0.2,0.7-0.6,0.7c-1.8,0-3.6,0-5.4,0c-0.4,0-0.6-0.2-0.6-0.6C19.4,5.6,19.4,4.7,19.4,3.9z'/></g></svg>");
         }
 
+    }
+}
+
+
+.accordeon-xs-toggler{
+    margin-top: 1rem !important;
+    padding: .3rem 0!important;
+}
+
+@media screen and (min-width:700px) {
+    .accordeon-xs-toggler {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .accordeon-xs {
+        display: none !important;
     }
 }
