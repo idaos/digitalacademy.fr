@@ -27,8 +27,9 @@
                             </div>
                         </div>
             
+                        <!-- Content -->
                         <h1 style="margin-bottom: 1rem;margin-top: 2rem;"><?php the_title(); ?></h1>
-                        <div style="display: flex; align-items:center">
+                        <div class="f-xs-row" style="display: flex; align-items:center">
                             <div>Publié le <time class="updated entry-time" datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_date(); ?></time>&nbsp;|&nbsp; <?php if (function_exists('wp_time_to_read')) { wp_time_to_read(); } ?></div>
                             &nbsp; &nbsp;<?php digital_share_bouton( get_the_permalink(), get_the_title() ); ?>	
                         </div>
@@ -54,6 +55,8 @@
                         <?php endwhile; endif; ?>						
                     </div>
                 </div>
+
+                <!-- Sidebar -->
                 <?php $recentPosts = new WP_Query( array( 'showposts' => 2, 'post__not_in' => array($id) ) ); ?>
                 <aside class="sidebar hidden-sm col-md-4">
                      <br>

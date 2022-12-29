@@ -261,6 +261,33 @@
     padding-right: 3em;
 }
 
+@media screen and (max-width: 700px) {
+    .container-blog {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .f-xs-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start!important;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    body #social-share{
+        position: relative !important;
+        gap: 2.5rem!important;
+        height: 1em !important;
+    }
+    body #social-share a{
+        height: initial!important;
+        margin: 0 .5rem !important;
+    }
+}
+
 .chapo {
     font-weight: 100;
     font-size: 126%;
@@ -476,14 +503,14 @@ hr:before {
 }
 
 @media screen and (max-width: 700px) {
-    
+
     .header {
         aspect-ratio: 16/6;
     }
 }
 
 @media screen and (min-width: 2000px) {
-    
+
     .header {
         aspect-ratio: 16/2;
     }

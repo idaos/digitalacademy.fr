@@ -6,25 +6,17 @@ Author: Lucas Tesseron
 */ ?>
 <style>
     h3{
-        margin-top: 2em !important;
-        margin-bottom: .5em!important;
+        margin-top: 1em !important;
+        margin-bottom: 1em!important;
         font-size: 1.5em !important;
-        text-align: center;
-        /*
-        text-transform: uppercase !important;
-        letter-spacing: 2px;
-        opacity: .7;
-        font-weight: 100!important;
-        */
+        text-align: center !important;
+        color: #bf3b2b !important;
+        text-transform: initial !important;
+        font-weight: bold !important;
+        font-style: normal !important;
     }
     .blog .container-border {
         padding-bottom: 50px;
-    }
-    hr{
-        margin: 0 auto;
-        margin-bottom: 4em;
-        width: 50% !important;
-        max-width: 500px;
     }
     .blog [class^='col-']{
         padding-bottom: 1.7em;
@@ -50,16 +42,15 @@ Author: Lucas Tesseron
 
 
 
-<h3>Articles similaires</h3>
-<hr>
-<div class="blog container">
+<h3>Nos articles similaires</h3>
+    <div class="blog container">
     <div class="row">
         <?php
         if ( have_posts() ) :
         while ( have_posts() ) : the_post();
         ?>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-            <div class="thewrapper container-border">
+            <div class="thewrapper bs br-3 container-border" style="padding-bottom:0">
                 <a href="<?php the_permalink(); ?>" rel="nofollow">
                     <?php if ( has_post_thumbnail() ): ?>
                     <?php $post_thumbnail_id = get_post_thumbnail_id( $post ); ?>
@@ -70,7 +61,7 @@ Author: Lucas Tesseron
                     <div class="blog-thumb-wrapper" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/blog-thumb-placeholder.jpg) ;"></div>
                     <?php endif; ?>
                 </a>
-                <div class="content-white">
+                <div class="content-white" style="padding-bottom:0">
                     <h2><a href="<?php the_permalink(); ?>"
                            rel="bookmark"><?php the_title(); ?></a></h2>
 
@@ -78,7 +69,6 @@ Author: Lucas Tesseron
                         | L'équipe DigitalAcademy<!--&reg;--></p>
 
                     <p><?php the_excerpt(); ?></p>
-                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red absolute100" rel="nofollow">Lire la suite</a>
                 </div>
             </div>
         </div>
@@ -86,6 +76,9 @@ Author: Lucas Tesseron
         endwhile;
         endif;
         ?>
+    </div>
+    <div class="row">
+        <a href="/blog" class="btn" style="margin:auto ;">Voir toutes nos actualités</a>
     </div>
 </div>
 
