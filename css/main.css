@@ -3176,3 +3176,10 @@ html .breadcrumb .container span.last {
 .thewrapper:hover, .col-kard:hover {
     outline: solid 5px #bf3b2b
 }
+
+body .hr-red{
+    max-width: 600px!important;
+    width: 100%!important;
+    border: none!important;
+    border-top: solid 2px  #bd3b2b!important;
+}
