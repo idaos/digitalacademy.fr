@@ -10,7 +10,7 @@
         </div>
     </div>
 </div>
-<main class="content" style="background:#f6f6f6!important;">
+<main class="content">
     <div class="container">
         <div class="wrapper">
             <?php $introduction = get_field( 'texte_introduction', get_queried_object_id() );
@@ -27,7 +27,7 @@
                         while ( have_posts() ) : the_post();
                         ?>
                         <div class="col-sm-6 col-md-4" style="margin-bottom:2em;">
-                            <div class="thewrapper container-border" style="max-height: 728px;">
+                            <div class="thewrapper bs br-3 container-border" style="max-height: 728px;">
                                 <a href="<?php the_permalink(); ?>" rel="nofollow">											
                                     <?php if ( has_post_thumbnail() ): ?>												
                                     <?php $post_thumbnail_id = get_post_thumbnail_id( $post ); ?>	
@@ -44,8 +44,7 @@
                                     <p class="header-infos"><?php echo get_the_date(); ?>
                                         | <?php the_author(); ?></p>
 
-                                    <p><?php the_excerpt(); ?></p>
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-red" style="width:calc(100% - 3em);position: absolute;bottom: 0;" rel="nofollow">Lire la suite</a>
+                                    <?php the_excerpt(); ?>
                                 </div>
                             </div>
                         </div>
@@ -65,18 +64,4 @@
         </div>
     </div>
 </main><!-- Main end -->
-<section id="references">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <br><br><br>
-                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
-                <hr>
-                <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
-                <a href="/type-reference/intra-entreprise/"><div class="btn btn-red">Voir toutes nos références</div></a>
-                <br><br><br>
-            </div>
-        </div>
-    </div>
-</section>
 <?php get_footer(); ?>

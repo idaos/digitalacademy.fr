@@ -9,7 +9,7 @@
 .blog .container-border, .category .container-border{
     background-color:transparent;
     position:relative;
-    padding-bottom:20px;
+    /* padding-bottom:20px; */
     text-align:center;
     max-height:600px;
 }
