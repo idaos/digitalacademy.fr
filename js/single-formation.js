@@ -59,15 +59,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
 })
-
-
-
-//-------------------------------------------
-//--------- Btn contact fixed   -------------
-//-------------------------------------------
-
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('#contact-fixed .wp-block-button__link').innerHTML = 'Contactez <br>notre conseiller';
-    document.querySelector('#contact-fixed .wp-block-button__link').style.lineHeight = '1.3';
-    document.querySelector('#contact-fixed .wp-block-button__link').href = '#contact-anchor';
-})

@@ -4,40 +4,41 @@
     .content-main a {text-decoration: underline;}
 </style>
 
-<div class="header" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/blog.jpg);">    
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 alignCenter">
-				<h1 class="title-slider" style="color:#fff"><?php the_title(); ?></h1>
-				<hr>
-				<p>
-				Publié le <time class="updated entry-time" datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_date(); ?></time>
-				&nbsp;|&nbsp; 
-				<?php if (function_exists('wp_time_to_read')) { wp_time_to_read(); } ?>
-                <?php // echo get_the_category_list( ', ' ); ?>
-				</p>
-			</div>
-		</div>
-	</div>
+<div class="header" style="">
+    
+<?php if( has_post_thumbnail() ): ?>	
+    <?php the_post_thumbnail( 'blog', array( 'class' => 'img-thumbnail' ) ); ?>										
+<?php endif; ?> 
 </div>
 <main class="content" style="z-index:5;background:none;">
     <div class="container" style="padding-bottom:2em;">
-        <div class="wrapper p5000" style="background:rgba(0,0,0,0)">
+        <div class="wrapper" style="background:rgba(0,0,0,0)">
             <div class="row clearfix">
                 <div class="container-blog col-md-8">
+
+                    
                     <div class="row clearfix">
-                        <?php if ( have_posts() ) :	  while ( have_posts() ) : the_post(); ?>	
-                        <div class="content-share">
-                            <p>Partager cet article :</p>
-                            <?php digital_share_bouton( get_the_permalink(), get_the_title() ); ?>	
+                    
+                        <!-- BreadCrumbs -->
+                        <div class="breadcrumb breadcrumb-header" style="padding-left: 0;">
+                            <div class="container" style="padding-left: 0;">
+                                <?php if (function_exists('yoast_breadcrumb')) {  yoast_breadcrumb(); } ?>
+                                <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+                            </div>
                         </div>
+            
+                        <h1 style="margin-bottom: 1rem;margin-top: 2rem;"><?php the_title(); ?></h1>
+                        <div style="display: flex; align-items:center">
+                            <div>Publié le <time class="updated entry-time" datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_date(); ?></time>&nbsp;|&nbsp; <?php if (function_exists('wp_time_to_read')) { wp_time_to_read(); } ?></div>
+                            &nbsp; &nbsp;<?php digital_share_bouton( get_the_permalink(), get_the_title() ); ?>	
+                        </div>
+                    
+                        <?php if ( have_posts() ) :	  while ( have_posts() ) : the_post(); ?>	
                         <div class="content-main">	
                             <?php if( has_excerpt( $id ) ): ?>		
-                            <h2 class="chapo"><?php the_excerpt(); ?></h2>
+                            <h2 class="chapo" style="font-weight: bold;"><?php the_excerpt(); ?></h2>
                             <?php endif; ?> 
-                            <?php if( has_post_thumbnail() ): ?>	
-                            <?php the_post_thumbnail( 'blog', array( 'class' => 'img-thumbnail' ) ); ?>										
-                            <?php endif; ?> 
+
                             <?php the_content(); ?>									
                         </div>
                         <div class="article-categories">

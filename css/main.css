@@ -2090,7 +2090,7 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     }
 
     .img-thumbnail {
-        margin: 30px 0;
+        /* margin: 30px 0; */
     }
 
     .mb50,

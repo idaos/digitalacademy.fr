@@ -194,7 +194,7 @@
     </header><!-- Header end -->
     <div class="site-container clearfix">
         <!-- BreadCrumbs -->
-        <?php if (!is_front_page()) : ?>
+        <?php if ((!is_front_page()) && (!is_single()&& 'post' == get_post_type()) ): ?>
             <?php
             global $wp_query;
             $template_name = get_post_meta($wp_query->post->ID, '_wp_page_template', true);

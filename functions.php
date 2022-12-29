@@ -543,22 +543,18 @@ function digital_share_bouton( $link, $title ) {
        href="https://twitter.com/share?url=<?php echo urlencode( $link ); ?>&text=<?php echo urlencode( $title ); ?>&via=Digital_Ac"
        rel="nofollow"
        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700'); return false;">
-        Twitter
     </a>
     <a target="_blank" title="Facebook" class="share-fb"
        href="https://www.facebook.com/sharer.php?u=<?php echo urlencode( $link ); ?>&t=<?php echo urlencode( $title ); ?>"
        rel="nofollow"
        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700'); return false;">
-        Facebook
     </a>
     <a target="_blank" title="linkedin" class="share-linkedin"
        href="https://www.linkedin.com/cws/share?url=<?php echo urlencode( $link ); ?>" rel="nofollow"
        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650'); return false;">
-        LinkedIn
     </a>
     <a title="Email" class="share-email"
        href="mailto:?subject=<?php echo $title; ?>&body=<?php echo $link; ?>" rel="nofollow">
-        E-mail
     </a>
 </div>
 
