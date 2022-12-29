@@ -233,3 +233,29 @@ function nvp_register_blocks()
  }
  
  add_shortcode('opco-slider', 'get_opco_slider');
+
+
+/**
+ * Courses Search bar
+ */
+
+ function get_courses_search_bar()
+ {
+     $block = array(
+         'blockName' => "acf/courses-search-bar",
+         'attrs' => array(
+             "id" => "block_62a65655a78d139",
+             "name" => "acf/courses-search-bar",
+             "data" => [],
+             "align" => "full",
+             "mode" => "preview"
+         ),
+         'blockName' => "acf/courses-search-bar",
+         'innerBlocks' => [],
+         'innerHTML' => "",
+         'innerContent' => [],
+     );
+     return render_block($block);
+ }
+ 
+ add_shortcode('courses-search-bar', 'get_courses_search_bar');

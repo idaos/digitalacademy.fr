@@ -1249,7 +1249,7 @@ function kz_shortcode_blogArticle_associatedCourses( $atts ) {
 
 
             $out .= <<<EOF
-            <div class="col-kard" style="margin:0!important;margin-bottom:2em!important;">
+            <div class="col-kard bs br-3" style="margin:0!important;margin-bottom:2em!important;">
                  <div class="wrapper">
                      <a href="$permalink">   
                          <img src="$img_src" alt="">
@@ -1257,14 +1257,9 @@ function kz_shortcode_blogArticle_associatedCourses( $atts ) {
                      <div>
                          <a href="$permalink">
                              <h4>$title</h4>
-                         </a>  
-                         $new
-                         $top
+                         </a>
                          <div class="goals">$goals</div>
                      </div>
-                     <a class="en-savoir-plus" href="$permalink">
-                         <div class="btn btn-xs btn-red margin0">En savoir plus</div>
-                     </a>
                 </div>
             </div>
             EOF;

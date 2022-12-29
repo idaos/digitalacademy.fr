@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<style>
+    .content-main a {text-decoration: underline;}
+</style>
+
 <div class="header" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/images/blog.jpg);">    
 	<div class="container">
 		<div class="row">
@@ -19,7 +23,7 @@
 <main class="content" style="z-index:5;background:none;">
     <div class="container" style="padding-bottom:2em;">
         <div class="wrapper p5000" style="background:rgba(0,0,0,0)">
-            <div class="row clearfix stretch">
+            <div class="row clearfix">
                 <div class="container-blog col-md-8">
                     <div class="row clearfix">
                         <?php if ( have_posts() ) :	  while ( have_posts() ) : the_post(); ?>	
@@ -51,19 +55,13 @@
                 </div>
                 <?php $recentPosts = new WP_Query( array( 'showposts' => 2, 'post__not_in' => array($id) ) ); ?>
                 <aside class="sidebar hidden-sm col-md-4">
-                    <div style="margin-bottom:2em;margin-top:2em;">
-                        <div class="thewrapper container-border">
-                            <div class="offre-cta" style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/Offre-de-formation-Digital-Academy.jpg')">
-                                <p>Découvrez notre offre de formation</p>
-                                <p>DigitalAcademy, l'institut de formation qui fait vivre le digital en entreprise</p>
-                                <a class="btn btn-sm" style="line-height: 2.1em;" href="https://www.digitalacademy.fr/formations/">Découvrir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 style="font-weight:normal;font-size:1.2em;">Nos formations</h3>
-                    <hr style="margin-bottom: 2em;width:80%!important;">
+                     <br>
+                     <div class="h2" style="color: #bf3b2b; font-weight:bold; font-size:22px; text-align:center">Quelle formation recherchez-vous ?</div>
+                     <br>
+                     <?php echo do_shortcode('[courses-search-bar]') ; ?>
+                     <a class="btn btn-sm btn-red" style="display: inline-flex;left: 50%;transform: translateX(-50%);" href="/formations/">Toutes nos formations</a>
+
                     <?php echo do_shortcode( '[kz_shortcode_associatedCourses]' ); ?>
-                     <a class="btn btn-sm btn-red-alt" style="margin:auto;margin: auto;display: flow-root;max-width: 19em;" href="/formations/">Toutes les formations</a>
                     
                 </aside> 
             </div>
@@ -82,18 +80,4 @@
     </div>
 </main>
 <!-- Main end -->	
-<section id="references">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <br><br><br>
-                <span class="reverse"><h2>Nos références clients en formation</h2><h3>Depuis 10 ans, la Digital Academy forme aux métiers du web</h3></span>     
-                <hr>
-                <?php echo do_shortcode( '[kz_ref_slider]' ); ?>
-                <a href="/type-reference/intra-entreprise/"><div class="btn btn-xs btn-red">Voir toutes nos références</div></a>
-                <br><br><br>
-            </div>
-        </div>
-    </div>
-</section>
 <?php get_footer(); ?>

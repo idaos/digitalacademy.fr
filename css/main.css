@@ -3151,13 +3151,13 @@ html .breadcrumb .container span.last {
 
 /* Blog card */
 
-.thewrapper {
+.thewrapper, .col-kard {
     transition: all .2s ease;
     outline: solid 0 #bf3b2b;
     overflow: hidden;
 }
 
-.thewrapper .h2, .thewrapper h2 {
+.thewrapper .h2, .thewrapper h2, .col-kard h4 {
     font-size: 2.2rem;
     font-weight: bolder;
     margin-bottom: 1.1rem;
@@ -3173,11 +3173,6 @@ html .breadcrumb .container span.last {
     text-decoration: none
 }
 
-.thewrapper:hover {
+.thewrapper:hover, .col-kard:hover {
     outline: solid 5px #bf3b2b
-}
-
-.blog-swiper .swiper {
-    width: 100%;
-    height: 100%
 }
