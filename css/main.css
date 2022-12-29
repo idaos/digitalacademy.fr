@@ -752,7 +752,7 @@ body .content-theme h3 {
     text-align: center;
     width: 100%;
     color: #fff;
-    padding: 4em 2em;
+    padding: 2em;
 }
 
 .container-slider .slick-slide p {
@@ -1062,16 +1062,18 @@ hr.none:before {
 
     #thematiques-input .courses-category-wrapper, .container-menu-filtre ul {
         width: fit-content;
-        border-radius: 0!important;
+        border-radius: 0 !important;
         border-left: none;
         border-right: none;
         padding-left: 1rem;
         padding-right: 1rem;
     }
 
-    .xs-container-menu-filtre{
-        padding: 0!important;        overflow-x: scroll !important;
+    .xs-container-menu-filtre {
+        padding: 0 !important;
+        overflow-x: scroll !important;
     }
+
     .container-menu-filtre li>span {
         display: none;
     }
@@ -2216,7 +2218,6 @@ body .block__same-height .vc_col-sm-4:nth-child(3) .vc_btn3.vc_btn3-color-warnin
     }
 
     .site-header {
-        border-bottom: 1px solid #808080;
         position: fixed;
         z-index: 9;
     }
@@ -3119,6 +3120,33 @@ body[offset] {
     }
 }
 
-    body.archive.category .main-slider{
-        background: #fff;
-    }
+/* PAges blog cat */
+
+html body.archive.category .main-slider {
+    background: #fff !important;
+}
+
+html body.archive.category .main-slider h1 {
+    color: #bf3b2b !important;
+    border-bottom: solid 3px #bf3b2b;
+    width: 100%;
+    max-width: 600px;
+    padding-bottom: 1.5rem !important;
+    font-size: 2.5rem !important;
+}
+
+html body.archive.category .main-slider p {
+    color: #373636 !important;
+}
+
+html body.archive.category .breadcrumb {
+    background: white !important;
+}
+
+html .breadcrumb .container, html .breadcrumb .container a, html .breadcrumb .container span {
+    color: #373636 !important;
+}
+
+html .breadcrumb .container span.last {
+    color: #bf3b2b !important;
+}

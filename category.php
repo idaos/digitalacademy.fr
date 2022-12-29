@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
-<div class="container-slider main-slider slider-header slider-formateur hidden-xs" style="background-image:url(<?php the_field('img_blog', 'option') ?>)">
+<div class="container-slider main-slider slider-header slider-formateur" style="background-image:url(<?php the_field('img_blog', 'option') ?>)">
     <div class="slick-slide">
         <div class="clearfix">
             <h1 class="title-slider">Blog / <?php echo single_cat_title( '', false ); ?></h1>
         </div>
-        <p>Suivez l'actualité de la DigitalAcademy</p>
+        <div class="container">
+            <p><?php echo category_description( '', false ); ?></p>
+        </div>
     </div>
 </div>
 <main class="content" style="background:#f6f6f6!important;">
