@@ -892,7 +892,7 @@ hr.none:before {
 
 .breadcrumb {
     background: none;
-    position: absolute;
+    /* position: absolute; */
     top: 1em;
     z-index: 10;
     width: 100%;
@@ -992,6 +992,8 @@ hr.none:before {
 .container-menu-filtre ul li {
     display: inline-block;
     margin: 5px;
+    align-items: center;
+    display: flex;
 }
 
 .container-menu-filtre ul li span {

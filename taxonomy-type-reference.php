@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php $thematique_ID = get_queried_object_id(); ?>
 
-<div class="header" style="height:200px; padding:2em 0;background-image:url(<?php the_field( 'img_bandeau', 'type-reference_' . get_queried_object_id() ) ?>)">    
+<div class="header" style="padding:2em 0;background-image:url(<?php the_field( 'img_bandeau', 'type-reference_' . get_queried_object_id() ) ?>)">    
     <div class="container">
         <div class="row">
             <div class="col-xs-12 alignCenter">

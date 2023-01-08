@@ -16,7 +16,7 @@ get_header();
 
 <main class="content archive">
 
-    <div class="header">    
+    <div class="header" style="padding-bottom:0;padding-top:1em">    
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 alignCenter">
@@ -48,7 +48,7 @@ get_header();
                     </div>
                 </div>
             </div>
-            <div id="thematiques-input" class="container alignCenter">
+            <div id="thematiques-input" class="container alignCenter" style="padding-bottom:0">
                 <span>ou filtrer par thématique :</span>
                 <div class="row alignCenter courses-category-wrapper">
                     <div ng-repeat="(key, thema) in thema track by $index">

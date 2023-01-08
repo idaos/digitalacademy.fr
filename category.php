@@ -19,7 +19,7 @@
                 <p><?php echo $introduction; ?></p>
             </div>
             <?php endif; ?>
-            <div class="row clearfix p5000">
+            <div class="row clearfix ">
                 <div class="col-xs-12 container-blog">
                     <div class="row display-flex clearfix">
                         <?php

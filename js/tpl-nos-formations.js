@@ -371,18 +371,19 @@ function scrollToResults() {
 var filterNav = document.querySelector('#thematiques-input')
 if (filterNav)
     window.addEventListener('scroll', () => {
-
+        var filterNav = document.querySelector('#thematiques-input')
+        if (filterNav)
         if (window.scrollY > 50) {
             if (window.innerWidth > 1200) {
 
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '205px'
+                    filterNav.style.top = '189px'
                 } else {
-                    filterNav.style.top = '149px'
+                    filterNav.style.top = '130px'
                 }
             } else {
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '116px'
+                    filterNav.style.top = '128px'
                 } else {
                     filterNav.style.top = '53px'
                 }
@@ -404,13 +405,19 @@ if (filterNav)
             if (window.innerWidth > 1200) {
 
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '205px'
+                    filterNav.style.top = '206px'
                 } else {
-                    filterNav.style.top = '149px'
+                    filterNav.style.top = '188px'
+                }
+            } else if (window.innerWidth > 780) {
+                if (document.querySelector('#datadock_subheader')?.style.display == '') {
+                    filterNav.style.top = '132px'
+                } else {
+                    filterNav.style.top = '110px'
                 }
             } else {
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '137px'
+                    filterNav.style.top = '119px'
                 } else {
                     filterNav.style.top = '74px'
                 }
