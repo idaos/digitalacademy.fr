@@ -371,21 +371,23 @@ function scrollToResults() {
 var filterNav = document.querySelector('#thematiques-input')
 if (filterNav)
     window.addEventListener('scroll', () => {
+        var adminBarOffset = 0
+        if ((window.innerWidth > 780)&&(document.querySelector('#wpadminbar'))) { adminBarOffset = 32 }
         var filterNav = document.querySelector('#thematiques-input')
         if (filterNav)
         if (window.scrollY > 50) {
             if (window.innerWidth > 1200) {
 
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '189px'
+                    filterNav.style.top = (190 + adminBarOffset).toString() + 'px'
                 } else {
-                    filterNav.style.top = '130px'
+                    filterNav.style.top = (138 + adminBarOffset).toString() + 'px'
                 }
             } else {
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '128px'
+                    filterNav.style.top = (120 + adminBarOffset).toString() + 'px'
                 } else {
-                    filterNav.style.top = '53px'
+                    filterNav.style.top = (59 + adminBarOffset).toString() + 'px'
                 }
             }
 
@@ -400,26 +402,27 @@ if (filterNav)
 var filterNav = document.querySelector('.xs-container-menu-filtre')
 if (filterNav)
     window.addEventListener('scroll', () => {
-
+        var adminBarOffset = 0
+        if ((window.innerWidth > 780)&&(document.querySelector('#wpadminbar'))) { adminBarOffset = 32 }
         if (window.scrollY > 50) {
             if (window.innerWidth > 1200) {
 
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '206px'
+                    filterNav.style.top = (204 + adminBarOffset).toString() + 'px'
                 } else {
-                    filterNav.style.top = '188px'
+                    filterNav.style.top = (156 + adminBarOffset).toString() + 'px'
                 }
             } else if (window.innerWidth > 780) {
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '132px'
+                    filterNav.style.top = (132 + adminBarOffset).toString() + 'px'
                 } else {
-                    filterNav.style.top = '110px'
+                    filterNav.style.top = (78 + adminBarOffset).toString() + 'px'
                 }
             } else {
                 if (document.querySelector('#datadock_subheader')?.style.display == '') {
-                    filterNav.style.top = '119px'
+                    filterNav.style.top = '145px'
                 } else {
-                    filterNav.style.top = '74px'
+                    filterNav.style.top = '68px'
                 }
             }
 
