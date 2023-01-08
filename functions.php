@@ -1381,29 +1381,29 @@ function spinner_url($image_src, $form) {
     return $spinnerPath;
 }
 
-// Prevent bot to send form ----------
-// if dropdown item is not selected --
-add_filter( 'gform_field_validation_11_1', 'custom_validation_home', 10, 4 );
-function custom_validation_home( $result, $value, $form, $field ) {
+// // Prevent bot to send form ----------
+// // if dropdown item is not selected --
+// add_filter( 'gform_field_validation_11_1', 'custom_validation_home', 10, 4 );
+// function custom_validation_home( $result, $value, $form, $field ) {
 
-    if ( $result['is_valid'] && $value[0] == "Sélectionnez..." ) {
-        $result['is_valid'] = false;
-        $result['message'] = 'Veuillez sélectionner un objet pour ce message.';
-    }
-    return $result;
-}
+//     if ( $result['is_valid'] && $value[0] == "Sélectionnez..." ) {
+//         $result['is_valid'] = false;
+//         $result['message'] = 'Veuillez sélectionner un objet pour ce message.';
+//     }
+//     return $result;
+// }
 
-// Prevent bot to send form ----------
-// if user has not scrolled (see form.js), block send --
-add_filter( 'gform_field_validation_1_16', 'custom_validation_contact', 10, 4 );
-function custom_validation_contact( $result, $value, $form, $field ) {
+// // Prevent bot to send form ----------
+// // if user has not scrolled (see form.js), block send --
+// add_filter( 'gform_field_validation_1_16', 'custom_validation_contact', 10, 4 );
+// function custom_validation_contact( $result, $value, $form, $field ) {
 
-    if ( $value != 'humanDetected' ) {
-        $result['is_valid'] = false;
-        $result['message'] = 'Notre systeme anti SPAM vous considère comme un robot ! Si ce n\'est pas le cas, pourriez-vous nous envoyer un email directement à l\'adresse : contact@digitalacademy.fr ? Merci !';
-    }
-    return $result;
-}
+//     if ( $value != 'humanDetected' ) {
+//         $result['is_valid'] = false;
+//         $result['message'] = 'Notre systeme anti SPAM vous considère comme un robot ! Si ce n\'est pas le cas, pourriez-vous nous envoyer un email directement à l\'adresse : contact@digitalacademy.fr ? Merci !';
+//     }
+//     return $result;
+// }
 
 // -----------------------------------------------------------------------
 // FN: Preinscription form heading
@@ -3148,4 +3148,11 @@ if(!function_exists('getNextSession')){
             return '';
         }
     }
+}
+
+// Util function to check if current post is of a certain post type
+function is_post_type($type){
+    global $wp_query;
+    if($type == get_post_type($wp_query->post->ID)) return true;
+    return false;
 }

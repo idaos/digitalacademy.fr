@@ -53,16 +53,6 @@ $courses_count = count(json_decode($result[0])) ;
     .breadcrumb nav p, .breadcrumb nav a, .breadcrumb nav span{
         color: #000!important;
     }
-    @media screen and (max-width:1200px) {
-        .breadcrumb-header{
-            display: none;
-        }
-    }
-    @media screen and (min-width:1200px) {
-        .breadcrumb-footer{
-            display: none;
-        }
-    }
 </style>
 
 
@@ -298,22 +288,5 @@ $courses_count = count(json_decode($result[0])) ;
         </a>
     </p>
 </div>
-
-<!-- BreadCrumbs -->
-<?php if (!is_front_page()) : ?>
-    <?php
-    global $wp_query;
-    $template_name = get_post_meta($wp_query->post->ID, '_wp_page_template', true);
-    if (($template_name != 'template-nos-solutions-de-formation.php')&&($template_name != 'template-pages-solutions.php')) :; ?>
-            <div class="breadcrumb breadcrumb-footer">
-                <div class="container">
-                    <?php if (function_exists('yoast_breadcrumb')) {  yoast_breadcrumb(); } ?>
-                    <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
-<?php endif; ?>
-
 
 <?php get_footer(); ?>

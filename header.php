@@ -194,17 +194,17 @@
     </header><!-- Header end -->
     <div class="site-container clearfix">
         <!-- BreadCrumbs -->
-        <?php if ((!is_front_page()) && (!is_single()&& 'post' == get_post_type()) ): ?>
+        <?php if ((!is_front_page()) && (!is_post_type('post')) ): ?>
             <?php
             global $wp_query;
             $template_name = get_post_meta($wp_query->post->ID, '_wp_page_template', true);
             if (($template_name != 'template-nos-solutions-de-formation.php')&&($template_name != 'template-pages-solutions.php')) :; ?>
-                    <div class="breadcrumb breadcrumb-header">
-                        <div class="container">
-                            <?php if (function_exists('yoast_breadcrumb')) {  yoast_breadcrumb(); } ?>
-                            <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
-                        </div>
+                <div class="breadcrumb breadcrumb-header">
+                    <div class="container">
+                        <?php if (function_exists('yoast_breadcrumb')) {  yoast_breadcrumb(); } ?>
+                        <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                     </div>
                 </div>
             <?php endif; ?>
         <?php endif; ?>
+    </div>

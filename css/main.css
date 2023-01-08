@@ -878,7 +878,7 @@ hr.none:before {
 
 .breadcrumb .breadcrumb_last,
 .breadcrumb .last {
-    color: #d13333;
+    color: #d13333!important;
 }
 
 .breadcrumb a,
@@ -917,8 +917,15 @@ hr.none:before {
     background: none;
 }
 
-.breadcrumb nav .last {
-    color: #fff;
+@media screen and (max-width:1200px) {
+    .breadcrumb-header{
+        display: none !important;
+    }
+}
+@media screen and (min-width:1200px) {
+    .breadcrumb-footer{
+        display: none !important;
+    }
 }
 
 /* Calendar */
@@ -1021,13 +1028,18 @@ hr.none:before {
 .courses-category-wrapper {
     flex-wrap: nowrap !important;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     border-radius: 4rem;
     border: solid 1px #c03c2b;
     padding: 0;
     margin-bottom: 0rem !important;
     margin-top: 0rem !important;
     overflow: hidden;
+}
+
+.archive .container-menu-filtre a{
+    display: flex;
+    align-items: center;
 }
 
 .archive .container-menu-filtre ul li a:hover,

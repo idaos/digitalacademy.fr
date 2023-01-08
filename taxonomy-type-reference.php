@@ -27,9 +27,6 @@
     .content{
         text-align: center;
     }
-    .content, .site-container{
-        background: #eee;
-    }
     .col-sm-6{
         margin-bottom: 1em;
     }
