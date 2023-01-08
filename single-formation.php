@@ -770,12 +770,12 @@ document.addEventListener('DOMContentLoaded', function () {
 <div class="is-layout-flex wp-container-41 wp-block-columns">
 <div class="is-layout-flow wp-block-column">
 <div style="height:35px" aria-hidden="true" class="wp-block-spacer"></div>
-<p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Contactez-nous pour la formation</strong></p>
-<section id="contact"><span id="contact-anchor" style="margin-top: -258px!important;position: absolute;display: block;"></span>
+<p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Demande de contact pour la formation<br></strong><?php echo $title; ?></p>
+<section id="contact"><span id="contact-anchor" style="margin-top: -358px;position: absolute;display: block;"></span>
         <div d="form-bottom">
             <div class="container form-container">
                 <div id="contact-form" class="row">
-                    <?php echo do_shortcode('[gravityform id="11" title="false" description="false" ajax="true"]'); ?>
+                    <?php echo do_shortcode('[gravityform id="15" title="false" description="false" ajax="true"]'); ?>
                 </div>
             </div>
         </div>

@@ -84,7 +84,7 @@
 
     <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logoqualiopi2022.png" alt="qualiopi logo" /></a>
     <div>Besoin d'informations&nbsp;?</div>
-    <div class="wp-block-button aligncenter is-style-outline">
+    <div class="wp-block-button is-style-outline" style="text-align: right;">
         <a class="wp-block-button__link wp-element-button" href="/contact">
             Contactez-nous
         </a>

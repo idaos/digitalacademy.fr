@@ -118,6 +118,7 @@ if (strpos($_SERVER["REQUEST_URI"], '?')) {
                     echo "<div class='when'>";
                     echo date_i18n( get_option( 'date_format' ), $date_session );
                     echo "</div>";
+                    /*
                         ?>
                         <!-- Bouton inscription (lien vers le formulaire d'inscription pre-remplit)-->  
                         <!--
@@ -129,6 +130,7 @@ if (strpos($_SERVER["REQUEST_URI"], '?')) {
 <a href="<?php //echo get_field( 'page_contact', 'option' ) . $url; ?>">S'inscrire</a>
 </div>
 -->
+*/ ?>
                         <!-- Bouton inscription -->
                         <div class="preinscription">
                             <a href="<?php echo get_the_permalink( $formation->ID ); ?><?php echo '?'.$url_parameters ?>#Inscription">S'inscrire</a>

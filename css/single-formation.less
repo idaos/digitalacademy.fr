@@ -819,7 +819,8 @@ h1 {
         align-items: flex-end;
 
         >* {
-            max-width: 287px;
+            max-width: 338px;
+            min-width: initial !important;
         }
     }
 
@@ -944,6 +945,14 @@ html body #cta-col .content-wp {
 
 #gform_confirmation_message_12 {
     padding: 1em;
+}
+
+#gform_confirmation_message_15 {
+    text-align: center;
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: solid 3px #75c54e;
 }
 
 #heading-grid .btn-dl {
@@ -1249,9 +1258,9 @@ hr {
 }
 
 
-.accordeon-xs-toggler{
+.accordeon-xs-toggler {
     margin-top: 1rem !important;
-    padding: .3rem 0!important;
+    padding: .3rem 0 !important;
 }
 
 @media screen and (min-width:700px) {
@@ -1263,5 +1272,22 @@ hr {
 @media screen and (max-width:700px) {
     .accordeon-xs {
         display: none !important;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    #contact-anchor {
+        margin-top: -250px !important;
+    }
+}
+
+
+#gform_wrapper_15 .gform_footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input[type=submit] {
+        margin-top: 0;
     }
 }

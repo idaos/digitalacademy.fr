@@ -3183,3 +3183,10 @@ body .hr-red{
     border: none!important;
     border-top: solid 2px  #bd3b2b!important;
 }
+
+body .hr-red-full{
+    max-width: 100%!important;
+    width: 100%!important;
+    border: none!important;
+    border-top: solid 2px  #bd3b2b!important;
+}
