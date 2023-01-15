@@ -722,6 +722,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 <!-------------- Inter/intra/sur-mesure ----------------->
                 <!------------------------------------------------>
 
+                <?php 
+                $url_parameters = getUrlParameters();
+                $formMessageIntra = "Demande de devis pour un programme intra entreprise de la formation " . get_the_title();
+                $parametersIntra   = '?'. $url_parameters . '&corps=' . urlencode( $formMessageIntra ) ;
+                $formMessageInter = "Demande de devis pour un programme inter entreprises de la formation " . get_the_title();
+                $parametersInter   = '?'. $url_parameters . '&corps=' . urlencode( $formMessageInter ) ;
+                $formMessageSurMesure = "Demande de devis pour un programme sur-mesure de la formation " . get_the_title();
+                $parametersSurMesure   = '?'. $url_parameters . '&corps=' . urlencode( $formMessageSurMesure ) ;
+                ?>
+
                 <?php if( 
                     (in_array ( 'inter', $enabled_tabs ))
                     ||(in_array ( 'intra-entreprises', $enabled_tabs ))
@@ -733,7 +743,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div id="col-intra">
                             <div class="h3">En Intra-entreprise :</div>
                             <p>Demander votre devis en 30 secondes, réponse sous 24h</p>
-                            <a href="#contact-anchor" class="btn btn-red btn-document">Demander un devis</a>
+                            <a href="<?php echo '/contact'. $parametersIntra ?>" class="btn btn-red btn-document">Demander un devis</a>
                         </div>
                         <?php endif; ?>
                         <?php if( in_array ( 'inter', $enabled_tabs ) ): ?>
@@ -741,7 +751,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div id="col-inter">
                             <div class="h3">En Inter-entreprise :</div>
                             <p>Contactez-nous pour mieux répondre à votre demande</p>
-                            <a href="#contact-anchor" class="btn btn-red btn-contact">Contactez-nous</a>
+                            <a href="<?php echo '/contact'. $parametersInter ?>" class="btn btn-red btn-contact">Contactez-nous</a>
                         </div>
                         <?php endif; ?>
                     </div>
@@ -753,7 +763,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="h3">Votre programme de formation à la demande</div>
                         <p>Nos experts conçoivent votre formation sur mesure !</p>
                         <p>Remplissez le formulaire suivant, et un de nos conseillers vous contactera dans les meilleurs délais.</p>
-                        <a href="#contact-anchor" class="btn btn-red btn-contact">Contactez-nous</a>
+                        <a href="<?php echo '/contact'. $parametersSurMesure ?>" class="btn btn-red btn-contact">Contactez-nous</a>
                     </div>
                 </div>
                 <?php endif; ?>

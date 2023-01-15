@@ -878,7 +878,7 @@ hr.none:before {
 
 .breadcrumb .breadcrumb_last,
 .breadcrumb .last {
-    color: #d13333!important;
+    color: #d13333 !important;
 }
 
 .breadcrumb a,
@@ -918,12 +918,13 @@ hr.none:before {
 }
 
 @media screen and (max-width:1200px) {
-    .breadcrumb-header{
+    .breadcrumb-header {
         display: none !important;
     }
 }
+
 @media screen and (min-width:1200px) {
-    .breadcrumb-footer{
+    .breadcrumb-footer {
         display: none !important;
     }
 }
@@ -1039,7 +1040,7 @@ hr.none:before {
     overflow: hidden;
 }
 
-.archive .container-menu-filtre a{
+.archive .container-menu-filtre a {
     display: flex;
     align-items: center;
 }
@@ -1682,10 +1683,9 @@ body .footer h4 {
 @media screen and (max-width:1200px) {
 
     #contact-fixed {
-
         display: grid !important;
         align-items: center;
-        grid-template-columns: 100px minmax(0, 90px) 1fr;
+        grid-template-columns: 100px 1fr auto;
         justify-content: center;
         width: 100%;
         gap: 1rem;
@@ -1708,6 +1708,12 @@ body .footer h4 {
         font-size: 13px;
 
     }
+
+    #contact-fixed>div:nth-child(2) {
+        width: 100%;
+        text-align: center;
+    }
+
 }
 
 
@@ -3191,16 +3197,38 @@ html .breadcrumb .container span.last {
     outline: solid 5px #bf3b2b
 }
 
-body .hr-red{
-    max-width: 600px!important;
-    width: 100%!important;
-    border: none!important;
-    border-top: solid 2px  #bd3b2b!important;
+body .hr-red {
+    max-width: 600px !important;
+    width: 100% !important;
+    border: none !important;
+    border-top: solid 2px #bd3b2b !important;
 }
 
-body .hr-red-full{
-    max-width: 100%!important;
-    width: 100%!important;
-    border: none!important;
-    border-top: solid 2px  #bd3b2b!important;
+body .hr-red-full {
+    max-width: 100% !important;
+    width: 100% !important;
+    border: none !important;
+    border-top: solid 2px #bd3b2b !important;
+}
+
+/* Course card */
+
+.next-session,
+.top_formation,
+.nouvelle_formation {
+    background: #5bf8da!important;
+    color: #000 !important;
+    border: none !important;
+    letter-spacing: 0!important;
+}
+
+.next-session:hover,
+.top_formation:hover,
+.nouvelle_formation:hover {
+   filter: none!important;
+}
+
+.tags > div{
+    display: flex;
+    gap: .5rem;
 }
