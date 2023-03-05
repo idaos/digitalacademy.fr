@@ -64,7 +64,7 @@
 <?php endif ; ?>
 
 </head>
-<body <?php body_class(); ?><?php echo isset($_COOKIE['bannerClosed']) ? ' ' : ' offset'; ?>>
+<body <?php body_class(); ?><?php echo isset($_COOKIE['bannerClosed']) ? ' ' : ' offset'; echo get_field('blue_banner_text', 'options') ? ' ' : ' no-banner'  ?> >
     <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {

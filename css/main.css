@@ -3142,6 +3142,23 @@ body[offset] {
     }
 }
 
+body[no-banner] {
+    margin-top: 170px !important;
+}
+
+@media(max-width:1200px) {
+    body[no-banner] {
+        margin-top: 79px !important;
+    }
+}
+
+
+@media(max-width:768px) {
+    body[no-banner] {
+        margin-top:71px !important;
+    }
+}
+
 /* PAges blog cat */
 
 html body.archive.category .main-slider {
