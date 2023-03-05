@@ -449,16 +449,15 @@ function getCurrentPageURL(){
 if (!function_exists('console_dump')) {
     function console_dump($data)
     {
-        if ($_SERVER['SERVER_NAME'] === 'localhost') {
+        // if ($_SERVER['SERVER_NAME'] === 'localhost') {
             $buffer = json_encode($data);
             $buffer = str_replace('>', '__', $buffer);
             $buffer = str_replace('<', '__', $buffer);
             $buffer = str_replace(["\r\n", "\r", "\n"], '', $buffer);
             echo '<script>console.log("! PHP object dump", ' . $buffer . ');</script>';
-        }
+        // }
     }
 }
-
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
@@ -877,6 +876,7 @@ function kz_search($keywords, $thema_ID = false){
 
     if ( $formations ) { 
         foreach ( $formations as $formation ) {
+
             // thematique(s)
             $terms = get_the_terms($formation->ID, 'thematique');        
             unset($course_thematique);

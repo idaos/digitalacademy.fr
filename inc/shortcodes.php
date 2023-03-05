@@ -187,6 +187,9 @@ function nMots($txt, $nb_mots=4 ){
     if ($mots['0']){
         $nmots = implode($mots['0'], ' ');
     }
+
+	$nmots = str_replace('8217;', '\'', $nmots);
+
     
     return $nmots;
 }
@@ -235,12 +238,8 @@ function digitalacademy_shortcode_topFormationsListe( $atts ) {
 
 		while ( $formations->have_posts() ) {
 			$formations->the_post();
-			
-			$title = str_replace('&#039;', '\'', $title);
-			$title = htmlspecialchars(get_the_title());
-
+			$title = get_the_title();
 			$title = 'Formation ' . nMots($title) . ' (...)';
-
 			$out .= '<li><a href="' . get_permalink() . '">' . $title . '</a></li>';
 		}
 		$out .= '</ul>';

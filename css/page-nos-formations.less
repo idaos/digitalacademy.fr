@@ -166,8 +166,7 @@ hr{
     // }
     .search-btn{
         height: 3.7em;
-        margin-left: -.3em;
-        margin-top: .1em;
+        margin: 0!important;
         border-radius: 0!important;
         border-top-right-radius: 1rem!important;
         border-bottom-right-radius: 1rem!important;
@@ -521,6 +520,8 @@ input[type='checkbox']{
 }
 #search .container:first-child{
     max-width: 800px;
+    display: flex!important;
+    align-items: stretch!important;
 }
 input::placeholder{
     color:#cccccc;
@@ -901,7 +902,6 @@ select{
 @media(min-width:768px){
     #nos-formations .search-btn {
         height: 3em;
-        margin-top: .75em;
         svg{
             margin: 0;
         }

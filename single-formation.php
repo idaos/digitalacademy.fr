@@ -283,7 +283,6 @@ function getProgram(){
     array_push($program_arr_clean,"</ul>");
     array_unshift($program_arr_clean, '<div class="accordeon-wrapper accordeon-has-path"><div>');
     array_push($program_arr_clean, '</div></div>');
-
     return implode($program_arr_clean);
 }
 function getVersion(){
@@ -498,9 +497,13 @@ $hasTestimonials = hasTestimonials();
 //-------------------------------------------
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('#contact-fixed .wp-block-button__link').innerHTML = 'Contactez <br>notre conseiller';
+    document.querySelector('#contact-fixed .wp-block-button__link').innerHTML = 'Contactez notre conseiller';
     document.querySelector('#contact-fixed .wp-block-button__link').style.lineHeight = '1.3';
     document.querySelector('#contact-fixed .wp-block-button__link').href = '#contact-anchor';
+    document.querySelector('#contact-fixed img').style.display = 'none';
+    document.querySelector('#contact-fixed div:nth-child(2)').style.display = 'none';
+    document.querySelector('#contact-fixed div:nth-child(3)').style.textAlign = 'center';
+    document.querySelector('#contact-fixed').style.gridTemplateColumns = '1fr';
 })
     </script>
 <div class="container">

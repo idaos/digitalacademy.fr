@@ -50,7 +50,7 @@ wp_enqueue_style('swiper-js', get_template_directory_uri() . '/css/swiper-bundle
                                 <p class="header-infos"><a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?>
                                     | <?php the_author(); ?></a></p>
 
-                                <p><a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></p>
+                                <p><a href="<?php the_permalink(); ?>"><?php echo nMots(get_the_excerpt(),30) . '...'; ?></a></p>
                             </div>
                         </div>
                     </div>
