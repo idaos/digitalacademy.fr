@@ -3155,7 +3155,7 @@ body[no-banner] {
 
 @media(max-width:768px) {
     body[no-banner] {
-        margin-top:71px !important;
+        margin-top: 71px !important;
     }
 }
 
@@ -3264,4 +3264,8 @@ body .hr-red-full {
     .offer_bloc .col-sm-6>img {
         display: none !important;
     }
+}
+
+#heading-grid .multiply {
+    width: 20px;
 }
