@@ -184,7 +184,7 @@ if($blocs_offre){ ?>
                         <div class="row alignCenter">
                             <span><img id="logo_dac" src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
                             <b>Nos conseillers vous répondent au :</b>
-                            <span id="phone"><a title="Bouton d'appel téléphonique" href="tel:0977215321">09 77 21 53 21</a></span>
+                            <span id="phone"><a title="Bouton d'appel téléphonique" href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>"><?php echo get_field( 'telephone', 'option' ); ?></a></span>
                             <i>appel non surtaxé du lundi au vendredi de 9h30 à 19h</i>
                             <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
                             <i style="margin-top: 2em;">ou par e-mail</i>

@@ -3,7 +3,7 @@
         Pour en savoir plus, appelez-nous au
         </span> 
         <span>
-            <a href="tel:0977215321" class="noWrap" style="color:#fff;">09 77 21 53 21</a>
+            <a href="tel:0977215321" class="noWrap" style="color:#fff;"><?php echo get_field( 'telephone', 'option' ); ?></a>
         </span>
         <span stlye="margin-left: .5em;"> ou </span>
         <a href="/contact/" class="btn-white">Contactez-nous</a></p>

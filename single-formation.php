@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div>
                         <div class="accordeon-xs" style="margin-top: .5rem;">
                             <img src="<?php echo $styleUri; ?>/images/single-formation/ico-handicap.jpg" alt="" class="multiply">
-                            <span>Public en situation de handicap, nous contacter au <a href="tel:0977215321">09 77 21 53 21</a></span>
+                            <span>Public en situation de handicap, nous contacter au <a href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>"><?php echo get_field( 'telephone', 'option' ); ?></a></span>
                         </div>
                     </div>
                     <div class="btn btn-xs accordeon-xs-toggler more">Voir plus</div>
@@ -594,7 +594,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div><!-- col 5 -->
                     <div class="wp-block-button aligncenter is-style-outline btn-phone">
-                        <a class="wp-block-button__link wp-element-button" href="tel:0977235321">
+                        <a class="wp-block-button__link wp-element-button" href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>">
                             Parler à un conseiller
                         </a>
                     </div>
@@ -806,7 +806,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div style="height:38px" aria-hidden="true" class="wp-block-spacer"></div>
 <p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Vous souhaitez nous contacter directement ?</strong></p>
 <div class="is-layout-flex wp-block-buttons">
-<div class="wp-block-button aligncenter is-style-outline btn-phone"><a class="wp-block-button__link wp-element-button" href="tel:0977235321">09 77 23 53 21</a></div>
+<div class="wp-block-button aligncenter is-style-outline btn-phone"><a class="wp-block-button__link wp-element-button" href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>"><?php echo get_field( 'telephone', 'option' ); ?></a></div>
 </div>
 <p class="has-text-align-center">Appel non surtaxé.<br>Du lundi au vendredi de 9h30 à 18h</p>
 <div style="height:13px" aria-hidden="true" class="wp-block-spacer"></div>

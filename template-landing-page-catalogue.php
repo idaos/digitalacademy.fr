@@ -20,7 +20,7 @@ if (strpos($_SERVER["REQUEST_URI"], '?')) {
         </div>
         <div class="col-7 col-sm-8 col-md-9 col-lg-4 col-xl-5">
             <b>Nos conseillers vous répondent au</b><br>
-            <div id="phone-number"><a href="tel:0977215321">09 77 21 53 21</a></div>
+            <div id="phone-number"><a href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>"><?php echo get_field( 'telephone', 'option' ); ?></a></div>
             <div id="phone-info">appel non surtaxé<br>
                 du lundi au vendredi de 9h30 à 18h
             </div>
@@ -331,7 +331,7 @@ if (strpos($_SERVER["REQUEST_URI"], '?')) {
                         <div class="row alignCenter">
                             <span><img id="logo_dac" src="<?php echo get_template_directory_uri(); ?>/landing-page-catalogue/res/img/logo-digitalacademy.svg" width="150" alt="Logo Digital Academy"></span>
                             <b>Nos conseillers vous répondent au :</b>
-                            <span id="phone"><a href="tel:0977215321">09 77 21 53 21</a></span>
+                            <span id="phone"><a href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>"><?php echo get_field( 'telephone', 'option' ); ?></a></span>
                             <i>appel non surtaxé</i>
                             <i>du lundi au vendredi de 9h30 à 19h</i>
                             <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>

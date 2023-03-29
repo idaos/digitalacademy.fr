@@ -16,14 +16,14 @@ $template_name = get_post_meta($wp_query->post->ID, '_wp_page_template', true); 
                 <div class="widget-title ttl text-center">Vous avez une question ?</div>
                 <div class="f btns">
                     <div>
-                        <div class="wp-block-button aligncenter is-style-outline btn-phone"><a class="wp-block-button__link wp-element-button" href="tel:0977235321">09 77 23 53 21</a></div>
+                        <div class="wp-block-button aligncenter is-style-outline btn-phone"><a class="wp-block-button__link wp-element-button" href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>"><?php echo get_field( 'telephone', 'option' ); ?></a></div>
                         <small>Appel non surtaxé. Du lundi au vendredi de 9h30 à 18h</small>
                     </div>
                     <div>
                         <div class="wp-block-button aligncenter is-style-outline btn-mail"><a class="wp-block-button__link wp-element-button" href="/contact">Contact</a></div>
                     </div>
                 </div>
-
+                
             </div>
             <div class="col-sm-6">
 

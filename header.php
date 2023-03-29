@@ -130,15 +130,15 @@
                     <!-- Tel btn -->
                     <div>
                         <div class="wp-block-button aligncenter is-style-outline btn-phone">
-                            <a class="wp-block-button__link wp-element-button" href="tel:0977235321">
-                                09 77 23 53 21
+                            <a class="wp-block-button__link wp-element-button" href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>">
+                                <?php echo get_field( 'telephone', 'option' ); ?>
                             </a>
                         </div>
                     </div>
                     <div>
                         <i>Appel non surtaxé.</i><br><i>Du lundi au vendredi de 9h30 à 18h</i>
                     </div>
-
+                      
                     <!-- Contact btn -->
                     <div>
                         <div class="wp-block-button aligncenter is-style-outline btn-mail">
@@ -177,8 +177,8 @@
                         <!-- Tel btn mobile -->
                         <div id="btn-tel-mobile">
                             <div class="wp-block-button aligncenter is-style-outline btn-phone">
-                                <a class="wp-block-button__link wp-element-button" href="tel:0977215321" style="white-space: nowrap;">
-                                    09 77 21 53 21
+                                <a class="wp-block-button__link wp-element-button" href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>" style="white-space: nowrap;">
+                                    <?php echo get_field( 'telephone', 'option' ); ?>
                                 </a>
                             </div>
                         </div>

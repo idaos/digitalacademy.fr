@@ -355,7 +355,7 @@ EOF;
 <div style="height:38px" aria-hidden="true" class="wp-block-spacer"></div>
 <p class="has-text-align-center has-text-color has-medium-font-size" style="color:#bf3b2b"><strong>Vous souhaitez nous contacter directement ?</strong></p>
 <div class="is-layout-flex wp-block-buttons">
-<div class="wp-block-button aligncenter is-style-outline btn-phone"><a class="wp-block-button__link wp-element-button" href="tel:0977235321">09 77 23 53 21</a></div>
+<div class="wp-block-button aligncenter is-style-outline btn-phone"><a class="wp-block-button__link wp-element-button" href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>"><?php echo get_field( 'telephone', 'option' ); ?></a></div>
 </div>
 <p class="has-text-align-center">Appel non surtaxé.<br>Du lundi au vendredi de 9h30 à 18h</p>
 <div style="height:13px" aria-hidden="true" class="wp-block-spacer"></div>
