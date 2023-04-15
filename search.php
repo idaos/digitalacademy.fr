@@ -51,9 +51,6 @@
                 </div>
             </div>
         </div>
-        <div class="full-width bg-orange full-width-contact">
-            <p class="clearfix"><span class="m-100">Découvrez la liste complète  de nos formations ?</span> <a href="<?php echo get_field('page_demande_catalogue', 'option'); ?>" class="btn-white">Demander le catalogue</De></a></p>
-        </div>
     </div>
 </main><!-- Main end -->
 <section id="references">
