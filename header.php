@@ -112,6 +112,7 @@
 
                 <div class="container relative">
 
+                                    <?php /* 
                     <!-- Télécharger le catalogue -->
                     <div>
                         <a href="/demande-de-catalogue/" id="dl-catalogue-btn">
@@ -120,6 +121,7 @@
                             </div>
                         </a>
                     </div>
+                    */ ?>
 
                     <!-- Qualiopi / Datadock -->
                     <div>
@@ -128,15 +130,15 @@
 
 
                     <!-- Tel btn -->
-                    <div>
+                    <div style="display: flex;gap: 1rem;align-items: center;">
                         <div class="wp-block-button aligncenter is-style-outline btn-phone">
                             <a class="wp-block-button__link wp-element-button" href="tel:<?php echo  preg_replace("/\s+/", "", get_field( 'telephone', 'option' )); ?>">
                                 <?php echo get_field( 'telephone', 'option' ); ?>
                             </a>
                         </div>
-                    </div>
-                    <div>
-                        <i>Appel non surtaxé.</i><br><i>Du lundi au vendredi de 9h30 à 18h</i>
+                        <div>
+                            <i>Appel non surtaxé.</i><br><i>Du lundi au vendredi de 9h30 à 18h</i>
+                        </div>
                     </div>
                       
                     <!-- Contact btn -->
